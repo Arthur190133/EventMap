@@ -10,11 +10,11 @@
             </div>
             <div class="FiltersSelectedTags">
                 <?php
-                    for($i = 0; $i < 6 ;$i++)
+                    for($i = 0; $i < 14 ;$i++)
                     {
                 ?>
                 <div class="SelectedTag">
-                    <span>!!SELECTED_TAG</span>
+                    <span><?= randw(random_int(2,8))?></span>
                     <svg onclick="RemoveTag()" class="FiltersRemoveSelectedTag" alt="RemoveTag" version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 460.775 460.775" style="enable-background:new 0 0 460.775 460.775;" xml:space="preserve">
                             <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55
@@ -24,7 +24,7 @@
                                 l171.117-171.12l171.118,171.12c2.913,2.911,6.866,4.55,10.993,4.55c4.128,0,8.081-1.639,10.992-4.55l32.709-32.719
                                 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"
                             />
-                    </svg>
+                    </svg> 
                 </div>
                 <?php  
                     }

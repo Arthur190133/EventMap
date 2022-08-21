@@ -57,7 +57,7 @@
                     <a href=<?= $userProfileLink ?>>
                         <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>                 
                     </a>
-                    <a href="?/Notifications" class="NavBarNotification">
+                    <a href="?/Notification" class="NavBarNotification">
                         <div class="" Notification="98">
                             <img class="img" src="Images/logos/Bell.png">
                         </div> 
@@ -78,7 +78,7 @@
             </li>
             <li>
             <div class="NavBarListItem">
-                    <a href="#">        
+                    <a href="?/Event">        
                     <div class="NavBarListItemContent">           
                         <img height="64" width="64" src="Images/logos/Bell.png">
                         <span>évenements</span>

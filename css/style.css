@@ -1,4 +1,12 @@
+/*
+----------COLORS---------
+.color1 {color: #140f08;}
+.color2 {color: #0f224d;}
+.color3 {color: #26499c;}
+.color4 {color: #5b6df5;}
+.color5 {color: #aa9bfa;}
 
+*/
 
 html {
     box-sizing: border-box;
@@ -751,9 +759,12 @@ font-weight: 700;
 }
 
 .LeftContent{
-    background-color: red;
+    color: white;
+    background-color: rgb(30, 30, 71);
     width: 20%;
     height: 100%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 .FiltersSelectedTags{
@@ -762,11 +773,20 @@ font-weight: 700;
 }
 
 .SelectedTag{
+    display: table;
     padding: 2px;
-    background-color: rgb(15, 128, 0);
+    margin: 4px;
+    background-color: rgb(93, 130, 167);
     border-radius: 1000px;
     margin-right: 10px;
+    font-size: 12px;
+}
 
+.SelectedTag span{
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 2px;
+    padding-left: 3px;
 }
  
 .FiltersRemoveSelectedTag{
@@ -776,11 +796,14 @@ font-weight: 700;
     padding: 2px;
     transition: all 0.2s;
     border-radius: 1000px;
-    margin-top: 4px;
+    display: table-cell;
+    vertical-align: middle;
+    cursor: pointer;
     
 }
 .FiltersRemoveSelectedTag:hover{
-    background-color: gray;
+    background-color: rgb(255, 0, 0);
+    fill: white;
 }
 
 

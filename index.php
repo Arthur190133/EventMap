@@ -18,16 +18,26 @@
       $page .=  "MainPageTest.php";
       break;
     
-    case ($uri === "/EventMap/?/login"):
+    case ($uri === "/EventMap/?/Login"):
       $page .= "Login.php";
       break;
 
-    case ($uri === "/EventMap/?/register"):
+    case ($uri === "/EventMap/?/Register"):
       $page .= "Register.php";
       break;
+
     case ($uri === "/EventMap/?/Map"):
       $page .= "Maps.php";
       break;
+
+    case ($uri === "/EventMap/?/Event"):
+      $page .= "MainPageTest.php";
+      break;
+
+    case ($uri === "/EventMap/?/Notification"):
+      $page .= "Notification.php";
+      break;
+
       
       default:
       // 404

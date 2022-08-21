@@ -19,5 +19,8 @@ function GenerateEventBackground($Event){
     } 
     return $EventName;
 }
+function randw($length){
+    return substr(str_shuffle("qwertyuiopasdfghjklzxcvbnm"),0,$length);
+}
 
 ?>
