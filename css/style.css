@@ -1,3 +1,5 @@
+
+
 html {
     box-sizing: border-box;
     font-size: 100%;
@@ -138,7 +140,7 @@ body{
 
 
 .NavBarContent{
-    background-color: #121227;
+    background-color: rgb(18, 18, 39);
     width: 10%;
     right:300px;
 }
@@ -179,8 +181,9 @@ body{
 }
 
 .NavBarLogo{
-    width: 128px;
-    height: 128px;
+    width: 150px;
+    height: 150px;
+    padding: 15px;
 }
 
 .NavBarUserContent{
@@ -190,9 +193,6 @@ body{
     
 }
 
-.NavBarContent:hover {
-    /*animation: 0.3s ease-out 0s 1 NavBarAnim;*/
-}
 
 .RightContent{
     width: 100%;
@@ -229,4 +229,119 @@ body{
         transform: translatex(0%);
     }
 }
+
+  
+  .EventCardContent {
+    position: relative;
+    z-index: 1;
+    display: block;
+    background: white;
+    min-width: 270px;
+    height: 470px;
+    margin-top: 50px;
+  }
+.EventCardThumbnail {
+    background: black;
+    height: 400px;
+    overflow: hidden;
+}
+.EventCardDate {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+    background: gray;
+    width: 55px;
+    height: 55px;
+    padding: 12.5px 0;
+    border-radius:100%;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+}
+.EventCardDay {
+    font-size: 18px;
+}
+.EventCardMonth {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+      
+.EventCardImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+    
+.EventCardInfos {
+    position: absolute;
+    bottom: 0;
+    background: white;
+    width: 100%;
+    padding: 30px;
+    background: rgb(18,18,39);
+    background: linear-gradient(0deg, rgba(18,18,39,1) 44%, rgba(255,255,255,0) 100%);
+}
+.EventCardCategory {
+    position: absolute;
+    top: -34px;
+    right: 0;
+    background: gray;
+    padding: 10px 15px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.EventCardName {
+margin: 0;
+padding: 0 0 10px;
+color: darkgray;
+font-size: 26px;
+font-weight: 700;
+}
+.EventCardLocation {
+    margin: 0;
+    padding: 0 0 20px;
+    color: gray;
+    font-size: 20px;
+    font-weight: 400;
+}
+.EventCardContent .EventCardDescription {
+    overflow: hidden;
+    max-height: 0 ;
+    color: gray;
+    font-size: 14px;
+    line-height: 1.8em;
+    opacity: 0;
+    transition: all .5s;
+}
+.EventCardData {
+    margin: 30px 0 0;
+    color: lightgray;
+}
+.EventCardTags {
+    margin: 0 16px 0 0;
+}
+.EventCardParticipants {
+    color: lightgray;
+    text-decoration: none;
+}
+
+.EventCardContent:hover .EventCardDescription{
+    overflow:visible;
+    max-height: 500px;
+    opacity: 1 ; 
+    
+
+}
+.EventCardContent:hover .EventCardInfos{}
+
+.EventCard{
+    max-width: 340px;
+    margin: 0 auto;
+}
+
+  
+
 

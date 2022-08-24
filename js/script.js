@@ -20,6 +20,9 @@ function initMap()
     SetClickableMarker("Bruxelles, E420", i);
   }
   window.initMap = initMap;
+
+
+  
 }
 
 function AddMarker(MarkerPositions, MarkerTitle){

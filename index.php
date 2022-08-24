@@ -6,13 +6,15 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/AdaptiveStyle.php">
   </head>
   <meta charset="utf-8">
   <body>
     <?php //
             //require_once 'Pages/Utils/NavBar.php';
             require_once 'Pages/Utils/PopUpLogin.php';
-            require_once 'Pages/User/UserProfile.php';
+            //require_once 'Pages/User/UserProfile.php';
+            require_once 'Pages/Event/EventCard.php';
     ?>
 
     <div id="MasterContent">
