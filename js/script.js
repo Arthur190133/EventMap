@@ -19,10 +19,11 @@ function initMap()
     AddMarker({lat: 50.002 + i, lng: 4.523629443397177}, "Marker API test : " + i);
     SetClickableMarker("Bruxelles, E420", i);
   }
+
+  
   window.initMap = initMap;
 
 
-  
 }
 
 function AddMarker(MarkerPositions, MarkerTitle){

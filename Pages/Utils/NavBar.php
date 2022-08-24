@@ -26,14 +26,17 @@
     <img class="NavBarLogo" src="Images/logos/EventMap.png">
     <a>
         <img class="img" src="Images/logos/Camera.png">
+        <h6>!!Carte </h6>
     </a>
     <a>
-        <img class="img" src="Images/logos/Camera.png">
-        <h6>!! évènement finis </h6>
+        <div class="BellNotification" Notification="98">
+            <img class="img" src="Images/logos/Bell.png">
+        </div> 
     </a>    <a>
         <img class="img" src="Images/logos/Camera.png">
     </a>    <a>
         <img class="img" src="Images/logos/Camera.png">
+        <h6>!!Evenement finis </h6>
     </a>
     <div class="NavBarUserContent">
         <input onclick="GotoUserProfile()" type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>

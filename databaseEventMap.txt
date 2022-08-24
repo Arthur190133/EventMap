@@ -32,6 +32,7 @@ Event
 	EventType			varchar(50),
 	EventPrivate		bool,
 	EventSize			int,
+	EventPrice			
 	
 
 }
