@@ -378,7 +378,6 @@ font-weight: 700;
 }
 ::-webkit-scrollbar-track{
     background: rgb(18, 18, 39, 0.2);
-    width: 5px;
 }
 ::-webkit-scrollbar:hover {
     width: 12px;
