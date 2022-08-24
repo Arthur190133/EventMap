@@ -16,12 +16,14 @@
     }
 
 ?>
+
 <div>
     <span>UserName</span>
     <div class="ContentButtonUserAvatar">
-        <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?>>
+        <input onclick="GetUserAvatar()" type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar">
             <img class="ButtonUserAvatarHover" src="Images/logos/Camera.png">
         </input>
     </div>
+
 
 </div>

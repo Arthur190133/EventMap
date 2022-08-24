@@ -1,6 +1,5 @@
 <?php
-  require_once 'Pages/Connection/Connection.php';
-  require_once 'Pages/User/UserProfile.php';
+  require_once 'Pages/Tools/Connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -9,36 +8,46 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <?php //require_once 'Pages/User/UserProfile.php';
+            //require_once 'Pages/Utils/NavBar.php';
+    ?>
     <div id="MasterContent">
-      <div id="map">
-        <h1 class="mapTitle">Google Map</h1>
+      <div class="NavBarContent">
+        <?php 
+          require_once 'Pages/Utils/NavBar.php'; 
+        ?>
       </div>
-      <div class ="EventButtons">
-        <div>
-          <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="0">
-            <div>
-              <span class="EventButtonCardEventType">Special event</span>
-              <h1>E420</h1>
-              <span class ="EventButtonCardDate">19/08/23 19:00 - 20/08/2023 01:00</span>
+      <div class="RightContent"> 
+        <div id="map">
+          <h1 class="mapTitle">Google Map</h1>
+        </div>
+        <div class ="EventButtons">
+          <div>
+            <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="0">
+              <div>
+                <span class="EventButtonCardEventType">Special event</span>
+                <h1>E420</h1>
+                <span class ="EventButtonCardDate">19/08/23 19:00 - 20/08/2023 01:00</span>
+              </div>
+            </button>
+            <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="1">
+              <div>
+                <span class="EventButtonCardEventType">Original event</span>
+                <h1>Bruxelles Nord</h1>
+                <span class ="EventButtonCardDate">29/12/22 19:00 - 20/08/2023 01:00</span>
+              </div>
+            </button>
+            <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="2">
+              <div>
+                <span class="EventButtonCardEventType">Special event</span>
+                <h1>Bruxelles, E420</h1>
+                <span class ="EventButtonCardDate">19/08/22 19:00 - 20/08/2023 01:00</span>
+              </div>
+            </button>
+            <div id="Event">
             </div>
-          </button>
-          <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="1">
-            <div>
-              <span class="EventButtonCardEventType">Original event</span>
-              <h1>Bruxelles Nord</h1>
-              <span class ="EventButtonCardDate">29/12/22 19:00 - 20/08/2023 01:00</span>
+            <div id="ErrorContent">
             </div>
-          </button>
-          <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="2">
-            <div>
-              <span class="EventButtonCardEventType">Special event</span>
-              <h1>Bruxelles, E420</h1>
-              <span class ="EventButtonCardDate">19/08/22 19:00 - 20/08/2023 01:00</span>
-            </div>
-          </button>
-          <div id="Event">
-          </div>
-          <div id="ErrorContent">
           </div>
         </div>
       </div>

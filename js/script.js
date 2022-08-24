@@ -19,10 +19,6 @@ function initMap()
     AddMarker({lat: 50.002 + i, lng: 4.523629443397177}, "Marker API test : " + i);
     SetClickableMarker("Bruxelles, E420", i);
   }
-  
-  
-
-
   window.initMap = initMap;
 }
 
@@ -46,7 +42,8 @@ function SetClickableMarker(MarkerContent, MarkerId){
 }
 
 
-function FocusOnMarker(MarkerButtonId){
+function FocusOnMarker(MarkerButtonId)
+{
   if(map)
   {
     MarkerId = MarkerButtonId.value;
@@ -71,35 +68,35 @@ function FocusOnMarker(MarkerButtonId){
       OpenPage("EventButtonCardError.html", "ErrorContent")
 
 
-  }
-  }
-  
-  function OpenPage(OpenFile, Content)
-  {
-    let xhttp;
-    let element = document.getElementById(Content);
-    let file = OpenFile;
-    if (file)
-    {
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function(){
-        console.log("1");
-        if(this.readyState == 4) {
-          if(this.status == 200) {element.innerHTML = this.responseText;}
-          if(this.status == 404) {element.innerHTML = "<h1>Page not found. </h1>";}
-        }
-      }
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      console.log(xhttp);
-      return;
-    }
-  }
-  
-  function GetEvent()
-  {
-    
+    } 
   }
 }
+  
+function OpenPage(OpenFile, Content)
+{
+  let xhttp;
+  let element = document.getElementById(Content);
+  let file = OpenFile;
+  if (file)
+  {
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      console.log("1");
+      if(this.readyState == 4) {
+        if(this.status == 200) {element.innerHTML = this.responseText;}
+        if(this.status == 404) {element.innerHTML = "<h1>Page not found. </h1>";}
+      }
+    }
+    xhttp.open("GET", file, true);
+    xhttp.send();
+    console.log(xhttp);
+    return;
+  }
+}
+
+function GetUserAvatar(){
+  window.open("file:");
+}
+
 
 
