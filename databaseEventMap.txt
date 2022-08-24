@@ -24,12 +24,13 @@ Event
 {
 	EventId				int,
 	EventName 			varchar(50),
-	EventDescription 	varchar(300),
-	EventBackground 	ImageId,
+	EventDescription 		varchar(300),
+	EventBackground 		ImageId,
 	EventStartDate		DateTime,
 	EventEndDate	 	DateTime,
 	EventOwner			UserId,
 	EventType			varchar(50),
+	EventPrivate		bool,
 	
 
 }

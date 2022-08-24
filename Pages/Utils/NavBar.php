@@ -22,14 +22,6 @@
     }
 
 ?>
-
-    
-<!-- <div class="NavBar">
-    <div class="NavBarUserContent">
-        <input onclick="GotoUserProfile()" type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>
-    </div>
-</div> -->
-
 <div class="NavBar">
     <h2 class="NavBarLogo">LOGO</h2>
     <a>
@@ -42,5 +34,8 @@
     </a>    <a>
         <img src="Images/logos/Camera.png">
     </a>
+    <div class="NavBarUserContent">
+        <input onclick="GotoUserProfile()" type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>
+    </div>
 </div>
 

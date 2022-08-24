@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 *, *::before, *::after{
@@ -138,7 +139,7 @@ body{
 .NavBarContent{
     background-color: #121227;
     width: 10%;
-    
+    right:300px;
 }
 
 .NavBar a{
@@ -182,5 +183,54 @@ body{
     letter-spacing: 4px;
     padding: 15px;
     background-color: black;
+}
+
+.NavBarUserContent{
+    position: fixed;
+    bottom: 10px;
+    width: 10%;
+    
+}
+
+.NavBarContent:hover {
+    animation: 0.3s ease-out 0s 1 NavBarAnim;
+}
+
+.RightContent{
+    width: 100%;
+}
+
+
+.PopUpLoginContent{
+    overflow: hidden;
+    background-color: white;
+    position: sticky;
+    top: 0;
+    height: 7%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    animation: 1s ease-out 0s 1 PopUpLoginAnim;
+    z-index: 2;
+    background: rgb(210,210,210);
+    background: linear-gradient(0deg, rgba(210,210,210,1) 0%, rgba(236,236,236,1) 64%, rgba(255,255,255,1) 100%);
+
+}
+@keyframes PopUpLoginAnim {
+    0%{
+        transform: translatey(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+@keyframes NavBarAnim{
+    0%{
+        transform: translatex(-100%);
+    }
+    100% {
+        transform: translatex(0%);
+    }
 }
 

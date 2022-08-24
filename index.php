@@ -7,14 +7,18 @@
   <head>
     <link rel="stylesheet" href="css/style.css">
   </head>
+  <meta charset="utf-8">
   <body>
-    <?php //require_once 'Pages/User/UserProfile.php';
+    <?php //
             //require_once 'Pages/Utils/NavBar.php';
+            require_once 'Pages/Utils/PopUpLogin.php'
     ?>
+
     <div id="MasterContent">
       <div class="NavBarContent">
         <?php 
           require_once 'Pages/Utils/NavBar.php'; 
+         // require_once 'Pages/User/UserProfile.php';
         ?>
       </div>
       <div class="RightContent"> 
