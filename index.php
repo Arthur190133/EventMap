@@ -11,7 +11,8 @@
   <body>
     <?php //
             //require_once 'Pages/Utils/NavBar.php';
-            require_once 'Pages/Utils/PopUpLogin.php'
+            require_once 'Pages/Utils/PopUpLogin.php';
+            require_once 'Pages/User/UserProfile.php';
     ?>
 
     <div id="MasterContent">

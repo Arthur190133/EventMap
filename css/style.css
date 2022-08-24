@@ -83,24 +83,25 @@ body{
 }
 
 .UserAvatar{
-    width: 64;
-    height: 64;
+    width: 64px;
+    height: 64px;
     vertical-align: middle;
     border-radius: 50%;
 }
 
 .ButtonUserAvatar{
-    width: 64;
-    height: 64;
+    width: 64px;
+    height: 64px;
     vertical-align: middle;
     background-color: white;
     border-radius: 50%;
+    
     
 }
 .ContentButtonUserAvatar{
     display: inline-block;
     position: relative;
-    width: 64;
+    width: 64px;
     border-radius: 50%;
 }
 
@@ -117,16 +118,16 @@ body{
 }
 
 .ImageUserAvatar{
-    width: 64;
-    height: 64;
+    width: 64px;
+    height: 64px;
     vertical-align: middle;
     border-radius: 50%;
     
 }
 
 .ButtonUserAvatarHover{
-    width: 32;
-    height: 32;
+    width: 32px;
+    height: 32px;
     vertical-align: middle;
     position: absolute;
     pointer-events: none;
@@ -160,14 +161,14 @@ body{
     transition: 0.5s;
 }
 
-.NavBar a:hover img{
+.NavBar a:hover .img{
     transition: 0.5s;
-    width: 40;
-    height: 40;
+    width: 40px;
+    height: 40px;
 }
-.NavBar img{
-    width: 32;
-    height: 32;
+.NavBar .img{
+    width: 32px;
+    height: 32px;
 }
 
 #MasterContent{
@@ -178,11 +179,8 @@ body{
 }
 
 .NavBarLogo{
-    color:#fff;
-    font-size: 30px;
-    letter-spacing: 4px;
-    padding: 15px;
-    background-color: black;
+    width: 128px;
+    height: 128px;
 }
 
 .NavBarUserContent{
@@ -193,7 +191,7 @@ body{
 }
 
 .NavBarContent:hover {
-    animation: 0.3s ease-out 0s 1 NavBarAnim;
+    /*animation: 0.3s ease-out 0s 1 NavBarAnim;*/
 }
 
 .RightContent{
@@ -203,17 +201,15 @@ body{
 
 .PopUpLoginContent{
     overflow: hidden;
-    background-color: white;
     position: sticky;
     top: 0;
-    height: 7%;
+    height: 50px;
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
     animation: 1s ease-out 0s 1 PopUpLoginAnim;
     z-index: 2;
-    background: rgb(210,210,210);
     background: linear-gradient(0deg, rgba(210,210,210,1) 0%, rgba(236,236,236,1) 64%, rgba(255,255,255,1) 100%);
 
 }

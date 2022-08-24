@@ -23,16 +23,16 @@
 
 ?>
 <div class="NavBar">
-    <h2 class="NavBarLogo">LOGO</h2>
+    <img class="NavBarLogo" src="Images/logos/EventMap.png">
     <a>
-        <img src="Images/logos/Camera.png">
+        <img class="img" src="Images/logos/Camera.png">
     </a>
     <a>
-        <img src="Images/logos/Camera.png">
+        <img class="img" src="Images/logos/Camera.png">
     </a>    <a>
-        <img src="Images/logos/Camera.png">
+        <img class="img" src="Images/logos/Camera.png">
     </a>    <a>
-        <img src="Images/logos/Camera.png">
+        <img class="img" src="Images/logos/Camera.png">
     </a>
     <div class="NavBarUserContent">
         <input onclick="GotoUserProfile()" type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>
