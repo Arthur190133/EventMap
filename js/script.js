@@ -49,7 +49,7 @@ function FocusOnMarker(MarkerButtonId)
 {
   if(map)
   {
-    MarkerId = MarkerButtonId.value;
+    MarkerId = document.getElementById('EventCard').getAttribute('value');
     if(document.getElementById("EventSelected"))
     {
       document.getElementById("EventSelected").remove();
@@ -99,6 +99,14 @@ function OpenPage(OpenFile, Content)
 
 function GetUserAvatar(){
   window.open("file:");
+}
+
+function ClosePopUpLogin(){
+  if(document.getElementById("PopUpLoginContent"))
+  {
+    document.getElementById("PopUpLoginContent").remove();
+    console.log("PopUpLoginContent has been removed");
+  }
 }
 
 

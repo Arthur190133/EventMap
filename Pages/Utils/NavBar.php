@@ -29,6 +29,7 @@
     </a>
     <a>
         <img class="img" src="Images/logos/Camera.png">
+        <h6>!! évènement finis </h6>
     </a>    <a>
         <img class="img" src="Images/logos/Camera.png">
     </a>    <a>

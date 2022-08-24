@@ -47,7 +47,7 @@ body{
     margin-left: 15px;
     color: white;
     border-color: rgb(0, 0, 0);
-    background-image: url('https://siena.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2021/04/02/node_770514/2557703/public/2021/04/02/B9726620079Z.1_20210402145830_000%2BGBIHSQ6BJ.2-0.jpg?itok=XllJqWZ21617371506');
+    background-image: url('d');
 }
 .EventButtonCard:hover{
     border-color: white;
@@ -60,12 +60,10 @@ body{
 }
 .EventButtons{
     margin-top: 20px;
-    float: left;
     margin-bottom: auto;
     overflow-y: auto;
     overflow-x:hidden;
-    max-width: 400px;
-    min-width: 400px;
+    min-width: 1000px;
     max-height:600px;
 }
 
@@ -205,13 +203,30 @@ body{
     top: 0;
     height: 50px;
     text-align: center;
-    display: flex;
+
     justify-content: center;
     flex-direction: column;
     animation: 1s ease-out 0s 1 PopUpLoginAnim;
     z-index: 2;
     background: linear-gradient(0deg, rgba(210,210,210,1) 0%, rgba(236,236,236,1) 64%, rgba(255,255,255,1) 100%);
 
+}
+.PopUpLoginClose {
+    height: 16px;
+    width: 16px;
+}
+
+.PopUpLoginCloseButton{
+    vertical-align: middle;
+    float: right; 
+    background-color: transparent;
+    border: none;
+    cursor:pointer;
+    
+}
+.PopUpLoginMessage{
+    display: inline-block;
+    margin-top: 12.5px;
 }
 @keyframes PopUpLoginAnim {
     0%{
@@ -253,7 +268,7 @@ body{
     background: gray;
     width: 55px;
     height: 55px;
-    padding: 12.5px 0;
+    padding: 8px 0;
     border-radius:100%;
     color: white;
     font-weight: 700;
@@ -265,6 +280,9 @@ body{
 .EventCardMonth {
     font-size: 12px;
     text-transform: uppercase;
+}
+.EventMapYear{
+    font-size: 8px;
 }
       
 .EventCardImage {
@@ -335,12 +353,14 @@ font-weight: 700;
     
 
 }
-.EventCardContent:hover .EventCardInfos{}
 
 .EventCard{
-    max-width: 340px;
-    margin: 0 auto;
+    max-width: 300px;
+    margin-left:50px;
+    float: left;
+    min-width: 300px;
 }
+
 
   
 

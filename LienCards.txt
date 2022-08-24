@@ -1,3 +1,3 @@
 	Recommandations style: https://codepen.io/drehimself/pen/QNXpyp
 
-	card par defaut : https://codepen.io/andytran/pen/BNjymy
+	card par defaut style : https://codepen.io/andytran/pen/BNjymy

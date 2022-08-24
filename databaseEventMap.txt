@@ -31,6 +31,7 @@ Event
 	EventOwner			UserId,
 	EventType			varchar(50),
 	EventPrivate		bool,
+	EventSize			int,
 	
 
 }
