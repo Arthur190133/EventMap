@@ -50,6 +50,10 @@ function FocusOnMarker(MarkerButtonId){
   if(map)
   {
     MarkerId = MarkerButtonId.value;
+    if(document.getElementById("EventSelected"))
+    {
+      document.getElementById("EventSelected").remove();
+    }
     if(marker[MarkerId]){
       console.log("Focusing on the marker : " + marker[MarkerId].title);
       map.setZoom(10);

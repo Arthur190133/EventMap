@@ -1,5 +1,6 @@
 <?php
   require_once 'Pages/Connection/Connection.php';
+  require_once 'Pages/User/UserProfile.php';
 ?>
 
 <!DOCTYPE html>
