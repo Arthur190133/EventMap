@@ -1,6 +1,6 @@
 Image
 {
-	ImageId	int,
+	ImageId		int,
 	ImageName	varchar(50),
 	ImageDir	varchar(100)
 
@@ -9,12 +9,12 @@ Image
 
 User
 {
-	UserId 			int,
+	UserId 				int,
 	UserFirstName 		varchar(50),
 	UserName 			varchar(50),
 	UserBackground		Image,
-	UserAvatar		Image,
-	UserDiscription	varchar(300),
+	UserAvatar			Image,
+	UserDiscription		varchar(300),
 	
 
 
@@ -22,13 +22,13 @@ User
 
 Event
 {
-	EventId			int,
-	EventName 		varchar(50),
+	EventId				int,
+	EventName 			varchar(50),
 	EventDescription 	varchar(300),
 	EventBackground 	ImageId,
 	EventStartDate		DateTime,
 	EventEndDate	 	DateTime,
-	EventOwner		UserId,
+	EventOwner			UserId,
 	EventType			varchar(50),
 	
 
