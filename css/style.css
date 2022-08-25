@@ -96,8 +96,27 @@ body{
     border-width: 100px;
     
 }
-.ButtonUserAvatar:hover{
-    opacity: 0.5;
-    content: url("Images/logos/Camera.png");
+.ContentButtonUserAvatar{
+    display: inline-block;
+    position: relative;
+}
 
+
+.ContentButtonUserAvatar:hover img{
+    
+}
+
+.ButtonUserAvatar:hover .ButtonUserAvatarHover{
+    opacity: 0;
+}
+
+.ButtonUserAvatarHover{
+    width: 32;
+    height: 32;
+    vertical-align: middle;
+    position: relative;
+    pointer-events: none;
+    right: 52px;
+    size:0px;
+    opacity: 0.5;
 }

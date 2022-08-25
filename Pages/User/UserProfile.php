@@ -18,7 +18,10 @@
 ?>
 <div>
     <span>UserName</span>
-    <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?>>
-    <img src="Images/logos/Camera.png">
-    </input>
+    <div class="ContentButtonUserAvatar">
+        <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?>>
+            <img class="ButtonUserAvatarHover" src="Images/logos/Camera.png">
+        </input>
+    </div>
+
 </div>
