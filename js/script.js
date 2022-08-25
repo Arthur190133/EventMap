@@ -2,7 +2,8 @@ var map;
 var marker = [];
 
 
-function initMap(){
+function initMap()
+{
   map = new google.maps.Map(document.getElementById('map'),
   {
     center: {lat: 50.002, lng: 4.523629443397177},
@@ -58,32 +59,43 @@ function FocusOnMarker(MarkerButtonId){
         document.getElementById("error").remove();
         console.log("EventButtonCardError has been removed");
       }
-      
+      OpenPage("EventSelected.html", "Event");
     }
     else{
       console.log("cannot find a marker at index : " + MarkerId);
       //document.getElementById("MasterContent").innerHTML += "<p> Cannot find your event, please try later </p>";
+      OpenPage("EventButtonCardError.html", "ErrorContent")
 
-      let xhttp;
-      let element = document.getElementById("ErrorContent");
-      let file = "EventButtonCardError.html";
-      if (file){
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function(){
-          console.log("1");
-          if(this.readyState == 4) {
-            if(this.status == 200) {element.innerHTML = this.responseText;}
-            if(this.status == 404) {element.innerHTML = "<h1>Page not found. </h1>";}
-          }
-        }
-        xhttp.open("GET", file, true);
-        xhttp.send();
-        console.log(xhttp);
-        return;
-      }
-    }
 
   }
-
+  }
+  
+  function OpenPage(OpenFile, Content)
+  {
+    let xhttp;
+    let element = document.getElementById(Content);
+    let file = OpenFile;
+    if (file)
+    {
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function(){
+        console.log("1");
+        if(this.readyState == 4) {
+          if(this.status == 200) {element.innerHTML = this.responseText;}
+          if(this.status == 404) {element.innerHTML = "<h1>Page not found. </h1>";}
+        }
+      }
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      console.log(xhttp);
+      return;
+    }
+  }
+  
+  function GetEvent()
+  {
+    
+  }
 }
+
 

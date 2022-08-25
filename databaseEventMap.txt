@@ -33,3 +33,14 @@ Event
 	
 
 }
+
+create table User(
+	UserId int AUTO_INCREMENT PRIMARY KEY,
+	UserFirstName varchar(50),
+	UserName varchar(50),
+	UserDescription varchar(600),
+	UserAvatarId int,
+	UserBackgroundId int,
+	FOREIGN KEY (UserAvatarId) REFERENCES Image (ImageId),
+	FOREIGN KEY (UserBackgroundId) REFERENCES Image (ImageId)
+)

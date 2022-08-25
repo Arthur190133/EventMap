@@ -1,3 +1,7 @@
+<?php
+  require_once 'Pages/Connection/Connection.php';
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,25 +16,27 @@
         <div>
           <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="0">
             <div>
-              <span>Special event</span>
+              <span class="EventButtonCardEventType">Special event</span>
               <h1>E420</h1>
               <span class ="EventButtonCardDate">19/08/23 19:00 - 20/08/2023 01:00</span>
             </div>
           </button>
           <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="1">
             <div>
-              <span>Original event</span>
+              <span class="EventButtonCardEventType">Original event</span>
               <h1>Bruxelles Nord</h1>
               <span class ="EventButtonCardDate">29/12/22 19:00 - 20/08/2023 01:00</span>
             </div>
           </button>
           <button class ="EventButtonCard" onclick="FocusOnMarker(this)" id="EventButtonCard" value="2">
             <div>
-              <span>Special event</span>
+              <span class="EventButtonCardEventType">Special event</span>
               <h1>Bruxelles, E420</h1>
               <span class ="EventButtonCardDate">19/08/22 19:00 - 20/08/2023 01:00</span>
             </div>
           </button>
+          <div id="Event">
+          </div>
           <div id="ErrorContent">
           </div>
         </div>
