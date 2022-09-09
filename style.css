@@ -1,0 +1,56 @@
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    float: right;
+    background-color: black;
+    margin-left: auto; 
+    margin-right: 20px;
+    margin-top: 20px;
+    height: 600px;
+    width: 50%;
+    color: white;
+    
+    
+}
+
+.mapTitle{
+    text-align: center;
+    padding: 200px;
+    font-family: 'Lexend Deca', sans-serif; 
+}
+
+.EventButtonCard{
+    margin-bottom: 30px;
+    height: 100px;
+    width: 300px;
+    margin-left: 15px;
+    color: white;
+    background-image: url('https://siena.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2021/04/02/node_770514/2557703/public/2021/04/02/B9726620079Z.1_20210402145830_000%2BGBIHSQ6BJ.2-0.jpg?itok=XllJqWZ21617371506');
+}
+
+.EventButtonCardDate{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.493);
+}
+.EventButtons{
+    margin-top: 20px;
+    float: left;
+    margin-bottom: auto;
+    overflow-y: auto;
+    overflow-x:hidden;
+    max-width: 400px;
+    min-width: 400px;
+    max-height:600px;
+}
