@@ -53,23 +53,32 @@ function FocusOnMarker(MarkerButtonId){
       console.log("Focusing on the marker : " + marker[MarkerId].title);
       map.setZoom(10);
       map.setCenter(marker[MarkerId].getPosition());
+      if(document.getElementById("error"))
+      {
+        document.getElementById("error").remove();
+        console.log("EventButtonCardError has been removed");
+      }
+      
     }
     else{
       console.log("cannot find a marker at index : " + MarkerId);
-      document.getElementById("MasterContent").innerHTML += "<p> Cannot find your event, please try later </p>";
+      //document.getElementById("MasterContent").innerHTML += "<p> Cannot find your event, please try later </p>";
+
       let xhttp;
-      let element = document.getElementById("MasterContent");
+      let element = document.getElementById("ErrorContent");
       let file = "EventButtonCardError.html";
       if (file){
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function(){
+          console.log("1");
           if(this.readyState == 4) {
-            if(this.status == 200) {element.innerHTML == this.responseText;}
+            if(this.status == 200) {element.innerHTML = this.responseText;}
             if(this.status == 404) {element.innerHTML = "<h1>Page not found. </h1>";}
           }
         }
-        xhttp.open("GET", 'templates/${file}', true);
+        xhttp.open("GET", file, true);
         xhttp.send();
+        console.log(xhttp);
         return;
       }
     }

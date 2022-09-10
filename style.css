@@ -54,3 +54,14 @@ body{
     min-width: 400px;
     max-height:600px;
 }
+
+#error {
+    background-color: red;
+
+}
+
+.ErrorContent{
+    position: relative;
+    margin: auto;
+    width: 60%;
+}
