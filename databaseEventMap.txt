@@ -1,0 +1,35 @@
+Image
+{
+	ImageId	int,
+	ImageName	varchar(50),
+	ImageDir	varchar(100)
+
+}
+
+
+User
+{
+	UserId 			int,
+	UserFirstName 		varchar(50),
+	UserName 			varchar(50),
+	UserBackground		Image,
+	UserAvatar		Image,
+	UserDiscription	varchar(300),
+	
+
+
+}
+
+Event
+{
+	EventId			int,
+	EventName 		varchar(50),
+	EventDescription 	varchar(300),
+	EventBackground 	ImageId,
+	EventStartDate		DateTime,
+	EventEndDate	 	DateTime,
+	EventOwner		UserId,
+	EventType			varchar(50),
+	
+
+}
