@@ -23,23 +23,30 @@
 
 ?>
 <div class="NavBar">
-    <img class="NavBarLogo" src="Images/logos/EventMap.png">
-    <a>
+    <a href="?/"> 
+        <img class="NavBarLogo" src="Images/logos/EventMap.png"> 
+    </a>
+    <a class="NavBarButton">
         <img class="img" src="Images/logos/Camera.png">
         <h6>!!Carte </h6>
     </a>
-    <a>
+    <a href="?/Notifications" class="NavBarButton">
         <div class="BellNotification" Notification="98">
             <img class="img" src="Images/logos/Bell.png">
         </div> 
-    </a>    <a>
+    </a>
+    <a class="NavBarButton">
         <img class="img" src="Images/logos/Camera.png">
-    </a>    <a>
+    </a>
+    <a class="NavBarButton">
         <img class="img" src="Images/logos/Camera.png">
         <h6>!!Evenement finis </h6>
     </a>
+    
     <div class="NavBarUserContent">
-        <input onclick="GotoUserProfile()" type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>
+        <a href="?/UserProfile">
+        <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>
+        </a>
     </div>
 </div>
 

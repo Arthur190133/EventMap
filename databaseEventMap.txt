@@ -5,6 +5,11 @@ Image
 	ImageDir	varchar(100)
 
 }
+create TABLE Image(
+    ImageId int AUTO_INCREMENT PRIMARY KEY,
+    ImageName varchar(50),
+    ImageDir varchar(100)
+    )
 
 
 User

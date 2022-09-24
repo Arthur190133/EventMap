@@ -126,7 +126,7 @@ body{
     right:300px;
 }
 
-.NavBar a{
+.NavBar .NavBarButton{
     text-decoration: none;
     color:#fff;
     font-size: 18px;
@@ -136,15 +136,17 @@ body{
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 
-    
+}
+.NavBar a{
+    cursor: pointer; 
 }
 
-.NavBar a:hover{
+.NavBar .NavBarButton:hover{
     background-color: red;
     transition: 0.5s;
 }
 
-.NavBar a:hover .img{
+.NavBar .NavBarButton:hover .img{
     transition: 0.5s;
     filter: none;
 }
