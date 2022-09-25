@@ -21,14 +21,23 @@
         $UserAvatar = "Images/Users/Avatars/default/DefaultAvatar.png";
     }
 
+
+    $userProfileLink = "?/login";
+    $connected = false;
+
+    //
+    // Si l'utilisateur est connecté 
+    //
+    if($connected){
+        $userProfileLink = "?/UserProfile";
+    }
 ?>
 <div class="NavBar">
     <a href="?/"> 
         <img class="NavBarLogo" src="Images/logos/EventMap.png"> 
     </a>
-    <a class="NavBarButton">
-        <img class="img" src="Images/logos/Camera.png">
-        <h6>!!Carte </h6>
+    <a href="?/map" class="NavBarButton">
+        <img class="img" src="Images/logos/Map.png">
     </a>
     <a href="?/Notifications" class="NavBarButton">
         <div class="BellNotification" Notification="98">
@@ -44,7 +53,7 @@
     </a>
     
     <div class="NavBarUserContent">
-        <a href="?/UserProfile">
+        <a href=<?= $userProfileLink ?>>
         <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>
         </a>
     </div>

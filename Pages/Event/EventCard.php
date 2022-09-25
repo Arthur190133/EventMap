@@ -9,7 +9,7 @@
                 <div class="EventCardMonth" month="mar"> </div>
                 <div class="EventCardYear" year="2022"></div>
             </div>
-            <img class="EventCardImage" src="https://p4.wallpaperbetter.com/wallpaper/543/177/293/creeks-landscape-vertical-wallpaper-preview.jpg">
+            <img class="EventCardImage" src="Images/Events/Thumbnails/default/Default.png">
         </div>
         <div class="EventCardInfos">
             <div class="EventCardCategory">
