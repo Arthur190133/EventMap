@@ -3,6 +3,7 @@ var marker = [];
 
 function initMap()
 {
+  window.alert("sss");
   map = new google.maps.Map(document.getElementById('map'),
   {
     center: {lat: 50.002, lng: 4.523629443397177},

@@ -142,7 +142,7 @@ body{
 }
 
 .NavBar .NavBarButton:hover{
-    background-color: red;
+    background-color:cornsilk;
     transition: 0.5s;
 }
 
@@ -151,8 +151,8 @@ body{
     filter: none;
 }
 .NavBar .img{
-    width: 54px;
-    height: 54px;
+    width: 100%;
+    height: 100%;
     filter: invert();
 }
 
@@ -370,22 +370,6 @@ font-weight: 700;
     justify-content: center; 
 }
 
-::-webkit-scrollbar {
-    background: transparent;
-    width: 3px;
-
-}
-::-webkit-scrollbar-thumb {
-    background: rgb(18, 18, 39);
-}
-::-webkit-scrollbar-track{
-    background: rgb(18, 18, 39, 0.2);
-}
-::-webkit-scrollbar:hover {
-    width: 12px;
-}
-
-
 /* TEST */ 
 .BellNotification{
     position: relative;
@@ -394,12 +378,12 @@ font-weight: 700;
 .BellNotification::after{
     content: attr(Notification);
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 40%;
+    height: 40%;
     border-radius: 50%;
     background: red;
     top: 7%;
-    right: 15%;
+    right: 0%;
     border: 5px rgb(18, 18, 39)solid;
     display: flex;
     justify-content: center;
@@ -413,16 +397,23 @@ font-weight: 700;
 
 .NavBar a:hover .BellNotification::after{
     border: 5px red solid;
-    background: rgb(18, 18, 39);
-    width: 36px;
-    height: 36px;
+    background: red;
+    width: 40%;
+    height: 40%;
     letter-spacing: 1px;
     font-size: 12px;
     top: 6%;
 }
 
 
+.MapLostImage{
+    height: 512px;
+    width: 512px;
+}
+.MapLost404{
+    font-family: 'Nabla', cursive;
+}
 
-  
+ 
 
 

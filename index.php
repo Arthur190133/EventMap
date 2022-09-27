@@ -14,7 +14,10 @@
     case ($uri === "/EventMap/?/"):
       $page .=  "MainPageTest.php";
       break;
-
+    
+    case ($uri === "/EventMap/?/login"):
+      $page .= "Login.php";
+      break;
     default:
       // 404
       $page .=  "Error404.php";
@@ -28,16 +31,21 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/AdaptiveStyle.php">
     <title>EventMap</title>
     <link rel="icon" href="Images/Logos/EventMap.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
   </head>
   <meta charset="utf-8">
   <script src="js/script.js">
     </script> 
   <body>
     <?php
-    require_once 'Pages/Utils/PopUpLogin.php';
+    if($uri !== "/EventMap/?/login"){
+      require_once 'Pages/Utils/PopUpLogin.php';
+    }
+
     ?>
     <div id="MasterContent">
       <div class="NavBarContent">
