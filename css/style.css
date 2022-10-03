@@ -436,6 +436,37 @@ font-weight: 700;
   
 }
 
+
+
+.SearchMoreEventImage2{
+    opacity: 0;
+    transition: all 0.5s;
+    transition-delay:  100ms;
+}
+.SearchImage{
+    width: 64px;
+    height: 40px;
+    position: absolute;  
+    outline: rgba(255, 219, 219, 0.099);
+}
+
+.SearchMoreEventContent{
+    height: 100px;
+    width: 100px;    
+    transition: all 0.5s;
+}
+.SearchMoreEventContent:hover .SearchMoreEventImage2{
+    opacity: 1;
+    transform: translateY(40px);
+}
+
+.SearchMoreEventContent:hover{
+    filter: invert(); 
+}
+
+
+
+
  
 
 
