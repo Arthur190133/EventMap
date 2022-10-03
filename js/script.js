@@ -3,7 +3,6 @@ var marker = [];
 
 function initMap()
 {
-  window.alert("sss");
   map = new google.maps.Map(document.getElementById('map'),
   {
     center: {lat: 50.002, lng: 4.523629443397177},
@@ -101,12 +100,12 @@ function OpenPage(OpenFile, Content)
 function GetUserAvatar(){
   window.open("file:");
 }
-
-function ClosePopUpLogin(){
-  if(document.getElementById("PopUpLoginContent"))
+function RemoveDiv(DivId)
+{
+  if(document.getElementById(DivId))
   {
-    document.getElementById("PopUpLoginContent").remove();
-    console.log("PopUpLoginContent has been removed");
+    document.getElementById(DivId).remove();
+    console.log(DivId + " has been removed");
   }
 }
 

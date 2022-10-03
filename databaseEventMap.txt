@@ -18,6 +18,7 @@ User
 	UserFirstName 		varchar(50),
 	UserName 			varchar(50),
 	UserEmail			varchar(100),
+	UserPassword		varchar(100),
 	UserBackground		Image,
 	UserAvatar			Image,
 	UserDiscription		varchar(300),
@@ -71,9 +72,18 @@ create table User(
 	UserFirstName varchar(50),
 	UserName varchar(50),
 	UserEmail varchar(100),
+	UserPassword varchar(100),
 	UserDescription varchar(600),
 	UserAvatarId int,
 	UserBackgroundId int,
 	FOREIGN KEY (UserAvatarId) REFERENCES Image (ImageId),
 	FOREIGN KEY (UserBackgroundId) REFERENCES Image (ImageId)
+)
+
+create table UserEvent(
+    	UserId int,
+    	EventId int,
+    	PRIMARY KEY (UserId, EventId),
+    	FOREIGN KEY (UserId) REFERENCES users (UserId),
+    	FOREIGN KEY (EventId) REFERENCES Event (EventId)
 )

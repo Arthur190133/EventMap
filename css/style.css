@@ -122,8 +122,7 @@ body{
 
 .NavBarContent{
     background-color: rgb(18, 18, 39);
-    width: 7%;
-    right:300px;
+    width: 5%;
 }
 
 .NavBar .NavBarButton{
@@ -171,7 +170,7 @@ body{
 .NavBarUserContent{
     position: fixed;
     bottom: 10px;
-    width: 10%;
+    width: 5%;
     
 }
 
@@ -378,8 +377,8 @@ font-weight: 700;
 .BellNotification::after{
     content: attr(Notification);
     position: absolute;
-    width: 40%;
-    height: 40%;
+    width: 50%;
+    height: 47%;
     border-radius: 50%;
     background: red;
     top: 7%;
@@ -398,8 +397,8 @@ font-weight: 700;
 .NavBar a:hover .BellNotification::after{
     border: 5px red solid;
     background: red;
-    width: 40%;
-    height: 40%;
+    width: 55%;
+    height: 52%;
     letter-spacing: 1px;
     font-size: 12px;
     top: 6%;
@@ -407,11 +406,34 @@ font-weight: 700;
 
 
 .MapLostImage{
-    height: 512px;
-    width: 512px;
+    height: 30%;
+    width: 30%;
 }
 .MapLost404{
     font-family: 'Nabla', cursive;
+}
+
+.MapLostText{
+    font-family: 'Anton', sans-serif;
+}
+
+.Connetion {
+    text-align: center;
+}
+
+.ConnetionContent{
+    width: 600px;
+    height: 300px;
+    background-color: red;
+    display: inline-block;
+}
+
+.ConnetionName{
+    float: left;
+}
+
+.ConnetionInput{
+  
 }
 
  

@@ -18,7 +18,12 @@
     case ($uri === "/EventMap/?/login"):
       $page .= "Login.php";
       break;
-    default:
+
+    case ($uri === "/EventMap/?/register"):
+      $page .= "Register.php";
+      break;
+      
+      default:
       // 404
       $page .=  "Error404.php";
       break;
@@ -36,6 +41,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
   </head>
   <meta charset="utf-8">
   <script src="js/script.js">
@@ -44,11 +50,12 @@
     <?php
     if($uri !== "/EventMap/?/login"){
       require_once 'Pages/Utils/PopUpLogin.php';
+      require_once 'Pages/Admin/AdminPanel.php';
     }
 
     ?>
-    <div id="MasterContent">
-      <div class="NavBarContent">
+    <div id="MasterContent" >
+      <div class="NavBarContent" id="navbar">
         <?php 
           require_once 'Pages/Utils/NavBar.php'; 
         ?>

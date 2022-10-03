@@ -1,16 +1,17 @@
 <?php
 
 ?>
-<form methode="GET">
+<script> RemoveDiv("navbar") </script>
+<form action="" method="POST">
     <div>
         <div>
             <span> Adress E-Mail </span>
-            <input type="mail" >
+            <input type="email" name="UserEmail">
         </div>
         <div>
             <span> Mot de passe </span>
-            <input type="password" >
+            <input type="password" name="UserPassword">
         </div>
     </div>
-    <button type="submit"> Connexion </button>
+    <button> Connexion </button>
 </form>
