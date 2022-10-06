@@ -87,3 +87,25 @@ create table UserEvent(
     	FOREIGN KEY (UserId) REFERENCES users (UserId),
     	FOREIGN KEY (EventId) REFERENCES Event (EventId)
 )
+
+create table Chat(
+	ChatId int AUTO_INCREMENT PRIMARY KEY
+)
+
+create table ChatMessage(
+	ChatMessageId int AUTO_INCREMENT PRIMARY KEY,
+	ChatMessageText varchar(500),
+	ChatMessageDate datetime,
+	UserId int,
+	FOREIGN KEY (UserId) REFERENCES User (UserId)
+)
+
+create table ChatEvent(
+	ChatId int,
+	EventId,
+	FOREIGN KEY (ChatId) REFERENCES Chat (ChatId),
+	FOREIGN KEY (EventId) REFERENCES Event (EventId)
+)
+
+
+

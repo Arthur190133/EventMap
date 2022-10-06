@@ -1,6 +1,6 @@
 <?php
     global $Db;
-    $UserId = 3;
+    $UserId = 1;
     $Querry = $Db -> prepare("SELECT * FROM image WHERE ImageId in(SELECT UserAvatarId from user where UserId = :UserId)");
     $Querry -> execute([
         'UserId' => $UserId

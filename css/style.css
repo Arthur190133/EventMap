@@ -94,10 +94,21 @@ body{
     
 }
 
-.ContentButtonUserAvatar:hover input{
+.ContentButtonUserAvatar:hover .ButtonUserAvatar{
     background: rgba(0,0,0,0.3);
     opacity: 0.3;
     
+}
+
+.ButtonChangeUserAvatar{
+    background-color: red;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    right: 0px;
+    z-index: 3;
+    opacity: 0;
 }
 
 .ImageUserAvatar{
@@ -115,7 +126,7 @@ body{
     position: absolute;
     pointer-events: none;
     right: 16px;
-    top:13px;
+    top:16px;
     opacity: 0;
 }
 
@@ -228,7 +239,6 @@ body{
         transform: translatex(0%);
     }
 }
-
   
   .EventCardContent {
     position: relative;
@@ -350,12 +360,38 @@ font-weight: 700;
 }
 .EventCardContent:hover .EventCardImage{
     filter: blur(2px);
-    
+    transform: scale(1.3);
 }
 
-.EventCard{
+.EventCardContent:hover .EventCardBackground{
+    filter: blur(2px);
+    transform: scale(1.3);
+}
 
+.EventCardBackground{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    transition: all 0.5s;
+}
 
+.EventCardBackground p{
+    white-space: nowrap;
+    transform: translateX(-70px);
+    margin-top: -9px;
+    -webkit-user-select: none;
+}
+
+.EventCardBackgroundText{
+    font-family: Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif; 
+    font-style: italic;
+    font-weight: bold;
+    font-size: 26px;
+    text-indent: 50px;
+    line-height: 2.1;
+    color: rgba(0, 0, 0, 0.450);
+    
 }
 
 .EventButtons{
