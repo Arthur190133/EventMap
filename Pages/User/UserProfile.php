@@ -20,9 +20,10 @@
 <div>
     <span>UserName</span>
     <div class="ContentButtonUserAvatar">
-        <input accept="image/png, image/jpeg" class="ButtonChangeUserAvatar" type="file"> </input>
-        <img class="ButtonUserAvatar"type="image" src=<?= $UserAvatar?> alt="UserAvatar">
-        <img class="ButtonUserAvatarHover" src="Images/logos/Camera.png">     
+        <input accept="image/png, image/jpeg" class="ButtonChangeUserAvatar" type="file"> 
+            <img class="ButtonUserAvatar"type="image" src=<?= $UserAvatar?> alt="UserAvatar">
+            <img class="ButtonUserAvatarHover" src="Images/logos/Camera.png">   
+        </input>  
     </div>
 
 

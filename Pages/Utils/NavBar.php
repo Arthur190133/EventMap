@@ -1,37 +1,4 @@
-<?php
-    global $Db;
-    $UserId = 1;
-    $Querry = $Db -> prepare("SELECT * FROM image WHERE ImageId in(SELECT UserAvatarId from user where UserId = :UserId)");
-    $Querry -> execute([
-        'UserId' => $UserId
-    ]);
-    $UserAvatar = $Querry -> fetch();
-    if($UserAvatar)
-    {
-        if(file_exists($UserAvatar -> ImageDir))
-        {
-            $UserAvatar = $UserAvatar -> ImageDir;     
-        }
-        else{
-            $UserAvatar = "Images/Users/Avatars/default/DefaultAvatar.png"; 
-        }  
-    }
-    else
-    {
-        $UserAvatar = "Images/Users/Avatars/default/DefaultAvatar.png";
-    }
 
-
-    $userProfileLink = "?/login";
-    $connected = false;
-
-    //
-    // Si l'utilisateur est connecté 
-    //
-    if($connected){
-        $userProfileLink = "?/UserProfile";
-    }
-?>
 <div class="NavBar">
     <a href="?/"> 
         <img class="NavBarLogo" src="Images/logos/EventMap.png"> 

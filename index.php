@@ -1,4 +1,6 @@
 <?php
+
+  require_once 'Pages/Tools/Requestes.php';
   session_start();
   
   $uri = $_SERVER['REQUEST_URI'];
@@ -49,18 +51,18 @@
   <body>
     <?php
     if($uri !== "/EventMap/?/login"){
-      require_once 'Pages/Utils/PopUpLogin.php';
-      require_once 'Pages/Admin/AdminPanel.php';
-      require_once 'Pages/User/UserProfile.php';
+     // require_once 'Pages/Utils/PopUpLogin.php';
+      //require_once 'Pages/Admin/AdminPanel.php';
+      //require_once 'Pages/User/UserProfile.php';
     }
 
     ?>
-    <div id="MasterContent" >
-      <div class="NavBarContent" id="navbar">
         <?php 
-          require_once 'Pages/Utils/NavBar.php'; 
+          require_once 'Pages/Utils/NewNavBar.php'; 
+          
         ?>
-      </div>
+    <div id="MasterContent" >
+
       <div class="RightContent"> 
         <?php
         require_once $page;

@@ -36,7 +36,7 @@ Event
 	EventStartDate		DateTime,
 	EventEndDate	 	DateTime,
 	EventOwner			UserId,
-	EventType			varchar(50),
+	EventCategory		varchar(50),
 	EventPrivate		bool,
 	EventSize			int,
 	EventPrice			float,
@@ -55,7 +55,7 @@ create table Event(
 	EventDescription varchar(600),
 	EventStartDate datetime,
 	EventEndDate datetime,
-	EventType varchar(25),
+	EventCategory varchar(25),
 	EventPrivate bool,
 	EventSize int,
 	EventPrice float,
@@ -84,7 +84,7 @@ create table UserEvent(
     	UserId int,
     	EventId int,
     	PRIMARY KEY (UserId, EventId),
-    	FOREIGN KEY (UserId) REFERENCES users (UserId),
+    	FOREIGN KEY (UserId) REFERENCES user (UserId),
     	FOREIGN KEY (EventId) REFERENCES Event (EventId)
 )
 
