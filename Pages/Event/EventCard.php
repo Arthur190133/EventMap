@@ -1,11 +1,7 @@
 <?php
     global $Db;
     $EventId = 1;
-    $Querry = $Db -> prepare("SELECT * FROM event WHERE EventId like :EventId ");
-    $Querry -> execute([
-        'EventId' => $UserId
-    ]);
-    $Event = $Querry -> fetch();
+    $Event = GetEvent($EventId);
 
 
     

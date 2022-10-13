@@ -41,9 +41,9 @@ function SetClickableMarker(MarkerContent, MarkerId){
   marker[MarkerId].addListener("click", () => {
     infowindow.open(map, marker[MarkerId]);
     console.log("User Clicked on the marker : " + marker[MarkerId].title);
+    require("Sazlut");
   });
 }
-
 
 function FocusOnMarker(MarkerButtonId)
 {

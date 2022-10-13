@@ -23,8 +23,17 @@ function GetImageFromTable ($ImageId):string
 
     if($Image){ return $Image->ImageDir; }
     return "";
+}
 
-    
+
+function GetEvent($EventId)
+{
+    global $Db;
+    $Querry = $Db -> prepare("SELECT * FROM event WHERE EventId like :EventId ");
+    $Querry -> execute([
+        'EventId' => $EventId
+    ]);
+    return $Querry -> fetch();
 }
 
 ?>

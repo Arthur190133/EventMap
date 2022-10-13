@@ -37,14 +37,25 @@
         <img height="128" width="128" src="Images/Logos/EventMap.png">
     </div>
     <div class="NewNavBarContent">
-        <div class="NavBarSearch">
-            <div>
-                <input placeholder="Tapez ici pour rechercher un évenement" type="search" class="NavBarSearchBar">
-                </input>
+        <div class="NavBarElements">
+            <div class="NavBarTop">
+                <div class="NavBarSearch">
+                    <input placeholder="Tapez ici pour rechercher un évenement" type="search" class="NavBarSearchBar"></input>
+                    <div class="NavBarSearchBarAutoComplete">
+                        <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
+                        <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
+                        <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
+                        <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
+                    </div>
+                    <!--
+                        <div class="NavBarSearchBarIcon">
+                        <img src="Images/Logos/Search.png">
+                        </div>
+                    -->
+                </div>
                 <div class="NavBarUserContent">
                     <a href=<?= $userProfileLink ?>>
-                    <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>
-                    
+                        <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>         
                     </a>
                 </div>
             </div>
@@ -52,10 +63,10 @@
         <ul class="NavBarList">
             <li>
             <div class="NavBarListItem">
-                    <a href="#">        
+                    <a href="?/Map">        
                     <div class="NavBarListItemContent">           
                         <img height="64" width="64" src="Images/logos/Map.png">
-                        <span>Maps</span>
+                        <span>carte</span>
                     </div>
                     </a>
                 </div> 
@@ -75,7 +86,7 @@
                     <a href="#">        
                     <div class="NavBarListItemContent">           
                         <img height="64" width="64" src="Images/logos/Bell.png">
-                        <span>évenements terminés</span>
+                        <span>évenements</span>
                     </div>
                     </a>
                 </div> 

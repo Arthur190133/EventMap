@@ -24,6 +24,9 @@
     case ($uri === "/EventMap/?/register"):
       $page .= "Register.php";
       break;
+    case ($uri === "/EventMap/?/Map"):
+      $page .= "Maps.php";
+      break;
       
       default:
       // 404
@@ -62,8 +65,6 @@
           
         ?>
     <div id="MasterContent" >
-
-      <div class="RightContent"> 
         <?php
         require_once $page;
         ?>
