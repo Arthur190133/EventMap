@@ -627,6 +627,10 @@ font-weight: 700;
     float:left;  
 }
 
+#EventPreview{
+    
+}
+
 .EventPreview{
     float: right;
     width: 33%;

@@ -39,9 +39,10 @@ function SetClickableMarker(MarkerContent, MarkerId){
   })
   console.log(MarkerId);
   marker[MarkerId].addListener("click", () => {
-    infowindow.open(map, marker[MarkerId]);
+    //infowindow.open(map, marker[MarkerId]);
     console.log("User Clicked on the marker : " + marker[MarkerId].title);
-    require("Sazlut");
+    OpenPage("Pages/Event/EventPreview.php", "Preview")
+
   });
 }
 
@@ -109,5 +110,11 @@ function RemoveDiv(DivId)
   }
 }
 
+function GenerateEventPreview(Event){
+  const EventPreviewName = document.getElementById("EventPreviewName");
+  console.log(EventPreviewName);
+  EventPreviewName.textContent = "SALUT";
+  console.log("test");
+}
 
 

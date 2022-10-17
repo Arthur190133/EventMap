@@ -1,8 +1,14 @@
 <?php
-    require_once 'Pages/Event/EventPreview.php';
+       $Event = GetEvent(1);
+       $test = (array) $Event;
+       var_dump($test);
 ?>
 
-<div id="EP">
+<script type="text/javascript">
+   var Event = "<?php echo $test; ?>";
+</script>
+
+<div id="Preview">
 
 </div>
 
