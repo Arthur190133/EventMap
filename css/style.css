@@ -548,6 +548,9 @@ font-weight: 700;
     margin: auo;
     padding: 10px;
 }
+.NavBarListContent{
+    display: flex;
+}
 
 .NavBarList{
     padding: 0;

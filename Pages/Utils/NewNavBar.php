@@ -34,7 +34,9 @@
 ?>
 <div class="NavBar">
     <div class="NavBarLogo">
-        <img height="128" width="128" src="Images/Logos/EventMap.png">
+        <a href="?/">
+            <img height="128" width="128" src="Images/Logos/EventMap.png">
+        </a>
     </div>
     <div class="NewNavBarContent">
         <div class="NavBarElements">
@@ -60,47 +62,49 @@
                 </div>
             </div>
         </div>
-        <ul class="NavBarList">
-            <li>
-            <div class="NavBarListItem">
-                    <a href="?/Map">        
-                    <div class="NavBarListItemContent">           
-                        <img height="64" width="64" src="Images/logos/Map.png">
-                        <span>carte</span>
-                    </div>
-                    </a>
-                </div> 
-            </li>
-            <li>
+        <div class="NavBarListContent">
+            <ul class="NavBarList">
+                <li>
                 <div class="NavBarListItem">
-                    <a href="#">        
-                    <div class="NavBarListItemContent">           
-                        <img height="64" width="64" src="Images/logos/Bell.png">
-                        <span>Notifications</span>
-                    </div>
-                    </a>
-                </div>           
-            </li>
-            <li>
-            <div class="NavBarListItem">
-                    <a href="#">        
-                    <div class="NavBarListItemContent">           
-                        <img height="64" width="64" src="Images/logos/Bell.png">
-                        <span>évenements</span>
-                    </div>
-                    </a>
-                </div> 
-            </li>
-            <li>
-            <div class="NavBarListItem">
-                    <a href="#">        
-                    <div class="NavBarListItemContent">           
-                        <img height="64" width="64" src="Images/logos/Bell.png">
-                        <span>salut</span>
-                    </div>
-                    </a>
-                </div> 
-            </li>
-        </ul>
+                        <a href="?/Map">        
+                        <div class="NavBarListItemContent">           
+                            <img height="64" width="64" src="Images/logos/Map.png">
+                            <span>carte</span>
+                        </div>
+                        </a>
+                    </div> 
+                </li>
+                <li>
+                    <div class="NavBarListItem">
+                        <a href="#">        
+                        <div class="NavBarListItemContent">           
+                            <img height="64" width="64" src="Images/logos/Bell.png">
+                            <span>Notifications</span>
+                        </div>
+                        </a>
+                    </div>           
+                </li>
+                <li>
+                <div class="NavBarListItem">
+                        <a href="#">        
+                        <div class="NavBarListItemContent">           
+                            <img height="64" width="64" src="Images/logos/Bell.png">
+                            <span>évenements</span>
+                        </div>
+                        </a>
+                    </div> 
+                </li>
+                <li>
+                <div class="NavBarListItem">
+                        <a href="#">        
+                        <div class="NavBarListItemContent">           
+                            <img height="64" width="64" src="Images/logos/Bell.png">
+                            <span>salut</span>
+                        </div>
+                        </a>
+                    </div> 
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

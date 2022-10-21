@@ -35,28 +35,11 @@
             else
             {
                 ?> 
-                    <div class="EventCardBackground"> 
-                <?php
-                $EventName = "";
-                $RandomSpace = random_int(0,5);
-                for($j = 0; $j < $RandomSpace; $j++){
-                    $EventName = $EventName . "&nbsp;";
-                }  
-                for($i = 1; $i < 50 ; $i++)
-                {
-                    $EventName = $EventName . $Event->EventName . " ";
-                    if($i % 6 == 0){
-                        $EventName = $EventName . "<br>";
-                        $RandomSpace = random_int(0,10);
-                        for($j = 0; $j < $RandomSpace; $j++){
-                            $EventName = $EventName . "&nbsp;";
-                        }
-                    }
-                } 
-            } ?>   
+                    <div class="EventCardBackground">    
                 <p>
-                    <span class="EventCardBackgroundText"> <?=$EventName ?> </span> 
+                    <span class="EventCardBackgroundText"> <?= GenerateBackgroundEvent($Event); ?> </span> 
                 </p>
+                <?php } ?>
             </div>   
         </div>
         <div class="EventCardInfos">

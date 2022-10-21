@@ -9,8 +9,9 @@ function initMap()
     zoom:7,
     mapId: "61d9f0e6c1783a33",
     streetViewControl: false,
-    zoomControl: true,
+    zoomControl: false,
     fullscreenControl: false,
+    
   })
 
   for(let i = 0; i<2; i++)

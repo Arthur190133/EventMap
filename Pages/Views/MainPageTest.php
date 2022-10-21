@@ -4,6 +4,12 @@
         require 'Pages/Event/EventCard.php';
         require 'Pages/Event/EventCard.php';
         require 'Pages/Event/EventCard.php';
+        require 'Pages/Event/EventCard.php';        
+        require 'Pages/Event/EventCard.php';
+        require 'Pages/Event/EventCard.php';
+        require 'Pages/Event/EventCard.php';        
+        require 'Pages/Event/EventCard.php';
+        require 'Pages/Event/EventCard.php';
         require 'Pages/Event/EventCard.php';
     ?>
     </div>

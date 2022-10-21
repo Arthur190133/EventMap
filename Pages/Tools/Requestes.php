@@ -36,4 +36,25 @@ function GetEvent($EventId)
     return $Querry -> fetch();
 }
 
+function GenerateBackgroundEvent($Event):string
+{
+    $EventName = "";
+    $RandomSpace = random_int(0,5);
+    for($j = 0; $j < $RandomSpace; $j++){
+        $EventName = $EventName . "&nbsp;";
+    }  
+    for($i = 1; $i < 50 ; $i++)
+    {
+        $EventName = $EventName . $Event->EventName . " ";
+        if($i % 6 == 0){
+            $EventName = $EventName . "<br>";
+            $RandomSpace = random_int(0,10);
+            for($j = 0; $j < $RandomSpace; $j++){
+                $EventName = $EventName . "&nbsp;";
+            }
+        }
+    } 
+    return $EventName;
+} 
+
 ?>
