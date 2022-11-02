@@ -29,10 +29,54 @@ body{
     z-index: 0;
 }
 
+#EventMapPreview{
+    background-color: black;
+    color: white;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    z-index: 0;
+    border-radius: 20px;
+    border: solid 2px black;
+    
+}
+
+.EventMapPreviewButton{
+    width: 100%;
+    height: 8%;
+}
+.EventMapPreviewSideButton{
+    height: 100%;
+    width: 8%;
+    float: right;
+    margin-left: 8%;
+}
+
+.testtt{
+    height: 100%;
+    width: 100%;
+}
+
+#MapPreview{
+    background:transparent;
+    height: 200px;
+    width: 300px;
+    border-radius: 20px;
+    margin: 20px;
+    left: 0px;
+    right: 0px;
+    bottom: 70px;
+    z-index: 4;
+}
+
 .mapTitle{
     text-align: center;
     padding: 200px;
     font-family: 'Lexend Deca', sans-serif; 
+}
+
+.EventsContent{
+    width: 100%;
 }
 
 .EventButtonCard{
@@ -139,11 +183,7 @@ body{
     transition: 0.5s;
     filter: none;
 }
-.NavBar .img{
-    width: 100%;
-    height: 100%;
-    filter: invert();
-}
+
 
 #MasterContent{
     width: 100%;
@@ -151,8 +191,8 @@ body{
     text-align: center;
 }
 
-.RightContent{
-    
+.Content{
+    display: flex;
 }
 
 
@@ -213,6 +253,7 @@ body{
     min-width: 270px;
     height: 470px;
     margin-top: 50px;
+    -webkit-user-select: none;
   }
 .EventCardThumbnail {
     background: white;
@@ -345,7 +386,6 @@ font-weight: 700;
     white-space: nowrap;
     transform: translateX(-70px);
     margin-top: -9px;
-    -webkit-user-select: none;
 }
 
 .EventCardBackgroundText{
@@ -368,6 +408,7 @@ font-weight: 700;
     grid-gap: 20px;
     margin: auto;
     justify-content: center; 
+    width: 100%;
 }
 
 /* TEST */ 
@@ -487,7 +528,8 @@ font-weight: 700;
 }
 
 .NavBarSearch{
-    width: 80%;
+    max-width: 80%;
+    min-width: 50%;
     background: white;
     border-radius: 5px;
     box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
@@ -499,7 +541,7 @@ font-weight: 700;
     outline: none;
     border: none;
     border-radius: 5px;
-    padding: 0px 60px 0px 20px;
+    padding: 0px 20px 0px 20px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
     z-index: 99;
 }
@@ -547,9 +589,6 @@ font-weight: 700;
     width: 100%;
     margin: auo;
     padding: 10px;
-}
-.NavBarListContent{
-    display: flex;
 }
 
 .NavBarList{
@@ -608,9 +647,22 @@ font-weight: 700;
 
 .NavBarUserContent{
     bottom: 10px;
-    width: 5%;
-    float: right;
-    margin-left: 30px;
+    width: 100%;
+    margin-left: auto; 
+    margin-right: 0;
+    margin-top: 8px;
+}
+
+.NavBarNotification{
+    margin-right: 30px;
+    float:right; 
+    margin-top: 6.25px;
+}
+
+.NavBarNotification img{
+    width: 25px;
+    height: 25px;
+    filter: invert();
 }
 
 .ImageUserAvatar{
@@ -622,12 +674,13 @@ font-weight: 700;
 }
 
 .ButtonUserAvatar{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     vertical-align: middle;
     background-color: white;
     border-radius: 50%;
-    float:left;  
+    float:right; 
+    margin-right: 10px; 
 }
 
 #EventPreview{
@@ -643,41 +696,97 @@ font-weight: 700;
     z-index: 4;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
-    display: block;
+    justify-content: center;
+
+}
+.EventPreview:before{
+    background-image: url("../Images/Events/Backgrounds/2/test.jpg");
+    filter: blur(5px);
+    content: "";
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+.EventPreviewInfo h1{
+    padding-left: 10%;
 }
 
 .EventPreview .Close{
     float: right;
-    height: 64px;
-    width: 64px;
+    height: 10%;
+    width: 10%;
     border: 2px black solid;
     box-shadow: 0px 1px 5px 3px;
     border-radius: 1000px;
     margin: 10px;
     padding: 10px;
     cursor: pointer;
+    position: relative;
 }
 
 .EventPreviewBackground{
     margin-left: 30px;
     margin-bottom: 30px;
     border-radius: 30px;
-    width: 500px;
+    width: 80%;
     height: 250px;
 }
 
 .EventPreviewBackground img{
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     filter: drop-shadow(2px 4px 6px black);
 }
 
 .EventPreviewDescription{
     margin: 30px;
-    width: 500px;
+    width: 80%;
     text-align: justify;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
+.LeftContent{
+    background-color: red;
+    width: 20%;
+    height: 100%;
+}
+
+.FiltersSelectedTags{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.SelectedTag{
+    padding: 2px;
+    background-color: rgb(15, 128, 0);
+    border-radius: 1000px;
+    margin-right: 10px;
+
+}
  
+.FiltersRemoveSelectedTag{
+    height: 15px;
+    width: 15px;
+    margin-right: 1px;
+    padding: 2px;
+    transition: all 0.2s;
+    border-radius: 1000px;
+    margin-top: 4px;
+    
+}
+.FiltersRemoveSelectedTag:hover{
+    background-color: gray;
+}
+
+
+
+/* TEST */
+
+
 
 

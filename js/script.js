@@ -1,20 +1,61 @@
 var map;
+var mapDiv;
 var marker = [];
+var currentEventId = 0;
+let console = {log: ()=>{}};
+
+// Create Cookies
+function createCookie(name, value, days) {
+  var expires;
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = "; expires=" + date.toGMTString();
+  }
+  else {
+    expires = "";
+  }
+  document.cookie = escape(name) + "=" + escape(value) + expires + "; path=/";
+}
 
 function initMap()
 {
-  map = new google.maps.Map(document.getElementById('map'),
+  map = new google.maps.Map(document.getElementById("map"),
   {
     center: {lat: 50.002, lng: 4.523629443397177},
     zoom:7,
     mapId: "61d9f0e6c1783a33",
     streetViewControl: false,
-    zoomControl: false,
+    zoomControl: true,
     fullscreenControl: false,
-    
   })
 
-  for(let i = 0; i<2; i++)
+  for(let i = 0; i<3; i++)
+  {
+    AddMarker({lat: 50.002 + i, lng: 4.523629443397177}, "Marker API test : " + i);
+    SetClickableMarker("Bruxelles, E420", i);
+  }
+
+  
+  window.initMap = initMap;
+
+
+}
+function initPreviewMap()
+{
+  map = new google.maps.Map(document.getElementById("EventMapPreview"),
+  {
+    center: {lat: 50.002, lng: 4.523629443397177},
+    zoom:9,
+    mapId: "61d9f0e6c1783a33",
+    streetViewControl: false,
+    zoomControl: true,
+    fullscreenControl: false,
+    gestureHandling: "none", 
+    keyboardShortcuts: false,
+  })
+
+  for(let i = 0; i<3; i++)
   {
     AddMarker({lat: 50.002 + i, lng: 4.523629443397177}, "Marker API test : " + i);
     SetClickableMarker("Bruxelles, E420", i);
@@ -38,12 +79,17 @@ function SetClickableMarker(MarkerContent, MarkerId){
   const infowindow = new google.maps.InfoWindow({
     content: MarkerContent,
   })
-  console.log(MarkerId);
-  marker[MarkerId].addListener("click", () => {
+  marker[MarkerId].addListener("click", () => 
+  {
     //infowindow.open(map, marker[MarkerId]);
     console.log("User Clicked on the marker : " + marker[MarkerId].title);
-    OpenPage("Pages/Event/EventPreview.php", "Preview")
+    createCookie("currentEventId", MarkerId, "1");
 
+    // Update event preview
+    if(document.getElementById("Preview").childElementCount != 0){  
+      document.getElementById("Preview").innerHTML ="";
+    }
+    OpenPage("Pages/Event/EventPreview.php", "Preview");
   });
 }
 
@@ -75,8 +121,35 @@ function FocusOnMarker(MarkerButtonId)
 
     } 
   }
+  else{
+    console.log("Creating map");
+    mapDiv = "EnvetMapPreview";
+    initMap();
+  }
+}
+
+function GetDistance(){
+  var origin1 = "Namur, Belgium";
+  var desitnation1 = "Paris, France";
+
+  var service = new google.maps.DistanceMatrixService();
+  service.getDistanceMatrix(
+    {
+    origins: [origin1],
+    destinations: [desitnation1],
+    travelMode: "DRIVING",
+    travelMode: google.maps.TravelMode.DRIVING,
+    unitSystem: google.maps.UnitSystem.METRIC,
+    avoidHighways: false,
+    avoidTolls: false,
+  }, callback);
 }
   
+function callback(response, status){
+  console.log(response);
+  console.log(status);
+}
+
 function OpenPage(OpenFile, Content)
 {
   let xhttp;
@@ -86,7 +159,6 @@ function OpenPage(OpenFile, Content)
   {
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
-      console.log("1");
       if(this.readyState == 4) {
         if(this.status == 200) {element.innerHTML = this.responseText;}
         if(this.status == 404) {element.innerHTML = "<h1>Page not found. </h1>";}
@@ -94,7 +166,6 @@ function OpenPage(OpenFile, Content)
     }
     xhttp.open("GET", file, true);
     xhttp.send();
-    console.log(xhttp);
     return;
   }
 }
@@ -111,11 +182,41 @@ function RemoveDiv(DivId)
   }
 }
 
-function GenerateEventPreview(Event){
+function UpdateEventPreview(EventId){
   const EventPreviewName = document.getElementById("EventPreviewName");
-  console.log(EventPreviewName);
-  EventPreviewName.textContent = "SALUT";
-  console.log("test");
+  const EventPreviewBackground = document.getElementById("EventPreviewBackgroundImg");
+  const EventPreviewDate = document.getElementById("EventPreviewDate");
+  if(Events){
+   /// EventPreviewName.textContent = Events[EventId].EventName;
+   // EventPreviewBackground.src = Events[EventId].EventBackgroundId;
+   // EventPreviewDate.textContent = Events[EventId].EventStartDate + " - " + Events[EventId].EventEndDate;
+  }
+  else{
+    console.log("Cannot find your event ! ");
+  }
+
 }
+
+function GenerateEventSliderRangePrices(){
+  $( function() {
+    $( "#EventSliderRangePrices" ).slider({
+      range: true,
+      min: 0,
+      max: 500,
+      values: [ 75, 300 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#EventSliderRangePrices" ).slider( "values", 0 ) +
+      " - $" + $( "#EventSliderRangePrices" ).slider( "values", 1 ) );
+  } );
+}
+
+
+
+
+
+// Moveable preview map
 
 

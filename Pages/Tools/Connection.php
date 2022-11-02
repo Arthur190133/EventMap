@@ -1,6 +1,6 @@
 <?php
 
-$Server = "mysql:host=localhost;dbname=eventmap;port=3333";
+$Server = "mysql:host=localhost;dbname=eventmap;port=3306";
 $UserName = "root";
 $Password = "root";
 

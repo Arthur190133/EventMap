@@ -1,6 +1,6 @@
 <?php
     global $Db;
-    $EventId = 1;
+    $EventId = $CurrentEventId;
     $Event = GetEvent($EventId);
 
 
@@ -28,18 +28,26 @@
                 <div class="EventCardMonth" month=<?= substr(date("F", strtotime($Event->EventStartDate)), 0, 3) ?>> </div>
                 <div class="EventCardYear" year=<?= "20" . date("y", strtotime($Event->EventStartDate)) ?>></div>
             </div>
-            <?php if($CardThumbnailLocation)
-            {
-                ?> <img class="EventCardImage" src=<?= $CardThumbnailLocation ?>>
-            <?php }
-            else
-            {
-                ?> 
-                    <div class="EventCardBackground">    
-                <p>
-                    <span class="EventCardBackgroundText"> <?= GenerateBackgroundEvent($Event); ?> </span> 
-                </p>
-                <?php } ?>
+            <div class="EventCardBackground"> 
+            <?php 
+                if($CardThumbnailLocation)
+                {
+            ?>  
+            <img class="EventCardImage" src=<?= $CardThumbnailLocation ?>>
+            <?php 
+                }
+                else
+                {
+                    $EventName = GenerateEventBackground($Event);
+            ?>
+            <p>
+            <span class="EventCardBackgroundText"> 
+                <?=$EventName ?> 
+            </span> 
+            </p>
+            <?php 
+                } 
+            ?>   
             </div>   
         </div>
         <div class="EventCardInfos">

@@ -88,6 +88,13 @@ create table UserEvent(
     	FOREIGN KEY (EventId) REFERENCES Event (EventId)
 )
 
+create table EventTag(
+	EventTagI int AUTO_INCREMENT PRIMARY KEY,
+	EventId int,
+	EventTagName varchar(15),
+	FOREIGN KEY (EventId) REFERENCES Event (EventId)	
+)
+
 create table Chat(
 	ChatId int AUTO_INCREMENT PRIMARY KEY
 )
