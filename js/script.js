@@ -2,7 +2,7 @@ var map;
 var mapDiv;
 var marker = [];
 var currentEventId = 0;
-let console = {log: ()=>{}};
+var selectedTags = [];
 
 // Create Cookies
 function createCookie(name, value, days) {
@@ -170,15 +170,16 @@ function OpenPage(OpenFile, Content)
   }
 }
 
-function GetUserAvatar(){
-  window.open("file:");
-}
 function RemoveDiv(DivId)
 {
   if(document.getElementById(DivId))
   {
     document.getElementById(DivId).remove();
     console.log(DivId + " has been removed");
+  }
+  else
+  {
+    console.log("Cannot find " + DivId + " div");
   }
 }
 
@@ -215,8 +216,13 @@ function GenerateEventSliderRangePrices(){
 
 
 
+function RemoveSelectedTag(SelectedTagId){
+    RemoveDiv(SelectedTagId);
+    selectedTags.slice(SelectedTagId, 1);
+}
 
 
-// Moveable preview map
+
+
 
 

@@ -44,8 +44,8 @@ body{
     width: 100%;
     top: 0px;
     z-index: 0;
-    border-radius: 20px;
-    border: solid 2px black;
+    border-bottom-right-radius: 15px;
+    border: solid 2px rgb(30, 30, 71);
     
 }
 
@@ -68,13 +68,8 @@ body{
 #MapPreview{
     background:transparent;
     height: 200px;
-    width: 300px;
-    border-radius: 20px;
-    margin: 20px;
-    left: 0px;
-    right: 0px;
-    bottom: 70px;
-    z-index: 4;
+    width: 100%;
+    margin-left: 0%;
 }
 
 .mapTitle{
@@ -629,11 +624,10 @@ font-weight: 700;
     background-position: 250px 0;
 }
 
-.NavBarList li img{
+.NavBarList li img,svg{
     height: 24px;
     width: 24px;
     margin-top: 3px;
-    filter: invert();
     margin-right: 10px;
     
 }
@@ -667,10 +661,10 @@ font-weight: 700;
     margin-top: 6.25px;
 }
 
-.NavBarNotification img{
+.NavBarNotification svg{
     width: 25px;
     height: 25px;
-    filter: invert();
+    fill: white;
 }
 
 .ImageUserAvatar{
