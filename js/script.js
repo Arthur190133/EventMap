@@ -183,21 +183,6 @@ function RemoveDiv(DivId)
   }
 }
 
-function UpdateEventPreview(EventId){
-  const EventPreviewName = document.getElementById("EventPreviewName");
-  const EventPreviewBackground = document.getElementById("EventPreviewBackgroundImg");
-  const EventPreviewDate = document.getElementById("EventPreviewDate");
-  if(Events){
-   /// EventPreviewName.textContent = Events[EventId].EventName;
-   // EventPreviewBackground.src = Events[EventId].EventBackgroundId;
-   // EventPreviewDate.textContent = Events[EventId].EventStartDate + " - " + Events[EventId].EventEndDate;
-  }
-  else{
-    console.log("Cannot find your event ! ");
-  }
-
-}
-
 function GenerateEventSliderRangePrices(){
   $( function() {
     $( "#EventSliderRangePrices" ).slider({
@@ -217,9 +202,10 @@ function GenerateEventSliderRangePrices(){
 
 
 function RemoveSelectedTag(SelectedTagId){
-    RemoveDiv(SelectedTagId);
+    RemoveDiv("SelectedTag" + SelectedTagId);
     selectedTags.slice(SelectedTagId, 1);
 }
+
 
 
 

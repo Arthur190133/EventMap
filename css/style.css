@@ -800,6 +800,10 @@ font-weight: 700;
     fill: white;
 }
 
+.FiltersEventProperties input{
+    float:right;
+}
+
 
 
 /* TEST */

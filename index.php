@@ -34,13 +34,8 @@
       $page .= "MainPageTest.php";
       break;
 
-    case ($uri === "/EventMap/?/Notification"):
-      $page .= "Notification.php";
-      break;
-
-      
       default:
-      // 404
+      // 404 cannot find the required page
       $page .=  "Error404.php";
       break;
   }
