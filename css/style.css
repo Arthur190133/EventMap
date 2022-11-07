@@ -804,6 +804,46 @@ font-weight: 700;
     float:right;
 }
 
+.UserNotification{
+    position: fixed;
+    display: grid;
+    background-color: red;
+    margin-top: 30px;
+    margin-left: -270px;
+    width: 300px;
+    height: 300px;
+}
+
+.UpNotification{
+    background-color: white;
+    top: 0px;
+}
+
+.UserNotification{
+    position: fixed;
+    visibility: hidden;
+}
+
+.UserNotificationContent{
+    overflow-y: auto;
+}
+
+.box {
+    margin: 1rem auto 1rem auto;
+    max-width: 300px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .js-is-hidden {
+    display: none;
+  }
+.Notification{
+    border-bottom: 2px solid black;
+}
+
 
 
 /* TEST */

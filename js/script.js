@@ -206,6 +206,25 @@ function RemoveSelectedTag(SelectedTagId){
     selectedTags.slice(SelectedTagId, 1);
 }
 
+document.addEventListener('click', function OpenNotification(event) {
+  const box = document.getElementById('UserNotification');
+
+  if (!box.contains(event.target)) {
+    box.style.visibility = 'visible';
+  }
+});
+
+document.addEventListener('click', function CloseNotification(event) {
+  const bell = document.getElementById('BellNotification');
+
+  if (!bell.contains(event.target)) {
+    document.getElementById('UserNotification').style.visibility = 'hidden';
+  }
+});
+
+
+
+
 
 
 
