@@ -67,15 +67,15 @@
   <body>
     <?php
     if($uri !== "/EventMap/?/login"){
-     // require_once 'Pages/Utils/PopUpLogin.php';
+      require_once 'Pages/Utils/PopUpLogin.php';
       //require_once 'Pages/Admin/AdminPanel.php';
-      //require_once 'Pages/User/UserProfile.php';
+      
     }
 
     ?>
         <?php 
           require_once 'Pages/Utils/NewNavBar.php'; 
-          
+          require_once 'Pages/User/UserProfile.php';
         ?>
     <div id="MasterContent" >
         <?php
