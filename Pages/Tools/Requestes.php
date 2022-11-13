@@ -51,6 +51,74 @@ function GetEvent($EventId)
     return $Querry -> fetch();
 }
 
+function GetUser($UserId){
+    global $Db;
+    $Querry = $Db -> prepare("SELECT * FROM User WHERE UserId like :UserId ");
+    $Querry -> execute([
+        'UserId' => $UserId
+    ]);
+    return $Querry -> fetch();
+}
+
+function GetUserNotifications($UserId){
+    global $Db;
+    $Querry = $Db -> prepare("SELECT * FROM notification WHERE NotificationStatus like 0 and UserId like :UserId");
+    $Querry -> execute([
+        'UserId' => $UserId
+    ]);
+    return $Querry -> fetchAll(PDO::FETCH_CLASS);
+}
+
+function CheckIfUserExist($Email):bool{
+    global $Db;
+    $Querry = $Db -> prepare("SELECT * from user where UserEmail like :UserEmail");
+    $Querry -> execute([
+        "UserEmail" => $Email
+    ]);
+    $UserExist = $Querry->fetch();
+
+    if($UserExist){ return true; }
+    return false;
+}
+
+function CreateUser($FirstName, $Name, $Email, $Password, $Description){
+    if(!CheckIfUserExist($Email))
+    {
+        global $Db;
+        // Insert User images (background, avatar)
+
+        // Insert User
+        $Querry = $Db -> prepare("INSERT INTO user(UserFirstName, UserName, UserEmail, UserPassword, UserDescription, UserAvatarId, UserBackgroundId) VALUES (:UserFirstName, :UserName, :UserEmail, :UserPassword, :UserDescription, :UserAvatarId, :UserBackgroundId)");
+        $Querry -> execute([
+            'UserFirstName' => $FirstName,
+            'UserName' => $Name,
+            'UserEmail' => $Email,
+            'UserPassword' => password_hash($Password, PASSWORD_DEFAULT),
+            'UserDescription' => $Description,
+            'UserAvatarId' => NULL,
+            'UserBackgroundId' => NULL
+        ]);
+        
+    }
+}
+
+function Login($Email, $Password){
+    global $Db;
+    $Querry = $Db -> prepare("SELECT * from user where UserEmail like :UserEmail and UserPassword like :UserPassword");
+    $Querry -> execute([
+        'UserEmail' => $Email,
+        'UserPassword' => password_verify($Password, PASSWORD_DEFAULT)
+    ]);
+    $user = $Querry->fetch();
+
+    if($user){
+        echo "LOGIN SUCCED";
+    }
+    else{
+        echo "LOGIN FAILED";
+    }
+}
+
 
 
 

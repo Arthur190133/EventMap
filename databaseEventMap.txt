@@ -1,71 +1,9 @@
-Image
-{
-	ImageId		int,
-	ImageName	varchar(50),
-	ImageDir	varchar(100)
 
-}
 create TABLE Image(
     ImageId int AUTO_INCREMENT PRIMARY KEY,
     ImageName varchar(50),
     ImageDir varchar(100)
     )
-
-
-User
-{
-	UserId 				int,
-	UserFirstName 		varchar(50),
-	UserName 			varchar(50),
-	UserEmail			varchar(100),
-	UserPassword		varchar(100),
-	UserBackground		Image,
-	UserAvatar			Image,
-	UserDiscription		varchar(300),
-	
-
-
-}
-
-Event
-{
-	EventId				int,
-	EventName 			varchar(50),
-	EventDescription 		varchar(300),
-	EventBackground 		ImageId,
-	EventStartDate		DateTime,
-	EventEndDate	 	DateTime,
-	EventOwner			UserId,
-	EventCategory		varchar(50),
-	EventPrivate		bool,
-	EventSize			int,
-	EventPrice			float,
-	EventCardColor 		varchar(6),
-	EventPageColor		varchar(6),
-	
-
-}
-
-create table Event(
-	EventId int AUTO_INCREMENT PRIMARY KEY,
-	EventBackgroundId int,
-	EventThumbnailId int,
-	EventOwnerId int,
-	EventName varchar(50),
-	EventDescription varchar(600),
-	EventStartDate datetime,
-	EventEndDate datetime,
-	EventCategory varchar(25),
-	EventPrivate bool,
-	EventSize int,
-	EventPrice float,
-	EventCardColor varchar(6),
-	EventPageColor varchar(6),
-	FOREIGN KEY (EventBackgroundId) REFERENCES Image (ImageId),
-	FOREIGN KEY (EventThumbnailId) REFERENCES Image (ImageId),
-	FOREIGN KEY (EventOwnerId) REFERENCES User (UserId)
-)
-
 
 create table User(
 	UserId int AUTO_INCREMENT PRIMARY KEY,
@@ -80,20 +18,81 @@ create table User(
 	FOREIGN KEY (UserBackgroundId) REFERENCES Image (ImageId)
 )
 
+create table Event(
+	EventId int AUTO_INCREMENT PRIMARY KEY,
+	EventBackgroundId int,
+	EventThumbnailId int,
+	EventOwnerId int,
+	EventName varchar(50),
+	EventDescription varchar(600),
+	EventStartDate datetime,
+	EventEndDate datetime,
+	EventLocation varchar (100),
+	EventCategory varchar(25),
+	EventPrivate bool,
+	EventSize int,
+	EventPrice float,
+	EventCardColor varchar(6),
+	EventPageColor varchar(6),
+	FOREIGN KEY (EventBackgroundId) REFERENCES Image (ImageId),
+	FOREIGN KEY (EventThumbnailId) REFERENCES Image (ImageId),
+	FOREIGN KEY (EventOwnerId) REFERENCES User (UserId)
+)
+
+create table EventTag(
+	EventTagId int AUTO_INCREMENT PRIMARY KEY,
+	EventTagName varchar(15)
+)
+
+
+create table Admin (
+	AdminId int AUTO_INCREMENT PRIMARY KEY,
+	AdminStartDate datetime,
+	AdminEndDate datetime,
+	UserId int,
+	FOREIGN KEY (UserId) REFERENCES User (UserId)
+)
+
+create table SuperAdmin(
+	SuperAdminId int AUTO_INCREMENT PRIMARY KEY,
+	AdminId int,
+	FOREIGN KEY (AdminId) REFERENCES Admin (AdminId)
+)
+
+create table AdminEvent(
+	AdminEventId int AUTO_INCREMENT PRIMARY KEY,
+	AdminId int,
+	EventId int,
+	FOREIGN KEY (AdminId) REFERENCES Admin (AdminId),
+	FOREIGN KEY (EventId) REFERENCES Event (EventId)
+)
+
+create table UserReported(
+	UserReportedId int AUTO_INCREMENT PRIMARY KEY,
+	UserReportedContext varchar(1000),
+	UserReportedDate datetime,
+	UserId int,
+	FOREIGN KEY (UserId) REFERENCES User (UserId)
+)
+
+create table UserWarned(
+	UserWarnedId int AUTO_INCREMENT PRIMARY KEY,	
+	UserWarnedContext varchar(1000),
+	UserWarnedStartDate datetime,
+	UserWarnedEndDate datetime,	
+	UserId int,
+	SuperAdminId int,
+	FOREIGN KEY (UserId) REFERENCES User (UserId),
+	FOREIGN KEY (SuperAdminId) REFERENCES SuperAdmin (SuperAdminId)
+)
+
 create table UserEvent(
     	UserId int,
     	EventId int,
     	PRIMARY KEY (UserId, EventId),
     	FOREIGN KEY (UserId) REFERENCES user (UserId),
     	FOREIGN KEY (EventId) REFERENCES Event (EventId)
-)
-
-create table EventTag(
-	EventTagI int AUTO_INCREMENT PRIMARY KEY,
-	EventId int,
-	EventTagName varchar(15),
-	FOREIGN KEY (EventId) REFERENCES Event (EventId)	
-)
+)‬
 
 create table Chat(
 	ChatId int AUTO_INCREMENT PRIMARY KEY
@@ -109,9 +108,26 @@ create table ChatMessage(
 
 create table ChatEvent(
 	ChatId int,
-	EventId,
+	EventId int,
 	FOREIGN KEY (ChatId) REFERENCES Chat (ChatId),
 	FOREIGN KEY (EventId) REFERENCES Event (EventId)
+)
+
+create table ChatMessageReported(
+	ChatMessageReportedId int AUTO_INCREMENT PRIMARY KEY,
+	ChatMessageId int,
+	ChatMessageReportedContext varchar(1000),
+	chatMessageReportedDate datetime,	
+	FOREIGN KEY (ChatMessageId) REFERENCES ChatMessage (ChatMessageId)
+)
+
+create table Notification(
+	NotificationId int AUTO_INCREMENT PRIMARY KEY,
+	NotificationSender varchar(50),
+	NotificationContext varchar(300),
+	NotificationStatus bool,
+	UserId int,
+	FOREIGN KEY (UserId) REFERENCES User (UserId)
 )
 
 

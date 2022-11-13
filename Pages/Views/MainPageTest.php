@@ -14,7 +14,7 @@
                     {
                 ?>
                 <div class="SelectedTag" id=<?= "SelectedTag" .$i ?>>
-                    <span><?= randw(random_int(2,8))?></span>
+                    <span>!!EVENTTAG</span>
                     <svg onclick="RemoveSelectedTag(<?= $i ?>)" class="FiltersRemoveSelectedTag" alt="RemoveTag" version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 460.775 460.775" style="enable-background:new 0 0 460.775 460.775;" xml:space="preserve">
                             <path d="M285.08,230.397L456.218,59.27c6.076-6.077,6.076-15.911,0-21.986L423.511,4.565c-2.913-2.911-6.866-4.55-10.992-4.55

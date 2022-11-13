@@ -53,7 +53,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
@@ -67,7 +67,7 @@
   <body>
     <?php
     if($uri !== "/EventMap/?/login"){
-      require_once 'Pages/Utils/PopUpLogin.php';
+      //require_once 'Pages/Utils/PopUpLogin.php';
       //require_once 'Pages/Admin/AdminPanel.php';
       
     }

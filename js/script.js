@@ -210,7 +210,7 @@ document.addEventListener('click', function OpenNotification(event) {
   const box = document.getElementById('UserNotification');
 
   if (!box.contains(event.target)) {
-    box.style.visibility = 'visible';
+    box.style.display = 'grid';
   }
 });
 
@@ -218,7 +218,7 @@ document.addEventListener('click', function CloseNotification(event) {
   const bell = document.getElementById('BellNotification');
 
   if (!bell.contains(event.target)) {
-    document.getElementById('UserNotification').style.visibility = 'hidden';
+    document.getElementById('UserNotification').style.display = 'none';
   }
 });
 

@@ -805,17 +805,15 @@ font-weight: 700;
 
 .UserNotification{
     position: fixed;
-    visibility: hidden;
-    display: grid;
+    display: none;
     background: white;
     margin-top: 30px;
-    margin-left: -270px;
-    width: 300px;
-    height: 300px;
+    margin-left: -320px;
+    width: 350px;
     border-radius: 10px;
 }
 
-.UpNotification{
+.UpUserNotification{
     background: rgb(190,102,0);
     background: linear-gradient(180deg, rgba(190,102,0,1) 0%, rgba(94,0,0,0) 100%);
     top: 0px;
@@ -824,30 +822,43 @@ font-weight: 700;
 
 }
 
-.UpNotification h3{
+.UpUserNotification h3{
     font-size: 15px;
     padding-left: 5px;
 }
 
 
-.UserNotificationContent{
+.MiddleUserNotification{
     overflow-y: auto;
-    border-radius: 10px;
+    height: 200px;
+    background: white;
 }
 
-.UserNotificationContent span {
+.MiddleUserNotification span {
     font-size: 12px;
     padding-left: 5px;
 }
 
-.NotificationId{
+.UserNotificationSender{
     display: flex;
-    flex-wrap: wrap;
+    align-items:center;
 }
 
-.NotificationBox{
-    display: flex;
+.UserNotificationContent{
     border-bottom: 2px solid black;
+}
+.UserNotificationContent p{
+    font-size: 12px;
+    font-family: 'Oswald', sans-serif;
+}
+
+.DownUserNotification{
+    background: white;
+    width: 300px;
+    height: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background: white;
 }
 
 
