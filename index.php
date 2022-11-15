@@ -33,12 +33,16 @@
     case ($uri === "/EventMap/?/Event"):
       $page .= "MainPageTest.php";
       break;
+    case ($uri === "/EventMap/?/registerEvent"):
+      $page .= "registerEvent.php";
+      break;
 
       default:
       // 404 cannot find the required page
       $page .=  "Error404.php";
       break;
   }
+  CreateUser(" ", " ", " ", " a@a.com", "a", " ")
 
 
 ?>
@@ -47,6 +51,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <title>EventMap</title>
     <link rel="icon" href="Images/Logos/EventMap.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,7 +74,7 @@
     if($uri !== "/EventMap/?/login"){
       //require_once 'Pages/Utils/PopUpLogin.php';
       //require_once 'Pages/Admin/AdminPanel.php';
-      
+      //CreateImageDir("/Images/Events/Background/artfgg", "");
     }
 
     ?>
@@ -80,6 +85,8 @@
     <div id="MasterContent" >
         <?php
         require_once $page;
+
+        require_once "Pages/Utils/newfooter.php";
         ?>
     </div>
 

@@ -86,7 +86,7 @@ function CreateUser($FirstName, $Name, $Email, $Password, $Description){
     {
         global $Db;
         // Insert User images (background, avatar)
-
+       // $UserAvatarId = InsertImage($ImageName, $ImageDir); // créer l'emplacement pour l'image
         // Insert User
         $Querry = $Db -> prepare("INSERT INTO user(UserFirstName, UserName, UserEmail, UserPassword, UserDescription, UserAvatarId, UserBackgroundId) VALUES (:UserFirstName, :UserName, :UserEmail, :UserPassword, :UserDescription, :UserAvatarId, :UserBackgroundId)");
         $Querry -> execute([
@@ -97,8 +97,7 @@ function CreateUser($FirstName, $Name, $Email, $Password, $Description){
             'UserDescription' => $Description,
             'UserAvatarId' => NULL,
             'UserBackgroundId' => NULL
-        ]);
-        
+        ]);      
     }
 }
 
@@ -120,6 +119,22 @@ function Login($Email, $Password){
 }
 
 
+function InsertImage($ImageName, $ImageDir):int
+{
+    global $Db;
 
+    $Querry = $Db -> prepare("INSERT INTO image(ImageName, ImageDir) VALUES (:ImageName, :ImageDir)");
+    $Querry -> execute([
+        'ImageName' => $ImageName,
+        'ImageDir' => $ImageDir
+    ]);
+    return $Db->lastInsertId();   
+}
 
+function CreateImageDir($ImageLocation, $User)
+{
+    if (!mkdir($ImageLocation, 0777, true)) {
+        die('Échec lors de la création des dossiers...');
+    }
+}
 ?>
