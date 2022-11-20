@@ -109,7 +109,7 @@ function Login($Email, $Password){
         'UserPassword' => password_verify($Password, PASSWORD_DEFAULT)
     ]);
     $user = $Querry->fetch();
-
+    var_dump($user);
     if($user){
         echo "LOGIN SUCCED";
     }

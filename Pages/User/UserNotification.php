@@ -18,6 +18,8 @@
 $CurrentUser = 0;//Session[User];
 $UserId = 1;
 
+$Connected = false;
+
 $UserNotifications = GetUserNotifications(1);
 CreateUser("Insert", "Into", "database@eventmap.com", "MotDePasse", "j'ai pas envie de metrre une description");
 ?>
@@ -27,7 +29,10 @@ CreateUser("Insert", "Into", "database@eventmap.com", "MotDePasse", "j'ai pas en
     </div>
     <div class="MiddleUserNotification">
         <?php 
-            foreach($UserNotifications as $value => $UserNotification){            
+            if($Connected)
+            {
+                foreach($UserNotifications as $value => $UserNotification)
+                {   
         ?>
         <div class="UserNotificationContent">
             <div class="UserNotificationSender">
@@ -37,7 +42,15 @@ CreateUser("Insert", "Into", "database@eventmap.com", "MotDePasse", "j'ai pas en
             <p><?= GetNotificationContext($UserNotification->NotificationContext);?></p>
         </div>
         <?php
+            // close if and foreach
+                }
             }
+            else
+            {
+        ?>
+        <p>VOUS N'ETES PAS CONNECTE</p>
+        <?php
+            }  
         ?>
     </div>
     <div class="DownUserNotification">

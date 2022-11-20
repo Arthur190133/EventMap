@@ -33,11 +33,17 @@
     case ($uri === "/EventMap/?/Event"):
       $page .= "MainPageTest.php";
       break;
+
     case ($uri === "/EventMap/?/registerEvent"):
       $page .= "registerEvent.php";
       break;
 
+    case($uri === "/EventMap/?/UserProfile"):
+      $page .= "UserProfile.php";
+      break;
+
       default:
+
       // 404 cannot find the required page
       $page .=  "Error404.php";
       break;
@@ -59,6 +65,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&display=swap" rel="stylesheet">
     <script
       src="https://code.jquery.com/jquery-3.6.1.min.js"
       integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
@@ -71,8 +78,8 @@
     </script> 
   <body>
     <?php
-    if($uri !== "/EventMap/?/login"){
-      //require_once 'Pages/Utils/PopUpLogin.php';
+    if($uri !== "/EventMap/?/Login"){
+      require_once 'Pages/Utils/PopUpLogin.php';
       //require_once 'Pages/Admin/AdminPanel.php';
       //CreateImageDir("/Images/Events/Background/artfgg", "");
     }
@@ -80,13 +87,14 @@
     ?>
         <?php 
           require_once 'Pages/Utils/NewNavBar.php'; 
-          require_once 'Pages/User/UserProfile.php';
+          
         ?>
     <div id="MasterContent" >
         <?php
         require_once $page;
 
         require_once "Pages/Utils/newfooter.php";
+        //require_once 'Pages/User/UserProfile.php';
         ?>
     </div>
 
