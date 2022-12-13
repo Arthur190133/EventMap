@@ -7,37 +7,30 @@
 	}
     if(isset($_POST['Email'], $_POST['MotDePasse']))
 	{
-		$userConnect=Login($_POST['Email'], $_POST['MotDePasse']);
+		$userConnected=Login($_POST['Email'], $_POST['MotDePasse']);
 		$_SESSION["CurrentEmail"] = $_POST['Email'];
-		header("location: test");
-		if($userConnect)
+		if($userConnected)
 		{
-			$_SESSION['user'] = $userConnect;
-			
-			//header("location: test");
 		}
 		else $message="l'Adresse mail ou le mot de passe est incorrecte !";
 
 	}
-	CreateUser("aaa", "aaa", "a@w.com", "default", "aaa");
-	Login("a@w.com", "default");
-	var_dump("Current email : " . $CurrentEmail);
 ?>
-<link href= "css/login.css" rel="stylesheet">
-<div class=box-formulaire>
+<div class=box-login>
     <div class=gauche>
         <h1 class=menuTXT>SE CONNECTER</h1>
 		<form action="" method="post">
 			<div>
 				<form action="" method="post">
 				<div class="LoginContent">
-					<input class="inputtt" type="email" value="<?= $CurrentEmail ?>" name="Email" placeholder="Email" required>
-					<input class="inputtt" type="password" name="MotDePasse" placeholder="Mot de passe" required>
-					<button class="LoginButton">Connection</button>
+					<input type="email" value="<?= $CurrentEmail ?>" name="Email" placeholder="Email" required>
+					<input type="password" name="MotDePasse" placeholder="Mot de passe" required>
 					<p class="LoginMessage"><?= $message ?></p>
+					<button class="LoginButton">Connection</button>
 				</div>	
 			</div>	
 		</form>
+		<p><a href="?/Register">Cliquez ici</a> pour créer un compte</p>
     </div>
 
     <div class=droite>

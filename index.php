@@ -3,6 +3,12 @@
   require_once 'Pages/Tools/Requestes.php';
   require_once 'Pages/Tools/Functions.php';
   session_start();
+
+  $user = null;
+  if(isset($_SESSION['user']))
+  {
+    $user = $_SESSION['user'];
+  }
   
   $uri = $_SERVER['REQUEST_URI'];
   if($uri === "/EventMap" || $uri === "/EventMap/" || $uri === "/EventMap/?"){
@@ -19,6 +25,11 @@
       break;
     
     case ($uri === "/EventMap/?/Login"):
+      if($user)
+      {
+        header("location:/EventMap?/");
+        break;
+      }
       $page .= "Login.php";
       break;
 
@@ -48,9 +59,6 @@
       $page .=  "Error404.php";
       break;
   }
-  CreateUser(" ", " ", " ", " a@a.com", "a", " ")
-
-
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +86,7 @@
     </script> 
   <body>
     <?php
-    if($uri !== "/EventMap/?/Login"){
+    if(!$user || $uri != "/EventMap/?/Login"){
       require_once 'Pages/Utils/PopUpLogin.php';
       //require_once 'Pages/Admin/AdminPanel.php';
       //CreateImageDir("/Images/Events/Background/artfgg", "");

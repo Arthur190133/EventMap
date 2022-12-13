@@ -1,34 +1,18 @@
 <?php
-    global $Db;
-    $UserId = 1;
-    $Querry = $Db -> prepare("SELECT * FROM image WHERE ImageId in(SELECT UserAvatarId from user where UserId = :UserId)");
-    $Querry -> execute([
-        'UserId' => $UserId
-    ]);
-    $UserAvatar = $Querry -> fetch();
-    if($UserAvatar)
+
+    $UserAvatar = "Images/Users/Avatars/default/DefaultAvatar.png";
+    if(isset($user) && $user)
     {
-        if(file_exists($UserAvatar -> ImageDir))
-        {
-            $UserAvatar = $UserAvatar -> ImageDir;     
-        }
-        else{
-            $UserAvatar = "Images/Users/Avatars/default/DefaultAvatar.png"; 
-        }  
-    }
-    else
-    {
-        $UserAvatar = "Images/Users/Avatars/default/DefaultAvatar.png";
+        $UserAvatar = GetUserAvatar();
     }
 
 
     $userProfileLink = "?/Login";
-    $connected = false;
 
     //
     // Si l'utilisateur est connecté 
     //
-    if($connected){
+    if($user){
         $userProfileLink = "?/UserProfile";
     }
 ?>
@@ -55,7 +39,7 @@
                 </div>
                 <div class="NavBarUserContent">
                     <a href=<?= $userProfileLink ?>>
-                        <input type="image" class="ButtonUserAvatar" src=<?= $UserAvatar?> alt="UserAvatar"></input>                 
+                        <input type="image" class="ButtonUserAvatar" src="<?= $UserAvatar?>"  alt="UserAvatar"></input>                 
                     </a>
                     <!-- onclick="OpenPage('Pages/User/UserNotification.php','NavBarNotificationContent')"  -->
                     <a class="NavBarNotification" id="BellNotification">

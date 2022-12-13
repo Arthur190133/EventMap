@@ -32,6 +32,18 @@ function GetImageFromTable ($ImageId):string
     return "";
 }   
 
+function GetUserAvatar()
+{
+    if(isset($user))
+    {
+        $Avatar = GetImageFromTable($user->UserAvatarId);
+       if(file_exists($Avatar))
+       {
+           return $Avatar -> ImageDir;     
+       }
+    }
+}
+
 function GetEvents(){
     global $Db;
 
@@ -86,7 +98,7 @@ function CreateUser($FirstName, $Name, $Email, $Password, $Description){
     {
         global $Db;
         // Insert User images (background, avatar)
-       // $UserAvatarId = InsertImage($ImageName, $ImageDir); // créer l'emplacement pour l'image
+        // $UserAvatarId = InsertImage($ImageName, $ImageDir); // créer l'emplacement pour l'image
         // Insert User
         $Querry = $Db -> prepare("INSERT INTO user(UserFirstName, UserName, UserEmail, UserPassword, UserDescription, UserAvatarId, UserBackgroundId) VALUES (:UserFirstName, :UserName, :UserEmail, :UserPassword, :UserDescription, :UserAvatarId, :UserBackgroundId)");
         $Querry -> execute([
@@ -103,15 +115,14 @@ function CreateUser($FirstName, $Name, $Email, $Password, $Description){
 
 function Login($Email, $Password){
     global $Db;
-    $Querry = $Db -> prepare("SELECT * from user where UserEmail like :UserEmail and UserPassword like :UserPassword");
+    $Querry = $Db -> prepare("SELECT * from user where UserEmail like :UserEmail");
     $Querry -> execute([
-        'UserEmail' => $Email,
-        'UserPassword' => password_verify($Password, PASSWORD_DEFAULT)
+        'UserEmail' => $Email
     ]);
-    $user = $Querry->fetch();
-    var_dump($user);
-    if($user){
-        echo "LOGIN SUCCED";
+    $user = $Querry->fetch(PDO::FETCH_ASSOC);
+    if(password_verify($Password, $user['UserPassword']))
+    {
+        $_SESSION['user'] = $user;
     }
     else{
         echo "LOGIN FAILED";

@@ -18,7 +18,7 @@
 $CurrentUser = 0;//Session[User];
 $UserId = 1;
 
-$Connected = false;
+$Connected = true;
 
 $UserNotifications = GetUserNotifications(1);
 CreateUser("Insert", "Into", "database@eventmap.com", "MotDePasse", "j'ai pas envie de metrre une description");

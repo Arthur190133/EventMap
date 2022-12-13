@@ -882,13 +882,13 @@ font-weight: 700;
     text-decoration: none;
   }
   
-  .box-formulaire .gauche {
+  .box-login .gauche {
     overflow: auto ;
     padding: 40px;
     scrollbar-width: none;
   }
   
-  .box-formulaire {
+  .box-login {
     height: 780px;
     width: 100%;
     display: flex;
@@ -933,7 +933,7 @@ font-weight: 700;
     background-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%);
     overflow: auto ;
     display: flex;
-    padding-top: 25px;
+    padding-top: 5px;
     align-items: center;
     justify-content: space-between;
     position: fixed;
@@ -969,7 +969,7 @@ font-weight: 700;
     font-family: 'Changa', sans-serif;
   }
   
-  .box-formulaire .gauche button {
+  .box-login .gauche button {
     background-color: white;
     font-size: 16px;
     width: 180px;
@@ -996,10 +996,14 @@ font-weight: 700;
     
   }
 
-  .box-formulaire .gauche button:hover{
+  .box-login .gauche button:hover{
         background-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%);
         color: white;
         width: 80%;
+  }
+
+  .box-login a{
+    color: blue;
   }
 
   .LoginContent{
@@ -1011,14 +1015,18 @@ font-weight: 700;
     margin-bottom: 20px;
   }
   
-  .box-formulaire .droite img {
+  .box-login .droite img {
     width: 100%;
     color: #FFFFFF;
     overflow: hidden;
     float:left;
   }
+
+  .LoginMessage{
+    height: 50px;
+  }
   
-  .box-formulaire .droite .overlay {
+  .box-login .droite .overlay {
     padding: 30px;
     width: 0%;
     height: 0%;
@@ -1026,7 +1034,7 @@ font-weight: 700;
     overflow: auto;
   }
   
-  .inputtt {
+  .LoginContent input {
     width: 500px;
     padding: 10px;
     margin-top: 25px;

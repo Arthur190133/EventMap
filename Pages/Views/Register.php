@@ -5,33 +5,30 @@
 <div>
 
 <script> RemoveDiv("navbar") </script>
-<form action="" method="POST">
-    <div class="Connetion">
-        <div class="ConnetionContent">
-            <div>
-                <span class="ConnetionName"> Adress E-Mail </span>
-                <input  class="ConnetionInput"type="email" name="UserEmail">
-            </div>
-            <div>
-                <span class="ConnetionName"> Mot de passe </span>
-                <input  class="ConnetionInput"type="password" name="UserPassword">
-            </div>
-            <div>
-                <span class="ConnetionName"> Prenom </span>
-                <input class="ConnetionInput" type="text" name="UserFirstName">
-            </div>
-            <div>
-                <span class="ConnetionName"> Nom </span>
-                <input class="ConnetionInput" type="text" name="UserName">
-            </div>
-            <div>
-                <span class="ConnetionName"> Numéro de téléphone </span>
-                <input class="ConnetionInput" type="tel" name="UserPhonenumber" pattern="[0-9]{4} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}">
-            </div> 
-            
-        </div>
+<div class=box-login>
+    <div class=gauche>
+        <h1 class=menuTXT>CREER UN COMPTE</h1>
+		<form action="" method="post">
+			<div>
+				<form action="" method="post">
+				<div class="LoginContent">
+                    <input  type="name" placeholder="Nom" required>
+                    <input  type="name" placeholder="Prénom" required>
+					<input  type="email" name="Email" placeholder="Email" required>
+					<input  type="password" name="MotDePasse" placeholder="Mot de passe" required>
+                    <input  type="password" name="MotDePasse" placeholder="Confirmer le mot de passe" required>
+                    <input  type="text" placeholder="Votre Description" required>
+                    <input  type="file" placeholder="Votre avatar">
+                    <input  type="file" placeholder="Votre fond de page">
+					<button class="LoginButton">Créer</button>
+					<!-- <p class="LoginMessage"><?= " " + $message ?></p> -->
+				</div>	
+			</div>	
+		</form>
+		<p><a href="?/Register">Cliquez ici</a> pour créer un compte</p>
     </div>
-    <button> Créer votre compte </button>
-</form>
 
+    <div class=droite>
+		<!-- <img src="Images/Logos/LoginGif.gif"> -->
+    </div>
 </div>
