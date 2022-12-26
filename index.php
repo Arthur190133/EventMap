@@ -34,6 +34,10 @@
       break;
 
     case ($uri === "/EventMap/?/Register"):
+      if($user)
+      {
+        header("location:/EventMap?/");
+      }
       $page .= "Register.php";
       break;
 
@@ -85,6 +89,28 @@
   <script src="js/script.js">
     </script> 
   <body>
+  <div id="timer">00:00:00</div>
+    <script>
+      // Durée du timer en secondes
+      var duration = 3600;
+      
+      // Mise à jour de l'affichage du timer toutes les secondes
+      setInterval(function() {
+        // Réduction de la durée restante de 1 seconde
+        duration--;
+        
+        // Calcul des heures, minutes et secondes restantes
+        var hours = Math.floor(duration / 3600);
+        var minutes = Math.floor((duration % 3600) / 60);
+        var seconds = duration % 60;
+        
+        // Mise à jour de l'élément div avec la durée restante au format hh:mm:ss
+        document.getElementById("timer").innerHTML = 
+          (hours < 10 ? "0" + hours : hours) + ":" +
+          (minutes < 10 ? "0" + minutes : minutes) + ":" +
+          (seconds < 10 ? "0" + seconds : seconds);
+      }, 1000);
+    </script>
     <?php
     if(!$user || $uri != "/EventMap/?/Login"){
       require_once 'Pages/Utils/PopUpLogin.php';

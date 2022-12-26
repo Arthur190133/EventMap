@@ -11,10 +11,12 @@
 		$_SESSION["CurrentEmail"] = $_POST['Email'];
 		if($userConnected)
 		{
+			header("location: /EventMap", true);
 		}
 		else $message="l'Adresse mail ou le mot de passe est incorrecte !";
 
 	}
+	CreateUser("test", "test", "test@test.com", "test", "test");
 ?>
 <div class=box-login>
     <div class=gauche>

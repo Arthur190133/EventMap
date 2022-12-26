@@ -885,6 +885,7 @@ font-weight: 700;
   .box-login .gauche {
     overflow: auto ;
     padding: 40px;
+    padding-top: 0px;
     scrollbar-width: none;
   }
   
@@ -895,9 +896,9 @@ font-weight: 700;
     margin-right: 20px;
     align-items: stretch;
     justify-content: space-between;
-    background:white url("../Images/Logos/LoginGif.gif");
+    background:white url("../Images/Logos/LoginGif-unscreen.gif");
     background-repeat:no-repeat;
-    background-position: 75% 0%;
+    background-position: 100% 0%;
     background-size: 50%;
   }
   
@@ -969,7 +970,7 @@ font-weight: 700;
     font-family: 'Changa', sans-serif;
   }
   
-  .box-login .gauche button {
+  .box-login .gauche .LoginButton {
     background-color: white;
     font-size: 16px;
     width: 180px;
@@ -996,7 +997,7 @@ font-weight: 700;
     
   }
 
-  .box-login .gauche button:hover{
+  .box-login .gauche .LoginButton:hover{
         background-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%);
         color: white;
         width: 80%;
@@ -1011,6 +1012,10 @@ font-weight: 700;
     position: relative;
   }
   
+  .LoginSubContent{
+
+  }
+
   .color{
     margin-bottom: 20px;
   }
@@ -1034,7 +1039,7 @@ font-weight: 700;
     overflow: auto;
   }
   
-  .LoginContent input {
+  .LoginContent input{
     width: 500px;
     padding: 10px;
     margin-top: 25px;
@@ -1043,6 +1048,42 @@ font-weight: 700;
     border: none;
     outline: none;
     border-bottom: 2px solid #B0B3B9;
+  }
+
+  .LoginContent textarea{
+    resize: none;
+    width: 100%;
+    height: 120px;
+    overflow-y: hidden;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #B0B3B9;
+  }
+
+  .login-content-preview-image{
+    height: 80px;
+    width: 80px;
+  }
+
+  .login-content-images{
+    display: flex;
+  }
+
+  .login-content-image{
+    display: grid;
+    width: 500px;
+    padding: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 16px;
+  }
+
+  .login-content-image img{
+    margin: auto;
   }
 
 
