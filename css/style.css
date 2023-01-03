@@ -890,16 +890,12 @@ font-weight: 700;
   }
   
   .box-login {
-    height: 780px;
-    width: 100%;
+    height: 80%;
+    width: 60%;
     display: flex;
-    margin-right: 20px;
+    margin-right: 5px;
     align-items: stretch;
     justify-content: space-between;
-    background:white url("../Images/Logos/LoginGif-unscreen.gif");
-    background-repeat:no-repeat;
-    background-position: 100% 0%;
-    background-size: 50%;
   }
   
   .box-menu {
@@ -1006,11 +1002,6 @@ font-weight: 700;
   .box-login a{
     color: blue;
   }
-
-  .LoginContent{
-    display: grid;
-    position: relative;
-  }
   
   .LoginSubContent{
 
@@ -1040,7 +1031,7 @@ font-weight: 700;
   }
   
   .LoginContent input{
-    width: 500px;
+    width: 300px;
     padding: 10px;
     margin-top: 25px;
     margin-bottom: 25px;
@@ -1082,8 +1073,27 @@ font-weight: 700;
     font-size: 16px;
   }
 
+  .login-right{
+    width: 40%;
+    background:white url("../Images/Logos/LoginGif.gif");
+    background-repeat:no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+    background-attachment: fixed;
+    background-size: 45%;
+  }
+
   .login-content-image img{
     margin: auto;
+  }
+
+  .user-background-image{
+    width: 100%;
+    background-color: red;
+  }
+
+  .login-master{
+    display: flex;
   }
 
 

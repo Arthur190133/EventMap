@@ -7,6 +7,11 @@
             <p> FILTER </p>
             <div>
                 <input type="search" placeholder="Recherche par tag">
+                <select name="" id="">
+                    <option value="">ESP0RT</option>
+                    <option value="">CULTURE</option>
+                    <option value="">LOISIR</option>
+                </select>
             </div>
             <div class="FiltersSelectedTags">
                 <?php

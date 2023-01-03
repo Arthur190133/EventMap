@@ -183,6 +183,17 @@ function RemoveDiv(DivId)
   }
 }
 
+function checkImageFormat(image)
+{
+  console.log("Checking the format of the image ");
+  if(image.match(/\.(jpg|jpeg|png)$/i)){
+    console.log("file imported successfully");
+  }
+  else{
+    console.log("file has not supported format");
+  }
+}
+
 function GenerateEventSliderRangePrices(){
   $( function() {
     $( "#EventSliderRangePrices" ).slider({
@@ -221,6 +232,17 @@ document.addEventListener('click', function CloseNotification(event) {
     document.getElementById('UserNotification').style.display = 'none';
   }
 });
+
+const reader = new FileReader();
+
+    reader.onload = function(e) {
+        // do something with the result
+        var file = reader.result || e.target.result;
+    }
+    reader.readAsDataURL(input.files[0]);
+
+
+
 
 
 

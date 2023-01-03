@@ -26,7 +26,7 @@
                 <div class="NavBarSearch">
                     <input placeholder="Tapez ici pour rechercher un évenement" type="search" class="NavBarSearchBar"></input>
                     <div class="NavBarSearchBarAutoComplete">
-                        <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
+                        <li>__________________________________________________________________________-JE SUIS UNE AUTO COMPLEMENTATION </li>
                         <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
                         <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
                         <li>JE SUIS UNE AUTO COMPLEMENTATION </li>
