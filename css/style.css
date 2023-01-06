@@ -511,181 +511,7 @@ font-weight: 700;
     filter: invert(); 
 }
 
-.NavBar{
-    display: flex;
-    height: 128px;
-    position: relative;
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,0.9) 20%, rgba(73,73,73,0.6) 50%, rgba(255,255,255,0) 100%);
-    z-index: 4;
-}
 
-.NavBarLogo{
-    height: 128px;
-    width: 128px;
-}
-.NavBarElements{
-    height: 50px;
-    border-radius: 1000px;
-}
-.NavBarTop{
-    display: flex;
-}
-
-.NavBarSearch{
-    max-width: 80%;
-    min-width: 50%;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
-}
-.NavBarSearchBar{
-    width: 100%;
-    height: 50px;
-    font-size: 20px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    padding: 0px 20px 0px 20px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    z-index: 99;
-}
-
-.NavBarSearchBar:focus + .NavBarSearchBarAutoComplete{
-    display:contents;
-}
-
-.NavBarSearchBarIcon{
-    height: 55px;
-    width: 55px;
-    line-height: 55px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    text-align: center;
-    font-size: 20px;
-    cursor: pointer;
-}
-.NavBarSearchBarIcon img{
-    height: 55px;
-    width: 55px;
-}
-.NavBarSearchBarAutoComplete{
-    /*padding: 10px 8px;*/
-    max-height: 280px;
-    overflow-y: auto;
-    opacity: 0;
-    pointer-events: none;
-    display: none;
-}
-.NavBarSearchBarAutoComplete li{
-    list-style: none;
-    padding: 8px 12px;
-    width: 100%;
-    cursor: default;
-    border-radius: 3px;
-}
-.NavBarSearchBarAutoComplete li:hover{
-    background: white;
-}
-
-.NewNavBarContent{
-    height: 3%;
-    width: 100%;
-    margin: auo;
-    padding: 10px;
-}
-
-.NavBarList{
-    padding: 0;
-    width: 80%;
-}
-
-.NavBarListItem{
-    position: relative;
-    height: 100%;
-    border-radius: 1000px;
-}
-
-.NavBarListItemContent{
-    display:table;
-    padding-right: 10px;
-    padding-left: 10px;
-}
-
-
-.NavBarList li{
-    display: inline-block;
-    border-radius: 1000px;
-    height: 30px;
-    background: -webkit-linear-gradient(0deg, transparent 50%, rgb(18, 18, 39, 0.6) 50%);
-    background-size: 500px 80px;
-    transition: all 0.5s;
-}
-.NavBarList li:hover{
-    background-position: 250px 0;
-}
-
-.NavBarList li img,svg{
-    height: 24px;
-    width: 24px;
-    margin-top: 3px;
-    margin-right: 10px;
-    
-}
-
-.NavBarList li a{
-    display: flex;
-    height: 100%;
-    width: 100%;
-    text-decoration:none; 
-}
-
-.NavBarList span {
-    text-transform: uppercase;
-    display:table-cell;
-    vertical-align:middle;
-    color: #fff;
-    font-weight: bold;
-}
-
-.NavBarUserContent{
-    bottom: 10px;
-    width: 100%;
-    margin-left: auto; 
-    margin-right: 0;
-    margin-top: 8px;
-}
-
-.NavBarNotification{
-    margin-right: 30px;
-    float:right; 
-    margin-top: 6.25px;
-}
-
-.NavBarNotification svg{
-    width: 25px;
-    height: 25px;
-    fill: white;
-}
-
-.ImageUserAvatar{
-    width: 64px;
-    height: 64px;
-    vertical-align: middle;
-    border-radius: 50%;
-    
-}
-
-.ButtonUserAvatar{
-    width: 35px;
-    height: 35px;
-    vertical-align: middle;
-    background-color: white;
-    border-radius: 50%;
-    float:right; 
-    margin-right: 10px; 
-}
 
 #EventPreview{
     
@@ -882,21 +708,7 @@ font-weight: 700;
     text-decoration: none;
   }
   
-  .box-login .gauche {
-    overflow: auto ;
-    padding: 40px;
-    padding-top: 0px;
-    scrollbar-width: none;
-  }
-  
-  .box-login {
-    height: 80%;
-    width: 60%;
-    display: flex;
-    margin-right: 5px;
-    align-items: stretch;
-    justify-content: space-between;
-  }
+
   
   .box-menu {
     color: #fff;
@@ -915,17 +727,18 @@ font-weight: 700;
     background-color: #923600;
   }
   
+  /*NAVBAR*/
   .logo{
     margin-top: 5px;
     max-width: 5%;
     height: 5%;
   }
-  
+   /*???*/
   .menuH1{
     color: white;
     letter-spacing: 3px;
   }
-  
+   /*FOOTER*/
   .footer {
     background-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%);
     overflow: auto ;
@@ -940,7 +753,7 @@ font-weight: 700;
     width: 100%;
     background-color: red;
   }
-  
+  /*FOOTER*/
   .followus{
     padding-right: 100px;
     font-size: 1vmax;
@@ -950,151 +763,25 @@ font-weight: 700;
     font-weight:bold;
     text-transform: uppercase;
   }
-  
+  /*FOOTER*/
   .footer-gauche{
     justify-content: end;
     overflow: hidden;
   }
-  
+  /*FOOTER*/
   .footer-droite{
     justify-content: end;
     overflow: hidden;
   }
   
-  .menuTXT{
-    margin-left: 40px;
-    font-family: 'Changa', sans-serif;
-  }
-  
-  .box-login .gauche .LoginButton {
-    background-color: white;
-    font-size: 16px;
-    width: 180px;
-    padding: 12px 35px;
-    border-radius: 40px;
-    margin-right: 25px;
-    display: inline-block;
-    border: 3px solid #be6600;
-    outline: 0;
-    transition-duration: 0.4s;
-    color : grey;
-    margin-bottom: 20px;
-    margin: 0;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    -ms-transform: translate(-50%, 0%);
-    transform: translate(-50%, 0%);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .LoginMessage{
-    
-  }
-
-  .box-login .gauche .LoginButton:hover{
-        background-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%);
-        color: white;
-        width: 80%;
-  }
-
-  .box-login a{
-    color: blue;
-  }
-  
-  .LoginSubContent{
-
-  }
-
+  /*???*/
   .color{
     margin-bottom: 20px;
   }
   
-  .box-login .droite img {
-    width: 100%;
-    color: #FFFFFF;
-    overflow: hidden;
-    float:left;
-  }
+ 
 
-  .LoginMessage{
-    height: 50px;
-  }
-  
-  .box-login .droite .overlay {
-    padding: 30px;
-    width: 0%;
-    height: 0%;
-    background: #2e2e2e34;
-    overflow: auto;
-  }
-  
-  .LoginContent input{
-    width: 300px;
-    padding: 10px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #B0B3B9;
-  }
 
-  .LoginContent textarea{
-    resize: none;
-    width: 100%;
-    height: 120px;
-    overflow-y: hidden;
-    padding: 10px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #B0B3B9;
-  }
-
-  .login-content-preview-image{
-    height: 80px;
-    width: 80px;
-  }
-
-  .login-content-images{
-    display: flex;
-  }
-
-  .login-content-image{
-    display: grid;
-    width: 500px;
-    padding: 10px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    font-size: 16px;
-  }
-
-  .login-right{
-    width: 40%;
-    background:white url("../Images/Logos/LoginGif.gif");
-    background-repeat:no-repeat;
-    background-position-x: right;
-    background-position-y: center;
-    background-attachment: fixed;
-    background-size: 45%;
-  }
-
-  .login-content-image img{
-    margin: auto;
-  }
-
-  .user-background-image{
-    width: 100%;
-    background-color: red;
-  }
-
-  .login-master{
-    display: flex;
-  }
 
 
 /* TEST */

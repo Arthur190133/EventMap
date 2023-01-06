@@ -1,0 +1,167 @@
+.NavBar{
+    display: flex;
+    height: 128px;
+    position: relative;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0.9) 20%, rgba(73,73,73,0.6) 50%, rgba(255,255,255,0) 100%);
+    z-index: 4;
+}
+
+.NavBarLogo{
+    height: 128px;
+    width: 128px;
+}
+.NavBarElements{
+    height: 50px;
+    border-radius: 1000px;
+}
+.NavBarTop{
+    display: flex;
+}
+
+.NavBarSearch{
+    max-width: 80%;
+    min-width: 50%;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+    z-index: 2;
+}
+.NavBarSearchBar{
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 20px 0px 20px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    background-image: url('Images/Logos/Search.svg');
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 24px;
+}
+
+
+.NewNavBarContent{
+    height: 3%;
+    width: 100%;
+    margin: auo;
+    padding: 10px;
+}
+
+.NavBarList{
+    padding: 0;
+    width: 80%;
+}
+
+.NavBarListItem{
+    position: relative;
+    height: 100%;
+    border-radius: 1000px;
+}
+
+.NavBarListItemContent{
+    display:table;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+
+.NavBarList li{
+    display: inline-block;
+    border-radius: 1000px;
+    height: 30px;
+    background: -webkit-linear-gradient(0deg, transparent 50%, rgb(18, 18, 39, 0.6) 50%);
+    background-size: 500px 80px;
+    transition: all 0.5s;
+}
+.NavBarList li:hover{
+    background-position: 250px 0;
+}
+
+.NavBarList li svg{
+    height: 24px;
+    width: 24px;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+.NavBarList li:hover svg, .NavBarList li:hover path{
+    fill:white !important; 
+}
+
+.NavBarList li a{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    text-decoration:none; 
+}
+
+.NavBarList span {
+    text-transform: uppercase;
+    display:table-cell;
+    vertical-align:middle;
+    color: #fff;
+    font-weight: bold;
+}
+
+.NavBarUserContent{
+    bottom: 10px;
+    width: 100%;
+    margin-left: auto; 
+    margin-right: 0;
+    margin-top: 8px;
+}
+
+.NavBarNotification{
+    margin-right: 30px;
+    float:right; 
+    margin-top: 6.25px;
+}
+
+.NavBarNotification svg{
+    width: 25px;
+    height: 25px;
+    fill: white;
+}
+
+.ImageUserAvatar{
+    width: 64px;
+    height: 64px;
+    vertical-align: middle;
+    border-radius: 50%;
+    
+}
+
+.ButtonUserAvatar{
+    width: 35px;
+    height: 35px;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 50%;
+    float:right; 
+    margin-right: 10px; 
+}
+
+.NavBarSearch ul{
+    padding: 5px;
+    margin: 5px;
+}
+
+.NavBarSearch li{
+    list-style: none;
+    padding: 5px 0px 5px 0px;
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.NavBarSearch li:hover{
+    background-color: rgb(129, 129, 129);
+}
+
+.icon {
+    margin-right: 8px;
+  }

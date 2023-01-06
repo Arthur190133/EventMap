@@ -170,6 +170,7 @@ function OpenPage(OpenFile, Content)
   }
 }
 
+"use strict";
 function RemoveDiv(DivId)
 {
   if(document.getElementById(DivId))
@@ -239,7 +240,7 @@ const reader = new FileReader();
         // do something with the result
         var file = reader.result || e.target.result;
     }
-    reader.readAsDataURL(input.files[0]);
+    //reader.readAsDataURL(input.files[0]);
 
 
 

@@ -1,13 +1,16 @@
 <?php
-
+  ini_set("max_execution_time", 0);
   require_once 'Pages/Tools/Requestes.php';
   require_once 'Pages/Tools/Functions.php';
   session_start();
   //session_destroy();
 
+
+
   $user = null;
   if(isset($_SESSION['user']))
   {
+    $_SESSION['user'] = json_decode(file_get_contents('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
     $user = $_SESSION['user'];
   }
   
@@ -16,7 +19,7 @@
     header("location:/EventMap?/");
   }
 
-  $page = "Pages/Views/";
+  $page = "";
   
   require_once 'Pages/Tools/Connection.php';
 
@@ -28,10 +31,10 @@
     case ($uri === "/EventMap/?/Login"):
       if($user)
       {
-        header("location:/EventMap?/");
+        header("location:/EventMap/?/Connected");
         break;
       }
-      $page .= "Login.php";
+      $page .= "templates/Login.php";
       break;
 
     case ($uri === "/EventMap/?/Register"):
@@ -68,27 +71,9 @@
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/login.css"> -->
-    <title>EventMap</title>
-    <link rel="icon" href="Images/Logos/EventMap.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nabla&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&display=swap" rel="stylesheet">
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.min.js"
-      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-      crossorigin="anonymous">
-    </script>
-    <script src="js/jquery-ui.min.js" type="text/javascript"></script>
-  </head>
-  <meta charset="utf-8">
-  <script src="js/script.js">
-    </script> 
+  <?php 
+    require_once 'components/Header.php';
+  ?>
   <body>
     <?php
     if(!$user || $uri != "/EventMap/?/Login"){
@@ -99,12 +84,14 @@
 
     ?>
         <?php 
-          require_once 'Pages/Utils/NewNavBar.php'; 
+          require_once 'templates/NavBar.php'; 
           
         ?>
     <div id="MasterContent" >
         <?php
-        require_once $page;
+        //$rees =  file_get_contents('http://localhost/EventMap/API/event/read.php');
+        //echo $rees;
+        require_once "templates/login.php";
 
         require_once "Pages/Utils/newfooter.php";
         //require_once 'Pages/User/UserProfile.php';

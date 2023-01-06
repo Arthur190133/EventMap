@@ -21,7 +21,7 @@ $UserId = 1;
 $Connected = true;
 
 $UserNotifications = GetUserNotifications(1);
-CreateUser("Insert", "Into", "database@eventmap.com", "MotDePasse", "j'ai pas envie de metrre une description");
+//CreateUser("Insert", "Into", "database@eventmap.com", "MotDePasse", "j'ai pas envie de metrre une description");
 ?>
 <div class="UserNotification" id="UserNotification">
     <div class="UpUserNotification">
