@@ -7,17 +7,19 @@
 .color5 {color: #aa9bfa;}
 
 */
-
+/* INDEX */
 html {
     box-sizing: border-box;
     font-size: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* INDEX */
 *, *::before, *::after{
     box-sizing: inherit;
 }
 
+/* INDEX */
 body{
     margin: 0;
     padding: 0;
@@ -590,11 +592,13 @@ font-weight: 700;
     border-bottom-right-radius: 15px;
 }
 
+/*FILTER*/
 .FiltersSelectedTags{
     display: flex;
     flex-wrap: wrap;
 }
 
+/*FILTER*/
 .SelectedTag{
     display: table;
     padding: 2px;
@@ -605,6 +609,7 @@ font-weight: 700;
     font-size: 12px;
 }
 
+/*FILTER*/
 .SelectedTag span{
     display: table-cell;
     vertical-align: middle;
@@ -612,6 +617,7 @@ font-weight: 700;
     padding-left: 3px;
 }
  
+/*FILTER*/
 .FiltersRemoveSelectedTag{
     height: 15px;
     width: 15px;
@@ -624,14 +630,14 @@ font-weight: 700;
     cursor: pointer;
     
 }
+
+/*FILTER*/
 .FiltersRemoveSelectedTag:hover{
     background-color: rgb(255, 0, 0);
     fill: white;
 }
 
-.FiltersEventProperties input{
-}
-
+/*NOTIFICATION*/
 .UserNotification{
     position: fixed;
     display: none;
@@ -642,6 +648,7 @@ font-weight: 700;
     border-radius: 10px;
 }
 
+/*NOTIFICATION*/
 .UpUserNotification{
     background: rgb(190,102,0);
     background: linear-gradient(180deg, rgba(190,102,0,1) 0%, rgba(94,0,0,0) 100%);
@@ -651,36 +658,42 @@ font-weight: 700;
 
 }
 
+/*NOTIFICATION*/
 .UpUserNotification h3{
     font-size: 15px;
     padding-left: 5px;
 }
 
-
+/*NOTIFICATION*/
 .MiddleUserNotification{
     overflow-y: auto;
     height: 200px;
     background: white;
 }
 
+/*NOTIFICATION*/
 .MiddleUserNotification span {
     font-size: 12px;
     padding-left: 5px;
 }
 
+/*NOTIFICATION*/
 .UserNotificationSender{
     display: flex;
     align-items:center;
 }
 
+/*NOTIFICATION*/
 .UserNotificationContent{
     border-bottom: 2px solid black;
 }
+/*NOTIFICATION*/
 .UserNotificationContent p{
     font-size: 12px;
     font-family: 'Oswald', sans-serif;
 }
 
+/*NOTIFICATION*/
 .DownUserNotification{
     background: white;
     width: 300px;

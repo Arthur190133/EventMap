@@ -154,9 +154,7 @@ class User{
             * 
         FROM " . $this->table . " 
         WHERE 
-            UserEmail like :Email 
-        AND 
-            UserPassword like :Password ";
+            UserEmail like :Email ";
 
         $stmt = $this->connection->prepare($querry);
 
@@ -164,21 +162,20 @@ class User{
         //$this->UserPassword = htmlspecialchars(strip_tags($this->UserPassword));
 
         $stmt->bindParam(':Email', $this->UserEmail);
-        $stmt->bindParam(':Password', $this->UserPassword);
 
         // requete
         $stmt->execute();
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if($row > 0)
+        if($row > 0 && password_verify($this->UserPassword, $row['UserPassword']))
         {
             $this->UserId = $row['UserId'];
             $this->UserFirstName = $row['UserFirstName'];
             $this->UserName = $row['UserName'];
             $this->UserEmail = $row['UserEmail'];
             $this->UserDescription = $row['UserDescription'];
-            $this->UserPassword= $row['UserPassword'];
+            //$this->UserPassword= $row['UserPassword'];
             $this->UserAvatarId= $row['UserAvatarId'];
             $this->UserBackgroundId= $row['UserBackgroundId'];
 

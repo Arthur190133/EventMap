@@ -1,0 +1,39 @@
+.filter-search-content{
+    position: relative;
+    width: 100%;
+    color:black;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px 3px rgb(0 0 0 / 12%);
+    z-index: 2;
+}
+
+.filter-search-content input {
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0px 20px 0px 20px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    background-image: url('Images/Logos/Search.svg');
+    background-position: right;
+    background-repeat: no-repeat;
+    padding-right: 24px;
+}
+
+.filter-search-content ul{
+    position: absolute;
+    top: 0; /* Hauteur de l'élément input */
+    left: 0;
+    background-color: white;
+    z-index: 2;
+    box-shadow: 0px 1px 5px 3px rgb(0 0 0 / 12%);
+
+}
+
+.filter-search-content li{
+    align-items: center;
+    list-style: none;
+}

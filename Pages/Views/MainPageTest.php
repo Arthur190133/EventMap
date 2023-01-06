@@ -1,3 +1,5 @@
+
+<head><link rel="stylesheet" href="css/filter.css"></head>
 <div class="Content">
     <div class="LeftContent">
         <div class="EventFilters">
@@ -5,20 +7,12 @@
                 GenerateEventSliderRangePrices();
             </script>
             <p> FILTER </p>
-            <div>
-                <input type="search" placeholder="Recherche par tag">
-                <select name="" id="">
-                    <option value="">ESP0RT</option>
-                    <option value="">CULTURE</option>
-                    <option value="">LOISIR</option>
-                </select>
+            <div class="filter-search-content">
+                <input type="search" id="filter-search" placeholder="Recherche par tag">
+                <ul id="filter-search-list"></ul>
             </div>
             <div class="FiltersSelectedTags">
-                <?php
-                    for($i = 0; $i < 14 ;$i++)
-                    {
-                ?>
-                <div class="SelectedTag" id=<?= "SelectedTag" .$i ?>>
+                <!--<div class="SelectedTag" id=<?= "SelectedTag" .$i ?>>
                     <span>!!EVENTTAG</span>
                     <svg onclick="RemoveSelectedTag(<?= $i ?>)" class="FiltersRemoveSelectedTag" alt="RemoveTag" version="1.1" id="" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 460.775 460.775" style="enable-background:new 0 0 460.775 460.775;" xml:space="preserve">
@@ -30,10 +24,7 @@
                                 c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"
                             />
                     </svg> 
-                </div>
-                <?php  
-                    }
-                ?>
+                </div> -->
             </div>
             <div class="FiltersEventProperties">
                 <div>
@@ -90,6 +81,9 @@
 <div id="ErrorContent">
 </div>
 </div>
+
+<script src="js/filter.js">
+    </script> 
 
 
 
