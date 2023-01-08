@@ -31,11 +31,11 @@ switch($uri){
       break;
 
     case ($uri === "/EventMap/?/Map"):
-      $page .= "Maps.php";
+      $page .= "Pages/views/Maps.php";
       break;
 
     case ($uri === "/EventMap/?/Event"):
-      $page .= "MainPageTest.php";
+      $page .= "Pages/views/MainPageTest.php";
       break;
 
     case ($uri === "/EventMap/?/registerEvent"):

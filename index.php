@@ -2,7 +2,7 @@
   require_once 'Pages/Tools/Requestes.php';
   require_once 'Pages/Tools/Functions.php';
   session_start();
-  //session_destroy();
+//session_destroy();
 
 
 
@@ -28,7 +28,7 @@
   <?php 
     require_once 'components/Header.php';
   ?>
-  <body>
+  <body class="fade-in">
     <?php
     if(!$user || $uri != "/EventMap/?/Login"){
       require_once 'Pages/Utils/PopUpLogin.php';
@@ -54,5 +54,6 @@
 
   </body>
 
-
-</html>
+  <script src="js/script.js"></script>
+  
+  </html>

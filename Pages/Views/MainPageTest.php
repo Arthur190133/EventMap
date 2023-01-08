@@ -3,14 +3,14 @@
 <div class="Content">
     <div class="LeftContent">
         <div class="EventFilters">
-            <script>
-                GenerateEventSliderRangePrices();
-            </script>
             <p> FILTER </p>
-            <div class="filter-search-content">
-                <input type="search" id="filter-search" placeholder="Recherche par tag">
-                <ul id="filter-search-list"></ul>
+            <div class="filter-search-box">
+                <div class="filter-search-content">
+                    <input id="filter-search" placeholder="Category_search" type="text" class="NavBarSearchBar">
+                    <ul id="filter-search-list"></ul>
+                </div>
             </div>
+
             <div class="FiltersSelectedTags">
                 <!--<div class="SelectedTag" id=<?= "SelectedTag" .$i ?>>
                     <span>!!EVENTTAG</span>

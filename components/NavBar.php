@@ -49,7 +49,7 @@
         <ul class="NavBarList">
             <li>
             <div class="NavBarListItem">
-                    <a href="?/Map">        
+                    <a href="?/Map" class="link">        
                     <div class="NavBarListItemContent">           
                         <svg height="24" width="24" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                             <path style="fill:#16153B;" d="M405.658,507.939c-3.312,0-6.625-1.105-9.35-3.316c-3.96-3.215-96.992-79.684-96.992-163.607
@@ -91,7 +91,7 @@
             </li>
             <li>
             <div class="NavBarListItem">
-                    <a href="?/Event">        
+                    <a href="?/Event" class="link">        
                     <div class="NavBarListItemContent">           
                     <svg height="24" width="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 12C7.44772 12 7 12.4477 7 13C7 13.5523 7.44772 14 8 14H16C16.5523 14 17 13.5523 17 13C17 12.4477 16.5523 12 16 12H8Z" fill="#152C70"/>
@@ -105,7 +105,7 @@
             </li>
             <li>
             <div class="NavBarListItem">
-                    <a href="#">        
+                    <a href="#" class="link">        
                     <div class="NavBarListItemContent">           
                     <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 474.565 474.565" xml:space="preserve">
                         <g>
