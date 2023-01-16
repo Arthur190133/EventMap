@@ -9,7 +9,7 @@
         <div class="NavBarElements">
             <div class="NavBarTop">
                 <div class="NavBarSearch">
-                    <input id="NavBar-search" placeholder="Tapez ici pour rechercher un évenement" type="text" class="NavBarSearchBar">
+                    <input id="NavBar-search" placeholder="Tapez ici pour rechercher un évenement" type="text" class="NavBarSearchBar"></input>
                     <ul id="NavBar-result"></ul>
                 </div>
                 <div class="NavBarUserContent">

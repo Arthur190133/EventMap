@@ -34,8 +34,8 @@ switch($uri){
       $page .= "Pages/views/Maps.php";
       break;
 
-    case ($uri === "/EventMap/?/Event"):
-      $page .= "Pages/views/MainPageTest.php";
+    case (str_starts_with($uri, "/EventMap/?/Event")):
+      $page .= "templates/event/Events.php";
       break;
 
     case ($uri === "/EventMap/?/registerEvent"):

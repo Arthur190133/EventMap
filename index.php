@@ -43,11 +43,11 @@
         ?>
     <div id="MasterContent" >
         <?php
-        //$rees =  file_get_contents('http://localhost/EventMap/API/event/read.php');
-        //echo $rees;
+       // $rees =  file_get_contents('http://localhost/EventMap/API/event/readCards.php');
+       // echo $rees;
         require_once $page;
 
-        require_once "Pages/Utils/newfooter.php";
+        //require_once "Pages/Utils/newfooter.php";
         //require_once 'Pages/User/UserProfile.php';
         ?>
     </div>

@@ -21,6 +21,7 @@ class Event{
     public $OwnerAvatarDir;
     public $OwnerBackgroundName;
     public $OwnerBackgroundDir;
+    public $EventNumberOfUsers;
     public $EventName;
     public $EventDescription;
     public $EventStartDate;
@@ -62,7 +63,7 @@ class Event{
             event.EventStartDate,
             event.EventEndDate,
             event.EventLocation,
-            event.EventCategory,
+            event.EventTagId,
             event.EventPrivate,
             event.EventSize,
             event.EventPrice,
@@ -113,7 +114,7 @@ class Event{
                    event.EventStartDate,
                    event.EventEndDate,
                    event.EventLocation,
-                   event.EventCategory,
+                   event.EventTagId,
                    event.EventPrivate,
                    event.EventSize,
                    event.EventPrice,
@@ -185,7 +186,7 @@ class Event{
                 EventStartDate = :StartDate,
                 EventEndDate = :EndDate,
                 EventLocation = :Location,
-                EventCategory = :Category,
+                EventTagId = :Category,
                 EventPrivate = :Private,
                 EventSize = :Size,
                 EventPrice = :Price,
@@ -234,6 +235,43 @@ class Event{
             printf("Error: %s. \n", $stmt->error);
             return false;
         }
+    }
+
+    // récuperer les évenements pour les cartes
+    public function readCards()
+    {
+                // Créer la requete
+                $querry = '
+                SELECT
+                    event.EventId,
+                    EventThumbnail.ImageName as EventThumbnailName,
+                    EventThumbnail.ImageDir as EventThumbnailDir,
+                    COUNT(DISTINCT NumberOfUsers.EventId) as EventNumberOfUsers,
+                    event.EventName,
+                    event.EventDescription,
+                    event.EventStartDate,
+                    event.EventEndDate,
+                    event.EventLocation,
+                    event.EventCategory,
+                    event.EventPrivate,
+                    event.EventSize,
+                    event.EventPrice,
+                    event.EventCardColor
+                FROM '
+                    . $this->table . ' event
+                    LEFT JOIN 
+                        image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
+                    LEFT JOIN
+                        userevent NumberOfUsers ON event.EventId =    NumberOfUsers.EventId     
+                        
+                    GROUP BY event.EventId
+                    ';
+        
+                $stmt = $this->connection->prepare($querry);
+        
+                $stmt->execute();
+        
+                return $stmt;
     }
 }
 

@@ -27,9 +27,9 @@ body{
     margin: 0;
     padding: 0;
     /*background-color: rgba(128, 128, 128, 0.615);*/
-    background-color: white;
-    overflow-y: hidden;
+    background-color: #0f0f0f;
     overflow-x: hidden;
+    overflow-y: hidden;
     
 
 }
@@ -87,7 +87,35 @@ body{
 
 .EventsContent{
     width: 100%;
+    height: 80vh;
 }
+
+.EventButtons::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    left: -1000000px;
+    
+  }
+  .EventButtons::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: transparent;
+    
+  }
+  .EventButtons::-webkit-scrollbar-button{
+    display: none;
+  }
+
+
+  .EventButtons::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #aaaaaa;
+    border: 1px solid #aaa;
+  }
+  .EventButtons::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+  }
+
+
 
 .EventButtonCard{
     margin-bottom: 30px;
@@ -199,10 +227,12 @@ body{
     width: 100%;
     width: 100%;
     text-align: center;
+    overflow-y: hidden;
 }
 
 .Content{
     display: flex;
+    margin-top: 30px;
 }
 
 
@@ -262,7 +292,7 @@ body{
     background: white;
     min-width: 270px;
     height: 470px;
-    margin-top: 50px;
+    margin-bottom: 50px;
     -webkit-user-select: none;
   }
 .EventCardThumbnail {
@@ -332,11 +362,11 @@ body{
     text-transform: uppercase;
 }
 .EventCardName {
-margin: 0;
-padding: 0 0 10px;
-color: darkgray;
-font-size: 26px;
-font-weight: 700;
+    margin: 0;
+    padding: 0 0 10px;
+    color: darkgray;
+    font-size: 26px;
+    font-weight: 700;
 }
 .EventCardLocation {
     margin: 0;
@@ -352,6 +382,12 @@ font-weight: 700;
     font-size: 14px;
     line-height: 1.8em;
     opacity: 0;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 7; /* number of lines to show */
+           line-clamp: 7; 
+   -webkit-box-orient: vertical;
     transition: all .5s;
 }
 .EventCardData {
@@ -367,7 +403,7 @@ font-weight: 700;
 }
 
 .EventCardContent:hover .EventCardDescription{
-    overflow:visible;
+    /*overflow:visible;*/
     max-height: 500px;
     opacity: 1 ; 
 }
@@ -388,7 +424,7 @@ font-weight: 700;
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: white;
+    background-color: #252525;;
     transition: all 0.5s;
 }
 
@@ -396,6 +432,7 @@ font-weight: 700;
     white-space: nowrap;
     transform: translateX(-70px);
     margin-top: -9px;
+    
 }
 
 .EventCardBackgroundText{
@@ -405,9 +442,45 @@ font-weight: 700;
     font-size: 26px;
     text-indent: 50px;
     line-height: 2.1;
-    color: rgba(0, 0, 0, 0.450);
+    color:rgb(214, 211, 211);
     
 }
+
+.EventCardMarker{
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    z-index: 1;
+    background: gray;
+    width: 32px;
+    height: 32px;
+    padding: 8px 0;
+    border-radius:100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.EventCardMarker:hover{
+    background: white;
+}
+.EventCardMarker:hover path{
+    stroke: black;
+}
+
+.EventCardMarker svg{
+    height: 20px;
+    width: 20px;
+    display:block;
+    margin:auto;
+    
+}
+
+.EventCardMarker path{
+    stroke: white;
+}
+
+
+
 
 .EventButtons{
     overflow-y: auto;

@@ -94,7 +94,7 @@ function FocusOnMarker(MarkerButtonId)
 {
   if(map)
   {
-    MarkerId = document.getElementById('EventCard').getAttribute('value');
+    MarkerId = document.getElementById('EventCardMarker').getAttribute('value');
     if(document.getElementById("EventSelected"))
     {
       document.getElementById("EventSelected").remove();
@@ -108,12 +108,12 @@ function FocusOnMarker(MarkerButtonId)
         document.getElementById("error").remove();
         console.log("EventButtonCardError has been removed");
       }
-      OpenPage("EventSelected.html", "Event");
+        //OpenPage("EventSelected.html", "Event");
     }
     else{
       console.log("cannot find a marker at index : " + MarkerId);
       //document.getElementById("MasterContent").innerHTML += "<p> Cannot find your event, please try later </p>";
-      OpenPage("EventButtonCardError.html", "ErrorContent")
+      //OpenPage("EventButtonCardError.html", "ErrorContent")
 
 
     } 
