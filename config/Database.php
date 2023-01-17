@@ -5,7 +5,7 @@ class Database{
     private $host = "localhost";
     private $dbName = "EventMap";
     private $username = "root";
-    private $password = "";
+    private $password = "root";
     private $connection;
 
     public function connect(){

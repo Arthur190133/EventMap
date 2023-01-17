@@ -113,7 +113,7 @@
 
   .login-right{
     width: 55%;
-    background:white url("../Images/Logos/LoginGif.gif");
+    background:url("../Images/Logos/LoginGif.gif");
     background-repeat:no-repeat;
     background-position-x: right;
     background-position-y: center;

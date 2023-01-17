@@ -148,4 +148,20 @@ function CreateImageDir($ImageLocation, $User)
         die('Échec lors de la création des dossiers...');
     }
 }
+
+function GetMesEvent()
+{
+    try {
+        global $dbh;
+        $query = $dbh->prepare("SELECT * from event WHERE EventId in(select EventId = :user)");
+        $query->execute([
+            'user' => $_SESSION['user']->id,
+        ]);
+        $Event = $query->fetchall();
+        return $Event;
+    } catch (PDOException $e) {
+        $error = $e->getMessage();
+        die($error);
+    }
+}
 ?>

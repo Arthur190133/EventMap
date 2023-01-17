@@ -8,7 +8,7 @@ function GenerateEventBackground($Event){
     }  
     for($i = 1; $i < 50 ; $i++)
     {
-        $EventName = $EventName . $Event->EventName . " ";
+        $EventName = $EventName . $Event->Name . " ";
         if($i % 6 == 0){
             $EventName = $EventName . "<br>";
             $RandomSpace = random_int(0,10);
@@ -57,5 +57,6 @@ function GetStringBetweenTwoCharacters($string, $start, $end){
     return substr($string, $ini, $len);
 
 }
+
 
 ?>
