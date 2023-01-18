@@ -33,19 +33,11 @@ switch($uri){
     case ($uri === "/EventMap/?/Map"):
       $page .= "Pages/views/Maps.php";
       break;
-    
-    case ($uri === "/EventMap/?/UserProfile"):
-      if($user)
-      {
-        header("location:/EventMap?/");
-      }
-      $page .= "templates/user/UserProfile.php";
-      break;
 
-    /*case (str_starts_with($uri, "/EventMap/?/Event")):
+    case (str_starts_with($uri, "/EventMap/?/Event")):
       $page .= "templates/event/Events.php";
       break;
-*/
+
     case ($uri === "/EventMap/?/registerEvent"):
       $page .= "registerEvent.php";
       break;
@@ -61,6 +53,5 @@ switch($uri){
       break;
   }
 
-  
 
 ?>

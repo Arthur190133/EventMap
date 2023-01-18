@@ -1,3 +1,4 @@
+
 <?php 
 
 $Events =  json_decode(file_get_contents('http://localhost/EventMap/API/event/readCards.php'));
@@ -20,4 +21,5 @@ foreach($Events as $Event){
 
     require 'Pages/Event/EventCard.php';
 } 
+
 ?>
