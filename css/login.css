@@ -17,11 +17,13 @@
 
   .box-login h1{
     margin-left: 40px;
+    color: white;
     font-family: 'Changa', sans-serif;
   }
 
   .box-login .gauche .LoginButton {
-    background-color: white;
+    background-color: #252525;
+    color: white;
     font-size: 16px;
     width: 180px;
     padding: 12px 35px;
@@ -41,7 +43,11 @@
   }
 
   .box-login a{
-    color: blue;
+    color: #3ea6ff
+  }
+
+  .box-login p{
+    color: white;
   }
 
   .box-login .gauche .LoginButton:hover{
@@ -73,6 +79,8 @@
     font-size: 16px;
     border: none;
     outline: none;
+    color: white;
+    background-color: #252525;
     border-bottom-style: solid;
     border-bottom-width: 2px;
     border-bottom-color: #be6600;
@@ -143,5 +151,7 @@
     background-position: center;
     background-image: url('Images/Logos/EventMap.png');
   }
+
+
 
   

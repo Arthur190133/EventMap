@@ -45,6 +45,8 @@
         <?php
        // $rees =  file_get_contents('http://localhost/EventMap/API/event/readCards.php');
        // echo $rees;
+
+echo 'Current PHP version: ' . phpversion();
         require_once $page;
 
         //require_once "Pages/Utils/newfooter.php";

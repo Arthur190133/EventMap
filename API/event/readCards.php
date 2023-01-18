@@ -42,7 +42,6 @@
                 'Size' => $EventSize,
                 'Price' => $EventPrice,
                 'CardColor' => $EventCardColor,
-                'row' => $num
             );
 
             // push to 'data'

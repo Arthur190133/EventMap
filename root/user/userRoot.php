@@ -43,7 +43,7 @@ switch($uri){
       break;
 
     case($uri === "/EventMap/?/UserProfile"):
-      $page .= "UserProfile.php";
+      $page .= "templates/user/UserProfile.php";
       break;
 
       default:
