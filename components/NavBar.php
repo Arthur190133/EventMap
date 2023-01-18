@@ -17,7 +17,7 @@
                     <a class="NavBarNotification" id="BellNotification">
                         <div Notification="98">
                             <div id="NavBarNotificationContent">
-                                <?php require_once "Pages/User/UserNotification.php"; ?>
+                                <?php require_once "templates/notification/Notification.php"; ?>
                             </div>
                             <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 611.999 611.999" style="enable-background:new 0 0 611.999 611.999;" xml:space="preserve">
                                 <g>
