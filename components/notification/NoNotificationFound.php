@@ -1,5 +1,5 @@
-<div>
-    <svg height="256" width="256" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<div class="NoNotificationContent">
+    <svg height="200" width="200" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 611.999 611.999" style="enable-background:new 0 0 611.999 611.999;" xml:space="preserve">
         <g>
             <g>
@@ -22,6 +22,6 @@
             </g>
         </g>
     </svg>
-    <p>Vous n'avez aucune notification</p>
-    <p>Rejoingnez ou créez des évènements pour être informé en temps réel</p>
+    <p>Vous n'avez aucune notification</p><br>
+    <p>Rejoingnez ou créez des évènements pour en être informé en temps réel</p>
 </div>

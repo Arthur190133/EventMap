@@ -58,6 +58,8 @@ function RemoveSelectedTag(SelectedTagId){
     selectedTags.slice(SelectedTagId, 1);
 }
 
+
+
 document.addEventListener('click', function OpenNotification(event) {
   const box = document.getElementById('UserNotification');
 
@@ -71,6 +73,24 @@ document.addEventListener('click', function CloseNotification(event) {
 
   if (!bell.contains(event.target)) {
     document.getElementById('UserNotification').style.display = 'none';
+  }
+});
+
+
+
+document.addEventListener('click', function OpenUserButton(event) {
+  const box = document.getElementById('UserButton');
+
+  if (!box.contains(event.target)) {
+    box.style.display = 'grid';
+  }
+});
+
+document.addEventListener('click', function CloseUserButton(event) {
+  const bell = document.getElementById('NavBarUserButtonContent');
+
+  if (!bell.contains(event.target)) {
+    document.getElementById('UserButton').style.display = 'none';
   }
 });
 

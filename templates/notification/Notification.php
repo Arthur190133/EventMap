@@ -122,10 +122,7 @@ if($Connected)
     $Notifications =  json_decode($Notifications);
     
 
-    if(property_exists($Notifications, "message")){
-        echo "Vous n'avez pas reçus ce notification";
-    }
-    else{
+    if(!property_exists($Notifications, "message")){
         $Notifications = $Notifications->data;
         $NotificationsNumber = count($Notifications);
     }
@@ -133,7 +130,7 @@ if($Connected)
 }
 else
 {
-    echo "Vous n'êtes pas connecté";
+    //not connected
 }
 
     require_once 'components/Notification.php';

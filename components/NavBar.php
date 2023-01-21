@@ -13,7 +13,7 @@
                     <ul id="NavBar-result"></ul>
                 </div>
                 <div class="NavBarUserContent">
-                    <?php   require 'templates/user/UserButtonProfile.php' ;
+                    <?php   require 'templates/user/NavBarUserButton.php' ;
                             require_once 'templates/notification/Notification.php';
                     ?>
 

@@ -25,7 +25,7 @@ searchInput.addEventListener('input', event => {
     searchResults.forEach(result => {
       const li = document.createElement('li');
       li.classList.add('result');
-      const iconSVG = `<svg class="icon" width="24" height="24"><use xlink:href="Images/Logos/Search.png"></use></svg>`;
+      const iconSVG = `<svg class="icon" width="24" height="24"><use xlink:href="Images/Logos/Search.svg"></use></svg>`;
       li.innerHTML = iconSVG + result;
       li.addEventListener('click', event => {
         searchInput.value = event.target.textContent;

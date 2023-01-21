@@ -520,6 +520,10 @@ body{
     letter-spacing: 0px;
 }
 
+.BellNotification[Notification=""]::after{
+    display: none;
+}
+
 
 .MapLostImage{
     height: 30%;
@@ -702,6 +706,23 @@ body{
 .FiltersRemoveSelectedTag:hover{
     background-color: rgb(255, 0, 0);
     fill: white;
+}
+
+.UserButton{
+    position: fixed;
+    display: none;
+    top: 30px;
+    right:20px;
+    background: #282828;
+    color: #aaaaaa;
+    outline: none;
+    box-sizing: border-box;
+    margin-top: 30px;
+    margin-left: -320px;
+    width: 120px;
+    height: 300px;
+    border-radius: 10px;
+    z-index: 10;
 }
 
 /*NOTIFICATION*/

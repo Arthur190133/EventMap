@@ -130,7 +130,7 @@ class User{
         $stmt->bindParam(':FirstName', $this->UserFirstName);
         $stmt->bindParam(':Name', $this->UserName);
         $stmt->bindParam(':Email', $this->UserEmail);
-        $stmt->bindParam(':Password', $this->UserPassword);
+        $stmt->bindParam(':Password', password_hash($this->UserPassword, PASSWORD_DEFAULT));
         $stmt->bindParam(':Description', $this->UserDescription);
         $stmt->bindParam(':AvatarId', $this->UserAvatarId);
         $stmt->bindParam(':BackgroundId', $this->UserBackgroundId);

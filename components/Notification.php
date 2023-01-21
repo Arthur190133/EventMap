@@ -1,16 +1,16 @@
 <a class="NavBarNotification" id="BellNotification">
     <div class="BellNotification" Notification="<?= $NotificationsNumber ?>">
         <div id="NavBarNotificationContent">
-        <div class="UserNotification" id="UserNotification" >
-            <div class="UpUserNotification">
-                <h3>Vos notifications</h3>
-            </div>
-            <div class="MiddleUserNotification">
-                <?php
-                    require_once 'templates/notification/NotificationElement.php';
-                ?>
-            </div>
-        </div> 
+            <div class="UserNotification" id="UserNotification" >
+                <div class="UpUserNotification">
+                    <h3>Vos notifications</h3>
+                </div>
+                <div class="MiddleUserNotification">
+                    <?php
+                        require_once 'templates/notification/NotificationElement.php';
+                    ?>
+                </div>
+            </div> 
         </div>
         <svg class="Bellsvg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 611.999 611.999" style="enable-background:new 0 0 611.999 611.999;" xml:space="preserve">
             <g>
