@@ -504,31 +504,20 @@ body{
 .BellNotification::after{
     content: attr(Notification);
     position: absolute;
-    width: 50%;
-    height: 47%;
+    width: 70%;
     border-radius: 50%;
     background: red;
-    top: 7%;
-    right: 0%;
-    border: 5px rgb(18, 18, 39)solid;
+    top: 0%;
+    right: -20%;
+    border: 3px #0f0f0f solid;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 10px;
+    font-size: 11px;
     color: white;
     font-family: 'sans-serif';
     transition: all 0.5s;
     letter-spacing: 0px;
-}
-
-.NavBar a:hover .BellNotification::after{
-    border: 5px red solid;
-    background: red;
-    width: 55%;
-    height: 52%;
-    letter-spacing: 1px;
-    font-size: 12px;
-    top: 6%;
 }
 
 
@@ -719,21 +708,29 @@ body{
 .UserNotification{
     position: fixed;
     display: none;
-    background: white;
+    top: 30px;
+    right:80px;
+    background: #282828;
+    color: #aaaaaa;
+    outline: none;
+    box-sizing: border-box;
     margin-top: 30px;
     margin-left: -320px;
-    width: 350px;
+    width: 360px;
+    height: 500px;
     border-radius: 10px;
+    z-index: 10;
 }
 
 /*NOTIFICATION*/
 .UpUserNotification{
-    background: rgb(190,102,0);
-    background: linear-gradient(180deg, rgba(190,102,0,1) 0%, rgba(94,0,0,0) 100%);
+    /*background: rgb(190,102,0);
+    background: linear-gradient(180deg, rgba(190,102,0,1) 0%, rgba(94,0,0,0) 100%);*/
+    border-bottom: #535353 solid 2px;
     top: 0px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-
+    height: 50px;
 }
 
 /*NOTIFICATION*/
@@ -745,8 +742,11 @@ body{
 /*NOTIFICATION*/
 .MiddleUserNotification{
     overflow-y: auto;
-    height: 200px;
-    background: white;
+    height: 100%;
+    height: 450px;
+    position: relative;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 /*NOTIFICATION*/
@@ -763,22 +763,18 @@ body{
 
 /*NOTIFICATION*/
 .UserNotificationContent{
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid #535353;
+    padding: 5px;
+}
+
+.UserNotificationContent:hover{
+    background: grey;
 }
 /*NOTIFICATION*/
 .UserNotificationContent p{
-    font-size: 12px;
+    font-size: 16px;
     font-family: 'Oswald', sans-serif;
-}
-
-/*NOTIFICATION*/
-.DownUserNotification{
-    background: white;
-    width: 300px;
-    height: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background: white;
+    padding: 10px;
 }
 
 

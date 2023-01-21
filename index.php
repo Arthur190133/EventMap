@@ -2,7 +2,7 @@
   require_once 'Pages/Tools/Requestes.php';
   require_once 'Pages/Tools/Functions.php';
   session_start();
-//session_destroy();
+  //session_destroy();
 
 
 

@@ -27,14 +27,14 @@ switch($uri){
       {
         header("location:/EventMap?/");
       }
-      $page .= "Register.php";
+      $page .= "templates/Register.php";
       break;
 
     case ($uri === "/EventMap/?/Map"):
       $page .= "Pages/views/Maps.php";
       break;
 
-    case (str_starts_with($uri, "/EventMap/?/Event")):
+    case ($uri ===  "/EventMap/?/Event"):
       $page .= "templates/event/Events.php";
       break;
 

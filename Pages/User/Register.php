@@ -28,7 +28,7 @@
 						</div>	
 					</form>
 				</div>	
-				<p><a href="?/Register">Cliquez ici</a> pour créer un compte</p>
+				<p><a class="link" href="?/Login">Cliquez ici</a> pour vous connectez</p>
     	</div>
 	</div>
 <div class="login-right">

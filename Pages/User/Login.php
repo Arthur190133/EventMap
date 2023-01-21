@@ -3,7 +3,6 @@
 	<title>LOGIN</title>
 </head>
 
-<script> RemoveDiv("PopUpLoginContent") </script>
 <div class="login-master">
 	<div class=box-login>
 		<div class=gauche>
@@ -18,7 +17,7 @@
 						<button class="LoginButton">Connection</button>
 				</div>	
 			</form>
-			<p><a href="?/Register">Cliquez ici</a> pour créer un compte</p>
+			<p><a class="link" href="?/Register">Cliquez ici</a> pour créer un compte</p>
 		</div>
 	</div>
 	<div class="login-right"></div>
