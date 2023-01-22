@@ -16,7 +16,7 @@ switch($uri){
     case ($uri === "/EventMap/?/Login"):
       if($user)
       {
-        header("location:/EventMap/?/Connected");
+        header("location:/EventMap/?/");
         break;
       }
       $page .= "templates/Login.php";
@@ -45,7 +45,10 @@ switch($uri){
     case($uri === "/EventMap/?/UserProfile"):
       $page .= "templates/user/UserProfile.php";
       break;
-
+    case($uri === "/EventMap/?/Logout"):
+      session_destroy();
+      header("location: /EventMap/?/");
+      break;
       default:
 
       // 404 cannot find the required page

@@ -115,6 +115,8 @@ class Notification{
 
         WHERE
         notification.UserId = ?
+        ORDER BY 
+        notification.NotificationDate DESC
         ';
 
         $stmt = $this->connection->prepare($query);
