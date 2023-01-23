@@ -127,7 +127,9 @@ elements.forEach(function(element) {
 */
 
 const links = document.querySelectorAll('a.link');
+console.log(links);
 links.forEach(function(link) {
+  
   link.addEventListener('click', function() {
     // Code à exécuter lorsque le lien est cliqué
       // Empêche le comportement par défaut du lien (navigation vers l'URL)

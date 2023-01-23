@@ -1,4 +1,4 @@
-<a class="NavBarNotification" id="BellNotification">
+<div class="NavBarNotification" id="BellNotification">
     <div class="BellNotification" Notification="<?= $NotificationsNumber ?>">
         <div id="NavBarNotificationContent">
             <div class="UserNotification" id="UserNotification" >
@@ -35,4 +35,4 @@
             </g>
         </svg>
     </div> 
-    </a>
+</div>

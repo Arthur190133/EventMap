@@ -52,7 +52,7 @@ switch($uri){
       default:
 
       // 404 cannot find the required page
-      $page .=  "Error404.php";
+      $page .=  "Pages/Views/Error404.php";
       break;
   }
 
