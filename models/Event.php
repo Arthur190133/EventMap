@@ -262,7 +262,7 @@ class Event{
                     LEFT JOIN 
                         image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
                     LEFT JOIN
-                        userevent NumberOfUsers ON event.EventId =    NumberOfUsers.EventId     
+                        userevent NumberOfUsers ON event.EventId = NumberOfUsers.EventId     
                         
                     GROUP BY event.EventId
                     ';

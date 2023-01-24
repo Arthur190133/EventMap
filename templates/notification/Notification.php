@@ -128,10 +128,6 @@ if($Connected)
     }
 
 }
-else
-{
-    //not connected
-}
 
     require_once 'components/Notification.php';
 ?>

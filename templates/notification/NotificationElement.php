@@ -1,5 +1,9 @@
 <?php
-    if($Notifications->message)
+
+    if(!$Connected){
+        require_once 'components/notification/notConnectedNotification.php';
+    }
+    elseif($Notifications->message)
     {
         require_once 'components/notification/NoNotificationFound.php';
     }
