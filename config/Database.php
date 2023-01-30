@@ -3,7 +3,7 @@
 class Database{
 
     private $host = "localhost";
-    private $dbName = "EventMap";
+    private $dbName = "eventmap";
     private $username = "root";
     private $password = "";
     private $connection;
