@@ -3,7 +3,7 @@
     if(!$Connected){
         require_once 'components/notification/notConnectedNotification.php';
     }
-    elseif($Notifications->message)
+    elseif(array_key_exists("message", $Notifications)) 
     {
         require_once 'components/notification/NoNotificationFound.php';
     }
@@ -18,5 +18,4 @@
             require 'components/NotificationElement.php';
         }
     }
-        
 ?>

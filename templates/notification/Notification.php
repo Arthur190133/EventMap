@@ -58,36 +58,33 @@ function GetNotificationContext($NotificationContext):string{
 }
 
 function GetNotificationDate($NotificationDate):string{
-    $Date = $NotificationDate;
-
-    $now = new DateTime;
-    $ago = new DateTime($NotificationDate);
-    $diff = $now->diff($ago);
-
-    $diff->w = floor($diff->d / 7);
-    $diff->d -= $diff->w * 7;
-
-    $string = array(
-        'y' => 'année',
-        'm' => 'mois',
-        'w' => 'semaine',
-        'd' => 'jour',
-        'h' => 'heure',
-        'i' => 'minute',
-        's' => 'seconde',
-    );
-    foreach ($string as $k => &$v) {
-        if ($diff->$k) {
-            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
-        } else {
-            unset($string[$k]);
+    if($NotificationDate){
+        $CurrentNotificationDate = new DateTime($NotificationDate);
+        $currentDate = new DateTime();
+        $diff = $currentDate->diff($CurrentNotificationDate);
+        
+        $timeUnits = array(
+            "année" => $diff->y,
+            "mois" => $diff->m,
+            "jour" => $diff->d,
+            "heure" => $diff->h,
+            "minute" => $diff->i,
+            "seconde" => $diff->s,
+        );
+        
+        foreach ($timeUnits as $unit => $value) {
+            if ($value == 0) {
+                continue;
+            }
+            $date = "il y a " . $value . " " . $unit . ($value > 1 ? "s" : "");
+            break;
         }
+    
+        return $date;
     }
 
-    if (!$full) $string = array_slice($string, 0, 1);
-    $Date = $string ? ' il y a ' . implode(', ', $string) : 'il y a quelques instant';
+    return "Impossible de récupérer la date";
 
-    return $Date;
 }
 
 function GetStringBetweenTwoCharacters($string, $start, $end){
@@ -100,7 +97,7 @@ function GetStringBetweenTwoCharacters($string, $start, $end){
 
 }
 
-
+$NotificationsNumber = "";
 if($Connected)
 {
     // REQUEST TO GET ALL NOTIFICATIONS 
@@ -121,7 +118,6 @@ if($Connected)
     curl_close($ch);
     $Notifications =  json_decode($Notifications);
     
-
     if(!property_exists($Notifications, "message")){
         $Notifications = $Notifications->data;
         $NotificationsNumber = count($Notifications);
