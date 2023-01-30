@@ -30,7 +30,7 @@
         </div>
         <div>
             <h1 class="h11">Vos Evenement</h1>
-            <div class="cardpostion">
+            <div class="cardpostion" >
             
                 <?php foreach ($mesEvent as $mesEvents) : ?>
                     <div class="droite">
