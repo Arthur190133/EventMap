@@ -2,6 +2,9 @@
        $Events = GetEvents();
 
 ?>
+<head>
+<link href= "css/map.css" rel="stylesheet">
+</head>
 <script>
    /* $(document).ready(function(){
         $("#search").keyup(function(){
