@@ -1,198 +1,211 @@
 body{
-    
-    background-image: url("https://th.bing.com/th/id/R.f945c0954eed91fbfdcb41baa76e680a?rik=Ro2m0WXqCOlEHQ&pid=ImgRaw&r=0");
-    background-position: center;
-    background-attachment: fixed;
-    background-size: 100%;
+  background-image: url("https://th.bing.com/th/id/R.e7a8b6e23b5323d941c8221d4f1e0394?rik=ShthXcFYRINPiA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fa%2fe%2fb%2f624292.jpg&ehk=4cXIHtLHtv%2fYwfeRia%2fvQNezNN6ldmBMyJa93DGu3eQ%3d&risl=&pid=ImgRaw&r=0");
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat:space;
+  background-size: 100%;
+  height: 100vh;
+  backdrop-filter: blur(5px);
 }
 
 .disposition{
-    display: flex;
-    overflow-x: hidden;
+  display: flex;
+  overflow-x: hidden;
     
 }
 
 .input {
-    background-color: #212121;
-    max-width: 190px;
-    height: 40px;
-    margin: 10px;
-    padding: 10px;
-    /* text-align: center; */
-    border: 2px solid white;
-    border-radius: 5px;
-    /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
-  }
-  
-  .input:focus {
-    color: rgb(255, 255, 255);
-    background-color: #212121;
-    outline-color: rgb(255, 255, 255);
-    box-shadow: -3px -3px 15px rgb(255, 255, 255);
-    transition: .1s;
-    transition-property: box-shadow;
-  }
-
-.droite{
-    margin-right: 60px;
-    margin-left: 60px;
+  background-color: #212121;
+  max-width: 190px;
+  height: 40px;
+  margin: 10px;
+  padding: 10px;
+  /* text-align: center; */
+  border: 1px solid white;
+  border-radius: 5px;
+  /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
 }
-
-.gauche{
-    margin-left: 250PX;
-    margin-right: 250PX;
+  
+.input:focus {
+  color: rgb(255, 255, 255);
+  background-color: #212121;
+  outline-color: rgb(255, 255, 255);
+  box-shadow: -3px -3px 15px rgb(255, 255, 255);
+  transition: .1s;
+  transition-property: box-shadow;
 }
 
 .shadow__btn {
-    margin: 50px;
-    padding: 10px 20px;
-    border: none;
-    font-size: 17px;
-    color: rgb(126, 126, 126);
-    border-radius: 7px;
-    letter-spacing: 4px;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: 0.5s;
-    transition-property: box-shadow;
-  }
+  margin: 50px;
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: rgb(126, 126, 126);
+  border-radius: 7px;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow;
+}
   
-  .shadow__btn {
-    background: rgb(255, 255, 255);
-    box-shadow: 0 0 25px rgb(255, 255, 255);
-  }
+.shadow__btn {
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 25px rgb(255, 255, 255);
+}
   
-  .shadow__btn:hover {
-    box-shadow: 0 0 5px rgb(255, 255, 255),
-                0 0 25px rgb(255, 255, 255),
-                0 0 50px rgb(255, 255, 255),
-                0 0 100px rgb(255, 255, 255);
-  }
-
-  .card-client {
-    background: #00000071;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 4px solid white;
-    box-shadow: 0 10px 20px rgb(0, 0, 0);
-    border-radius: 10px;
-    text-align: center;
-    color: #fff;
-    font-family: "Poppins", sans-serif;
-    transition: all 0.3s ease;
-  }
-
-  
-  .user-picture {
-    overflow: hidden;
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
-    border: 4px solid #ffffff;
-    box-shadow: 0 0px 20px rgb(255, 255, 255);
-    border-radius: 999px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
-    margin:auto;
-  }
-  
-  .h11{
-    color: white;
-    border: 3px solid white;
-    border-radius: 10px;
-    background-color: #00000071;
-  }
-
-  .name-client {
-    margin: 0;
-    margin-top: 20px;
-    font-weight: 600;
-    margin-bottom: 50px;
-    font-size: 18px;
-  }
-  
-  .name-client span {
-    display: block;
-    font-weight: 200;
-    font-size: 16px;
-  }
-
-.cardpostion{
-    margin-top: 20px;
-    overflow-x: auto;
-    width: 90vh;
-    height: 350px;
-    vertical-align: middle;
-    display: flex;
-    background-color: #212121;
-    border: 4px solid white;
-    border-radius: 20px;
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(255, 255, 255),
+              0 0 25px rgb(255, 255, 255),
+              0 0 50px rgb(255, 255, 255),
+              0 0 100px rgb(255, 255, 255);
 }
 
-  .card {
-    width: 300px;
-    margin-top: 95px;
-    height: 140px;
-    padding: 0.5rem;
-    background: rgba(198, 198, 198, 0.34);
-    border-radius: 8px;
-    backdrop-filter: blur(5px);
-    overflow: hidden;
-    border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-    border-left: 2px  rgba(255, 255, 255, 0.545) outset;
-    box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.521);
-    transition: .4s;
-    color: white;
-    
-  }
+
+
+.base{
+  text-align: left;
+  background: #00000071;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid white;
+  box-shadow: 0 10px 20px rgb(0, 0, 0);
+  border-radius: 10px;  
+  margin-left: 11vh;
+}
+
+.card-client {
   
-  .card:hover {
-    height: 254px;
-    transform: translateY(-50px);
-    
-  }
+  text-align: center;
+  color: #fff;
+  display: flex;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease;
+}
   
-  .align {
-    padding: 1rem;
-    display: flex;
-    flex-direction: row;
-    gap: 5px;
-    align-self: flex-start;
-  }
+.card-client:hover {
+  transform: translateY(-5px);
+}
   
-  .red {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ff605c;
-    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
-  }
+.modif-profile-box{
+margin: 75px 100px 0px 100px;
+}
+
+.user-picture {
+  overflow: hidden;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0px 20px rgb(255, 255, 255);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin:auto;
+}
+
+.h11{
+  color: white;
+  margin-left:50px;
+}
+
+.name-client {
+  margin: 0;
+  margin-top: 20px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  font-size: 3vh;
+}
+
+.name-client span {
+  display: block;
+  font-weight: 200;
+  font-size: 16px;
+}
+
+.box{
+  border-radius: 20px;    
+  background-color: rgba(53, 53, 53, 0.568);
+  border: 1px solid white;
+  border-radius: 20px;
+  margin:30px 100px 50px 100px;
+  height: 75vh;
+  padding-right: 25px;
   
-  .yellow {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ffbd44;
-    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
-  }
+}
+.cardpostion{
+  margin-top: 20px;
+  overflow-x: auto;
+  vertical-align: middle;
+  display: flex;
+  width: 90vh;
+  height: 350px;
+}
+
+.card {
+  width: 300px;
+  margin-left: 50px;
+  height: 140px;
+  padding: 0.5rem;
+  background: rgba(198, 198, 198, 0.34);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+  border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.521);
+  transition: .4s;
+  color: white;
   
-  .green {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #00ca4e;
-    box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
-  }
+}
+
+.card:hover {
+  height: 254px;
+  transform: scale(105%);
+  transform: translateY(10px);
   
-  .card h1 {
-    text-align: center;
-    margin: 1.3rem;
-    color: rgb(218, 244, 237);
-    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
-  }
-  
-  
+}
+
+.align {
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-self: flex-start;
+}
+
+.red {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff605c;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.yellow {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ffbd44;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.green {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00ca4e;
+  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+}
+
+.card h1 {
+  text-align: center;
+  margin: 1.3rem;
+  color: rgb(218, 244, 237);
+  text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+}
+
