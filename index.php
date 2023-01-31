@@ -2,7 +2,6 @@
   require_once 'Pages/Tools/Requestes.php';
   require_once 'Pages/Tools/Functions.php';
   session_start();
-  //session_destroy();
 
 
 
@@ -30,12 +29,7 @@
   ?>
   <body class="fade-in">
     <?php
-    if(!$user || $uri != "/EventMap/?/Login"){
-      require_once 'Pages/Utils/PopUpLogin.php';
-      //require_once 'Pages/Admin/AdminPanel.php';
-      //CreateImageDir("/Images/Events/Background/artfgg", "");
-    }
-
+      require_once 'templates/PopUpLogin.php';
     ?>
         <?php 
           require_once 'templates/NavBar.php'; 

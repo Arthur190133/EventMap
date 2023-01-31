@@ -63,15 +63,15 @@ function RemoveSelectedTag(SelectedTagId){
 document.addEventListener('click', function OpenNotification(event) {
   const box = document.getElementById('UserNotification');
 
-  if (!box.contains(event.target)) {
+  if (box && !box.contains(event.target)) {
     box.style.display = 'grid';
   }
 });
 
 document.addEventListener('click', function CloseNotification(event) {
-  const bell = document.getElementById('BellNotification');
+  const box = document.getElementById('BellNotification');
 
-  if (!bell.contains(event.target)) {
+  if (box && !box.contains(event.target)) {
     document.getElementById('UserNotification').style.display = 'none';
   }
 });
@@ -81,15 +81,15 @@ document.addEventListener('click', function CloseNotification(event) {
 document.addEventListener('click', function OpenUserButton(event) {
   const box = document.getElementById('UserButton');
 
-  if (!box.contains(event.target)) {
+  if (box && !box.contains(event.target)) {
     box.style.display = 'grid';
   }
 });
 
 document.addEventListener('click', function CloseUserButton(event) {
-  const bell = document.getElementById('NavBarUserButtonContent');
+  const box = document.getElementById('NavBarUserButtonContent');
 
-  if (!bell.contains(event.target)) {
+  if (box && !box.contains(event.target)) {
     document.getElementById('UserButton').style.display = 'none';
   }
 });
@@ -127,7 +127,6 @@ elements.forEach(function(element) {
 */
 
 const links = document.querySelectorAll('a.link');
-console.log(links);
 links.forEach(function(link) {
   
   link.addEventListener('click', function() {
@@ -137,14 +136,18 @@ links.forEach(function(link) {
 
   // Récupération de l'URL cible
   const url = this.getAttribute('href');
+  // Si l'utilisateur est déja sur la page qu'il veut acceder, cela ne fait rien
+  if("http://localhost/EventMap/" + url !== document.URL)
+  {
+    // Ajout de l'effet de fondu
+    document.querySelector('body').style.opacity = 0;
 
-  // Ajout de l'effet de fondu
-  document.querySelector('body').style.opacity = 0;
+    // Chargement de la nouvelle page une fois que l'effet de fondu est terminé
+    setTimeout(function() {
+      window.location.href = url;
+    }, 500);
+  }
 
-  // Chargement de la nouvelle page une fois que l'effet de fondu est terminé
-  setTimeout(function() {
-    window.location.href = url;
-  }, 500);
   });
 });
 
