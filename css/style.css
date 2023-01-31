@@ -501,6 +501,10 @@ body{
     position: relative;
 }
 
+.BellNotification svg{
+    cursor: pointer;
+}
+
 .BellNotification::after{
     content: attr(Notification);
     position: absolute;

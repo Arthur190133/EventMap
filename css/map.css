@@ -3,3 +3,7 @@
     backdrop-filter: blur(1px);
     /*tsest*/
 }
+
+#NavBar-search{
+    opacity: 0.75;
+}
