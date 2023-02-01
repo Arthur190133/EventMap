@@ -53,7 +53,7 @@
             </div>
         </div>
         <?php
-        require_once 'Pages/Event/EventMapPreview.php';
+        require_once '../Pages/Event/EventMapPreview.php';
         ?>
     </div>
 

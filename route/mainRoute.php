@@ -6,7 +6,7 @@ if($uri === "/EventMap" || $uri === "/EventMap/" || $uri === "/EventMap/?"){
   header("location:/EventMap/?/");
 }
 
-$page = "";
+$page = "../";
 
 switch($uri){
     case ($uri === "/EventMap/?/"):

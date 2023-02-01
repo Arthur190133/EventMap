@@ -1,5 +1,5 @@
 <?php
 
-require_once 'Pages/User/RegisterConfig.php';
+require_once '../Pages/User/RegisterConfig.php';
 
 ?>

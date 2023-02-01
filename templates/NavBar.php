@@ -11,12 +11,12 @@
     }
 
     // If not connected default link will redirect to login page, otherwise the button will link to user profile page
-    $UserProfileLink = "?/Login"; 
+    $UserProfileLink = "login"; 
     $UserAvatarName = "UserAvatar";
     $UserButtonLocation = "templates/user/UserButtonProfile.php";
     if($user){
         $UserButtonLocation = "templates/user/NavBarUserButton.php";
-        $UserProfileLink = "?/UserProfile";
+        $UserProfileLink = "user-profile";
         if($UserAvatarName)
         {
             $UserAvatarName = $user->UserAvatarName;
@@ -25,5 +25,5 @@
     }
 
 
-    require_once 'components/NavBar.php';
+    require_once '../components/NavBar.php';
 ?>

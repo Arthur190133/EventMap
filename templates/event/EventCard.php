@@ -18,6 +18,6 @@ foreach($Events as $Event){
     }
 
 
-    require 'Pages/Event/EventCard.php';
+    require '../Pages/Event/EventCard.php';
 } 
 ?>

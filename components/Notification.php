@@ -7,7 +7,7 @@
                 </div>
                 <div class="MiddleUserNotification">
                     <?php
-                        require_once 'templates/notification/NotificationElement.php';
+                        require_once '../templates/notification/NotificationElement.php';
                     ?>
                 </div>
             </div> 

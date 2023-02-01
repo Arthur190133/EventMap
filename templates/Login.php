@@ -56,7 +56,7 @@
 	if(isset($_SESSION['LoginUserEmail']) ? $CurrentEmail = $_SESSION['LoginUserEmail']: $CurrentEmail = "");
 	
 	
-	require_once 'Pages/User/Login.php';
+	require_once '../Pages/User/Login.php';
 	
     
 ?>

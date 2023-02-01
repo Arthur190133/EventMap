@@ -1,6 +1,6 @@
 <?php
-    require_once "../Tools/Requestes.php";
-    require_once "../Tools/Connection.php";
+    require_once "../../Tools/Requestes.php";
+    require_once "../../Tools/Connection.php";
 
     $EventId = $_COOKIE["currentEventId"];
     $EventJoin = "Rejoindre";
@@ -20,5 +20,5 @@
         $EventDescription = $Event->EventDescription;
     }
 
-    require_once 'components/EventPreview.php';
+    require_once '../components/EventPreview.php';
 ?>

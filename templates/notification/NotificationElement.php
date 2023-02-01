@@ -1,11 +1,11 @@
 <?php
 var_dump($Notifications);
     if(!$Connected){
-        require_once 'components/notification/notConnectedNotification.php';
+        require_once '../components/notification/notConnectedNotification.php';
     }
     elseif(array_key_exists("message", $Notifications)) 
     {
-        require_once 'components/notification/NoNotificationFound.php';
+        require_once '../components/notification/NoNotificationFound.php';
     }
     else
     {
@@ -15,7 +15,7 @@ var_dump($Notifications);
             $Sender = GetNotificationSender($Notification->Sender);
             $Context = GetNotificationContext($Notification->Context);
             $Date = GetNotificationDate($Notification->Date);
-            require 'components/NotificationElement.php';
+            require '../components/NotificationElement.php';
         }
     }
 ?>

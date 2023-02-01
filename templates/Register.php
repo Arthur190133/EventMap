@@ -100,10 +100,10 @@ if(isset($_SESSION['RegisterUserEmail']) ? $CurrentEmail = $_SESSION['RegisterUs
 
 if($error)
 {
-    require_once 'components/UserInputError.php';
+    require_once '../components/UserInputError.php';
 }
 
 
-require_once 'Pages/User/Register.php';
+require_once '../Pages/User/Register.php';
 
 ?>
