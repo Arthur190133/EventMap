@@ -4,18 +4,29 @@ body{
 }
 
 .box{
-  background-image: url("https://th.bing.com/th/id/R.a9c13f48b16a80453abac60aebd382a7?rik=OvMR3ZIhueu6fQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2f1%2f2%2f299626.jpg&ehk=X%2bi1eJy%2fdQMQ%2fs%2funp20UbLj7jdPJGRGs0Byi%2bi3SJI%3d&risl=&pid=ImgRaw&r=0");
+  background-image: url("https://cdn.wallpapersafari.com/95/75/UgTON4.jpg");
+  background-attachment: fixed;
   background-size:100%;
   background-repeat:no-repeat;
   padding-top: 400px;
 }
 
+.TitleName{
+  font-size: 15vh;
+  filter: invert(100%);
+  padding-bottom: 200px;
+}
+
 .center{
   background-color: white;
   border-radius: 45px;
-  margin: 20px 20px;
+  margin: 0px 20px;
   height: 40vh;
   width: 5px;
+}
+
+.TitreCaroucelle{
+ filter: invert(100%);
 }
 
 .x{
@@ -24,8 +35,6 @@ body{
 }
 
 .contenair{
-  border: solid white;
-
   border-radius: 20px;
   margin: 0px 100px;
   padding: 20px;
@@ -43,10 +52,10 @@ body{
 .NewEventBackground{
   padding: 10px;
   width: 30VH;
-  margin-top:20px;
   height: 40vh;
   font-weight: bold;
   background: #f0f0f0;
+
   overflow: hidden  ;
   border-radius: 10px;
   text-align: left;
@@ -98,10 +107,9 @@ button:hover::before {
   width:120vh;
   height: 40vh;
   border-radius: 26px;
-  transition: all 0.3s;
-  cursor: pointer;
-  background-color:rgb(234, 238, 241);
-  backdrop-filter: blur(4px);
+  border: 3px solid rgb(255, 255, 255);
+  /*background-color: #f0f0f0;*/
+  backdrop-filter: blur(10px);
 }
 
 .decript{
@@ -110,7 +118,6 @@ margin-bottom: 50px;
 
 .card {
   width: 30VH;
-  margin-top:20px;
   height: 40vh;
   background: #f0f0f0;
   overflow: hidden  ;
@@ -214,56 +221,58 @@ margin-bottom: 50px;
   padding: 0px 20px;
 }
 
-.window {
+.flip-card {
+  background-color: transparent;
+  margin-left: 50px;
   width: 190px;
-  height: 120px;
-  margin: 50px 20px;
-  padding: 0.5rem;
-  background: rgba(204, 204, 204, 0.34);
-  backdrop-filter: revert;
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-  border-left: 2px  rgba(255, 255, 255, 0.545) outset;
-  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
-  transition: .4s;
-  overflow: hidden;
-  color: white;
-}
-
-.window:hover {
   height: 254px;
-  transform: translateY(-50px);
+  perspective: 1000px;
+  font-family: sans-serif;
 }
 
-.align {
-  padding: 1rem;
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  position: absolute;
   display: flex;
-  flex-direction: row;
-  gap: 5px;
-  align-self: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 1rem;
 }
 
-.red {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ff605c;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+.flip-card-front {
+  background: linear-gradient(120deg, rgb(255, 255, 255) 60%, rgb(255, 255, 255) 88%,
+  rgb(255, 255, 255) 40%, rgb(81, 184, 247) 48%);
+  color: rgb(81, 184, 247);
 }
 
-.yellow {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ffbd44;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
-}
-
-.green {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #00ca4e;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+.flip-card-back {
+  background: linear-gradient(120deg, rgb(117, 198, 248) 30%, rgb(81, 184, 247) 88%,
+  rgb(195, 232, 255)40%, rgb(201, 234, 255) 78%);
+  color: white;
+  transform: rotateY(180deg);
 }

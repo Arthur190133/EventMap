@@ -1,3 +1,6 @@
+<?php 
+    $mesEvent=GetEvents();
+?>
 <link href= "css\userProfile.css" rel="stylesheet">
 <head>
 	<title>Profile</title>
@@ -5,6 +8,7 @@
 <script> RemoveDiv("PopUpLoginContent") </script>
 <body>
     <div class="box">
+        <h1 class=TitleName>JAMES ABRAM</h1>
         <div class="contenair">
             <div class="x">
                 <div class="gauche">
@@ -23,21 +27,22 @@
                 <div class="center"></div>
                 <div class="droite">
                     <div class="EventBox">
-                        <h1>Vos Evenements :</h1>
+                        <h1 class="TitreCaroucelle">Vos Evenements :</h1>
                         <div class="rouleaux">
                             <?php foreach ($mesEvent as $mesEvents) : ?>
-                                <div class="window">
-                                    <div class="align">
-                                        <span class="red"></span>
-                                        <span class="yellow"></span>
-                                        <span class="green"></span>
-                                    </div>
-
-                                    <h1><?= $mesEvents->EventName ?></h1>
-                                    <div>
-                                        <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
-                                        <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
-                                        <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <p class="title"><?= $mesEvents->EventName ?></p>
+                                            <p>En savoir plus!</p>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            
+                                            <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
+                                            <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
+                                            <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             <?php endforeach ?>
@@ -48,21 +53,22 @@
             <div class="x">
                 <div class="gauche">
                     <div class="EventBox">
-                        <h1>Evenements rejoins :</h1>
+                        <h1 class="TitreCaroucelle">Evenements rejoins :</h1>
                         <div class="rouleaux">
                             <?php foreach ($mesEvent as $mesEvents) : ?>
-                                <div class="window">
-                                    <div class="align">
-                                        <span class="red"></span>
-                                        <span class="yellow"></span>
-                                        <span class="green"></span>
-                                    </div>
-
-                                    <h1><?= $mesEvents->EventName ?></h1>
-                                    <div>
-                                        <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
-                                        <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
-                                        <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <p class="title"><?= $mesEvents->EventName ?></p>
+                                            <p>En savoir plus!</p>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            
+                                            <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
+                                            <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
+                                            <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             <?php endforeach ?>
