@@ -1,173 +1,239 @@
 body{
-  background-image: url("https://th.bing.com/th/id/R.e7a8b6e23b5323d941c8221d4f1e0394?rik=ShthXcFYRINPiA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2fa%2fe%2fb%2f624292.jpg&ehk=4cXIHtLHtv%2fYwfeRia%2fvQNezNN6ldmBMyJa93DGu3eQ%3d&risl=&pid=ImgRaw&r=0");
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat:space;
-  background-size: 100%;
-  height: 100vh;
-  /*backdrop-filter: blur(5px);*/
-}
-
-.disposition{
-  display: flex;
-  overflow-x: hidden;
-    
-}
-
-.input {
-  background-color: #212121;
-  max-width: 190px;
-  height: 40px;
-  margin: 10px;
-  padding: 10px;
-  /* text-align: center; */
-  border: 1px solid white;
-  border-radius: 5px;
-  /* box-shadow: 3px 3px 2px rgb(249, 255, 85); */
-}
-  
-.input:focus {
-  color: rgb(255, 255, 255);
-  background-color: #212121;
-  outline-color: rgb(255, 255, 255);
-  box-shadow: -3px -3px 15px rgb(255, 255, 255);
-  transition: .1s;
-  transition-property: box-shadow;
-}
-
-.shadow__btn {
-  margin: 50px;
-  padding: 10px 20px;
-  border: none;
-  font-size: 17px;
-  color: rgb(126, 126, 126);
-  border-radius: 7px;
-  letter-spacing: 4px;
-  font-weight: 700;
-  text-transform: uppercase;
-  transition: 0.5s;
-  transition-property: box-shadow;
-}
-  
-.shadow__btn {
-  background: rgb(255, 255, 255);
-  box-shadow: 0 0 25px rgb(255, 255, 255);
-}
-  
-.shadow__btn:hover {
-  box-shadow: 0 0 5px rgb(255, 255, 255),
-              0 0 25px rgb(255, 255, 255),
-              0 0 50px rgb(255, 255, 255),
-              0 0 100px rgb(255, 255, 255);
-}
-
-
-
-.base{
-  text-align: left;
-  background: #00000071;
-  padding-top: 25px;
-  padding-bottom: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
-  border: 1px solid white;
-  box-shadow: 0 10px 20px rgb(0, 0, 0);
-  border-radius: 10px;  
-  margin-left: 11vh;
-}
-
-.card-client {
-  
-  text-align: center;
-  color: #fff;
-  display: flex;
-  font-family: "Poppins", sans-serif;
-  transition: all 0.3s ease;
-}
-  
-.card-client:hover {
-  transform: translateY(-5px);
-}
-  
-.modif-profile-box{
-margin: 75px 100px 0px 100px;
-}
-
-.user-picture {
-  overflow: hidden;
-  object-fit: cover;
-  width: 200px;
-  height: 200px;
-  border: 1px solid #ffffff;
-  box-shadow: 0 0px 20px rgb(255, 255, 255);
-  border-radius: 999px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
-  margin:auto;
-}
-
-.h11{
-  color: white;
-  margin-left:50px;
-}
-
-.name-client {
-  margin: 0;
-  margin-top: 20px;
-  font-weight: 600;
-  margin-bottom: 50px;
-  font-size: 3vh;
-}
-
-.name-client span {
-  display: block;
-  font-weight: 200;
-  font-size: 16px;
+  background-color: rgb(15, 15, 15);
+  overflow:inherit;
 }
 
 .box{
-  border-radius: 20px;    
-  background-color: rgba(53, 53, 53, 0.568);
-  border: 1px solid white;
-  border-radius: 20px;
-  margin:30px 100px 50px 100px;
-  height: 75vh;
-  padding-right: 25px;
-  
+  background-image: url("https://th.bing.com/th/id/R.a9c13f48b16a80453abac60aebd382a7?rik=OvMR3ZIhueu6fQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2f1%2f2%2f299626.jpg&ehk=X%2bi1eJy%2fdQMQ%2fs%2funp20UbLj7jdPJGRGs0Byi%2bi3SJI%3d&risl=&pid=ImgRaw&r=0");
+  background-size:100%;
+  background-repeat:no-repeat;
+  padding-top: 400px;
 }
-.cardpostion{
-  margin-top: 20px;
-  overflow-x: auto;
-  vertical-align: middle;
+
+.center{
+  background-color: white;
+  border-radius: 45px;
+  margin: 20px 20px;
+  height: 40vh;
+  width: 5px;
+}
+
+.x{
   display: flex;
-  width: 90vh;
-  height: 350px;
+  margin-bottom: 50px;
+}
+
+.contenair{
+  border: solid white;
+
+  border-radius: 20px;
+  margin: 0px 100px;
+  padding: 20px;
+  height: 100vh;
+  transform: translateY(-150px);
+}
+
+.NewEvent{
+  color: white;
+  margin-left: 10px;
+  font-size: 6vh;
+  text-align: left;
+}
+
+.NewEventBackground{
+  padding: 10px;
+  width: 30VH;
+  margin-top:20px;
+  height: 40vh;
+  font-weight: bold;
+  background: #f0f0f0;
+  overflow: hidden  ;
+  border-radius: 10px;
+  text-align: left;
+  transition: all 0.5s;
+  background-image: url("https://th.bing.com/th/id/R.1d2da235db8b3b5b1c45bae3fb36a3ba?rik=bk%2b9HYpGHIt3EA&pid=ImgRaw&r=0");
+}
+
+
+button {
+  margin-left: 20px;
+  background: #fff;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 600;
+  width: 120px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skew(-21deg);
+}
+
+
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  left: 0;
+  background: rgb(20, 20, 20);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+}
+
+button:hover {
+  color: #fff;
+}
+
+button:hover::before {
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+.EventBox {
+  width:120vh;
+  height: 40vh;
+  border-radius: 26px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background-color:rgb(234, 238, 241);
+  backdrop-filter: blur(4px);
+}
+
+.decript{
+margin-bottom: 50px; 
 }
 
 .card {
-  width: 300px;
-  margin-left: 50px;
-  height: 140px;
-  padding: 0.5rem;
-  background: rgba(198, 198, 198, 0.34);
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
-  overflow: hidden;
-  border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-  border-left: 2px  rgba(255, 255, 255, 0.545) outset;
-  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.521);
-  transition: .4s;
-  color: white;
-  
+  width: 30VH;
+  margin-top:20px;
+  height: 40vh;
+  background: #f0f0f0;
+  overflow: hidden  ;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.5s;
 }
 
 .card:hover {
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.623);
+  background-color: #4bb8ff;
+}
+
+.card .blob {
+  height: 10px;
+  width: 75%;
+  border-radius: 0 0 30px 30px;
+  margin: 0 auto;
+  background-color: #4bb8ff;
+  visibility: visible;
+  transition: all 0.3s;
+}
+
+.card:hover .blob {
+  height: 0;
+}
+
+.card .img {
+  display: flex;
+  margin: 30px auto 10px auto;
+  width: 70px;
+  height: 70px;
+  background-image: url("https://www.endehors.org/wp-content/uploads/2020/01/profil-photo.jpg");
+  background-size:cover;
+  background-position: center;
+  border-radius: 20px;
+  font-size: 11px;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+}
+
+.card:hover .img {
+  width: 100%;
+  height: 70%;
+  border-radius: 10px 0 0;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  z-index: 99999;
+}
+
+.card h2 {
+  padding: 15px 10px;
+  font-size: 25px;
+  transition: all 0.1s;
+  z-index: -99;
+  line-height: 17px;
+}
+
+.card span {
+  font-size: 18px;
+}
+
+.card:hover h2 {
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+  transition: all 0.5s;
+}
+
+.card>p {
+  opacity: 0;
+  transition: all 0.75s;
+}
+
+.card>p>svg {
+  padding: 5px;
+}
+
+.hiddenTXT{
+  color: rgb(240, 240, 240);
+  margin: 10px;
+}
+
+.BlueTXT{
+  color: rgb(78, 184, 251);
+  font-weight: bold;
+}
+
+.card:hover>p {
+  position: absolute;
+  bottom: 15px;
+  left: 35px;
+  opacity: 1;
+  transition: all 0.1s;
+}
+
+.rouleaux{
+  display: flex;
+  margin-top: 50px;
+  padding: 0px 20px;
+}
+
+.window {
+  width: 190px;
+  height: 120px;
+  margin: 50px 20px;
+  padding: 0.5rem;
+  background: rgba(204, 204, 204, 0.34);
+  backdrop-filter: revert;
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.440);
+  border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
+  transition: .4s;
+  overflow: hidden;
+  color: white;
+}
+
+.window:hover {
   height: 254px;
-  transform: scale(105%);
-  transform: translateY(10px);
-  
+  transform: translateY(-50px);
 }
 
 .align {
@@ -201,11 +267,3 @@ margin: 75px 100px 0px 100px;
   background-color: #00ca4e;
   box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
 }
-
-.card h1 {
-  text-align: center;
-  margin: 1.3rem;
-  color: rgb(218, 244, 237);
-  text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
-}
-
