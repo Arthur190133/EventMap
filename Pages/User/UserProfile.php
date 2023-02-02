@@ -1,5 +1,8 @@
 <?php 
+    
+    $user = $_SESSION['user'];
     $mesEvent=GetEvents();
+    
 ?>
 <link href= "css\userProfile.css" rel="stylesheet">
 <head>
@@ -8,16 +11,16 @@
 <script> RemoveDiv("PopUpLoginContent") </script>
 <body>
     <div class="box">
-        <h1 class=TitleName>JAMES ABRAM</h1>
+        <h1 class=TitleName><?= $user->UserName ?></h1>
         <div class="contenair">
             <div class="x">
                 <div class="gauche">
                     <div class="card">
                         <div class="blob"></div>
                             <span class="img"></span>
-                            <h2>John<br><span>Doe</span></h2>
+                            <h2><?= $user->UserName ?></h2>
                             <div>
-                                <h6 class="hiddenTXT" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora nesciunt dignissimos quis suscipit nam. Unde ipsam hic minima voluptatum sequi atque! Tenetur possimus beatae a repudiandae recusandae? Maiores, minus expedita?</h6>
+                                <h6 class="hiddenTXT" ><?= $user->UserDescription ?></h6>
                             </div>
                             <div>
                                 <h5 class="BlueTXT" >REGARDE ICI !</h6>
