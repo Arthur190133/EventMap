@@ -2,80 +2,86 @@
 <head>
 	<title>Profile</title>
 </head>
-
 <script> RemoveDiv("PopUpLoginContent") </script>
-<div class= "disposition">
-    <div class="base">
-        
-        <div class="card-client">
-            <div>
-                <h1 class="h11">Bonjour "NAME USER",</h1>
-                <div class="modif-profile-box">
-                    <div class="user-picture">
-                        <img src="Images/Users/Avatars/default/DefaultAvatar.png" alt="UserAvatar">
+<body>
+    <div class="box">
+        <div class="contenair">
+            <div class="x">
+                <div class="gauche">
+                    <div class="card">
+                        <div class="blob"></div>
+                            <span class="img"></span>
+                            <h2>John<br><span>Doe</span></h2>
+                            <div>
+                                <h6 class="hiddenTXT" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora nesciunt dignissimos quis suscipit nam. Unde ipsam hic minima voluptatum sequi atque! Tenetur possimus beatae a repudiandae recusandae? Maiores, minus expedita?</h6>
+                            </div>
+                            <div>
+                                <h5 class="BlueTXT" >REGARDE ICI !</h6>
+                            </div>
                     </div>
-                    <p class="name-client"> Jhon Doe</p>
-                    <form action="" method="post">
-                        <div class="inputs">
-                            <input placeholder="EFirstName" class="input" name="newUserFirstName" type="text">
-                            <br>
-                            <input class="input" type="text" name="newUserLastName" placeholder="LastName">
-                            <br>
-                            <input class="input" type="text" name="newPseudo" placeholder="Pseudo">
-                            <br>
-                            <input class="input" type="text" name="newMotDePasse" placeholder="Mot de passe">		
-                            <br>
-                            <button class="shadow__btn">Modifier</button>
-                        </div>	
-                    </form>
-                </div>	
-            </div>	
-            <div class="box" > 
-                <h1 class="h11">Vos Evenement</h1>
-                <div class="cardpostion" >
-                    
-                    <?php foreach ($mesEvent as $mesEvents) : ?>
-                        <div class="droite">
-                            <div class="card">
-                                <div class="align">
-                                    <span class="red"></span>
-                                    <span class="yellow"></span>
-                                    <span class="green"></span>
-                                </div>
-
-                                <h1><?= $mesEvents->EventName ?></h1>
-                                <div>
-                                    <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
-                                    <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
-                                    <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach ?>
                 </div>
-                <h1 class="h11">Vos Participations</h1>
-                <div class="cardpostion" >
-                    
-                    <?php foreach ($mesEvent as $mesEvents) : ?>
-                        <div class="droite">
-                            <div class="card">
-                                <div class="align">
-                                    <span class="red"></span>
-                                    <span class="yellow"></span>
-                                    <span class="green"></span>
-                                </div>
+                <div class="center"></div>
+                <div class="droite">
+                    <div class="EventBox">
+                        <h1>Vos Evenements :</h1>
+                        <div class="rouleaux">
+                            <?php foreach ($mesEvent as $mesEvents) : ?>
+                                <div class="window">
+                                    <div class="align">
+                                        <span class="red"></span>
+                                        <span class="yellow"></span>
+                                        <span class="green"></span>
+                                    </div>
 
-                                <h1><?= $mesEvents->EventName ?></h1>
-                                <div>
-                                    <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
-                                    <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
-                                    <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                    <h1><?= $mesEvents->EventName ?></h1>
+                                    <div>
+                                        <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
+                                        <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
+                                        <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                    </div>
                                 </div>
-                            </div>
+                            <?php endforeach ?>
                         </div>
-                    <?php endforeach ?>
+                    </div>
                 </div>
             </div>
-        </div>  
-    </div> 
-</div>
+            <div class="x">
+                <div class="gauche">
+                    <div class="EventBox">
+                        <h1>Evenements rejoins :</h1>
+                        <div class="rouleaux">
+                            <?php foreach ($mesEvent as $mesEvents) : ?>
+                                <div class="window">
+                                    <div class="align">
+                                        <span class="red"></span>
+                                        <span class="yellow"></span>
+                                        <span class="green"></span>
+                                    </div>
+
+                                    <h1><?= $mesEvents->EventName ?></h1>
+                                    <div>
+                                        <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
+                                        <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
+                                        <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                    </div>
+                                </div>
+                            <?php endforeach ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="center"></div>
+                <div class="droite">
+                    <div class="NewEventBackground">
+                            <div class="blob"></div>
+                                <p class="NewEvent">NOUVEL</p><p class="NewEvent">EVENT</p>
+                                <button>
+                                    <span>Button</span>
+                                </button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
+</body>
