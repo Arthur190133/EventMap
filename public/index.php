@@ -31,7 +31,7 @@ $router->register('/user-profile', ['mainController', 'userProfile']);
 $router->register('/events', ['mainController', 'events']);
 $router->register('/login', ['mainController', 'login']);
 $router->register('/map', ['mainController', 'map']);
-
+$router->register('/logout', ['mainController', 'logout']);
 
 /* $router->register('/contact', function(){
   return 'ContactPage';

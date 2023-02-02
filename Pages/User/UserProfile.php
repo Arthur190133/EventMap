@@ -46,9 +46,9 @@
 
                                 <h1><?= $mesEvents->Name ?></h1>
                                 <div>
-                                    <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
-                                    <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
-                                    <p>EventEndDate : <?= $mesEvents->EventEndDate ?><p>
+                                    <p>prix : <?= $mesEvents->Price;  ?>$<p>
+                                    <p>EventStartDate : <?= $mesEvents->StartDate ?><p>
+                                    <p>EventEndDate : <?= $mesEvents->EndDate ?><p>
                                 </div>
                             </div>
                         </div>

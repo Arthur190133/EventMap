@@ -422,7 +422,7 @@ body{
     transform: scale(1.3);
 }
 
-.EventCardMarker:hover + .EventCardContent {
+.EventCard:hover .EventCardContent {
     pointer-events: none;
   }
 
