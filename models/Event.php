@@ -63,7 +63,7 @@ class Event{
             event.EventStartDate,
             event.EventEndDate,
             event.EventLocation,
-            event.EventTagId,
+            event.EventCategory,
             event.EventPrivate,
             event.EventSize,
             event.EventPrice,

@@ -17,7 +17,7 @@
 						<button class="LoginButton">Connection</button>
 				</div>	
 			</form>
-			<p><a class="link" href="?/Register">Cliquez ici</a> pour créer un compte</p>
+			<p><a class="link" href="/register">Cliquez ici</a> pour créer un compte</p>
 		</div>
 	</div>
 	<div class="login-right"></div>

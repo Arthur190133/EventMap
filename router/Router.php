@@ -27,7 +27,7 @@ private array $routes;
                 return call_user_func_array([$class, $method], []);
             }
         }
-
+        require_once '../Pages/Views/Error404.php';
         throw new RouteNotFoundException();
 
         

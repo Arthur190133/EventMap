@@ -422,6 +422,10 @@ body{
     transform: scale(1.3);
 }
 
+.EventCardMarker:hover + .EventCardContent {
+    pointer-events: none;
+  }
+
 .EventCardBackground{
     display: flex;
     width: 100%;

@@ -37,7 +37,7 @@
 		{
 			unset($_SESSION['LoginUserEmail']);
 			$_SESSION['user'] = $response;
-			echo "<script>location.href='?/'</script>";
+			echo "<script>location.href='/'</script>";
 		}
 
 		}

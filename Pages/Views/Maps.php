@@ -1,5 +1,5 @@
 <?php
-       $Events = GetEvents();
+       //$Events = GetEvents();
 
 ?>
 <head>

@@ -16,7 +16,11 @@ class mainController
     }
 
     public function login(){
-        require_once '../templates/user/login.php';
+        require_once '../templates/login.php';
+    }
+
+    public function map(){
+        require_once '../Pages/views/Maps.php';
     }
 }
 

@@ -44,7 +44,7 @@
                 'StartDate' => $EventStartDate,
                 'EndDate' => $EventEndDate,
                 'Location' => $EventLocation,
-                'TagId' => $EventTagId,
+                'Category' => $EventCategory,
                 'Private' => $EventPrivate,
                 'Size' => $EventSize,
                 'Price' => $EventPrice,

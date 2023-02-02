@@ -30,7 +30,7 @@ $router->register('/', ['mainController', 'index']);
 $router->register('/user-profile', ['mainController', 'userProfile']);
 $router->register('/events', ['mainController', 'events']);
 $router->register('/login', ['mainController', 'login']);
-
+$router->register('/map', ['mainController', 'map']);
 
 
 /* $router->register('/contact', function(){
@@ -57,12 +57,7 @@ $router->register('/login', ['mainController', 'login']);
           
         ?>
   <?php 
-    try{
-      $router->resolve($_SERVER['REQUEST_URI']);
-  
-  }catch (RouteNotFoundException $e){
-      $e->getMessage();
-  }
+
   ?>
   <body class="fade-in">
     <?php
@@ -74,8 +69,14 @@ $router->register('/login', ['mainController', 'login']);
        // $rees =  file_get_contents('http://localhost/EventMap/API/event/readCards.php');
        // echo $rees;
 
-echo 'Current PHP version: ' . phpversion();
-        //require_once $page;
+      echo 'Current PHP version: ' . phpversion();
+      // LOAD PAGE
+      try{
+        $router->resolve($_SERVER['REQUEST_URI']);
+
+      }catch (RouteNotFoundException $e){
+        $e->getMessage();
+      }
 
         //require_once "Pages/Utils/newfooter.php";
         //require_once 'Pages/User/UserProfile.php';

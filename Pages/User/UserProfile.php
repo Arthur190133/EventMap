@@ -34,7 +34,8 @@
                 <h1 class="h11">Vos Evenement</h1>
                 <div class="cardpostion" >
                     
-                    <?php foreach ($mesEvent as $mesEvents) : ?>
+                    <?php foreach ($mesEvent as $mesEvents) : 
+                        ?>
                         <div class="droite">
                             <div class="card">
                                 <div class="align">
@@ -43,7 +44,7 @@
                                     <span class="green"></span>
                                 </div>
 
-                                <h1><?= $mesEvents->EventName ?></h1>
+                                <h1><?= $mesEvents->Name ?></h1>
                                 <div>
                                     <p>prix : <?= $mesEvents->EventPrice;  ?>$<p>
                                     <p>EventStartDate : <?= $mesEvents->EventStartDate ?><p>
