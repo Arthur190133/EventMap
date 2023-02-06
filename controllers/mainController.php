@@ -7,7 +7,7 @@ class mainController
         
     }
     
-    public function userProfile(){
+    public function profile(){
         require_once '../templates/user/UserProfile.php';
     }
 
@@ -21,6 +21,11 @@ class mainController
 
     public function map(){
         require_once '../Pages/views/Maps.php';
+    }
+
+    public function logout(){
+      session_destroy();
+      header("location: /");
     }
 }
 

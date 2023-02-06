@@ -26,16 +26,10 @@ require_once '../Exceptions/RouteNotFoundException.php';
 
 $router = new Router();
 
+$uri = explode("/",$_SERVER['REQUEST_URI'])[1];
+$router->register('/' . $uri, ['mainController', $uri]);
 $router->register('/', ['mainController', 'index']);
-$router->register('/user-profile', ['mainController', 'userProfile']);
-$router->register('/events', ['mainController', 'events']);
-$router->register('/login', ['mainController', 'login']);
-$router->register('/map', ['mainController', 'map']);
-$router->register('/logout', ['mainController', 'logout']);
 
-/* $router->register('/contact', function(){
-  return 'ContactPage';
-});*/
 
 
 
@@ -72,7 +66,7 @@ $router->register('/logout', ['mainController', 'logout']);
       echo 'Current PHP version: ' . phpversion();
       // LOAD PAGE
       try{
-        $router->resolve($_SERVER['REQUEST_URI']);
+        $router->resolve($uri);
 
       }catch (RouteNotFoundException $e){
         $e->getMessage();
@@ -85,6 +79,6 @@ $router->register('/logout', ['mainController', 'logout']);
 
   </body>
 
-   <script src="js/script.js"></script>
+   <script src="/js/script.js"></script>
   
   </html>

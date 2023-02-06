@@ -1,5 +1,7 @@
 RewriteEngine on
 
 RewriteCond %{REQUEST_URI} !^/EventMap/API/
+RewriteCond %{REQUEST_URI} !^/EventMap/
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]

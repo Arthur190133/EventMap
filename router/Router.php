@@ -11,8 +11,9 @@ private array $routes;
 
     public function resolve(string $uri)
     {
-        $path = explode('?', $uri)[0];
+        $path = explode('?', "/" . $uri)[0];
         $action = $this->routes[$path] ?? null;
+
 
         if(is_callable($action)){
             return $action();

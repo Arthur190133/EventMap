@@ -1,7 +1,7 @@
 <?php
 
     // Set user avatar with is own one
-    $UserAvatar = "Images/Users/Avatars/default/DefaultAvatar.png";
+    $UserAvatar = "/Images/Users/Avatars/default/DefaultAvatar.png";
     if(isset($user) && $user)
     {
         if($user->UserAvatarDir){
@@ -16,7 +16,7 @@
     $UserButtonLocation = "templates/user/UserButtonProfile.php";
     if($user){
         $UserButtonLocation = "templates/user/NavBarUserButton.php";
-        $UserProfileLink = "user-profile";
+        $UserProfileLink = "profile";
         if($UserAvatarName)
         {
             $UserAvatarName = $user->UserAvatarName;

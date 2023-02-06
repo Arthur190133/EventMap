@@ -4,6 +4,6 @@
         NEED TO BE DECLARED AS NON "onClick" EVENT (Declare in script.js)
     </div>
         <button onclick="RemoveDiv('PopUpLoginContent')" class="PopUpLoginCloseButton">
-        <img class="PopUpLoginClose" src="EventMap/Images/Logos/Close.png">
+        <img class="PopUpLoginClose" src="/Images/Logos/Close.png">
     </button>
 </div>
