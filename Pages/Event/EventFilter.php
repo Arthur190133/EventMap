@@ -1,4 +1,4 @@
-<head><link rel="stylesheet" href="css/filter.css"></head>
+<head><link rel="stylesheet" href="/css/filter.css"></head>
     <div class="LeftContent">
         <div class="EventFilters">
             <p> FILTER </p>
@@ -57,5 +57,5 @@
         ?>
     </div>
 
-<script src="js/filter.js">
+<script src="/js/filter.js">
     </script> 

@@ -5,7 +5,7 @@
     if(isset($user) && $user)
     {
         if($user->UserAvatarDir){
-            $UserAvatar = $user->UserAvatarDir;    
+            $UserAvatar = "/" . $user->UserAvatarDir;    
         }
         
     }

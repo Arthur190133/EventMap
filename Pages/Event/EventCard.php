@@ -1,5 +1,5 @@
 <div class="EventCard" id="EventCard">
-    <a class="link" href="event/1294943">
+    <a class="link" href="/event/1294943">
         <div class="EventCardContent">
             <div class="EventCardThumbnail">
                 <div class="EventCardDate">
@@ -12,7 +12,7 @@
                     if($Event->ThumbnailDir)
                     {
                 ?>  
-                <img class="EventCardImage" src=<?= $Event->ThumbnailDir ?>>
+                <img class="EventCardImage" src=<?= "/" . $Event->ThumbnailDir ?>>
                 <?php 
                     }
                     else
