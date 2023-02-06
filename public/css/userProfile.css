@@ -4,9 +4,10 @@ body{
 }
 
 .box{
-  background-image: url("https://th.bing.com/th/id/R.a9c13f48b16a80453abac60aebd382a7?rik=OvMR3ZIhueu6fQ&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f5%2f1%2f2%2f299626.jpg&ehk=X%2bi1eJy%2fdQMQ%2fs%2funp20UbLj7jdPJGRGs0Byi%2bi3SJI%3d&risl=&pid=ImgRaw&r=0");
+  background-image: url("https://wallpapercave.com/wp/wp6705749.jpg");
   background-size:100%;
   background-repeat:no-repeat;
+  background-attachment: fixed;
   padding-top: 400px;
 }
 
@@ -95,12 +96,13 @@ button:hover::before {
 }
 
 .EventBox {
-  width:120vh;
+  width:100vh;
   height: 40vh;
   border-radius: 26px;
+  margin-top:20px;
   transition: all 0.3s;
   cursor: pointer;
-  background-color:rgb(234, 238, 241);
+  border: solid 3px white;
   backdrop-filter: blur(4px);
 }
 
@@ -210,60 +212,91 @@ margin-bottom: 50px;
 
 .rouleaux{
   display: flex;
-  margin-top: 50px;
-  padding: 0px 20px;
+  margin: 0 20px;
+  height: 33vh;
+  overflow-x: auto;
 }
 
 .window {
-  width: 190px;
-  height: 120px;
-  margin: 50px 20px;
-  padding: 0.5rem;
-  background: rgba(204, 204, 204, 0.34);
-  backdrop-filter: revert;
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
-  border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-  border-left: 2px  rgba(255, 255, 255, 0.545) outset;
-  box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
-  transition: .4s;
+  position: relative;
+  width: 250px;
+  height: 250px;
+  margin-left: 20px;
+  color: #2e2d31;
+  background-image: url("https://th.bing.com/th/id/R.a52bc61b6c61ebb18731b5c90a6b2497?rik=KBF5O7OL8m4YIg&riu=http%3a%2f%2fsejourlinguistiqueexpert.files.wordpress.com%2f2012%2f10%2fmeilleurs-parcs-dattractions.jpg&ehk=K0zjx9oWM8fxAzB30yTlHbvJYSaDBA9iamrspt1aXSc%3d&risl=&pid=ImgRaw&r=0");
+  background-size:cover;
+  background-position: center;
   overflow: hidden;
-  color: white;
+  border-radius: 20px;
 }
 
-.window:hover {
-  height: 254px;
-  transform: translateY(-50px);
+.window_title {
+  font-weight: bold;
 }
 
-.align {
-  padding: 1rem;
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
-  align-self: flex-start;
+.window_content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+    /* edit the width to fit window */
+  width: 100%;
+  padding: 20px;
+  background: #f2f2f2;
+  border-top-left-radius: 20px;
+    /* edit here to change the height of the content box */
+  transform: translateY(150px);
+  transition: transform .25s;
 }
 
-.red {
-  width: 10px;
-  height: 10px;
+.window_content::before {
+  content: '';
+  position: absolute;
+  top: -47px;
+  right: -45px;
+  width: 100px;
+  height: 100px;
+  transform: rotate(-175deg);
   border-radius: 50%;
-  background-color: #ff605c;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+  box-shadow: inset 48px 48px #f2f2f2;
 }
 
-.yellow {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #ffbd44;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+.window_title {
+  color: #131313;
+  line-height: 15px;
 }
 
-.green {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #00ca4e;
-  box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
+.window_subtitle {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
+
+.window_description {
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.window:hover .window_content {
+  transform: translateY(0);
+}
+
+.window:hover .window_description {
+  opacity: 1;
+  transition-delay: .25s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

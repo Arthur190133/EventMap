@@ -1,4 +1,4 @@
-<link href= "css\userProfile.css" rel="stylesheet">
+<link href= "\css\userProfile.css" rel="stylesheet">
 <head>
 	<title>Profile</title>
 </head>
@@ -36,35 +36,19 @@
                     <div class="EventBox">
                         <h1>Evenements rejoins :</h1>
                         <div class="rouleaux">
-                            <?php foreach ($mesEvent as $mesEvents) : ?>
-                                <div class="window">
-                                    <div class="align">
-                                        <span class="red"></span>
-                                        <span class="yellow"></span>
-                                        <span class="green"></span>
-                                    </div>
-
-                                    <h1><?= $mesEvents->Name ?></h1>
-                                    <div>
-                                        <p>prix : <?= $mesEvents->Price;  ?>$<p>
-                                        <p>EventStartDate : <?= $mesEvents->StartDate ?><p>
-                                        <p>EventEndDate : <?= $mesEvents->EndDate ?><p>
-                                    </div>
-                                </div>
-                            <?php endforeach ?>
+                            <?php require_once '../templates/user/UserProfileEvent.php'; ?>
                         </div>
                     </div>
                 </div>
                 <div class="center"></div>
                 <div class="droite">
                     <div class="NewEventBackground">
-                            <div class="blob"></div>
-                                <p class="NewEvent">NOUVEL</p><p class="NewEvent">EVENT</p>
-                                <button>
-                                    <span>Button</span>
-                                </button>
-                                </div>
-                        </div>
+                        <div class="blob"></div>
+                            <p class="NewEvent">NOUVEL</p><p class="NewEvent">EVENT</p>
+                            <button>
+                                <span>Button</span>
+                            </button>
+                            
                     </div>
                 </div>
             </div>
