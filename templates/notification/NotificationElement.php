@@ -1,5 +1,4 @@
 <?php
-var_dump($Notifications);
     if(!$Connected){
         require_once '../components/notification/notConnectedNotification.php';
     }
