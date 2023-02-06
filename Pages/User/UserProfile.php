@@ -13,7 +13,7 @@
                             <span class="img"></span>
                             <h2>John<br><span>Doe</span></h2>
                             <div>
-                                <h6 class="hiddenTXT" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora nesciunt dignissimos quis suscipit nam. Unde ipsam hic minima voluptatum sequi atque! Tenetur possimus beatae a repudiandae recusandae? Maiores, minus expedita?</h6>
+                                <p class="hiddenTXT" >Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora nesciunt dignissimos quis suscipit nam. Unde ipsam hic minima voluptatum sequi atque! Tenetur possimus beatae a repudiandae recusandae? Maiores, minus expedita?</p>
                             </div>
                             <div>
                                 <h5 class="BlueTXT" >REGARDE ICI !</h6>
@@ -23,25 +23,11 @@
                 <div class="center"></div>
                 <div class="droite">
                     <div class="EventBox">
-                        <h1>Vos Evenements :</h1>
-                        <div class="rouleaux">
-                            <?php foreach ($mesEvent as $mesEvents) : ?>
-                                <div class="window">
-                                    <div class="align">
-                                        <span class="red"></span>
-                                        <span class="yellow"></span>
-                                        <span class="green"></span>
-                                    </div>
-
-                                    <h1><?= $mesEvents->Name ?></h1>
-                                    <div>
-                                        <p>prix : <?= $mesEvents->Price;  ?>$<p>
-                                        <p>EventStartDate : <?= $mesEvents->StartDate ?><p>
-                                        <p>EventEndDate : <?= $mesEvents->EndDate ?><p>
-                                    </div>
-                                </div>
-                            <?php endforeach ?>
-                        </div>
+                    <h1>vos Evenements :</h1>
+                    <div class="rouleaux">
+                        <?php require_once '../templates/user/UserProfileEvent.php'; ?>
+                    </div>
+                        
                     </div>
                 </div>
             </div>
