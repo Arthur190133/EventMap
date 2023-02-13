@@ -59,6 +59,7 @@ $router->register('/', ['mainController', 'index']);
     ?>
 
     <div id="MasterContent" >
+    <button id="updateBtn">Mettre à jour les données</button>
         <?php
        // $rees =  file_get_contents('http://localhost/EventMap/API/event/readCards.php');
        // echo $rees;

@@ -86,7 +86,16 @@ function SetClickableMarker(MarkerContent, MarkerId){
     if(document.getElementById("Preview").childElementCount != 0){  
       document.getElementById("Preview").innerHTML ="";
     }
-    OpenPage("Pages/Event/EventPreview.php", "Preview");
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "/templates/event/EventPreview.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+      if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+        // Traiter la réponse ici et mettre à jour la partie de la page souhaitée
+        document.getElementById("Preview").innerHTML = this.responseText;
+      }
+    };
+    xhr.send();
   });
 }
 

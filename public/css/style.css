@@ -421,11 +421,24 @@ body{
     filter: blur(2px);
     transform: scale(1.3);
 }
+.EventCardMarker {
+    pointer-events: auto;
+}
 
-.EventCard:hover .EventCardContent {
-    pointer-events: none;
+.EventCardContent.no-hover:hover .EventCardDescription {
+    max-height: 0px;
+    opacity: 0;
   }
-
+  
+  .EventCardContent.no-hover:hover .EventCardImage {
+    filter: none;
+    transform: none;
+  }
+  
+  .EventCardContent.no-hover:hover .EventCardBackground {
+    filter: none;
+    transform: none;
+  }
 .EventCardBackground{
     display: flex;
     width: 100%;
@@ -665,7 +678,7 @@ body{
 .LeftContent{
     color: white;
     background-color: rgb(30, 30, 71);
-    width: 20%;
+    width: 45vh;
     height: 100%;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;

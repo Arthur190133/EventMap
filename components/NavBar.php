@@ -3,7 +3,9 @@
 </head>
 <div class="NavBar">
     <div class="NavBarLogo">
-        <img height="128" width="128" src="/Images/Logos/EventMap.png">
+        <a class="link" href="/">
+            <img height="128" width="128" src="/Images/Logos/EventMap.png">
+        </a>
     </div>
     <div class="NewNavBarContent">
         <div class="NavBarElements">

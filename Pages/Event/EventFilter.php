@@ -1,4 +1,4 @@
-<head><link rel="stylesheet" href="/css/filter.css"></head>
+<head><link rel="stylesheet" href="/css/eventFilter.css"></head>
     <div class="LeftContent">
         <div class="EventFilters">
             <p> FILTER </p>
@@ -24,29 +24,49 @@
                     </svg> 
                 </div> -->
             </div>
-            <div class="FiltersEventProperties">
-                <div>
-                    <span>PRIVÉ</span>
-                    <input type="checkbox" checked="checked" />
-                </div>
-                <div>
-                    <span>GRATUIT</span>
-                    <input type="checkbox" checked="checked" />
-                </div>
-                <div>
-                    <span>PAYANT</span>
-                    <input type="checkbox" checked="checked" />
-                </div>
-                <div>
-                    <!-- seulement si payant -->
-                    <p>
-                        <label for="amount">Price range:</label>
-                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                    </p>
-                    <div id="EventSliderRangePrices">
+            <div class="FilterEventProperties">
+                <div class="event-filter-options">
+                    <div class="event-filter-option">
+                        <span>PUBLIC</span>
+                        <label class="container">
+                            <input checked="checked" type="checkbox">
+                            <div class="checkmark"></div>
+                        </label>
+                        
+                    </div>
+                    <div class="event-filter-option">
+                        <span>PRIVÉ</span>
+                        <label class="container">
+                            <input checked="checked" type="checkbox">
+                            <div class="checkmark"></div>
+                        </label>
+                    </div>
+                    <div class="event-filter-option">
+                        <span>GRATUIT</span>
+                        <label class="container">
+                            <input checked="checked" type="checkbox">
+                            <div class="checkmark"></div>
+                        </label>
+                    </div>
+                    <div class="event-filter-option">
+                        <span>PAYANT</span>
+                        <label class="container">
+                            <input checked="checked" type="checkbox">
+                            <div class="checkmark"></div>
+                        </label>
+                    </div>
+                    </div>
+
+                    <div>
+                        <!-- seulement si payant -->
+                        <p>
+                            <label for="amount">Price range:</label>
+                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        </p>
+                        <div id="EventSliderRangePrices">
+                        </div>
                     </div>
                 </div>
-            </div>
 
             <div>
                 <button> FILTER </button>

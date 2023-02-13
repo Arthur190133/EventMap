@@ -154,6 +154,17 @@ links.forEach(function(link) {
 document.querySelector('body').style.opacity = 1;
 
 
+// TEST CARD
+let EventCardMarker = document.querySelector('.EventCardMarker');
+let EventCardContent = document.querySelector('.EventCardContent');
+
+EventCardMarker.addEventListener('mouseenter', function() {
+  EventCardContent.classList.add('no-hover');
+});
+
+EventCardMarker.addEventListener('mouseleave', function() {
+  EventCardContent.classList.remove('no-hover');
+});
 
 
 

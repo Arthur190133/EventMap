@@ -273,6 +273,146 @@ class Event{
         
                 return $stmt;
     }
+
+    public function readFiltered()
+    {
+        // Créer la requete
+        /*$query = '
+        SELECT
+            event.EventId,
+            EventBackground.ImageName as EventBackgroundName,
+            EventBackground.ImageDir as EventBackgroundDir,
+            EventThumbnail.ImageName as EventThumbnailName,
+            EventThumbnail.ImageDir as EventThumbnailDir,
+            user.UserName as OwnerName,
+            user.UserEmail as OwnerEmail,
+            user.UserDescription as OwnerDescription,
+            UserAvatar.ImageName as OwnerAvatarName,
+            UserAvatar.ImageDir as OwnerAvatarDir,
+            UserBackground.ImageName as OwnerBackgroundName,
+            UserBackground.ImageDir as OwnerBackgroundDir,
+            event.EventName,
+            event.EventDescription,
+            event.EventStartDate,
+            event.EventEndDate,
+            event.EventLocation,
+            event.EventCategory,
+            event.EventPrivate,
+            event.EventSize,
+            event.EventPrice,
+            event.EventCardColor,
+            event.EventPageColor
+        FROM '
+            . $this->table . ' event
+        
+        WHERE 
+                event.EventPrice >= :MinEventPrice
+            AND
+                event.EventPrice <= :MaxEventPrice
+            AND
+                event.EventPrivate = :EventPrivate
+            AND 
+                event.EventPrivate = :EventPublic  
+            AND
+            (
+                (:FreeEvent = 1 AND event.EventPrice = 0)
+                OR
+                (:FreeEvent = 1 OR :PaidEvent = 1)
+            )
+            AND
+                event.EventPrice >= 0
+        
+        LEFT JOIN 
+            user user ON event.EventOwnerId = user.UserId
+        LEFT JOIN 
+            image EventBackground ON event.EventBackgroundId = EventBackground.ImageId
+        LEFT JOIN 
+            image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
+        LEFT JOIN
+            image UserAvatar ON user.UserAvatarId = UserAvatar.ImageId
+        LEFT JOIN
+            image UserBackground ON user.UserBackgroundId = UserBackground.ImageId       
+        ';*/
+
+        $query = 'SELECT
+        event.EventId,
+        EventBackground.ImageName as EventBackgroundName,
+        EventBackground.ImageDir as EventBackgroundDir,
+        EventThumbnail.ImageName as EventThumbnailName,
+        EventThumbnail.ImageDir as EventThumbnailDir,
+        user.UserName as OwnerName,
+        user.UserEmail as OwnerEmail,
+        user.UserDescription as OwnerDescription,
+        UserAvatar.ImageName as OwnerAvatarName,
+        UserAvatar.ImageDir as OwnerAvatarDir,
+        UserBackground.ImageName as OwnerBackgroundName,
+        UserBackground.ImageDir as OwnerBackgroundDir,
+        event.EventName,
+        event.EventDescription,
+        event.EventStartDate,
+        event.EventEndDate,
+        event.EventLocation,
+        event.EventCategory,
+        event.EventPrivate,
+        event.EventSize,
+        event.EventPrice,
+        event.EventCardColor,
+        event.EventPageColor
+    FROM '
+        . $this->table . ' event
+    LEFT JOIN 
+    user user ON event.EventOwnerId = user.UserId
+LEFT JOIN 
+    image EventBackground ON event.EventBackgroundId = EventBackground.ImageId
+LEFT JOIN 
+    image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
+LEFT JOIN
+    image UserAvatar ON user.UserAvatarId = UserAvatar.ImageId
+LEFT JOIN
+    image UserBackground ON user.UserBackgroundId = UserBackground.ImageId
+    WHERE 
+            event.EventPrice >= :MinEventPrice
+        AND
+            event.EventPrice <= :MaxEventPrice
+        AND
+            (
+                (:FreeEvent = 1 AND event.EventPrice = 0)
+                OR
+                (:FreeEvent = 0 AND :PaidEvent = 1 AND event.EventPrice > 0)
+                OR
+                (:FreeEvent = 1 AND :PaidEvent = 1)
+            )
+        AND
+            (
+                (:EventPublic = 1 AND event.EventPrivate = 0)
+                OR
+                (:EventPublic = 0 AND :EventPrivate = 1 AND event.EventPrivate > 0)
+                OR
+                (:EventPublic = 1 AND :EventPrivate = 1)
+            )
+            
+';
+
+        $stmt = $this->connection->prepare($query);
+        // TEST ONLY
+        $Min = 0;
+        $Max = 50;
+        $FreeEvent = 1;
+        $PaidEvent = 1;
+        $Private = 1;
+        $Public = 1;
+        $stmt->bindParam(':MinEventPrice', $Min);
+        $stmt->bindParam(':MaxEventPrice', $Max);
+        $stmt->bindParam(':EventPrivate', $Private);
+        $stmt->bindParam(':EventPublic', $Public);
+        $stmt->bindParam(':FreeEvent', $FreeEvent);
+        $stmt->bindParam(':PaidEvent', $PaidEvent);
+
+
+        $stmt->execute();
+
+        return $stmt;
+    }
 }
 
 ?>
