@@ -1,5 +1,5 @@
 <?php
-    require_once '../Pages/User/UserProfile.php';
+    require '../Pages/User/UserProfile.php';
 ?>
 
 
