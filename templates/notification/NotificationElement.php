@@ -2,12 +2,13 @@
     if(!$Connected){
         require_once '../components/notification/notConnectedNotification.php';
     }
-    elseif(array_key_exists("message", $Notifications)) 
+    /*elseif(property_exists($Notifications, "message")) 
     {
         require_once '../components/notification/NoNotificationFound.php';
-    }
+    }*/
     else
     {
+        $Notifications = $Notifications->data;
         foreach($Notifications as $value => $Notification)
         {            
             

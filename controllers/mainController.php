@@ -29,7 +29,11 @@ class mainController
 
     public function logout(){
       session_destroy();
-      header("location: /");
+      echo "<script>location.href='/'</script>";
+    }
+
+    public function romeo(){
+        echo "<div>ROMEO EST UN JUIF</div>";
     }
 }
 

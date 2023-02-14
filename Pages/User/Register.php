@@ -2,9 +2,8 @@
 
 ?>
 <head>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
-<script> RemoveDiv("PopUpLoginContent") </script>
 <div class="login-master">
 	<div class=box-login>
    		<div class=gauche>

@@ -49,7 +49,7 @@ function GetNotificationContext($NotificationContext):string{
     $Context = $NotificationContext;
     if(strpos($NotificationContext, "EventId") !== false){
         $s =  GetStringBetweenTwoCharacters($NotificationContext, "{", "}");
-        $Event = GetEvent(substr($s, strpos(($s), "=") + 1));
+        $Event = "";//GetEvent(substr($s, strpos(($s), "=") + 1));
         $Context = str_replace($s, $Event->EventName, $NotificationContext);
         $Context = str_replace("{", "", $Context);
         $Context = str_replace("}", "", $Context);
@@ -103,6 +103,13 @@ if($Connected)
     // REQUEST TO GET ALL NOTIFICATIONS 
     $url = "http://localhost/EventMap/API/notification/readUser.php";
 
+    $token = bin2hex(random_bytes(64));
+
+    $headers = array(
+        'Authorization: Bearer ' . $token,
+        'Content-Type: application/json'
+    );
+
     $data = array($user);
     $json_data = json_encode($data);
     $ch = curl_init();
@@ -111,17 +118,18 @@ if($Connected)
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     $Notifications = curl_exec($ch);
 
     curl_close($ch);
     $Notifications =  json_decode($Notifications);
+    var_dump($Notifications);
     
-    if(!property_exists($Notifications, "message")){
-        $Notifications = $Notifications->data;
-        $NotificationsNumber = count($Notifications);
-    }
+    /*if(!property_exists($Notifications, "message")){
+        $NotificationsNumber = count($Notifications->data);
+    }*/
 
 }
 
