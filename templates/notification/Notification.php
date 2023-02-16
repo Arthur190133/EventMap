@@ -103,12 +103,23 @@ if($Connected)
     // REQUEST TO GET ALL NOTIFICATIONS 
     $url = "http://localhost/EventMap/API/notification/readUser.php";
 
-    $token = bin2hex(random_bytes(64));
+    $header = [
+        'typ' => 'JWT',
+        'alg' => 'HS256'
+    ];
 
-    $headers = array(
-        'Authorization: Bearer ' . $token,
-        'Content-Type: application/json'
-    );
+    $payload = [
+        'userId' => $user->UserId,
+        'test' => 'Ok'
+    ];
+    $jwt = new JWT();
+    $token = $jwt->generate($header, $payload, 60 * 5);
+    var_dump($token);
+    var_dump($jwt->getPayload($token));
+    var_dump($jwt->check($token));
+
+    
+
 
     $data = array($user);
     $json_data = json_encode($data);

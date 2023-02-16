@@ -2,6 +2,7 @@
 <?php
 
   //require_once '../Pages/Tools/Requestes.php';
+  require_once '../config/JWT.php';
   require_once '../Pages/Tools/Functions.php';
   session_start();
 
