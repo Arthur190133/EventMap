@@ -8,7 +8,7 @@ body{
   background-size:100%;
   background-repeat:no-repeat;
   background-attachment: fixed;
-  padding-top: 400px;
+  padding-top: 150px;
 }
 
 .center{
@@ -260,6 +260,14 @@ margin-bottom: 50px;
   box-shadow: inset 48px 48px #f2f2f2;
 }
 
+.TitreProfile{
+  margin-bottom:350px;
+  font-weight: bold;
+  filter: invert(1);
+  font-size: 10vh;
+}
+
+
 .window_title {
   color: #131313;
   line-height: 15px;
@@ -287,7 +295,9 @@ margin-bottom: 50px;
 }
 
 
-
+.h1Event{
+  filter: invert(1);
+}
 
 
 
