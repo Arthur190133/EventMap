@@ -50,7 +50,7 @@ function GetNotificationContext($NotificationContext):string{
     if(strpos($NotificationContext, "EventId") !== false){
         $s =  GetStringBetweenTwoCharacters($NotificationContext, "{", "}");
         $Event = "";//GetEvent(substr($s, strpos(($s), "=") + 1));
-        $Context = str_replace($s, $Event->EventName, $NotificationContext);
+        //$Context = str_replace($s, $Event->EventName, $NotificationContext);
         $Context = str_replace("{", "", $Context);
         $Context = str_replace("}", "", $Context);
     }
@@ -110,33 +110,29 @@ if($Connected)
 
     $payload = [
         'userId' => $user->UserId,
-        'test' => 'Ok'
     ];
     $jwt = new JWT();
-    $token = $jwt->generate($header, $payload, 60 * 5);
-    var_dump($token);
-    var_dump($jwt->getPayload($token));
-    var_dump($jwt->check($token));
-
+    $token = $jwt->generate($header, $payload, 60 * 3);
     
 
 
     $data = array($user);
     $json_data = json_encode($data);
+    $authorization_header = "Authorization: Bearer ".$token;
     $ch = curl_init();
 
     // Set cURL options
+    
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization_header ));
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     $Notifications = curl_exec($ch);
 
     curl_close($ch);
     $Notifications =  json_decode($Notifications);
-    var_dump($Notifications);
+   // var_dump($Notifications);
     
     /*if(!property_exists($Notifications, "message")){
         $NotificationsNumber = count($Notifications->data);

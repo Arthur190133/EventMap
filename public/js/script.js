@@ -62,9 +62,19 @@ function RemoveSelectedTag(SelectedTagId){
 
 document.addEventListener('click', function OpenNotification(event) {
   const box = document.getElementById('UserNotification');
-
-  if (box && !box.contains(event.target)) {
+  if (box && event.target.className.baseVal === 'Bellsvg') {
     box.style.display = 'grid';
+    console.log("passed");
+    const divs = document.querySelectorAll('.MiddleUserNotification > a');    
+      setTimeout(() => {
+        divs.forEach((div, i) => {
+      
+          setTimeout(() => {
+            div.classList.add('animate'); 
+            console.log("delay ?"); 
+          }, i * 200) 
+        });
+      },200)
   }
 });
 
@@ -80,8 +90,8 @@ document.addEventListener('click', function CloseNotification(event) {
 
 document.addEventListener('click', function OpenUserButton(event) {
   const box = document.getElementById('UserButton');
-
-  if (box && !box.contains(event.target)) {
+  console.log(event.target.className);
+  if (box && event.target.className == "ButtonUserAvatar") {
     box.style.display = 'grid';
   }
 });

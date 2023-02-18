@@ -1,5 +1,5 @@
 <div class="NavBarUserButton"  id="NavBarUserButton">
-    <div id="NavBarUserButtonContent">
+    <div class="NavBarUserButtonContent" id="NavBarUserButtonContent">
         <div class="UserButton" id="UserButton" >
             <div class="UpUserButton">
                 <h5>Bonjour <?= $user->UserFirstName ?></h5>

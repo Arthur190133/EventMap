@@ -30,7 +30,7 @@ class JWT{
     {
 
 
-    if($validity > 0){
+    if(/*$validity > 0*/ true){
         $now = new DateTime();
         $expiration = $now->getTimestamp() + $validity;
         $payload['iat'] = $now->getTimestamp();
@@ -61,7 +61,7 @@ class JWT{
 
         $verifToken = $this->generate($header, $payload, 0);
 
-        return $token == $verifToken;
+        return $token !== $verifToken;
     }
 
      public function getHeader(string $token)
@@ -82,13 +82,11 @@ class JWT{
         return $payload;
     }
 
-    public function isExpired(string $token):sting
+    public function isExpired(string $token)
     {
         $payload = $this->getPayload($token);
-
-        $now = new DateTime();
-
-        return $payload['exp'] < $now->getTimestamp();
+        return $payload['exp'] < (new DateTime('+180 seconds'))->getTimestamp();
+        //return true;
     }
 
     public function isValid($token){

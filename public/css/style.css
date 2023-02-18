@@ -6,8 +6,14 @@
 .color4 {color: #5b6df5;}
 .color5 {color: #aa9bfa;}
 
+
 */
 /* INDEX */
+:root{
+    --Notification: 0;
+}
+
+
 html {
     box-sizing: border-box;
     font-size: 100%;
@@ -789,6 +795,7 @@ body{
     position: relative;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+    counter-reset: my-counter;
 }
 
 /*NOTIFICATION*/
@@ -799,26 +806,92 @@ body{
 
 /*NOTIFICATION*/
 .UserNotificationSender{
+    width: calc(100% - 90px);
+    margin-left: 10px;
+    color: white;
+    font-family: 'Poppins' sans-serif;
+}
+
+.UserNotificationSenderHeader{
     display: flex;
-    align-items:center;
+    align-items: center;
+    justify-content: space-between;
+    height: 0;
 }
 
 /*NOTIFICATION*/
 .UserNotificationContent{
-    border-bottom: 2px solid #535353;
+    height: 70px;
     padding: 5px;
-    width: 100%;
+    margin-left: 7px;
+    margin-right: 7px;
+    background: #353535;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
 }
 
 .UserNotificationContent:hover{
-    background: grey;
+    cursor: pointer;
+    transform: scale(1.03);
 }
+
+.UserNotificationContent img{
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+.UserNotificationContent span{
+    font-size: 10px;
+}
+
+
 /*NOTIFICATION*/
-.UserNotificationContent p{
-    font-size: 16px;
-    font-family: 'Oswald', sans-serif;
-    padding: 10px;
+.UserNotificationContent .NotificationContext{
+    font-size: 12px;
+    font-weight: lighter;
+    height: 0;
 }
+
+.NotificationSender{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*ANIMATION NOTIFICATION*/
+
+
+@keyframes NotificationAnimation {
+    0% {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+
+  .MiddleUserNotification > a  {
+    opacity: 0;
+  }
+  
+  .MiddleUserNotification > a.animate  {
+    display: block;
+    animation: NotificationAnimation 0.3s ease-in-out both;
+    margin-top: 10px;
+    animation-play-state: running;
+    transform: translateY(0);
+  }
+
+
+  
+
+
 
 
 
