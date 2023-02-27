@@ -121,11 +121,8 @@
 
   .login-right{
     width: 55%;
-    background:url("../Images/Logos/LoginGif.gif");
+    background:url("https://thumbs.gfycat.com/ImpassionedIcyBull-max-1mb.gif");
     background-repeat:no-repeat;
-    background-position-x: right;
-    background-position-y: center;
-    background-attachment: fixed;
     background-size: 45%;
     padding-top: 100%;
   }
