@@ -23,5 +23,5 @@
         </g>
     </svg>
     <p>Vous n'avez aucune notification</p><br>
-    <p>Rejoingnez ou créez des évènements pour en être informé en temps réel</p>
+    <p style="margin: 10px;">Rejoingnez ou créez des évènements pour en être informé en temps réel</p>
 </div>

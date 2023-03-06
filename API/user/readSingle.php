@@ -25,6 +25,7 @@
         'UserEmail' => $user->UserEmail,
         'UserPassword' => $user->UserPassword,
         'UserDescription' => $user->UserDescription,
+        'UserWallet' => $user->UserWallet,
         'UserAvatarName' => $user->UserAvatarName,
         'UserAvatarDir' => $user->UserAvatarDir,
         'UserBackgroundName' => $user->UserBackgroundName,

@@ -28,6 +28,7 @@
     $user->UserEmail = $data->UserEmail;
     $user->UserPassword = $data->UserPassword;
     $user->UserDescription = $data->UserDescription;
+    $user->UserWallet = $data->UserWallet;
     $user->UserAvatarId = $data->UserAvatarId;
     $user->UserBackgroundId= $data->UserBackgroundId;
 

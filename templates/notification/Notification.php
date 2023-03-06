@@ -83,7 +83,7 @@ function GetNotificationDate($NotificationDate):string{
         return $date;
     }
 
-    return "Impossible de récupérer la date";
+    return "Date inconnue";
 
 }
 

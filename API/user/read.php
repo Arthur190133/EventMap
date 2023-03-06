@@ -34,6 +34,7 @@
                 'UserEmail' => $UserEmail,
                 'UserPassword' => $UserPassword,
                 'UserDescription' => $UserDescription,
+                'UserWallet' => $UserWallet,
                 'UserAvatarName' => $UserAvatarName,
                 'UserAvatarDir' => $UserAvatarDir,
                 'UserBackgroundName' => $UserBackgroundName,

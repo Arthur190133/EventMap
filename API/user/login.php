@@ -8,7 +8,7 @@
     // Fichers requis
     include_once '../../config/Database.php';
     include_once '../../models/User.php';
-
+    $payload = json_decode(require_once '../auth.php');
     // Instantiation de la base de donnée
     $datebase = new Database();
     $db = $datebase->connect();
@@ -17,20 +17,24 @@
     $user = new User($db);
 
     // Recuperer les informations de l'utilisateur
-    $data= json_decode(file_get_contents("php://input"));
-
-    if ($data === null) {
-        echo 'Error: ' . json_last_error_msg();
+    
+    if (!isset($payload->UserEmail)) {
+      echo json_encode("Adrresse email manquante");
+      exit;
       }
+    elseif(!isset($payload->UserPassword)){
+      echo json_encode("Mot de passe manquant");
+      exit;
+    }
     else
       {
         // Modifier les informations de l'uutilisateur par celles voulues
-        $user->UserEmail = $data->UserEmail;
-        $user->UserPassword = $data->UserPassword;
+        $user->UserEmail = $payload->UserEmail;
+        $user->UserPassword = $payload->UserPassword;
 
         // Créer l'utilisateur
-        $user_connected = $user->login();
-        if($user_connected){
+         $user_connected = $user->login();
+        if(isset($user_connected)){
           echo json_encode($user_connected);
         }
         else{

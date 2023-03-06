@@ -32,8 +32,17 @@ class mainController
       echo "<script>location.href='/'</script>";
     }
 
-    public function romeo(){
-        echo "<div>ROMEO EST UN JUIF</div>";
+    public function event(){
+        require_once '../router/EventRouter.php';
+        //require_once '../controllers/mainController.php';
+        echo '----------------test only Call EventController to access to event page by id';
+        $EventRouter = new EventRouter();
+        $EventRouter->resolve();
+
+    }
+
+    public function wallet(){
+        require_once '../templates/Wallet.php';
     }
 }
 

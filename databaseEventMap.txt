@@ -92,26 +92,25 @@ create table UserEvent(
     	PRIMARY KEY (UserId, EventId),
     	FOREIGN KEY (UserId) REFERENCES user (UserId),
     	FOREIGN KEY (EventId) REFERENCES Event (EventId)
-)‬
+)
 
-create table Chat(
-	ChatId int AUTO_INCREMENT PRIMARY KEY
+create table ChatEvent(
+	ChatEventId int,
+	EventId int,
+	FOREIGN KEY (EventId) REFERENCES Event (EventId)
 )
 
 create table ChatMessage(
 	ChatMessageId int AUTO_INCREMENT PRIMARY KEY,
+	ChatEventId int,
 	ChatMessageText varchar(500),
 	ChatMessageDate datetime,
 	UserId int,
+	FOREIGN KEY (ChatEventId) REFERENCES ChatEvent (ChatEventId),
 	FOREIGN KEY (UserId) REFERENCES User (UserId)
 )
 
-create table ChatEvent(
-	ChatId int,
-	EventId int,
-	FOREIGN KEY (ChatId) REFERENCES Chat (ChatId),
-	FOREIGN KEY (EventId) REFERENCES Event (EventId)
-)
+
 
 create table ChatMessageReported(
 	ChatMessageReportedId int AUTO_INCREMENT PRIMARY KEY,
@@ -129,6 +128,14 @@ create table Notification(
 	NotificationDate datetime,
 	UserId int,
 	FOREIGN KEY (UserId) REFERENCES User (UserId)
+)
+
+create table Purchase(
+	Purchase int AUTO_INCREMENT PRIMARY KEY,
+	PurchaseEventId int,
+	PurchaseUserId int,
+	FOREIGN KEY(PurchaseEventId) REFERENCES Event (EventId),
+	FOREIGN KEY(PurchaseUserId) REFERENCES User (UserId),
 )
 
 

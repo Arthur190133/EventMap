@@ -1,0 +1,63 @@
+.wallet-content{
+    display: flex;
+    width: 100%;
+    height: 70vh;
+}
+
+.wallet-parts{
+    position: relative;
+    width: 47%;
+    background-color: rgba(83, 83, 83, 0.37);
+    margin: 0px 20px 0px 20px;
+    border-radius: 10px;
+}
+
+.wallet-history{
+    top: 0;
+    right: 0;
+    width: 38px;
+    height: 38px;
+    transition: width 250ms ease-in-out, height 250ms ease-in-out;
+    overflow: hidden;
+}
+.wallet-history svg{
+    float: left;
+    margin: 0.8vh 0vh 0vh 0.7vh;
+    position: absolute;
+    left: 0;
+}
+
+.wallet-history:hover{
+    width: 47%;
+    height: 70vh;
+}
+
+
+.wallet-history:hover .wallet-history-content{
+    display: block;
+    }
+
+.wallet-history-content{
+    margin-top: 50px;
+    display: block;
+}
+.wallet-history-content p{
+    white-space: nowrap;
+}
+
+.wallet-history-elements{
+    opacity: 0;
+    transition: opacity 500ms ;
+    transition-delay: 250ms;
+}
+
+.wallet-history:hover .wallet-history-elements{
+    opacity: 1;
+}
+
+.wallet-history-element{
+    height: 50px;
+    margin: 15px;
+    border: 1px solid white;
+    border-radius: 8px;
+}

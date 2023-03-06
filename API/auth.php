@@ -8,9 +8,9 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 //var_dump($_SERVER['Authorization']);
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST'){
-    http_response_code(405);
+    http_response_code(403);
 
-    echo json_encode(["message" => 'Forbidden access', "code" => 0001]);
+    echo json_encode(['http code' => "403", "message" => 'Access forbidden by server.']);
 
     exit;
 }
@@ -30,7 +30,7 @@ elseif(function_exists('apache_request_headers')){
 
 if(!isset($token) || !preg_match('/Bearer\s(\S+)/', $token, $matches)){
     http_response_code(400);
-    echo json_encode(['message' => 'no token', "code" => 0002]);
+    echo json_encode(['http code' => "400", 'message' => 'no token']);
     exit;
 }
 
@@ -44,19 +44,19 @@ $jwt = new JWT;
 
 if(!$jwt->IsValid($token)){
     http_response_code(400);
-    echo json_encode(['message' => 'invalid token', "code" => 0003]);
+    echo json_encode(['http code' => "400", 'message' => 'invalid token']);
     exit;
 }
 
 if($jwt->isExpired($token)){
     http_response_code(403);
-    echo json_encode(['message' => 'expired token  ' . $token, "code" => 0004]);
+    echo json_encode(['http code' => "403", 'message' => 'expired token']);
     exit;
 }
 
 if(!$jwt->check($token)){
     http_response_code(403);
-    echo json_encode(['message' => 'token check failled' . $token , "code" => 0005]);
+    echo json_encode(['http code' => "403", 'message' => 'token check failled']);
     exit;
 }
 

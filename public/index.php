@@ -11,6 +11,7 @@
   $user = null;
   if(isset($_SESSION['user']))
   {
+    //var_dump($_SESSION['user']);
     $_SESSION['user'] = json_decode(file_get_contents('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
     $user = $_SESSION['user'];
     //var_dump($user);
@@ -60,7 +61,6 @@ $router->register('/', ['mainController', 'index']);
     ?>
 
     <div id="MasterContent" >
-    <button id="updateBtn">Mettre à jour les données</button>
         <?php
        // $rees =  file_get_contents('http://localhost/EventMap/API/event/readCards.php');
        // echo $rees;
@@ -68,6 +68,7 @@ $router->register('/', ['mainController', 'index']);
       echo 'Current PHP version: ' . phpversion();
       // LOAD PAGE
       try{
+        $test = $user;
         $router->resolve($uri);
 
       }catch (RouteNotFoundException $e){

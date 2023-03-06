@@ -12,6 +12,7 @@ class User{
     public $UserEmail;
     public $UserPassword;
     public $UserDescription;
+    public $UserWallet;
     public $UserAvatarId;
     public $UserAvatarName;
     public $UserAvatarDir;
@@ -36,6 +37,7 @@ class User{
             u.UserEmail,
             u.UserPassword,
             u.UserDescription,
+            u.UserWallet,
             a.ImageName as UserAvatarName,
             a.ImageDir as UserAvatarDir,
             b.ImageName as UserBackgroundName,
@@ -65,6 +67,7 @@ class User{
             u.UserEmail,
             u.UserPassword,
             u.UserDescription,
+            u.UserWallet,
             a.ImageName as UserAvatarName,
             a.ImageDir as UserAvatarDir,
             b.ImageName as UserBackgroundName,
@@ -89,6 +92,7 @@ class User{
         $this->UserName = $row['UserName'];
         $this->UserEmail = $row['UserEmail'];
         $this->UserDescription = $row['UserDescription'];
+        $this->UserWallet = $row['UserWallet'];
         $this->UserPassword= $row['UserPassword'];
         $this->UserAvatarName= $row['UserAvatarName'];
         $this->UserAvatarDir= $row['UserAvatarDir'];
@@ -109,6 +113,7 @@ class User{
                 UserEmail = :Email,
                 UserPassword = :Password,
                 UserDescription = :Description,
+                UserWallet = :Wallet
                 UserAvatarId = :AvatarId,
                 UserBackgroundId = :BackgroundId
                 
@@ -123,6 +128,7 @@ class User{
         $this->UserEmail = htmlspecialchars(strip_tags($this->UserEmail));
         $this->UserPassword = htmlspecialchars(strip_tags($this->UserPassword));
         $this->UserDescription = htmlspecialchars(strip_tags($this->UserDescription));
+        $this->UserWallet = htmlspecialchars(strip_tags($this->UserWallet));
         $this->UserAvatarId = htmlspecialchars(strip_tags($this->UserAvatarId));
         $this->UserBackgroundId = htmlspecialchars(strip_tags($this->UserBackgroundId));
 
@@ -132,6 +138,7 @@ class User{
         $stmt->bindParam(':Email', $this->UserEmail);
         $stmt->bindParam(':Password', password_hash($this->UserPassword, PASSWORD_DEFAULT));
         $stmt->bindParam(':Description', $this->UserDescription);
+        $stmt->bindParam(':Description', $this->UserWallet);
         $stmt->bindParam(':AvatarId', $this->UserAvatarId);
         $stmt->bindParam(':BackgroundId', $this->UserBackgroundId);
 
@@ -175,7 +182,7 @@ class User{
             $this->UserName = $row['UserName'];
             $this->UserEmail = $row['UserEmail'];
             $this->UserDescription = $row['UserDescription'];
-            //$this->UserPassword= $row['UserPassword'];
+            $this->UserWallet= $row['UserWallet'];
             $this->UserAvatarId= $row['UserAvatarId'];
             $this->UserBackgroundId= $row['UserBackgroundId'];
 
@@ -196,6 +203,7 @@ class User{
                 UserEmail = :Email,
                 UserPassword = :Password,
                 UserDescription = :Description,
+                UserWallet = :Wallet,
                 UserAvatarId = :AvatarId,
                 UserBackgroundId = :BackgroundId
             WHERE
@@ -209,6 +217,7 @@ class User{
         $this->UserEmail = htmlspecialchars(strip_tags($this->UserEmail));
         $this->UserPassword = htmlspecialchars(strip_tags($this->UserPassword));
         $this->UserDescription = htmlspecialchars(strip_tags($this->UserDescription));
+        $this->UserWallet = htmlspecialchars(strip_tags($this->UserWallet));
         $this->UserAvatarId = htmlspecialchars(strip_tags($this->UserAvatarId));
         $this->UserBackgroundId = htmlspecialchars(strip_tags($this->UserBackgroundId));
 
@@ -218,6 +227,7 @@ class User{
         $stmt->bindParam(':Email', $this->UserEmail);
         $stmt->bindParam(':Password', $this->UserPassword);
         $stmt->bindParam(':Description', $this->UserDescription);
+        $stmt->bindParam(':Wallet', $this->UserWallet);
         $stmt->bindParam(':AvatarId', $this->UserAvatarId);
         $stmt->bindParam(':BackgroundId', $this->UserBackgroundId);
         $stmt->bindParam('Id', $this->UserId);

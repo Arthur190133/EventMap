@@ -25,7 +25,7 @@
     background-color: #252525;
     color: white;
     font-size: 16px;
-    width: 180px;
+    width: 20vh;
     padding: 12px 35px;
     border-radius: 40px;
     margin-right: 25px;
@@ -54,7 +54,7 @@
     background-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%);
     border-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%) 1;
     color: white;
-    width: 80%;
+    width: 30vh;
   }
 
   .box-login .droite img {
