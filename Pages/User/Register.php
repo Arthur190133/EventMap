@@ -23,7 +23,9 @@
 							<div class="LoginSubContent">
 								<input  type="email" value="<?= $CurrentEmail ?>"  name="Email" placeholder="Email" required>
 								<input  type="email" name="ConfirmEmail" placeholder="Confirmer votre email" required>
-							</div>			
+							</div>		
+							<textarea name="description" type="description" placeholder="Description"></textarea>
+	
 						 	<button name="submit" class="LoginButton">Créer</button>
 						</div>	
 					</form>
@@ -32,6 +34,12 @@
     	</div>
 	</div>
 <div class="login-right">
-
-</div>
+	
+	<div class="card">
+		<div class="img"></div>
+		<div class="info">
+			<span>Prenom Nom</span>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.ss</p>
+		</div>
+	</div>
 </div>
