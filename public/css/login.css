@@ -87,9 +87,24 @@
     transition: all 0.5s;
   }
 
+  textarea{
+    width: 45%;
+    padding: 10px;
+    margin: 18px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #252525;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: #d67200;
+    transition: all 0.5s;
+  }
+
   .LoginContent textarea{
     resize: none;
-    width: 100%;
+    width: 95%;
     height: 120px;
     overflow-y: hidden;
     padding: 10px;
@@ -98,7 +113,7 @@
     font-size: 16px;
     border: none;
     outline: none;
-    border-bottom: 2px solid #B0B3B9;
+    border-bottom: 2px solid #d67200;
   }
 
   .login-content-preview-image{
@@ -119,13 +134,11 @@
     font-size: 16px;
   }
 
+
   .login-right{
     width: 55%;
-    background:url("../Images/Logos/LoginGif.gif");
+    background:url("https://thumbs.gfycat.com/ImpassionedIcyBull-max-1mb.gif");
     background-repeat:no-repeat;
-    background-position-x: right;
-    background-position-y: center;
-    background-attachment: fixed;
     background-size: 45%;
     padding-top: 100%;
   }
@@ -149,9 +162,68 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url('Images/Logos/EventMap.png');
+    background-image: url("https://www.endehors.org/wp-content/uploads/2020/01/profil-photo.jpg");
   }
 
 
-
+  .card {
+    margin-top:110px;
+    width: 250px;
+    height: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #252525;
+    border: solid #be6600;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px 1px #ffbb763f;
+   }
+   
+   .card .img {
+    height: 100px;
+    margin-top: 1.6em;
+    aspect-ratio: 1;
+    border-radius: 30%;
+    background-image: url("https://www.endehors.org/wp-content/uploads/2020/01/profil-photo.jpg");
+    background-size:cover;
+    background-position: center;
+    margin-bottom: 0.4em;
+    border: solid #fff;
+    
+   }
+   
+   .card .info {
+    text-align: center;
+    margin-top: 0.4em;
+    background: linear-gradient(120deg, rgb(255, 255, 255) 0%,rgb(255, 132, 0) 100%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   }
+   
+   .card .info > span {
+    font-weight: bold;
+    font-size: 1.2em;
+   }
+   
+   .card a {
+    margin-top: 1em;
+    color: #fff;
+    text-decoration: none;
+    background: linear-gradient(90deg, rgb(255, 255, 255) 0%, rgb(255, 132, 0) 100%);
+    padding: .5em 2em;
+    border-radius: 0.7em;
+   }
+   
+   .card a:active {
+    box-shadow: inset 3px 3px 3px #0056ff,
+                inset -3px -3px 3px #00c2ff;
+   }
   
+   p{
+    text-align: justify;
+    text-justify: inter-word;
+    margin: 20px;
+   }
+
+   
