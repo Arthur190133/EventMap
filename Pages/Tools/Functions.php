@@ -21,5 +21,37 @@ function GenerateEventBackground($Event){
 }
 
 
+function GenerateToken(array|null $payload){
+
+    $header = [
+        'typ' => 'JWT',
+        'alg' => 'HS256'
+    ];
+    $jwt = new JWT();
+    $token = $jwt->generate($header, $payload, 60 * 3);
+    return $token;
+}
+
+function SendRequestToAPI($token, $url){
+
+    
+    $authorization_header = "Authorization: Bearer ".$token;
+    echo $url;
+    $ch = curl_init();
+
+    // Set cURL options
+    
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization_header ));
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $data = curl_exec($ch);
+    var_dump($data);
+    curl_close($ch);
+    $data =  json_decode($data);
+    return $data;
+}
+
 
 ?>

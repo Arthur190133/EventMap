@@ -116,8 +116,6 @@ if($Connected)
     
 
 
-    $data = array($user);
-    $json_data = json_encode($data);
     $authorization_header = "Authorization: Bearer ".$token;
     $ch = curl_init();
 

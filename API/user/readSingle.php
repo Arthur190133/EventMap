@@ -5,6 +5,8 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/User.php';
+    //$payload = json_decode(require_once '../auth.php');
+    //var_dump($payload);
 
     // Instantiation Database
     $datebase = new Database();
@@ -12,12 +14,11 @@
 
     // Instantiation user object
     $user = new User($db);
-
+    
     // Get Id
-    $user->UserId = isset($_GET['UserId']) ? $_GET['UserId'] : die();
-
+    $user->UserId = isset($_GET['UserId']) ? $_GET['UserId']: die();
     $user->readSingle();
-
+    var_dump($user);
     $user_arr = array(
         'UserId' => $user->UserId,
         'UserFirstName' => $user->UserFirstName,
@@ -31,7 +32,6 @@
         'UserBackgroundName' => $user->UserBackgroundName,
         'UserBackgroundDir' => $user->UserBackgroundDir
     );
-
     print_r(json_encode($user_arr));
 
     

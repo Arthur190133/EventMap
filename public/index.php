@@ -11,8 +11,12 @@
   $user = null;
   if(isset($_SESSION['user']))
   {
+    $payload = [];
+    $token = GenerateToken($payload);
+    $data = SendRequestToAPI($token, ('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
+    
     //var_dump($_SESSION['user']);
-    $_SESSION['user'] = json_decode(file_get_contents('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
+    //$_SESSION['user'] = json_decode(file_get_contents('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
     $user = $_SESSION['user'];
     //var_dump($user);
   }

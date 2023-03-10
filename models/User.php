@@ -59,7 +59,7 @@ class User{
     public function readSingle()
     {
         // Créer la requete
-
+       
         $querry = 'SELECT
             u.UserId,
             u.UserFirstName,
@@ -76,16 +76,15 @@ class User{
             LEFT JOIN image a ON u.UserAvatarId = a.ImageId
             LEFT JOIN image b ON u.UserBackgroundId = b.ImageId
             WHERE
-                UserId = ?
+                UserId = :UserId
             LIMIT 0,1
         ';
 
         $stmt = $this->connection->prepare($querry);
 
-        $stmt->bindParam(1, $this->UserId);
-
+        $stmt->bindParam(":UserId", $this->UserId);
         $stmt->execute();
-
+        
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->UserFirstName = $row['UserFirstName'];
@@ -98,7 +97,7 @@ class User{
         $this->UserAvatarDir= $row['UserAvatarDir'];
         $this->UserBackgroundName= $row['UserBackgroundName'];
         $this->UserBackgroundDir= $row['UserBackgroundDir'];
-
+        
         return $stmt;
     }
 
