@@ -9,7 +9,7 @@ const register_card_name = document.getElementById("Register-card-name");
 register_description.addEventListener("input", function() {
     if(register_description && register_card_description){
         if(register_description.value == ""){
-            register_card_description.textContent = "Votre description s'affichera ici";
+            register_card_description.textContent = "       Votre description s'affichera ici";
         }else{
             register_card_description.textContent = register_description.value;
         }

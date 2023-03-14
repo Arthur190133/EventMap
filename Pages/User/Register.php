@@ -39,7 +39,7 @@
 		<div class="info">
 			<span id="Register-card-firstname">Nom</span>
 			<span id="Register-card-name">prénom</span>
-			<p id="Register-card-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum dolor sit amet, consectetur adipisicing elit.ss</p>
+			<p id="Register-card-description">Votre description s'affichera ici</p>
 		</div>
 	</div>
 </div>
