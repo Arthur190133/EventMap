@@ -33,7 +33,7 @@
 				<p><a class="link" href="?/Login">Cliquez ici</a> pour vous connectez</p>
     	</div>
 	</div>
-<div class="login-right">
+<div >
 	
 	<div class="card">
 		<div class="img"></div>

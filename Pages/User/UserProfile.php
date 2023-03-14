@@ -11,15 +11,17 @@
             <div class="x">
                 <div class="gauche">
                     <div class="card">
-                        <div class="blob"></div>
+                        <div class="card__content">
                             <span class="img"></span>
-                            <h2><?= $user->UserFirstName ?><br><span><?= $user->UserName ?></span></h2>
-                            <div>
-                                <p class="hiddenTXT" ><?= $user->UserDescription ?></p>
-                            </div>
-                            <div>
-                                <h5 class="BlueTXT" >REGARDE ICI !</h6>
-                            </div>
+                            <h2><?= $user->UserFirstName ?> <?= $user->UserName ?></h2>
+                            <p><?= $user->UserDescription ?></p>
+                            <button> MODIFIER </button>
+                            
+                        </div>
+                        <div class="blob"></div>
+                        <div class="blob"></div>
+                        <div class="blob"></div>
+                        <div class="blob"></div>
                     </div>
                 </div>
                 <div class="center"></div>
@@ -48,7 +50,7 @@
                         <div class="blob"></div>
                             <p class="NewEvent">NOUVEL</p><p class="NewEvent">EVENT</p>
                             <button>
-                                <span>Button</span>
+                                <span>CREER</span>
                             </button>
                             
                     </div>
