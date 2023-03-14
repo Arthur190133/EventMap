@@ -54,8 +54,8 @@ function GetNotificationContext($NotificationContext):string{
     if(strpos($NotificationContext, "EventId") !== false){
         $s =  GetStringBetweenTwoCharacters($NotificationContext, "{", "}");
         $Event = "";//GetEvent(substr($s, strpos(($s), "=") + 1));
-        $Context = str_replace($s, $Event->EventName, $NotificationContext);
-        $Context = str_replace("{", "", $Context);
+        //$Context = str_replace($s, $Event->EventName, $NotificationContext);
+        //$Context = str_replace("{", "", $Context);
         $Context = str_replace("}", "", $Context);
     }
     return $Context;
