@@ -2,13 +2,25 @@
 
 class mainController
 {
+
+    private function isUserConnected():bool
+    {
+        return isset($_SESSION['user']);
+    }
+
     public function index()
     {
         
     }
     
     public function profile(){
-        require_once '../templates/user/UserProfile.php';
+        if($this->isUserConnected()){
+            require_once '../templates/user/UserProfile.php';
+        }
+        else{
+            header('Location: /login');
+        }
+        
     }
 
     public function events(){
@@ -16,11 +28,23 @@ class mainController
     }
 
     public function login(){
-        require_once '../templates/login.php';
+        if(!$this->isUserConnected()){
+            require_once '../templates/login.php';
+        }
+        else{
+            header('Location: /');
+        }
+        
     }
 
     public function register(){
-        require_once '../templates/register.php';
+        if(!$this->isUserConnected()){
+            require_once '../templates/register.php';
+        }
+        else{
+            header('Location: /');
+        }
+        
     }
 
     public function map(){
@@ -29,7 +53,7 @@ class mainController
 
     public function logout(){
       session_destroy();
-      echo "<script>location.href='/'</script>";
+      header('Location: /');
     }
 
     public function event(){
@@ -42,7 +66,13 @@ class mainController
     }
 
     public function wallet(){
-        require_once '../templates/Wallet.php';
+        if($this->isUserConnected()){
+            require_once '../templates/Wallet.php';
+        }
+        else{
+            header('Location: /login');
+        }
+        
     }
 }
 

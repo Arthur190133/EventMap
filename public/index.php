@@ -1,7 +1,8 @@
 
 <?php
+  // Démarre la mise en tampon de sortie
+  ob_start();
 
-  //require_once '../Pages/Tools/Requestes.php';
   require_once '../API/JWT.php';
   require_once '../Pages/Tools/Functions.php';
   session_start();
@@ -11,14 +12,9 @@
   $user = null;
   if(isset($_SESSION['user']))
   {
-    $payload = [];
-    $token = GenerateToken($payload);
-    $data = SendRequestToAPI($token, ('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
-    
-    //var_dump($_SESSION['user']);
-    //$_SESSION['user'] = json_decode(file_get_contents('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
+    $token = GenerateToken([]);
+    $_SESSION['user'] = SendRequestToAPI($token, ('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
     $user = $_SESSION['user'];
-    //var_dump($user);
   }
   
   
@@ -70,7 +66,7 @@ $router->register('/', ['mainController', 'index']);
        // echo $rees;
 
       echo 'Current PHP version: ' . phpversion();
-      // LOAD PAGE
+      // LOAD CURRENT PAGE
       try{
         $test = $user;
         $router->resolve($uri);
@@ -89,3 +85,8 @@ $router->register('/', ['mainController', 'index']);
    <script src="/js/script.js"></script>
   
   </html>
+
+  <?php
+    // Vide le tampon de sortie et arrête la mise en tampon
+  ob_end_flush();
+  ?>

@@ -36,7 +36,6 @@ function SendRequestToAPI($token, $url){
 
     
     $authorization_header = "Authorization: Bearer ".$token;
-    echo $url;
     $ch = curl_init();
 
     // Set cURL options
@@ -47,7 +46,6 @@ function SendRequestToAPI($token, $url){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     $data = curl_exec($ch);
-    var_dump($data);
     curl_close($ch);
     $data =  json_decode($data);
     return $data;

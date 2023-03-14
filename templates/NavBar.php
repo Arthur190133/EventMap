@@ -2,6 +2,7 @@
 
     // Set user avatar with is own one
     $UserAvatar = "/Images/Users/Avatars/default/DefaultAvatar.png";
+
     if(isset($user) && $user)
     {
         if($user->UserAvatarDir){
@@ -10,7 +11,7 @@
         
     }
 
-    // If not connected default link will redirect to login page, otherwise the button will link to user profile page
+    // If not connected default link will redirect to login page, otherwise the button will link to user profile's page
     $UserProfileLink = "login"; 
     $UserAvatarName = "UserAvatar";
     $UserButtonLocation = "templates/user/UserButtonProfile.php";

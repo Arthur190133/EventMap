@@ -25,7 +25,9 @@ function GetNotificationSender($NotificationSender){
     $Sender = "Unkown";
     if(strpos($NotificationSender, "User") !== false){
         $url = "http://localhost/EventMap/API/user/readSingle.php?UserId=" . substr($NotificationSender, strpos(($NotificationSender), "=") + 1);
-        $RequestSender = json_decode(file_get_contents($url));
+        $token = GenerateToken([]);
+        $RequestSender = SendRequestToAPI($token, $url);
+        //$RequestSender = json_decode(file_get_contents($url));
         $Sender = array(
             'SenderName' => $RequestSender->UserName . " " . $RequestSender->UserFirstName,
             'SenderImage' => $RequestSender->UserAvatarDir
@@ -33,7 +35,9 @@ function GetNotificationSender($NotificationSender){
     }
     elseif(strpos($NotificationSender, "Event") !== false){
         $url = "http://localhost/EventMap/API/event/readSingle.php?EventId=" . substr($NotificationSender, strpos(($NotificationSender), "=") + 1);
-        $RequestSender = json_decode(file_get_contents($url));
+        $token = GenerateToken([]);
+        $RequestSender = SendRequestToAPI($token, $url);
+        //$RequestSender = json_decode(file_get_contents($url));
         //print_r($RequestSender);
         $Sender = array(
             'SenderName' => $RequestSender->Name,
@@ -50,7 +54,7 @@ function GetNotificationContext($NotificationContext):string{
     if(strpos($NotificationContext, "EventId") !== false){
         $s =  GetStringBetweenTwoCharacters($NotificationContext, "{", "}");
         $Event = "";//GetEvent(substr($s, strpos(($s), "=") + 1));
-        //$Context = str_replace($s, $Event->EventName, $NotificationContext);
+        $Context = str_replace($s, $Event->EventName, $NotificationContext);
         $Context = str_replace("{", "", $Context);
         $Context = str_replace("}", "", $Context);
     }
