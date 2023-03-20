@@ -69,7 +69,7 @@
                 </div>
 
             <div>
-                <button> FILTER </button>
+                <button id="Event-filter-button"> FILTER </button>
             </div>
         </div>
         <?php

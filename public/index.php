@@ -61,6 +61,7 @@ $router->register('/', ['mainController', 'index']);
     ?>
 
     <div id="MasterContent" >
+
         <?php
        // $rees =  file_get_contents('http://localhost/EventMap/API/event/readCards.php');
        // echo $rees;

@@ -1,25 +1,11 @@
 <?php 
 
-//$Events =  json_decode(file_get_contents('http://localhost/EventMap/API/event/readCards.php'));
 
-$header = [
-  'typ' => 'JWT',
-  'alg' => 'HS256'
-];
-$payload = [];
-$jwt = new JWT();
-$token = $jwt->generate($header, $payload, 60 * 3);
-$authorization_header = "Authorization: Bearer ".$token;
-$url = "http://localhost/EventMap/API/event/readCards.php";
+$url = "http://localhost/EventMap/API/event/readFiltered.php";
 
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization_header ));
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
- $Events = curl_exec($ch);
-curl_close($ch);
-$Events =  json_decode($Events);
+$token = GenerateToken($FilterParamters);
+$Events = SendRequestToAPI($token, $url);
+
 
 if(property_exists($Events, 'data'))
 {

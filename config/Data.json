@@ -1,0 +1,16 @@
+{
+    "Data":[
+        {
+            "EventFilterTags":[{
+
+            }]
+        },
+        {
+            "EventFilterParameters":["private", "public", "free", "paid"]
+        }
+
+    ]
+
+    
+
+}

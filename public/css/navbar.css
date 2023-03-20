@@ -184,6 +184,10 @@
     align-items: center;
 }
 
+.NavBarSearch svg{
+    margin-right: 10px;
+}
+
 .NavBarSearch li:hover{
     background-color: rgb(129, 129, 129);
 }

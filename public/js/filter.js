@@ -108,3 +108,9 @@ $( "#EventSliderRangePrices" ).slider({
 });
 $( "#amount" ).val( "€" + $( "#EventSliderRangePrices" ).slider( "values", 0 ) +
   " - €" + $( "#EventSliderRangePrices" ).slider( "values", 1 ) );
+
+
+
+
+
+

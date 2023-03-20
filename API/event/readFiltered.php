@@ -5,6 +5,8 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/event.php';
+    $payload = json_decode(require_once '../auth.php');
+
 
     // Instantiation Database
     $datebase = new Database();
@@ -12,6 +14,13 @@
 
     // Instantiation event object
     $event = new Event($db);
+    
+    // Ajout des parametres 
+    
+    $event->Private = $payload->private;
+    $event->Public = $payload->public;
+    $event->FreeEvent = $payload->free;
+    $event->PaidEvent = $payload->paid;
 
     // event querry
     $result = $event->readFiltered();
@@ -39,6 +48,7 @@
                 'OwnerAvatarDir' => $OwnerAvatarDir,
                 'OwnerBackgroundName' => $OwnerBackgroundName,
                 'OwnerBackgroundDir' => $OwnerBackgroundDir,
+                'NumberOfUsers' => $EventNumberOfUsers,
                 'Name' => $EventName,
                 'Description' => $EventDescription,
                 'StartDate' => $EventStartDate,
@@ -49,7 +59,7 @@
                 'Size' => $EventSize,
                 'Price' => $EventPrice,
                 'CardColor' => $EventCardColor,
-                'PageColor' => $EventPageColor
+                'PageColor' => $EventPageColor,
             );
 
             // push to 'data'

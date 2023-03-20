@@ -34,6 +34,14 @@ class Event{
     public $EventCardColor;
     public $EventPageColor;
 
+    // Event status
+    public $Min = 0;
+    public $Max = 50000;
+    public $FreeEvent;
+    public $PaidEvent;
+    public $Private;
+    public $Public;
+
     // constructeur
     public function __construct($db)
     {
@@ -347,6 +355,7 @@ class Event{
         UserAvatar.ImageDir as OwnerAvatarDir,
         UserBackground.ImageName as OwnerBackgroundName,
         UserBackground.ImageDir as OwnerBackgroundDir,
+        COUNT(DISTINCT NumberOfUsers.EventId) as EventNumberOfUsers,
         event.EventName,
         event.EventDescription,
         event.EventStartDate,
@@ -361,15 +370,17 @@ class Event{
     FROM '
         . $this->table . ' event
     LEFT JOIN 
-    user user ON event.EventOwnerId = user.UserId
-LEFT JOIN 
-    image EventBackground ON event.EventBackgroundId = EventBackground.ImageId
-LEFT JOIN 
-    image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
-LEFT JOIN
-    image UserAvatar ON user.UserAvatarId = UserAvatar.ImageId
-LEFT JOIN
-    image UserBackground ON user.UserBackgroundId = UserBackground.ImageId
+        user user ON event.EventOwnerId = user.UserId
+    LEFT JOIN
+        userevent NumberOfUsers ON event.EventId = NumberOfUsers.EventId    
+    LEFT JOIN 
+        image EventBackground ON event.EventBackgroundId = EventBackground.ImageId
+    LEFT JOIN 
+        image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
+    LEFT JOIN
+        image UserAvatar ON user.UserAvatarId = UserAvatar.ImageId
+    LEFT JOIN
+        image UserBackground ON user.UserBackgroundId = UserBackground.ImageId
     WHERE 
             event.EventPrice >= :MinEventPrice
         AND
@@ -390,24 +401,18 @@ LEFT JOIN
                 OR
                 (:EventPublic = 1 AND :EventPrivate = 1)
             )
+        GROUP BY event.EventId
             
 ';
 
         $stmt = $this->connection->prepare($query);
-        // TEST ONLY
-        $Min = 0;
-        $Max = 50;
-        $FreeEvent = 1;
-        $PaidEvent = 1;
-        $Private = 1;
-        $Public = 1;
-        $stmt->bindParam(':MinEventPrice', $Min);
-        $stmt->bindParam(':MaxEventPrice', $Max);
-        $stmt->bindParam(':EventPrivate', $Private);
-        $stmt->bindParam(':EventPublic', $Public);
-        $stmt->bindParam(':FreeEvent', $FreeEvent);
-        $stmt->bindParam(':PaidEvent', $PaidEvent);
 
+        $stmt->bindParam(':MinEventPrice', $this->Min);
+        $stmt->bindParam(':MaxEventPrice', $this->Max);
+        $stmt->bindParam(':EventPrivate', $this->Private);
+        $stmt->bindParam(':EventPublic', $this->Public);
+        $stmt->bindParam(':FreeEvent', $this->FreeEvent);
+        $stmt->bindParam(':PaidEvent', $this->PaidEvent);
 
         $stmt->execute();
 
