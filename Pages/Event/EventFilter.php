@@ -25,57 +25,59 @@
                 </div> -->
             </div>
             <div class="FilterEventProperties">
-                <div class="event-filter-options">
-                    <div class="event-filter-option">
-                        <span>PUBLIC</span>
-                        <label class="container">
-                            <input checked="checked" type="checkbox">
-                            <div class="checkmark"></div>
-                        </label>
-                        
-                    </div>
-                    <div class="event-filter-option">
-                        <span>PRIVÉ</span>
-                        <label class="container">
-                            <input checked="checked" type="checkbox">
-                            <div class="checkmark"></div>
-                        </label>
-                    </div>
-                    <div class="event-filter-option">
-                        <span>GRATUIT</span>
-                        <label class="container">
-                            <input checked="checked" type="checkbox">
-                            <div class="checkmark"></div>
-                        </label>
-                    </div>
-                    <div class="event-filter-option">
-                        <span>PAYANT</span>
-                        <label class="container">
-                            <input checked="checked" type="checkbox">
-                            <div class="checkmark"></div>
-                        </label>
-                    </div>
-                    </div>
+                <form action="" method="post"> 
+                    <div class="event-filter-options">
+                        <div class="event-filter-option">
+                            <span>PUBLIC</span>
+                            <label class="container">
+                                <input name="event-filter-public" checked="checked" type="checkbox" value="<?= $public ?>">
+                                <div class="checkmark"></div>
+                            </label>
+                            
+                        </div>
+                        <div class="event-filter-option">
+                            <span>PRIVÉ</span>
+                            <label class="container">
+                                <input name="event-filter-private" checked="checked" type="checkbox"  value="<?= $private ?>">
+                                <div class="checkmark"></div>
+                            </label>
+                        </div>
+                        <div class="event-filter-option">
+                            <span>GRATUIT</span>
+                            <label class="container">
+                                <input name="event-filter-free" checked="checked" type="checkbox"  value="<?= $free ?>">
+                                <div class="checkmark"></div>
+                            </label>
+                        </div>
+                        <div class="event-filter-option">
+                            <span>PAYANT</span>
+                            <label class="container">
+                                <input name="event-filter-paid" checked="checked" type="checkbox"  value="<?= $paid ?>">
+                                <div class="checkmark"></div>
+                            </label>
+                        </div>
+                        </div>
 
-                    <div>
-                        <!-- seulement si payant -->
-                        <p>
-                            <label for="amount">Price range:</label>
-                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                        </p>
-                        <div id="EventSliderRangePrices">
+                        <div>
+                            <!-- seulement si payant -->
+                            <p>
+                                <label for="amount">Price range:</label>
+                                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                            </p>
+                            <div id="EventSliderRangePrices">
+                            </div>
                         </div>
                     </div>
-                </div>
-
-            <div>
-                <button id="Event-filter-button"> FILTER </button>
-            </div>
+                    <div>
+                        <button id="Event-filter-button"> FILTER </button>
+                    </div>
+                </form>
         </div>
         <?php
         require_once '../Pages/Event/EventMapPreview.php';
         ?>
     </div>
+
 
 <script src="/js/filter.js">
     </script> 

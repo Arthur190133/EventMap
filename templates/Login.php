@@ -17,28 +17,23 @@
 		// Process response
 		if ($result === false) {
 		// Request failed
-		echo 'Error: ' . curl_error($ch);
+		echo 'Une erreur est survenue lors de votre requête';
 		} else {
 		// Request succeeded
-		$response = json_decode($result);
 
-		if($response)
+		if($result)
 		{
 			unset($_SESSION['LoginUserEmail']);
-			$_SESSION['user'] = $response;
+			$_SESSION['user'] = $result;
 			echo "<script>location.href='/'</script>";
 		}
-
-		}
-
-		// Close cURL session
-		curl_close($ch);
-
-		if(!$response)
+		else
 		{
 			$message="Addresse email ou mot de passe incorrecte";
 			require_once '../components/UserInputError.php';
 		}
+
+		}	
 
   	}
 	//Garder l'email de l'utilisateur
