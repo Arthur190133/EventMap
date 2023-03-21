@@ -113,7 +113,7 @@ margin-bottom: 50px;
   position: relative;
   width: 250px;
   margin-top: 20Px;
-  height: 350px;
+  height: 420px;
   background: lightgrey;
   box-shadow: #d11bff42 0 15px 40px -5px;
   z-index: 1;
@@ -335,12 +335,75 @@ p {
   font-weight: bolder;
 }
 
+.input {
+  max-width: 190px;
+  height: 44px;
+  background-color: #05060f1d;
+  border-radius: .5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
+}
 
+.label {
+  text-align: left;
+  margin-left: 50px;
+  display: block;
+  margin-bottom: .3rem;
+  font-size: .9rem;
+  font-weight: bold;
+  color: #05060f99;
+  transition: color .3s cubic-bezier(.25,.01,.25,1) 0s;
+}
 
+.input:hover, .input:focus, .input-group:hover .input {
+  outline: none;
+  border-color: #05060f;
+}
 
+.input-group:hover .label, .input:focus {
+  color: #05060fc2;
+}
 
+.button2 {
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #05060f1d;
+  position: relative;
+  margin-top: 20px;
+  font-weight: 1000;
+  font-size: 17px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms;
+  overflow: hidden;
+ }
+ 
+ .button2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #1ddd00;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+  transition: all 250ms
+ }
+ 
+ .button2:hover {
+  color: white;
 
-
-
-
+ }
+ 
+ .button2:hover::before {
+  width: 100%;
+ }
 
