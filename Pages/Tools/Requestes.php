@@ -149,7 +149,7 @@ function CreateImageDir($ImageLocation, $User)
     }
 }
 
-function updateProfil()
+function updateProfil(user,UserFirstName,UserName,UserDescription)
 {
     $token=GenerateToken([])
     'user' => $_SESSION['user']->id,
