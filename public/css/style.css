@@ -300,6 +300,9 @@ body{
     justify-content: center;
     margin-top: 30px;
 }
+.EventCard a{
+    width: 100%;
+}
   
   .EventCardContent {
     position: relative;
@@ -365,7 +368,7 @@ body{
     width: 100%;
     padding: 30px;
     background: rgb(18,18,39);
-    background: linear-gradient(0deg, rgba(18,18,39,1) 44%, rgba(255,255,255,0) 100%);
+    background: linear-gradient(0deg, rgb(31 31 31) 44%, rgba(255,255,255,0) 100%);
 }
 .EventCardCategory {
     position: absolute;
@@ -395,7 +398,7 @@ body{
 .EventCardContent .EventCardDescription {
     overflow: hidden;
     max-height: 0 ;
-    color: gray;
+    color: white;
     font-size: 14px;
     line-height: 1.8em;
     opacity: 0;

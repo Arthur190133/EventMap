@@ -1,7 +1,7 @@
 <div class="EventCard" id="EventCard">
     <a class="link" href="/event/1294943">
         <div class="EventCardContent">
-            <span class="EventCardPremium"></span>
+            <?php require '../templates/event/EventCardPremiumAddOn.php'; ?>
             <div class="EventCardThumbnail">
                 <div class="EventCardDate">
                     <div class="EventCardDay" day=<?= date("d", strtotime($Event->StartDate)) ?>></div>

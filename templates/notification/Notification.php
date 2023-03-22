@@ -142,5 +142,5 @@ if($Connected)
 
 }
 
-    require_once '../components/Notification.php';
+    require_once '../components/notification/Notification.php';
 ?>

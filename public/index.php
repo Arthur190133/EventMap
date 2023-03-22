@@ -9,6 +9,7 @@
 
 
 
+  // Update user session
   $user = null;
   if(isset($_SESSION['user']))
   {

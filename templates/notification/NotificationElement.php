@@ -26,7 +26,7 @@
             $Sender = GetNotificationSender($Notification->Sender);
             $Context = GetNotificationContext($Notification->Context);
             $Date = GetNotificationDate($Notification->Date);
-            require '../components/NotificationElement.php';
+            require '../components/notification/NotificationElement.php';
         }
     }
 ?>
