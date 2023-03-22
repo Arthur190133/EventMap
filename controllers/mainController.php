@@ -39,7 +39,7 @@ class mainController
 
     public function register(){
         if(!$this->isUserConnected()){
-            require_once '../templates/register.php';
+            require_once '../templates/registerConfig.php';
         }
         else{
             header('Location: /');
