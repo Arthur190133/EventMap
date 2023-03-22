@@ -1,3 +1,5 @@
+<?php    // var_dump($public); ?>
+
 <head><link rel="stylesheet" href="/css/eventFilter.css"></head>
     <div class="LeftContent">
         <div class="EventFilters">
@@ -30,7 +32,7 @@
                         <div class="event-filter-option">
                             <span>PUBLIC</span>
                             <label class="container">
-                                <input name="event-filter-public" checked="checked" type="checkbox" value="<?= $public ?>">
+                                <input name="event-filter-public"  type="checkbox" <?= $public ?> >
                                 <div class="checkmark"></div>
                             </label>
                             
@@ -38,21 +40,21 @@
                         <div class="event-filter-option">
                             <span>PRIVÉ</span>
                             <label class="container">
-                                <input name="event-filter-private" checked="checked" type="checkbox"  value="<?= $private ?>">
+                                <input name="event-filter-private" type="checkbox"  <?= $private ?>>
                                 <div class="checkmark"></div>
                             </label>
                         </div>
                         <div class="event-filter-option">
                             <span>GRATUIT</span>
                             <label class="container">
-                                <input name="event-filter-free" checked="checked" type="checkbox"  value="<?= $free ?>">
+                                <input name="event-filter-free" type="checkbox"  <?= $free ?>>
                                 <div class="checkmark"></div>
                             </label>
                         </div>
                         <div class="event-filter-option">
                             <span>PAYANT</span>
                             <label class="container">
-                                <input name="event-filter-paid" checked="checked" type="checkbox"  value="<?= $paid ?>">
+                                <input name="event-filter-paid" type="checkbox"  <?= $paid ?>>
                                 <div class="checkmark"></div>
                             </label>
                         </div>
@@ -60,11 +62,10 @@
 
                         <div>
                             <!-- seulement si payant -->
-                            <p>
-                                <label for="amount">Price range:</label>
-                                <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                            </p>
-                            <div id="EventSliderRangePrices">
+                            <div id="slider">
+                                <div class="range"></div>
+                                <div class="thumb" id="thumb1"></div>
+                                <div class="thumb" id="thumb2"></div>
                             </div>
                         </div>
                     </div>

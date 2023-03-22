@@ -95,19 +95,28 @@ function RemoveSearchResults(){
 }
 
 
+// slider
 
-// Slider in range
-$( "#EventSliderRangePrices" ).slider({
-  range: true,
-  min: 1,
-  max: 50,
-  values: [ 1, 50 ],
-  slide: function( event, ui ) {
-    $( "#amount" ).val( "€" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-  }
-});
-$( "#amount" ).val( "€" + $( "#EventSliderRangePrices" ).slider( "values", 0 ) +
-  " - €" + $( "#EventSliderRangePrices" ).slider( "values", 1 ) );
+var slider = document.getElementById("slider");
+var thumb1 = document.getElementById("thumb1");
+var thumb2 = document.getElementById("thumb2");
+var range = document.querySelector(".range");
+
+// Initialisation des valeurs
+var minValue = 0;
+var maxValue = 100;
+var thumb1Value = minValue;
+var thumb2Value = maxValue;
+
+// Mise à jour de l'affichage du slider
+function updateSlider() {
+  var thumb1Position = (thumb1Value - minValue) / (maxValue - minValue) * 100;
+  var thumb2Position = (thumb2Value - minValue) / (maxValue - minValue) * 100;
+  var rangeWidth = thumb2Position - thumb1Position;
+
+  thumb1.style.left = thumb1Position + "%";
+  thumb2.style.left = thumb2Position + "%";
+}
 
 
 

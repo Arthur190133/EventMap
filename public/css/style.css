@@ -293,11 +293,19 @@ body{
         transform: translatex(0%);
     }
 }
+
+.EventCard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
   
   .EventCardContent {
     position: relative;
     z-index: 1;
     display: block;
+    margin-top: 20px;
     background: white;
     min-width: 270px;
     height: 470px;
@@ -311,8 +319,8 @@ body{
 }
 .EventCardDate {
     position: absolute;
-    top: 20px;
-    left: 20px;
+    top: 5px;
+    left: 5px;
     z-index: 1;
     background: gray;
     width: 55px;
