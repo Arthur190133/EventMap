@@ -148,4 +148,13 @@ function CreateImageDir($ImageLocation, $User)
         die('Échec lors de la création des dossiers...');
     }
 }
+
+function updateProfil(user,UserFirstName,UserName,UserDescription)
+{
+    $token=GenerateToken([])
+    'user' => $_SESSION['user']->id,
+    'UserFirstName' => $_POST['UserFirstName'],
+    'UserName' => $_POST['UserName'],
+    'UserDescription' => $_POST['UserDescription']
+}
 ?>
