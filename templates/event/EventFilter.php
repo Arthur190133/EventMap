@@ -39,10 +39,10 @@
             $newHeader = rtrim($newHeader, "-");
 
 
-            header("location: /events/" . $newHeader);
+           //header("location: /events/" . $newHeader);
         }
         else{
-            header("location: /events/");
+           //header("location: /events/");
         }
 
     }
@@ -77,6 +77,7 @@
         if(($FilterParamters['private']) ? $private = 'checked="checked"' : $private = "");
         if(($FilterParamters['free']) ? $free = 'checked="checked"' : $free = "");
         if(($FilterParamters['paid']) ? $paid = 'checked="checked"' : $paid = "");
+        
     }
     else{
         foreach($DataFilter->EventFilterParameters as $Filter){
@@ -86,6 +87,7 @@
         $private = 'checked="checked"';
         $free = 'checked="checked"';
         $paid = 'checked="checked"';
+
 
     }
     require_once '../Pages/Event/EventFilter.php';

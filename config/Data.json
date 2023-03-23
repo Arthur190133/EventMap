@@ -6,7 +6,7 @@
             }]
         },
         {
-            "EventFilterParameters":["private", "public", "free", "paid"]
+            "EventFilterParameters":["private", "public", "free", "paid", "min=", "max="]
         }
 
     ]
