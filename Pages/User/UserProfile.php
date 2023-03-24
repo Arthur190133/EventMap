@@ -3,7 +3,17 @@
 
     if(isset($_POST['btnModif']))
     {
-        $_SESSION['user']=modifUserInfo();       
+        
+        $payload = array(
+            "newUserFirstName"=>$_POST("newUserFirstName"),
+            "newUserLastName"=>$_POST("newUserLastName"),
+            "newUserDescription"=>$_POST("newUserDescription"),
+            "btnModif"=>$_POST("btnModif")
+        );
+        $token = GenerateToken($payload) ;
+        $url = "http://localhost/EventMap/API/user/update.php" ;
+        $result = SendRequestToAPI($url,$token)  ;
+        var_dump($result);
     }
 ?>
 
