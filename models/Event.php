@@ -153,6 +153,7 @@ class Event{
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        $this->EventId = $row['EventId'];
         $this->EventBackgroundName = $row['EventBackgroundName'];
         $this->EventBackgroundDir = $row['EventBackgroundDir'];
         $this->EventThumbnailName = $row['EventThumbnailName'];
