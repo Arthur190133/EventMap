@@ -15,6 +15,12 @@ class mainController
     
     public function profile(){
         if($this->isUserConnected()){
+
+            require_once '../router/UserProfileRouter.php';
+            require_once '../controllers/UserProfileController.php';
+            $UserProfileRouter = new UserProfileRouter();
+            $UserProfileRouter->resolve();
+            
             require_once '../templates/user/UserProfile.php';
         }
         else{
@@ -58,11 +64,9 @@ class mainController
 
     public function event(){
         require_once '../router/EventRouter.php';
-        //require_once '../controllers/mainController.php';
-        echo '----------------test only Call EventController to access to event page by id';
+        require_once '../controllers/eventController.php';
         $EventRouter = new EventRouter();
         $EventRouter->resolve();
-
     }
 
     public function wallet(){
