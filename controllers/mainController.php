@@ -20,8 +20,6 @@ class mainController
             require_once '../controllers/UserProfileController.php';
             $UserProfileRouter = new UserProfileRouter();
             $UserProfileRouter->resolve();
-            
-            require_once '../templates/user/UserProfile.php';
         }
         else{
             header('Location: /login');

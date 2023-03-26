@@ -12,7 +12,6 @@ if(property_exists($Events, 'data'))
   $Events = $Events->data;
   foreach($Events as $Event){
   
-      //var_dump($Event);
       $UserNumber = $Event->NumberOfUsers;
       $EventCardParticipants = $UserNumber;
       if($Event->Size > 0)
@@ -23,6 +22,8 @@ if(property_exists($Events, 'data'))
       if($UserNumber > 1){
           $EventCardParticipants = $EventCardParticipants . "s";
       }
+
+      $EventUrl = "/event/" . $Event->Id;
   
   
       require '../Pages/Event/EventCard.php';

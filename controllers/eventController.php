@@ -2,8 +2,9 @@
 
 class eventController
 {
-    public function eventPage(){
-        echo 'lodaing succed';
+    public function eventPage($event){
+        echo 'loading succed ';
+        require_once '../templates/event/Event.php';
     }
 
     public function wrongEventPagePath(){

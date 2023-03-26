@@ -17,7 +17,7 @@
     $UserButtonLocation = "templates/user/UserButtonProfile.php";
     if($user){
         $UserButtonLocation = "templates/user/NavBarUserButton.php";
-        $UserProfileLink = "profile";
+        $UserProfileLink = "/profile";
         if($UserAvatarName)
         {
             $UserAvatarName = $user->UserAvatarName;

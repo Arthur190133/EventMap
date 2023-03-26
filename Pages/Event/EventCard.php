@@ -1,5 +1,5 @@
 <div class="EventCard" id="EventCard">
-    <a class="link" href="/event/1294943">
+    <a class="link" href=<?= $EventUrl ?>>
         <div class="EventCardContent">
             <?php require '../templates/event/EventCardPremiumAddOn.php'; ?>
             <div class="EventCardThumbnail">

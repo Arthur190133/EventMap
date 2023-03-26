@@ -1,14 +1,17 @@
 <?php
-    $user = $_SESSION['user'];
+
 
     if(isset($_POST['btnModif']))
     {
-        $_SESSION['user']=modifUserInfo();       
+        // Fais l'édition du profile dans une autre page qui s'ouvrira
+        // quand on cliquera sur le bouton "modifier" (en js), elle
+        // sera load uniquement si le user est bien celui qui posede
+        // la page. La page pour l'html est dans Pages/user/UserEdit.php    
+        // et la page pour le php est dans templates/user/UserEdit.php
     }
 ?>
 
 <link href= "\css\userProfile.css" rel="stylesheet">
-<script> RemoveDiv("PopUpLoginContent") </script>
 <body>
     <div class="box">
         <h1 class="TitreProfile">Profile de <?= $user->UserFirstName ?></h1>

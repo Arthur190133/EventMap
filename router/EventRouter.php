@@ -4,9 +4,6 @@ class EventRouter
 {
     public function resolve()
     {
-        echo 'test';
-        //$eventId = explode("/",$_SERVER['REQUEST_URI'])[2];
-        //$eventId = 0;
         if(!isset(explode("/",$_SERVER['REQUEST_URI'])[2]))
         {
             call_user_func_array([new eventController(), "wrongEventPagePath"], []);
@@ -24,9 +21,9 @@ class EventRouter
                 $token = GenerateToken([]);
                 $event = SendRequestToAPI($token, $url);
 
-
                 if($event){ 
-                    call_user_func_array([new eventController(), "eventPage"], []);               
+                    // passer event en référence pour pouvoir y acceder dans la page event.php
+                    call_user_func_array([new eventController(), "eventPage"], ['event' => $event]);               
                 }
                 else{
                     call_user_func_array([new eventController(), "eventPageNotFound"], []);

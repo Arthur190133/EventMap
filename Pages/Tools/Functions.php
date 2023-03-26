@@ -28,7 +28,7 @@ function GenerateToken(array|null $payload){
         'alg' => 'HS256'
     ];
     $jwt = new JWT();
-    $token = $jwt->generate($header, $payload, 60 * 3);
+    $token = $jwt->generate($header, $payload, 60 * 30);
     return $token;
 }
 
