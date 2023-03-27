@@ -14,26 +14,17 @@
 		$token = GenerateToken($payload);
 		$result = SendRequestToAPI($token, $url);
 
-		// Process response
-		if ($result === false) {
-		// Request failed
-		echo 'Une erreur est survenue lors de votre requête';
-		} else {
-		// Request succeeded
-
 		if($result)
 		{
 			unset($_SESSION['LoginUserEmail']);
 			$_SESSION['user'] = $result;
-			echo "<script>location.href='/'</script>";
+			header("location: /");
 		}
 		else
 		{
 			$message="Addresse email ou mot de passe incorrecte";
-			require_once '../components/UserInputError.php';
+			require_once '../components/user/UserInputError.php';
 		}
-
-		}	
 
   	}
 	//Garder l'email de l'utilisateur
