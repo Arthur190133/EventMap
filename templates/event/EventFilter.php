@@ -39,10 +39,10 @@
             $newHeader = rtrim($newHeader, "-");
 
 
-           //header("location: /events/" . $newHeader);
+           header("location: /events/" . $newHeader);
         }
         else{
-           //header("location: /events/");
+           header("location: /events/");
         }
 
     }

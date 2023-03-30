@@ -200,7 +200,7 @@
   }
   
   .EventCardContent .EventCardPremium::before {
-    content: 'Premium';
+    content: 'Payant';
     position: absolute;
     width: 142%;
     height: 40px;

@@ -130,31 +130,7 @@ links.forEach(function(link) {
 
   });
 });
-//link-button
-const linksButton = document.querySelectorAll('button.link-button');
-linksButton.forEach(function(link) {
-  
-  link.addEventListener('click', function() {
-    // Code à exécuter lorsque le lien est cliqué
-      // Empêche le comportement par défaut du lien (navigation vers l'URL)
-  event.preventDefault();
 
-  // Récupération de l'URL cible
-  const url = this.getAttribute('href');
-  // Si l'utilisateur est déja sur la page qu'il veut acceder, cela ne fait rien
-  if("http://localhost" + url !== document.URL)
-  {
-    // Ajout de l'effet de fondu
-    document.querySelector('body').style.opacity = 0;
-
-    // Chargement de la nouvelle page une fois que l'effet de fondu est terminé
-    setTimeout(function() {
-      //window.location.href = url;
-    }, 500);
-  }
-
-  });
-});
 
 
 
