@@ -9,6 +9,11 @@ body{
   background-repeat:no-repeat;
   background-attachment: fixed;
   padding-top: 150px;
+  top: 0;
+  left: 0;
+  z-index: 2;
+
+
 }
 
 .center{
@@ -407,3 +412,15 @@ p {
   width: 100%;
  }
 
+#profileEdit {
+  backdrop-filter: blur(4px);
+  margin-top: 200px;
+  display: none;
+  padding: 100%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  
+}
