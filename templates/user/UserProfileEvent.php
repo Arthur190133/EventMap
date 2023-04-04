@@ -1,7 +1,9 @@
 <?php
 
-    $Events = json_decode(file_get_contents('http://localhost/EventMap/API/event/read.php'));
-    $Events = $Events->data;
+
+$token = GenerateToken(['UserId' => $_SESSION['user']->UserId]);
+var_dump($token);
+$IsUserJoined = SendRequestToAPI($token, 'http://localhost/EventMap/API/userevent/readUserJoined.php');
     foreach($Events as $Event)
     {
         require '../Pages/User/UserProfileEventCard.php';

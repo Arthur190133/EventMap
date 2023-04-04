@@ -111,6 +111,37 @@ class UserEvent{
         
         return $stmt;
     }
+
+    public function readUserCreated(){
+        $query = '
+        SELECT 
+            userevent.UserId,
+            userevent.EventId,
+            event.EventOwnerId,
+            event.EventName,
+            event.EventLocation,
+            event.EventStartDate,
+            event.EventEndDate,
+            event.EventPrice,
+            image.ImageDir as EventThumbnailDir,
+            image.ImageName as EventThumbnailName
+        FROM ' . $this->table . ' userevent
+        LEFT JOIN 
+            event event ON userevent.EventId = event.EventId
+        LEFT JOIN
+            image image ON event.EventThumbnailId = image.ImageId
+        WHERE
+            event.EventOwnerId = ?
+        ';
+
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->bindParam(1, $this->UserId);
+
+        $stmt->execute();
+        
+        return $stmt;
+    }
 }
 
 ?>

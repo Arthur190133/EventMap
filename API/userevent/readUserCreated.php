@@ -13,11 +13,11 @@
 
     // Instantiation UserEvent object
     $UserEvent = new UserEvent($db);
-    
+
     $UserEvent->UserId = isset($payload->UserId) ? $payload->UserId : die();
 
     // UserEvent querry
-    $result = $UserEvent->readUserJoined();
+    $result = $UserEvent->readUserCreated();
     // get row count
     $num = $result->rowCount();
 
