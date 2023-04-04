@@ -7,5 +7,6 @@
          <?= $event->Description ?> 
     </p>
     <img height="128" width="128" src="<?= '/' . $event->ThumbnailDir ?>"/>
+    <button><?= $JoinableEvent ?></button>
 
 </div>

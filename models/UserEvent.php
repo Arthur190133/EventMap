@@ -77,6 +77,40 @@ class UserEvent{
         
         return $stmt;
     }
+
+    public function readUserIsInEvent(){
+        $query = '
+        SELECT 
+            userevent.UserId,
+            userevent.EventId,
+            event.EventName,
+            event.EventLocation,
+            event.EventStartDate,
+            event.EventEndDate,
+            event.EventPrice,
+            image.ImageDir as EventThumbnailDir,
+            image.ImageName as EventThumbnailName
+        FROM ' . $this->table . ' userevent
+        LEFT JOIN 
+            event event ON userevent.EventId = event.EventId
+        LEFT JOIN
+            image image ON event.EventThumbnailId = image.ImageId
+        WHERE
+            userevent.UserId = :UserId
+        AND
+            userevent.EventId = :EventId
+        ';
+
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->bindParam(":UserId", $this->UserId);
+        $stmt->bindParam(":EventId", $this->EventId);
+
+        $stmt->execute();
+        
+        
+        return $stmt;
+    }
 }
 
 ?>
