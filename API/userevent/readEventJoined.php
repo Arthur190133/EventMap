@@ -14,10 +14,10 @@
     // Instantiation UserEvent object
     $UserEvent = new UserEvent($db);
 
-    $UserEvent->UserId = isset($payload->UserId) ? $payload->UserId : die();
+    $UserEvent->EventId = isset($payload->EventId) ? $payload->EventId : die();
 
     // UserEvent querry
-    $result = $UserEvent->readUserJoined();
+    $result = $UserEvent->readEventJoined();
     // get row count
     $num = $result->rowCount();
 
@@ -31,15 +31,7 @@
         {
             extract($row);
             $UserEvent_item = array(
-                'UserId' => $UserId,
-                'EventId' => $EventId,
-                'Name' => $EventName,
-                'Location' => $EventLocation,
-                'StartDate' => $EventStartDate,
-                'EndDate' => $EventEndDate,
-                'Price' => $EventPrice,
-                'ThumbnailDir' => $EventThumbnailDir,
-                'ThumbnailName' => $EventThumbnailName
+                'UserId' => $UserId
             );
 
             // push to 'data'
@@ -48,13 +40,6 @@
 
         // To json
         echo json_encode($UserEvents_arr);
-    }
-    else
-    {
-        // pas d'utilisateur
-        echo json_encode(
-            array('message' => 'No UserEvent found')
-        );
     }
 
 

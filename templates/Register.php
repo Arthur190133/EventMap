@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
               if(!$response)
               {
                 $message="Addresse email ou mot de passe incorrecte";
-                require_once 'components/UserInputError.php';
+                require_once 'components/user/UserInputError.php';
               }
 
             }
@@ -147,7 +147,7 @@ if(isset($_SESSION['RegisterUserEmail']) ? $CurrentEmail = $_SESSION['RegisterUs
 
 if($error)
 {
-    require_once '../components/UserInputError.php';
+    require_once '../components/user/UserInputError.php';
 }
 
 
