@@ -95,16 +95,10 @@ function RemoveSearchResults(){
 }
 
 
+// slider
 
-// Slider in range
-$( "#EventSliderRangePrices" ).slider({
-  range: true,
-  min: 1,
-  max: 50,
-  values: [ 1, 50 ],
-  slide: function( event, ui ) {
-    $( "#amount" ).val( "€" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-  }
-});
-$( "#amount" ).val( "€" + $( "#EventSliderRangePrices" ).slider( "values", 0 ) +
-  " - €" + $( "#EventSliderRangePrices" ).slider( "values", 1 ) );
+
+
+
+
+

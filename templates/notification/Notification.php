@@ -25,7 +25,9 @@ function GetNotificationSender($NotificationSender){
     $Sender = "Unkown";
     if(strpos($NotificationSender, "User") !== false){
         $url = "http://localhost/EventMap/API/user/readSingle.php?UserId=" . substr($NotificationSender, strpos(($NotificationSender), "=") + 1);
-        $RequestSender = json_decode(file_get_contents($url));
+        $token = GenerateToken([]);
+        $RequestSender = SendRequestToAPI($token, $url);
+        //$RequestSender = json_decode(file_get_contents($url));
         $Sender = array(
             'SenderName' => $RequestSender->UserName . " " . $RequestSender->UserFirstName,
             'SenderImage' => $RequestSender->UserAvatarDir
@@ -33,7 +35,9 @@ function GetNotificationSender($NotificationSender){
     }
     elseif(strpos($NotificationSender, "Event") !== false){
         $url = "http://localhost/EventMap/API/event/readSingle.php?EventId=" . substr($NotificationSender, strpos(($NotificationSender), "=") + 1);
-        $RequestSender = json_decode(file_get_contents($url));
+        $token = GenerateToken([]);
+        $RequestSender = SendRequestToAPI($token, $url);
+        //$RequestSender = json_decode(file_get_contents($url));
         //print_r($RequestSender);
         $Sender = array(
             'SenderName' => $RequestSender->Name,
@@ -49,9 +53,9 @@ function GetNotificationContext($NotificationContext):string{
     $Context = $NotificationContext;
     if(strpos($NotificationContext, "EventId") !== false){
         $s =  GetStringBetweenTwoCharacters($NotificationContext, "{", "}");
-        $Event = GetEvent(substr($s, strpos(($s), "=") + 1));
-        $Context = str_replace($s, $Event->EventName, $NotificationContext);
-        $Context = str_replace("{", "", $Context);
+        $Event = "";//GetEvent(substr($s, strpos(($s), "=") + 1));
+        //$Context = str_replace($s, $Event->EventName, $NotificationContext);
+        //$Context = str_replace("{", "", $Context);
         $Context = str_replace("}", "", $Context);
     }
     return $Context;
@@ -83,7 +87,7 @@ function GetNotificationDate($NotificationDate):string{
         return $date;
     }
 
-    return "Impossible de récupérer la date";
+    return "Date inconnue";
 
 }
 
@@ -103,27 +107,40 @@ if($Connected)
     // REQUEST TO GET ALL NOTIFICATIONS 
     $url = "http://localhost/EventMap/API/notification/readUser.php";
 
-    $data = array($user);
-    $json_data = json_encode($data);
+    $header = [
+        'typ' => 'JWT',
+        'alg' => 'HS256'
+    ];
+
+    $payload = [
+        'userId' => $user->UserId,
+    ];
+    $jwt = new JWT();
+    $token = $jwt->generate($header, $payload, 60 * 3);
+    
+
+
+    $authorization_header = "Authorization: Bearer ".$token;
     $ch = curl_init();
 
     // Set cURL options
+    
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array($authorization_header ));
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     $Notifications = curl_exec($ch);
 
     curl_close($ch);
     $Notifications =  json_decode($Notifications);
+   // var_dump($Notifications);
     
-    if(!property_exists($Notifications, "message")){
-        $Notifications = $Notifications->data;
-        $NotificationsNumber = count($Notifications);
-    }
+    /*if(!property_exists($Notifications, "message")){
+        $NotificationsNumber = count($Notifications->data);
+    }*/
 
 }
 
-    require_once '../components/Notification.php';
+    require_once '../components/notification/Notification.php';
 ?>

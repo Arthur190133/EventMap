@@ -1,5 +1,6 @@
 RewriteEngine on
 
+php_flag display_errors on
 RewriteCond %{REQUEST_URI} !^/EventMap/API/
 RewriteCond %{REQUEST_URI} !^/EventMap/
 RewriteCond %{REQUEST_FILENAME} !-f

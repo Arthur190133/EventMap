@@ -1,25 +1,5 @@
-<?php
-    $user = $_SESSION['user'];
-
-    if(isset($_POST['btnModif']))
-    {
-        
-        $payload = array(
-            "newUserFirstName"=>$_POST("newUserFirstName"),
-            "newUserLastName"=>$_POST("newUserLastName"),
-            "newUserDescription"=>$_POST("newUserDescription"),
-            "btnModif"=>$_POST("btnModif")
-        );
-        $token = GenerateToken($payload) ;
-        $url = "http://localhost/EventMap/API/user/update.php" ;
-        $result = SendRequestToAPI($url,$token)  ;
-        var_dump($result);
-    }
-?>
-
 <link href= "\css\userProfile.css" rel="stylesheet">
-<script> RemoveDiv("PopUpLoginContent") </script>
-<body>
+
     <div class="box">
         <h1 class="TitreProfile">Profile de <?= $user->UserFirstName ?></h1>
         <div class="contenair">
@@ -28,46 +8,20 @@
                     <div class="card">
                         <div class="card__content">
                             <span class="img"></span>
-                            <form method="post">
-
-                                <?php if(!isset($_POST['submit'])) : ?>
-                                    <h2><?= $user->UserFirstName ?> <?= $user->UserName ?></h2>
-                                    <p><?= $user->UserDescription ?></p>
-                                    <button id="submit" name="submit" value="submit"> MODIFIER </button>
-                                <?php else : ?>
-                                    <div class="input-group">
-                                        <label class="label">Prenom</label>
-                                        <input type="text" class="input" name="newUserFirstName" placeholder="Prenom" value="<?=$_SESSION['user']->UserFirstName?>">
-                                        <div>
-
-                                        </div>
-                                    </div>
-                                    <div class="input-group">
-                                        <label class="label">Nom</label>
-                                        <input type="text" class="input" name="newUserLastName" placeholder="Nom" value="<?=$_SESSION['user']->UserName?>">
-                                        <div>
-                                            
-                                        </div>
-                                    </div>
-                                    <div class="input-group">
-                                        <label class="label">Description</label>
-                                        <input type="text" class="input" name="newUserDescription" placeholder="Description" value="<?=$_SESSION['user']->UserDescription?>">
-                                        <div>
-                                            
-                                        </div>
-                                    </div>
-                                    <button class="button2 id="btnModif" name="btnModif" value="nouveau">Enregistrer</button>
-                                <?php endif?>
-                                        
-                            </form>
-                                        
+                            
+                                <h2><?= $user->UserFirstName ?> <?= $user->UserName ?></h2>
+                                <p><?= $user->UserDescription ?></p>
+                                <button id="editProfilBTN">Cliquez ici</button><H1>CHIBRE</H1>
+                            
                         </div>
+                        
                         <div class="blob"></div>
                         <div class="blob"></div>
                         <div class="blob"></div>
                         <div class="blob"></div>
                         <div class="blob"></div>
                         <div class="blob"></div>
+                        
                     </div>
                 </div>
                 <div class="center"></div>
@@ -103,6 +57,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>    
-</body>
+        </div>   
+    </div> 
+<script src="/js/UserProfile.js"></script>
+    

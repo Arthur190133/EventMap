@@ -1,6 +1,4 @@
 <?php
-    require_once "../../Tools/Requestes.php";
-    require_once "../../Tools/Connection.php";
 
     $EventId = $_COOKIE["currentEventId"];
     $EventJoin = "Rejoindre";
@@ -8,17 +6,18 @@
     $EventBackground = "";
     $EventDates = "";
 
-    $Event = GetEvent($EventId);
+    $Event =  json_decode(file_get_contents('http://localhost/EventMap/API/event/readSingle.php?EventId='. $EventId)) ;
+    $Event = $Event;
     if($Event)
     {     
-        $EventBackground = GetImageFromTable($Event->EventBackgroundId);
         $EventDates = date("Y-m-d",strtotime($Event->EventStartDate)) . " - " . date("Y-m-d",strtotime($Event->EventEndDate));
-        if($Event->EventPrivate)
+        if($Event->Private)
         {
             $EventJoin = "Demander une invitation";
         }
-        $EventDescription = $Event->EventDescription;
+
+        require_once '../../components/EventPreview.php';
     }
 
-    require_once '../components/EventPreview.php';
+    
 ?>

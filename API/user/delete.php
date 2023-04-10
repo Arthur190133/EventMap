@@ -22,16 +22,24 @@
     // Set Id to update
     $user->UserId = $data->UserId;
 
-
-    // mettre à jour l'utilisateur
-    if($user->delete()){
-        echo json_encode(
-            array('message' => 'User deleted')
-        );
+    if($user->UserId)
+    {
+        // mettre à jour l'utilisateur
+        if($user->delete()){
+            echo json_encode(
+                array('message' => 'User deleted')
+            );
+        }
+        else{
+            echo json_encode(
+                array('message' => 'User not deleted')
+            );
+        }
     }
     else{
         echo json_encode(
-            array('message' => 'User not deleted')
+            array('message' => 'Access forbiden')
         );
     }
+
 ?>

@@ -1,64 +1,24 @@
-.filter-search-box{
-    max-width: 80%;
-    min-width: 50%;
-    margin: auto; /* centre l'élément horizontalement */
-    height: 30px;
-    margin-bottom: 20px;
+#slider {
+    width: 500px;
+    height: 5px;
+    background-color: #ccc;
     position: relative;
-    z-index: 1;
+    margin: 50px auto;
 }
-
-
-.filter-search-content{
-    background: white;
-    color: black;
-    border-radius: 5px;
-    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
-    z-index: 2;
+#slider .range {
+    width: 0;
+    height: 100%;
+    background-color: #f00;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
-
-
-.filter-search-content input {
-    width: 100%;
-    height: 30px;
-    font-size: 12px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    padding: 0px 20px 0px 20px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    background-image: url('Images/Logos/Search.svg');
-    background-position: right;
-    background-repeat: no-repeat;
-    padding-right: 24px;
-}
-
-
-.filter-search-content ul{
-    padding: 2px;
-    margin: 2px;
-    
-
-}
-
-.filter-search-content li{
-    list-style: none;
-    padding: 2px 0px 2px 0px;
-    margin: 0;
+#slider .thumb {
+    width: 20px;
+    height: 20px;
+    background-color: #f00;
+    position: absolute;
+    top: -8px;
+    border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-}
-
-.filter-search-content li:hover{
-    background-color: rgb(129, 129, 129);
-}
-
-.FiltersSelectedTags{
-    min-height: 40px;
-}
-
-.SelectedTag{
-    height: 15px;
 }

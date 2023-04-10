@@ -62,9 +62,19 @@ function RemoveSelectedTag(SelectedTagId){
 
 document.addEventListener('click', function OpenNotification(event) {
   const box = document.getElementById('UserNotification');
-
-  if (box && !box.contains(event.target)) {
+  if (box && event.target.className.baseVal === 'Bellsvg') {
     box.style.display = 'grid';
+    console.log("passed");
+    const divs = document.querySelectorAll('.MiddleUserNotification > a');    
+      setTimeout(() => {
+        divs.forEach((div, i) => {
+      
+          setTimeout(() => {
+            div.classList.add('animate'); 
+            console.log("delay ?"); 
+          }, i * 200) 
+        });
+      },200)
   }
 });
 
@@ -80,8 +90,8 @@ document.addEventListener('click', function CloseNotification(event) {
 
 document.addEventListener('click', function OpenUserButton(event) {
   const box = document.getElementById('UserButton');
-
-  if (box && !box.contains(event.target)) {
+  console.log(event.target.className);
+  if (box && event.target.className == "ButtonUserAvatar") {
     box.style.display = 'grid';
   }
 });
@@ -96,36 +106,6 @@ document.addEventListener('click', function CloseUserButton(event) {
 
 
 
-// TEST //
-// TRANSITION
-
-/*const elements = document.querySelectorAll("[data-transition]");
-
-// Ajout d'un gestionnaire d'événement "click" à chaque élément
-elements.forEach(function(element) {
-  console.log(element);
-  element.addEventListener("click", function(event) {
-    console.log("test");
-    // Empêche le comportement par défaut du lien (navigation vers l'URL)
-    event.preventDefault();
-
-    // Récupération de l'URL cible
-    const url = this.getAttribute("href");
-
-    document.body.classList.add("fade-out");
-    setTimeout(function() {
-
-      
-      window.location.href = url;
-
-      // Ajout de l'effet de transition et navigation vers l'URL cible
-    //document.body.classList.add("fade-out");
-    //document.body.classList.add("fade-in");
-    }, 500);
-  });
-});
-*/
-
 const links = document.querySelectorAll('a.link');
 links.forEach(function(link) {
   
@@ -137,7 +117,7 @@ links.forEach(function(link) {
   // Récupération de l'URL cible
   const url = this.getAttribute('href');
   // Si l'utilisateur est déja sur la page qu'il veut acceder, cela ne fait rien
-  if("http://localhost/EventMap/" + url !== document.URL)
+  if("http://localhost" + url !== document.URL)
   {
     // Ajout de l'effet de fondu
     document.querySelector('body').style.opacity = 0;
@@ -151,7 +131,25 @@ links.forEach(function(link) {
   });
 });
 
+
+
+
+
 document.querySelector('body').style.opacity = 1;
+
+
+// TEST CARD
+let EventCardMarker = document.querySelector('.EventCardMarker');
+let EventCardContent = document.querySelector('.EventCardContent');
+
+EventCardMarker.addEventListener('mouseenter', function() {
+  EventCardContent.classList.add('no-hover');
+});
+
+EventCardMarker.addEventListener('mouseleave', function() {
+  EventCardContent.classList.remove('no-hover');
+});
+
 
 
 

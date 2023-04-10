@@ -34,6 +34,14 @@ class Event{
     public $EventCardColor;
     public $EventPageColor;
 
+    // Event status
+    public $Min = 0;
+    public $Max = 50000;
+    public $FreeEvent;
+    public $PaidEvent;
+    public $Private;
+    public $Public;
+
     // constructeur
     public function __construct($db)
     {
@@ -145,6 +153,7 @@ class Event{
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+        $this->EventId = $row['EventId'];
         $this->EventBackgroundName = $row['EventBackgroundName'];
         $this->EventBackgroundDir = $row['EventBackgroundDir'];
         $this->EventThumbnailName = $row['EventThumbnailName'];
@@ -272,6 +281,129 @@ class Event{
                 $stmt->execute();
         
                 return $stmt;
+    }
+
+    public function readFiltered()
+    {
+        // Créer la requete 
+
+        $query = 'SELECT
+        event.EventId,
+        EventBackground.ImageName as EventBackgroundName,
+        EventBackground.ImageDir as EventBackgroundDir,
+        EventThumbnail.ImageName as EventThumbnailName,
+        EventThumbnail.ImageDir as EventThumbnailDir,
+        user.UserName as OwnerName,
+        user.UserEmail as OwnerEmail,
+        user.UserDescription as OwnerDescription,
+        UserAvatar.ImageName as OwnerAvatarName,
+        UserAvatar.ImageDir as OwnerAvatarDir,
+        UserBackground.ImageName as OwnerBackgroundName,
+        UserBackground.ImageDir as OwnerBackgroundDir,
+        COUNT(DISTINCT NumberOfUsers.EventId) as EventNumberOfUsers,
+        event.EventName,
+        event.EventDescription,
+        event.EventStartDate,
+        event.EventEndDate,
+        event.EventLocation,
+        event.EventCategory,
+        event.EventPrivate,
+        event.EventSize,
+        event.EventPrice,
+        event.EventCardColor,
+        event.EventPageColor
+    FROM '
+        . $this->table . ' event
+    LEFT JOIN 
+        user user ON event.EventOwnerId = user.UserId
+    LEFT JOIN
+        userevent NumberOfUsers ON event.EventId = NumberOfUsers.EventId    
+    LEFT JOIN 
+        image EventBackground ON event.EventBackgroundId = EventBackground.ImageId
+    LEFT JOIN 
+        image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
+    LEFT JOIN
+        image UserAvatar ON user.UserAvatarId = UserAvatar.ImageId
+    LEFT JOIN
+        image UserBackground ON user.UserBackgroundId = UserBackground.ImageId
+    WHERE 
+            event.EventPrice >= :MinEventPrice
+        AND
+            event.EventPrice <= :MaxEventPrice
+        AND
+            (
+                (:FreeEvent = 1 AND event.EventPrice = 0)
+                OR
+                (:FreeEvent = 0 AND :PaidEvent = 1 AND event.EventPrice > 0)
+                OR
+                (:FreeEvent = 1 AND :PaidEvent = 1)
+            )
+        AND
+            (
+                (:EventPublic = 1 AND event.EventPrivate = 0)
+                OR
+                (:EventPublic = 0 AND :EventPrivate = 1 AND event.EventPrivate > 0)
+                OR
+                (:EventPublic = 1 AND :EventPrivate = 1)
+            )
+        GROUP BY event.EventId
+            
+';
+
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->bindParam(':MinEventPrice', $this->Min);
+        $stmt->bindParam(':MaxEventPrice', $this->Max);
+        $stmt->bindParam(':EventPrivate', $this->Private);
+        $stmt->bindParam(':EventPublic', $this->Public);
+        $stmt->bindParam(':FreeEvent', $this->FreeEvent);
+        $stmt->bindParam(':PaidEvent', $this->PaidEvent);
+
+        $stmt->execute();
+
+        return $stmt;
+    }
+
+    public function readRecommendationEvent(){
+        // Créer la requete
+        $querry = '
+        SELECT
+            CURDATE() AS Today,
+            event.EventId,
+            EventThumbnail.ImageName as EventThumbnailName,
+            EventThumbnail.ImageDir as EventThumbnailDir,
+            COUNT(DISTINCT NumberOfUsers.EventId) as EventNumberOfUsers,
+            event.EventName,
+            event.EventDescription,
+            event.EventStartDate,
+            event.EventEndDate,
+            event.EventLocation,
+            event.EventCategory,
+            event.EventPrivate,
+            event.EventSize,
+            event.EventPrice,
+            event.EventCardColor
+        FROM '
+            . $this->table . ' event
+            LEFT JOIN 
+                image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
+            LEFT JOIN
+                userevent NumberOfUsers ON event.EventId = NumberOfUsers.EventId     
+                
+            GROUP BY event.EventId
+
+            ORDER BY COUNT(DISTINCT NumberOfUsers.EventId) < 0
+            AND event.EventStartDate < 1
+
+
+            LIMIT 0,3
+            ';
+
+        $stmt = $this->connection->prepare($querry);
+
+        $stmt->execute();
+
+        return $stmt;
     }
 }
 

@@ -1,6 +1,7 @@
 <div class="EventCard" id="EventCard">
-    <a class="link" href="event/1294943">
+    <a class="link" href=<?= $EventUrl ?>>
         <div class="EventCardContent">
+            <?php require '../templates/event/EventCardPremiumAddOn.php'; ?>
             <div class="EventCardThumbnail">
                 <div class="EventCardDate">
                     <div class="EventCardDay" day=<?= date("d", strtotime($Event->StartDate)) ?>></div>
@@ -12,7 +13,7 @@
                     if($Event->ThumbnailDir)
                     {
                 ?>  
-                <img class="EventCardImage" src=<?= $Event->ThumbnailDir ?>>
+                <img class="EventCardImage" src=<?= "/" . $Event->ThumbnailDir ?>>
                 <?php 
                     }
                     else

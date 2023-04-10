@@ -1,4 +1,6 @@
-<head><link rel="stylesheet" href="css/filter.css"></head>
+<?php    // var_dump($public); ?>
+
+<head><link rel="stylesheet" href="/css/eventFilter.css"></head>
     <div class="LeftContent">
         <div class="EventFilters">
             <p> FILTER </p>
@@ -24,38 +26,50 @@
                     </svg> 
                 </div> -->
             </div>
-            <div class="FiltersEventProperties">
-                <div>
-                    <span>PRIVÉ</span>
-                    <input type="checkbox" checked="checked" />
-                </div>
-                <div>
-                    <span>GRATUIT</span>
-                    <input type="checkbox" checked="checked" />
-                </div>
-                <div>
-                    <span>PAYANT</span>
-                    <input type="checkbox" checked="checked" />
-                </div>
-                <div>
-                    <!-- seulement si payant -->
-                    <p>
-                        <label for="amount">Price range:</label>
-                        <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-                    </p>
-                    <div id="EventSliderRangePrices">
+            <div class="FilterEventProperties">
+                <form class="event-filter-form" action="" method="post"> 
+                    <div class="event-filter-options">
+                        <div class="event-filter-option">
+                            <span>PUBLIC</span>
+                            <label class="container">
+                                <input name="event-filter-public"  type="checkbox" <?= $public ?> >
+                                <div class="checkmark"></div>
+                            </label>
+                            
+                        </div>
+                        <div class="event-filter-option">
+                            <span>PRIVÉ</span>
+                            <label class="container">
+                                <input name="event-filter-private" type="checkbox"  <?= $private ?>>
+                                <div class="checkmark"></div>
+                            </label>
+                        </div>
+                        <div class="event-filter-option">
+                            <span>GRATUIT</span>
+                            <label class="container">
+                                <input name="event-filter-free" type="checkbox"  <?= $free ?>>
+                                <div class="checkmark"></div>
+                            </label>
+                        </div>
+                        <div class="event-filter-option">
+                            <span>PAYANT</span>
+                            <label class="container">
+                                <input name="event-filter-paid" type="checkbox"  <?= $paid ?>>
+                                <div class="checkmark"></div>
+                            </label>
+                        </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <div>
-                <button> FILTER </button>
-            </div>
+                    <div>
+                        <button class="event-filter-button link-button"> FILTER </button>
+                    </div>
+                </form>
         </div>
         <?php
         require_once '../Pages/Event/EventMapPreview.php';
         ?>
     </div>
 
-<script src="js/filter.js">
+
+<script src="/js/filter.js">
     </script> 

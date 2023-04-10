@@ -2,13 +2,35 @@
 
 class mainController
 {
+
+    private function isUserConnected():bool
+    {
+        return isset($_SESSION['user']);
+    }
+
     public function index()
     {
-        
+        if($this->isUserConnected())
+        {
+            require_once '../templates/main/MainUserConnected.php';
+        }else
+        {
+            require_once '../templates/main/MainUserNotConnected.php';
+        }
     }
     
     public function profile(){
-        require_once '../templates/user/UserProfile.php';
+        if($this->isUserConnected()){
+
+            require_once '../router/UserProfileRouter.php';
+            require_once '../controllers/UserProfileController.php';
+            $UserProfileRouter = new UserProfileRouter();
+            $UserProfileRouter->resolve();
+        }
+        else{
+            header('Location: /login');
+        }
+        
     }
 
     public function events(){
@@ -16,7 +38,23 @@ class mainController
     }
 
     public function login(){
-        require_once '../templates/login.php';
+        if(!$this->isUserConnected()){
+            require_once '../templates/login.php';
+        }
+        else{
+            header('Location: /');
+        }
+        
+    }
+
+    public function register(){
+        if(!$this->isUserConnected()){
+            require_once '../templates/register.php';
+        }
+        else{
+            header('Location: /');
+        }
+        
     }
 
     public function map(){
@@ -25,7 +63,24 @@ class mainController
 
     public function logout(){
       session_destroy();
-      header("location: /");
+      header('Location: /');
+    }
+
+    public function event(){
+        require_once '../router/EventRouter.php';
+        require_once '../controllers/eventController.php';
+        $EventRouter = new EventRouter();
+        $EventRouter->resolve();
+    }
+
+    public function wallet(){
+        if($this->isUserConnected()){
+            require_once '../templates/Wallet.php';
+        }
+        else{
+            header('Location: /login');
+        }
+        
     }
 }
 

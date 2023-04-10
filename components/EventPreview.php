@@ -14,12 +14,12 @@
         />
     </svg>
     <div class="EventPreviewInfo">
-        <h1 id="EventPreviewName"><?= $Event->EventName ?></h1>
+        <h1 id="EventPreviewName"><?= $Event->Name ?></h1>
         <h4 id="EventPreviewDate"><?= $EventDates ?></h4>
         <div class="EventPreviewBackground">
-            <img id="EventPreviewBackgroundImg" src=<?= $EventBackground ?>  alt="Image de font de l'évènement">
+            <img id="EventPreviewBackgroundImg" src=<?= $Event->BackgroundDir?>  alt="Image de font de l'évènement">
         </div>
-        <p class="EventPreviewDescription"><?= $EventDescription ?></p>
+        <p class="EventPreviewDescription"><?= $Event->Description ?></p>
         <button>Voir la fiche de l'évènement</button>
         <button><?= $EventJoin ?></button>
     </div>

@@ -8,6 +8,7 @@
     // Fichers requis
     include_once '../../config/Database.php';
     include_once '../../models/User.php';
+    include_once '../auth.php';
 
     // Instantiation de la base de donnée
     $datebase = new Database();
@@ -28,6 +29,7 @@
     $user->UserEmail = $data->UserEmail;
     $user->UserPassword = $data->UserPassword;
     $user->UserDescription = $data->UserDescription;
+    $user->UserWallet = $data->UserWallet;
     $user->UserAvatarId = $data->UserAvatarId;
     $user->UserBackgroundId= $data->UserBackgroundId;
 

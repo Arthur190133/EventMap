@@ -2,53 +2,28 @@
 	// Check if form was submitted
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') 
 	{
-		// Set API endpoint URL
+
 		$url = 'http://localhost/EventMap/API/user/login.php';
-	
-		// Set POST data
-		$data = array(
+		$payload = array(
 		'UserEmail' => $_POST['Email'],
 		'UserPassword' => $_POST['Password']
 		);
-		$json_data = json_encode($data);
-		print_r($json_data);
-		$_SESSION['LoginUserEmail'] = $data['UserEmail'];
-		// Initialize cURL session
-		$ch = curl_init();
 
-		// Set cURL options
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $json_data);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$_SESSION['LoginUserEmail'] = $payload['UserEmail'];
 
-		// Send request
-		$result = curl_exec($ch);
+		$token = GenerateToken($payload);
+		$result = SendRequestToAPI($token, $url);
 
-		// Process response
-		if ($result === false) {
-		// Request failed
-		echo 'Error: ' . curl_error($ch);
-		} else {
-		// Request succeeded
-		$response = json_decode($result);
-		print_r($response);
-		if($response)
+		if($result)
 		{
 			unset($_SESSION['LoginUserEmail']);
-			$_SESSION['user'] = $response;
-			echo "<script>location.href='/'</script>";
+			$_SESSION['user'] = $result;
+			header("location: /");
 		}
-
-		}
-
-		// Close cURL session
-		curl_close($ch);
-
-		if(!$response)
+		else
 		{
 			$message="Addresse email ou mot de passe incorrecte";
-			require_once 'components/UserInputError.php';
+			require_once '../components/user/UserInputError.php';
 		}
 
   	}

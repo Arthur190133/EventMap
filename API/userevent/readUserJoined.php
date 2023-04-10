@@ -5,6 +5,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/UserEvent.php';
+    $payload = json_decode(include_once '../auth.php');
 
     // Instantiation Database
     $datebase = new Database();
@@ -13,7 +14,7 @@
     // Instantiation UserEvent object
     $UserEvent = new UserEvent($db);
 
-    $UserEvent->UserId = isset($_GET['UserId']) ? $_GET['UserId'] : die();
+    $UserEvent->UserId = isset($payload->UserId) ? $payload->UserId : die();
 
     // UserEvent querry
     $result = $UserEvent->readUserJoined();
@@ -32,13 +33,13 @@
             $UserEvent_item = array(
                 'UserId' => $UserId,
                 'EventId' => $EventId,
-                'EventName' => $EventName,
-                'EventLocation' => $EventLocation,
-                'EventStartDate' => $EventStartDate,
-                'EventEndDate' => $EventEndDate,
-                'EventPrice' => $EventPrice,
-                'EventThumbnailDir' => $EventThumbnailDir,
-                'EventThumbnailName' => $EventThumbnailName
+                'Name' => $EventName,
+                'Location' => $EventLocation,
+                'StartDate' => $EventStartDate,
+                'EndDate' => $EventEndDate,
+                'Price' => $EventPrice,
+                'ThumbnailDir' => $EventThumbnailDir,
+                'ThumbnailName' => $EventThumbnailName
             );
 
             // push to 'data'
