@@ -1,5 +1,3 @@
-
-
 <link href= "\css\userProfile.css" rel="stylesheet">
 
     <div class="box">

@@ -10,7 +10,13 @@ class mainController
 
     public function index()
     {
-        
+        if($this->isUserConnected())
+        {
+            require_once '../templates/main/MainUserConnected.php';
+        }else
+        {
+            require_once '../templates/main/MainUserNotConnected.php';
+        }
     }
     
     public function profile(){
@@ -46,7 +52,7 @@ class mainController
 
     public function register(){
         if(!$this->isUserConnected()){
-            require_once '../templates/registerConfig.php';
+            require_once '../templates/register.php';
         }
         else{
             header('Location: /');

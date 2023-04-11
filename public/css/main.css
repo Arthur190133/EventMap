@@ -1,0 +1,195 @@
+.main-user-not-connected-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 0, 0, 0.413);
+    width: 100%;
+    height: 100%;
+}
+
+.main-user-not-connected-login a{
+    margin: 0 10px 0 10px;
+    font-size: 20px;
+    display: inline-block;
+    height: 70px;
+    width: 40%;
+    min-width: 170px;
+    line-height: 70px;
+    border-radius: 5px;
+    background-color: green;
+    padding: 0px 5px 0px 5px;
+}
+
+.main-user-not-connected-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 20%;
+    max-height: 150px;
+    min-height: 45px;
+    width: 30%;
+    min-width: 380px;
+}
+
+.main-user-not-connected{
+    background-image: url('/Images/Logos/PLaceholder.png');
+    background-size: cover;
+    background-position: center center;
+    backdrop-filter: blur(10px);
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 84%;
+}
+
+
+
+
+
+.recommendated-cards {
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+
+
+.recommendated-cards-content {
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.recommendated-cards-content:focus {
+  outline: 0;
+}
+
+.recommentation-card-first {
+  background: white;
+  border-radius: 19px;
+}
+
+.recommentation-card{
+    margin: 0px 10px 0px 10px;
+    width: 300px;
+    min-width: 280px;
+    position: relative;
+    text-align: center;
+    box-shadow: -1px 15px 30px -12px black;
+    
+}
+
+.recommentation-card-second{
+  background: white;
+  border-radius: 19px;
+  transform: scale(0.9);
+  margin-right: -16px;
+}
+
+.recommentation-card-third{
+  background: white;
+  border-radius: 19px;
+  transform: scale(0.8);
+  margin-left: -33px;
+}
+
+.recommendation-card-background {
+  position: relative;
+  height: 230px;
+  margin-bottom: 35px;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+.recommendation-card-background{
+    background-size: cover;
+    background-position: center center;
+    background-image: url("https://cdn.mgig.fr/2022/06/ipad-clair.jpg");
+}
+
+
+.recommendation-card-location {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: #EC9B3B;
+}
+
+.recommendation-card-name {
+  font-size: 26px;
+  color: black;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.recommendation-card-descrition {
+  padding: 20px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.first{
+  background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
+}
+
+.second{
+  background: radial-gradient(ellipse farthest-corner at right bottom, #D4D4D4 0%, #C4C4C4 8%, #A9A9A9 30%, #8E8E8E 40%, transparent 80%),
+            radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #F2F2F2 8%, #D9D9D9 25%, #A6A6A6 62.5%, #A6A6A6 100%);
+
+}
+
+.third{
+  background: radial-gradient(ellipse farthest-corner at right bottom, #CD7F32 0%, #B87333 8%, #A04B19 30%, #8B3A0D 40%, transparent 80%),
+            radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #F2E6D9 8%, #D9B486 25%, #A67C52 62.5%, #A67C52 100%);
+
+}
+
+.recommendation-card-info .one-third {
+  border-right: 1px solid #BD7C2F;
+}
+
+
+.recommendation-card-info {
+  color: white;
+  font-weight: 700;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+}
+.recommendation-card-info .one-third {
+  width: 33%;
+  float: left;
+  padding: 20px 0px;
+}
+.recommendation-card-info sup {
+  position: absolute;
+  bottom: 4px;
+  font-size: 45%;
+  margin-left: 2px;
+}
+.recommendation-card-info .stat {
+  position: relative;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.recommendation-card-info .stat-value {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+}
+.recommendation-card-info .no-border {
+  border-right: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}

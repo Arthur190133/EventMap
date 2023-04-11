@@ -15,7 +15,7 @@
     $event = new Event($db);
 
     // event querry
-    $result = $event->readAll();
+    $result = $event->readRecommendationEvent();
     // get row count
     $num = $result->rowCount();
 
@@ -30,27 +30,19 @@
             extract($row);
             $event_item = array(
                 'Id' => $EventId,
-                'BackgroundName' => $EventBackgroundName,
-                'BackgroundDir' => $EventBackgroundDir,
                 'ThumbnailName' => $EventThumbnailName,
                 'ThumbnailDir' => $EventThumbnailDir,
-                'OwnerName' => $OwnerName,
-                'OwnerEmail' => $OwnerEmail,
-                'OwnerAvatarName' => $OwnerAvatarName,
-                'OwnerAvatarDir' => $OwnerAvatarDir,
-                'OwnerBackgroundName' => $OwnerBackgroundName,
-                'OwnerBackgroundDir' => $OwnerBackgroundDir,
                 'Name' => $EventName,
                 'Description' => $EventDescription,
                 'StartDate' => $EventStartDate,
                 'EndDate' => $EventEndDate,
                 'Location' => $EventLocation,
+                'NumberOfUsers' => $EventNumberOfUsers,
                 'Category' => $EventCategory,
                 'Private' => $EventPrivate,
                 'Size' => $EventSize,
                 'Price' => $EventPrice,
                 'CardColor' => $EventCardColor,
-                'PageColor' => $EventPageColor
             );
 
             // push to 'data'
