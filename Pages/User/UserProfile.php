@@ -11,7 +11,7 @@
                             
                                 <h2><?= $user->UserFirstName ?> <?= $user->UserName ?></h2>
                                 <p><?= $user->UserDescription ?></p>
-                                <button id="editProfilBTN">Cliquez ici</button><H1>CHIBRE</H1>
+                                <button id="editProfilBTN">Cliquez ici</button>
                             
                         </div>
                         
