@@ -72,6 +72,12 @@ function GetUser($UserId){
     return $Querry -> fetch();
 }
 
+function GetAllUser($UserId){
+    global $Db;
+    $Querry = $Db -> prepare("SELECT * FROM User");
+    return $Querry -> fetch();
+}
+
 function GetUserNotifications($UserId){
     global $Db;
     $Querry = $Db -> prepare("SELECT * FROM notification WHERE NotificationStatus like 0 and UserId like :UserId");

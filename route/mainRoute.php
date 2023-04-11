@@ -21,7 +21,14 @@ switch($uri){
       }
       $page .= "templates/Login.php";
       break;
-
+    case ($uri === "/EventMap/?/Admin"):
+      if($user)
+      {
+        $page .= "Pages/Admin/AdminPage.php";
+        break;
+      }
+      $page .= "templates/Login.php";
+      break;
     case ($uri === "/EventMap/?/Register"):
       if($user)
       {
@@ -35,7 +42,7 @@ switch($uri){
       break;
 
     case ($uri ===  "/EventMap/?/Event"):
-      $page .= "templates/event/Events.php";
+      x .= "templates/event/Events.php";
       break;
 
     case ($uri === "/EventMap/?/registerEvent"):
