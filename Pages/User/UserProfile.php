@@ -7,7 +7,7 @@
                 <div class="gauche">
                     <div class="card">
                         <div class="card__content">
-                            <span class="img"></span>
+                            <img src="<?= "/" . $user->UserAvatarDir ?>" class="img"></img>
                             
                                 <h2><?= $user->UserFirstName ?> <?= $user->UserName ?></h2>
                                 <p><?= $user->UserDescription ?></p>
