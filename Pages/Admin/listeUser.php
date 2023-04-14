@@ -1,9 +1,8 @@
 <?php
-    $url = "http://localhost/EventMap/API/user/read.php";
+     $url = "http://localhost/EventMap/API/user/read.php";
     $token = GenerateToken([]);
-    $users = SendRequestToApi($url, $token);
+    $users = SendRequestToAPI($token, $url);
 
-    var_dump($users); 
     if(property_exists($users, 'data'))
     {
         $users = $users->data;
@@ -12,11 +11,6 @@
             
             require '../Page/Admin/AfficheUser.php' ;
         }
-    }
-
-   
-
-    
-    
+    }  
 ?>  
     
