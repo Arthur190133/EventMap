@@ -68,9 +68,31 @@
 }
 
 .recommentation-card-first {
-  background: white;
   border-radius: 19px;
+
 }
+.recommendation-card-content{
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center center;
+  background-image: url('http://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/8328525/cce2fa59a0058b3b5c391224542473a926a79ad6.jpg');
+}
+
+.recommendation-card-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-image: url('http://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/8328525/cce2fa59a0058b3b5c391224542473a926a79ad6.jpg');
+  filter: blur(5px); /* Modifier la valeur de flou en ajustant le nombre de pixels */
+  z-index: -1;
+}
+
 
 .recommentation-card{
     margin: 0px 10px 0px 10px;
@@ -78,7 +100,6 @@
     min-width: 280px;
     position: relative;
     text-align: center;
-    box-shadow: -1px 15px 30px -12px black;
     
 }
 
@@ -107,7 +128,7 @@
 .recommendation-card-background{
     background-size: cover;
     background-position: center center;
-    background-image: url("https://cdn.mgig.fr/2022/06/ipad-clair.jpg");
+    background-image: url("http://cdn.akamai.steamstatic.com/steamcommunity/public/images/clans/8328525/cce2fa59a0058b3b5c391224542473a926a79ad6.jpg");
 }
 
 

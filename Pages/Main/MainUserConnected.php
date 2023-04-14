@@ -31,11 +31,14 @@
         <div class="recommentation-card-first">
             <div class="recommendation-card-background">
             </div>
-            <div class="recommendation-card-location"><?= $events->data[0]->Location ?></div>
-            <div class="recommendation-card-name"><?= $events->data[0]->Name ?></div>
-            <div class="recommendation-card-descrition">
-            <?= $events->data[0]->Description ?>
+            <div class="recommendation-card-content">
+                <div class="recommendation-card-location"><?= $events->data[0]->Location ?></div>
+                <div class="recommendation-card-name"><?= $events->data[0]->Name ?></div>
+                <div class="recommendation-card-descrition">
+                <?= $events->data[0]->Description ?>
+                </div>
             </div>
+
             <div class="recommendation-card-info first clearfix">
             <div class="one-third">
                 <div class="stat"><?= $events->data[0]->NumberOfUsers ?></div>
