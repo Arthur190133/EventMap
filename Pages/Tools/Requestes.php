@@ -72,7 +72,7 @@ function GetUser($UserId){
     return $Querry -> fetch();
 }
 
-function GetAllUser($UserId){
+function GetAllUser(){
     global $Db;
     $Querry = $Db -> prepare("SELECT * FROM User");
     return $Querry -> fetch();
@@ -149,19 +149,19 @@ function InsertImage($ImageName, $ImageDir):int
 
 function CreateImageDir($ImageLocation, $User)
 {
-    if (!mkdir($ImageLocation, 0777, true)) {
+   /* if (!mkdir($ImageLocation, 0777, true)) {
         die('Échec lors de la création des dossiers...');
-    }
+    }*/
 }
 
-function updateProfil(user,UserFirstName,UserName,UserDescription)
+/*function updateProfil(user,UserFirstName,UserName,UserDescription)
 {
     $token=GenerateToken([])
     'user' => $_SESSION['user']->id,
     'UserFirstName' => $_POST['UserFirstName'],
     'UserName' => $_POST['UserName'],
     'UserDescription' => $_POST['UserDescription']
-}
+}*/
 
 function modifUserInfo()
 {

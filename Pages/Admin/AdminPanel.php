@@ -6,4 +6,4 @@
                          'width=600,height=600'); 
               return false;"
  >Open AdminPanel</a>
-</div>
+</div> 
