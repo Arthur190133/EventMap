@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div>
-                        <button class="event-filter-button link-button"> FILTER </button>
+                        <button class="event-filter-button link-button" id="button-event-filter"> FILTER </button>
                     </div>
                 </form>
         </div>
@@ -69,7 +69,7 @@
         require_once '../Pages/Event/EventMapPreview.php';
         ?>
     </div>
-
-
-<script src="/js/filter.js">
-    </script> 
+    <script src="../config/Data.json" type="text/javascript" >
+    </script>
+    <script src="/js/filter.js">
+    </script>

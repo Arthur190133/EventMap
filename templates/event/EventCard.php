@@ -4,8 +4,9 @@
 $url = "http://localhost/EventMap/API/event/readFiltered.php";
 
 $token = GenerateToken($FilterParamters);
+var_dump($token);
 $Events = SendRequestToAPI($token, $url);
-
+var_dump($Events);
 
 if(property_exists($Events, 'data'))
 {

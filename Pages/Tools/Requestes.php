@@ -72,6 +72,12 @@ function GetUser($UserId){
     return $Querry -> fetch();
 }
 
+function GetAllUser(){
+    global $Db;
+    $Querry = $Db -> prepare("SELECT * FROM User");
+    return $Querry -> fetch();
+}
+
 function GetUserNotifications($UserId){
     global $Db;
     $Querry = $Db -> prepare("SELECT * FROM notification WHERE NotificationStatus like 0 and UserId like :UserId");
@@ -129,11 +135,10 @@ function Login($Email, $Password){
     }
 }
 
-
 function InsertImage($ImageName, $ImageDir):int
 {
     global $Db;
-
+    
     $Querry = $Db -> prepare("INSERT INTO image(ImageName, ImageDir) VALUES (:ImageName, :ImageDir)");
     $Querry -> execute([
         'ImageName' => $ImageName,
@@ -144,17 +149,40 @@ function InsertImage($ImageName, $ImageDir):int
 
 function CreateImageDir($ImageLocation, $User)
 {
-    if (!mkdir($ImageLocation, 0777, true)) {
+   /* if (!mkdir($ImageLocation, 0777, true)) {
         die('Échec lors de la création des dossiers...');
-    }
+    }*/
 }
 
-function updateProfil(user,UserFirstName,UserName,UserDescription)
+/*function updateProfil(user,UserFirstName,UserName,UserDescription)
 {
     $token=GenerateToken([])
     'user' => $_SESSION['user']->id,
     'UserFirstName' => $_POST['UserFirstName'],
     'UserName' => $_POST['UserName'],
     'UserDescription' => $_POST['UserDescription']
+}*/
+
+function modifUserInfo()
+{
+    try {
+        global $dbh;
+        $query = $dbh->prepare("UPDATE user set UserFirstName=:newUserFirstName,userName=:newUserLastName,UserDescription=:description where UserId = 4 ");
+        $query->execute([
+            'user' => $_SESSION['user']->id,
+            'newUserFirstName' => $_POST['newUserFirstName'],
+            'newUserLastName' => $_POST['newUserLastName'],
+            'description' => $_POST['description'],
+        ]);
+        $query = $dbh->prepare('SELECT * FROM utilisateurs where id = :user');
+        $query->execute([
+            'user' => $_SESSION['user']->id,
+        ]);            
+        $user = $query->fetch();
+        return $user;
+    } catch (PDOException $e) {
+        $error = $e->getMessage();
+        die($error);
+    }
 }
 ?>

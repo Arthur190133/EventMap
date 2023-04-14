@@ -5,18 +5,18 @@
         <div class="recommentation-card-second">
             <div class="recommendation-card-background">
             </div>
-            <div class="recommendation-card-location">Belgique</div>
-            <div class="recommendation-card-name">Walibi</div>
+            <div class="recommendation-card-location"><?= $events->data[1]->Location ?></div>
+            <div class="recommendation-card-name"><?= $events->data[1]->Name ?></div>
             <div class="recommendation-card-descrition">
-                EventDescription
+            <?= $events->data[1]->Description ?>
             </div>
             <div class="recommendation-card-info second clearfix">
             <div class="one-third">
-                <div class="stat">0</div>
-                <div class="stat-value">Participants</div>
+                <div class="stat"><?= $events->data[1]->NumberOfUsers ?></div>
+                <div class="stat-value"><?= ($events->data[1]->NumberOfUsers >1 )? 'Participants' : 'Participant' ?></div>
             </div>
             <div class="one-third">
-                <div class="stat">30<sup>€</sup></div>
+                <div class="stat"><?= $events->data[1]->Price ?><sup>€</sup></div>
                 <div class="stat-value">Publique</div>
             </div>
             <div class="one-third no-border">
@@ -42,10 +42,10 @@
             <div class="recommendation-card-info first clearfix">
             <div class="one-third">
                 <div class="stat"><?= $events->data[0]->NumberOfUsers ?></div>
-                <div class="stat-value">Participants</div>
+                <div class="stat-value"><?= ($events->data[0]->NumberOfUsers >1 )? 'Participants' : 'Participant' ?></div>
             </div>
             <div class="one-third">
-                <div class="stat">30<sup>€</sup></div>
+                <div class="stat"><?= $events->data[0]->Price?><sup>€</sup></div>
                 <div class="stat-value">Publique</div>
             </div>
             <div class="one-third no-border">
@@ -59,18 +59,18 @@
         <div class="recommentation-card-third">
             <div class="recommendation-card-background">
             </div>
-            <div class="recommendation-card-location">Belgique</div>
-            <div class="recommendation-card-name">Walibi</div>
+            <div class="recommendation-card-location"><?= $events->data[2]->Location ?></div>
+            <div class="recommendation-card-name"><?= $events->data[2]->Name ?></div>
             <div class="recommendation-card-descrition">
-                EventDescription
+            <?= $events->data[2]->Description ?>
             </div>
             <div class="recommendation-card-info third clearfix">
             <div class="one-third">
-                <div class="stat">0</div>
-                <div class="stat-value">Participants</div>
+                <div class="stat"><?= $events->data[2]->NumberOfUsers ?></div>
+                <div class="stat-value"><?= ($events->data[2]->NumberOfUsers >1 )? 'Participants' : 'Participant' ?></div>
             </div>
             <div class="one-third">
-                <div class="stat">30<sup>€</sup></div>
+                <div class="stat"><?= $events->data[2]->Price ?><sup>€</sup></div>
                 <div class="stat-value">Publique</div>
             </div>
             <div class="one-third no-border">

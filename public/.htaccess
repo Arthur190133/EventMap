@@ -2,7 +2,11 @@ RewriteEngine on
 
 php_flag display_errors on
 RewriteCond %{REQUEST_URI} !^/EventMap/API/
+RewriteCond %{REQUEST_URI} !^/EventMap/templates/
 RewriteCond %{REQUEST_URI} !^/EventMap/
+RewriteCond %{HTTP_REFERER} !^http?://(localhost|127\.0\.0\.1) [NC]
+RewriteRule ^/EventMap/templates/event/ - [L,F]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php [QSA,L]
+

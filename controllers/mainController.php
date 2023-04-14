@@ -32,6 +32,9 @@ class mainController
         }
         
     }
+    public function Admin(){
+        require_once '../Pages/Admin/AdminPage.php';
+    }
 
     public function events(){
         require_once '../templates/event/Events.php';

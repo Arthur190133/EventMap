@@ -1,5 +1,3 @@
-
-
 <link href= "\css\userProfile.css" rel="stylesheet">
 
     <div class="box">
@@ -9,11 +7,11 @@
                 <div class="gauche">
                     <div class="card">
                         <div class="card__content">
-                            <span class="img"></span>
+                            <img src="<?= "/" . $user->UserAvatarDir ?>" class="img"></img>
                             
                                 <h2><?= $user->UserFirstName ?> <?= $user->UserName ?></h2>
                                 <p><?= $user->UserDescription ?></p>
-                                <button id="editProfilBTN">Cliquez ici</button><H1>CHIBRE</H1>
+                                <button id="editProfilBTN">Cliquez ici</button>
                             
                         </div>
                         
