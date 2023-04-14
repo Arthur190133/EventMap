@@ -10,7 +10,7 @@
     <div class="GIGABOX">
         <div class="leftBack">
             <div>
-                <div class="img"></div>
+                <img src="<?= "/" .$user->UserAvatarDir ?>" class="img"></img>
                 <div>
                     <p id="Register-card-firstname">prénom</p>
                     <p id="Register-card-name">nom</p>
@@ -50,4 +50,4 @@
         </div>
     </div>
 </div>
-<script src="js/register.js"></script> 
+<script src="/js/register.js"></script> 

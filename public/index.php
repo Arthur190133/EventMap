@@ -34,9 +34,6 @@ require_once '../router/Router.php';
 require_once '../controllers/mainController.php';
 require_once '../Exceptions/RouteNotFoundException.php';
 
-
-
-
 $router = new Router();
 
 $uri = explode("/",$_SERVER['REQUEST_URI'])[1];

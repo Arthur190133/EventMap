@@ -3,17 +3,19 @@
     header('Access-Control-Allow-Origin: *.example.com');
     header('Content-Type: application/json');
 
-    include_once '../../config/Database.php';
-    include_once '../../models/event.php';
     $payload = json_decode(require_once '../auth.php');
+    include_once '../../config/Database.php';
 
+    include_once '../../models/Event.php';
+    
 
     // Instantiation Database
     $datebase = new Database();
     $db = $datebase->connect();
-
+    
     // Instantiation event object
     $event = new Event($db);
+    
     
     // Ajout des parametres 
     
@@ -21,6 +23,9 @@
     $event->Public = $payload->public;
     $event->FreeEvent = $payload->free;
     $event->PaidEvent = $payload->paid;
+    $event->tags = $payload->tags;
+
+    
 
     // event querry
     $result = $event->readFiltered();

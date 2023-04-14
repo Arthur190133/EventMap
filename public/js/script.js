@@ -139,7 +139,7 @@ document.querySelector('body').style.opacity = 1;
 
 
 // TEST CARD
-let EventCardMarker = document.querySelector('.EventCardMarker');
+/*let EventCardMarker = document.querySelector('.EventCardMarker');
 let EventCardContent = document.querySelector('.EventCardContent');
 
 EventCardMarker.addEventListener('mouseenter', function() {
@@ -149,7 +149,7 @@ EventCardMarker.addEventListener('mouseenter', function() {
 EventCardMarker.addEventListener('mouseleave', function() {
   EventCardContent.classList.remove('no-hover');
 });
-
+*/
 
 
 

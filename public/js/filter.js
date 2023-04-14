@@ -3,11 +3,8 @@ let searchInputFilterValue = '';
 const resultsListFilter = document.getElementById('filter-search-list');
 let selectedTagsArray = [];
 
-const searchDataFilter = [
-  'culture',
-  'esport',
-  '!!cat'
-];
+const searchDataFilter = ["locale", "festival", "concert", "conférence", "spectacle", "sport", "cinéma", "musique", "théatre", "danse", "recontre", "en pleine air", "intérieur", "éducatif", "culturel", "religieu", "technologique", "ecologique"];
+
 
 searchInputFilter.addEventListener('input', event => {
   const searchInputFilter = event.target.value;
@@ -78,6 +75,13 @@ function removeSelectedTag(selectedTagElement) {
   const tagText = selectedTagElement.getAttribute('data-tag');
   selectedTagsArray = selectedTagsArray.filter(tag => tag !== tagText);
   selectedTagElement.parentNode.removeChild(selectedTagElement);
+  
+  // Remove the tag from the HTML
+  const resultsListFilter = document.querySelector('.FiltersSelectedTags');
+  const tagToRemove = resultsListFilter.querySelector(`[data-tag="${tagText}"]`);
+  if (tagToRemove) {
+    resultsListFilter.removeChild(tagToRemove);
+  }
 }
 
 document.addEventListener('click', event => {
@@ -85,6 +89,8 @@ document.addEventListener('click', event => {
       RemoveSearchResults();
   }
 });
+
+
 
 function RemoveSearchResults(){
   searchInputFilter.blur();
@@ -95,8 +101,15 @@ function RemoveSearchResults(){
 }
 
 
-// slider
 
+var filterEventButton = document.getElementById("button-event-filter");
+filterEventButton.addEventListener("click", function(){
+
+  document.cookie = "selectedTags=" + selectedTagsArray;
+
+});
+
+// slider
 
 
 

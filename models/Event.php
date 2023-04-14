@@ -326,6 +326,8 @@ class Event{
         image UserAvatar ON user.UserAvatarId = UserAvatar.ImageId
     LEFT JOIN
         image UserBackground ON user.UserBackgroundId = UserBackground.ImageId
+    LEFT JOIN
+         eventtag et ON event.EventId = et.EventTagId
     WHERE 
             event.EventPrice >= :MinEventPrice
         AND
@@ -345,10 +347,14 @@ class Event{
                 (:EventPublic = 0 AND :EventPrivate = 1 AND event.EventPrivate > 0)
                 OR
                 (:EventPublic = 1 AND :EventPrivate = 1)
-            )
-        GROUP BY event.EventId
-            
-';
+            )' ;
+        if(count(implode(',', $this->tags) > 0)){
+            $this->tags = implode(',', $this->tags); // Convertir le tableau en une chaîne de caractères séparée par des virgules
+            $query .= ' AND et.EventTagName IN (:tags)';
+            $stmt->bindParam(':tags', $this->tags);
+        }
+
+        $query .= 'GROUP BY event.EventId';
 
         $stmt = $this->connection->prepare($query);
 
