@@ -8,8 +8,7 @@
         $users = $users->data;
         foreach($users as $user)
         {
-            
-            require '../Page/Admin/AfficheUser.php' ;
+            require '../Page/Admin/AfficheUser.php';
         }
     }  
 ?>  
