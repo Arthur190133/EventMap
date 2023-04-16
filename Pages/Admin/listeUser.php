@@ -1,14 +1,12 @@
 <?php
-     $url = "http://localhost/EventMap/API/user/read.php";
-    $token = GenerateToken([]);
-    $users = SendRequestToAPI($token, $url);
+    $users = SendRequestToAPI(GenerateToken([]), "http://localhost/EventMap/API/user/read.php");
 
     if(property_exists($users, 'data'))
     {
         $users = $users->data;
         foreach($users as $user)
         {
-            require '../Page/Admin/AfficheUser.php';
+            require "AfficheUser.php" ;
         }
     }  
 ?>  

@@ -1,9 +1,161 @@
 .liste{
     color: aliceblue;
     overflow: scroll;
-    max-height: 200px;
+    max-height: 250px;
 }
 
 h1{
     color: aliceblue;
 }
+
+h2{
+    margin-top: -10px;
+}
+.username{
+    display: flex;
+}
+
+.NameBox{
+width: 200px;
+}
+
+.card {
+    width: 600px;
+    height: 350px;
+    margin: 25px auto;
+    background-color: #011522;
+    border-radius: 8px;
+    z-index: 1;
+   }
+   
+   .tools {
+    display: flex;
+    align-items: center;
+    padding: 9px;
+   }
+   
+   .circle {
+    padding: 0 4px;
+   }
+   
+   .box {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+   }
+   
+   .red {
+    background-color: #ff605c;
+   }
+   
+   .yellow {
+    background-color: #ffbd44;
+   }
+   
+   .green {
+    background-color: #00ca4e;
+   }
+   
+
+.button1 {
+    --color: #20b423;
+    font-family: inherit;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color);
+    transition: color .5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+   }
+   
+   .button1:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+   .button1:hover {
+    color: #fff;
+   }
+   
+   .button1:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+   }
+   
+   .button1:hover:before {
+    top: -30px;
+    left: -30px;
+   }
+   
+   .button1:active:before {
+    background: #05f609;
+    transition: background 0s;
+   }
+
+
+
+   .button2 {
+    --color: #ce1b1b;
+    font-family: inherit;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 5px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color);
+    transition: color .5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+   }
+   
+   .button2:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+   .button2:hover {
+    color: #fff;
+   }
+   
+   .button2:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+   }
+   
+   .button2:hover:before {
+    top: -30px;
+    left: -30px;
+   }
+   
+   .button2:active:before {
+    background: #f60505;
+    transition: background 0s;
+   }
