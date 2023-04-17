@@ -1,3 +1,9 @@
+body{
+    background-image: url("https://as1.ftcdn.net/v2/jpg/01/57/34/62/1000_F_157346244_A6Oml9kXsQdK3WaVVg91UnzheU0YeFpe.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
 .liste{
     color: aliceblue;
     overflow: scroll;
@@ -15,49 +21,68 @@ h2{
     display: flex;
 }
 
+.Contenaire{
+    display: flex;
+}
+
 .NameBox{
 width: 200px;
 }
 
-.card {
-    width: 600px;
+
+.card2 {
+    width: 400px;
     height: 350px;
     margin: 25px auto;
     background-color: #011522;
     border-radius: 8px;
+    padding: 0px 50px;
     z-index: 1;
-   }
-   
-   .tools {
-    display: flex;
-    align-items: center;
-    padding: 9px;
-   }
-   
-   .circle {
-    padding: 0 4px;
-   }
-   
-   .box {
-    display: inline-block;
-    align-items: center;
-    width: 10px;
-    height: 10px;
-    padding: 1px;
-    border-radius: 50%;
-   }
-   
-   .red {
-    background-color: #ff605c;
-   }
-   
-   .yellow {
-    background-color: #ffbd44;
-   }
-   
-   .green {
-    background-color: #00ca4e;
-   }
+    }
+    
+
+
+.card {
+width: 600px;
+height: 350px;
+margin: 25px auto;
+background-color: #011522;
+border-radius: 8px;
+z-index: 1;
+}
+
+
+
+.tools {
+display: flex;
+align-items: center;
+padding: 9px;
+}
+
+.circle {
+padding: 0 4px;
+}
+
+.box {
+display: inline-block;
+align-items: center;
+width: 10px;
+height: 10px;
+padding: 1px;
+border-radius: 50%;
+}
+
+.red {
+background-color: #ff605c;
+}
+
+.yellow {
+background-color: #ffbd44;
+}
+
+.green {
+background-color: #00ca4e;
+}
    
 
 .button1 {

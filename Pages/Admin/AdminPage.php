@@ -23,7 +23,7 @@
             </div>
         </div>
     </div>
-    <div class="card">
+    <div class="card2">
         <div class="tools">
             <div class="circle">
                 <span class="red box"></span>
@@ -39,7 +39,7 @@
             <h2>Liste des Admin</h2>
             <div class="liste">
                 <ul>
-                    <?php require '../Pages/Admin/listeUser.php'; ?>
+                    <?php require '../Pages/Admin/listeAdmin.php'; ?>
                 </ul>
             </div>
         </div>
