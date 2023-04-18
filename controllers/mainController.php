@@ -20,17 +20,10 @@ class mainController
     }
     
     public function profile(){
-        if($this->isUserConnected()){
-
-            require_once '../router/UserProfileRouter.php';
-            require_once '../controllers/UserProfileController.php';
-            $UserProfileRouter = new UserProfileRouter();
-            $UserProfileRouter->resolve();
-        }
-        else{
-            header('Location: /login');
-        }
-        
+        require_once '../router/UserProfileRouter.php';
+        require_once '../controllers/UserProfileController.php';
+        $UserProfileRouter = new UserProfileRouter();
+        $UserProfileRouter->resolve();   
     }
     public function Admin(){
         require_once '../Pages/Admin/AdminPage.php';

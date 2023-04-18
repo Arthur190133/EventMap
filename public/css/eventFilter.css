@@ -56,7 +56,10 @@
 }
 
 .FiltersSelectedTags{
-    min-height: 40px;
+  min-height: 40px;
+    max-height: 80px;
+    overflow-y: hidden;
+    transition: max-height 0.25s ease-in;
 }
 
 .SelectedTag{

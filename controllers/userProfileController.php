@@ -15,8 +15,14 @@ class userProfileController{
     }
 
     public function loadSelfPage($user){
-        echo 'loading : succed => Self Profile loaded';
-        require_once '../templates/user/UserProfile.php';
+        if(isset($_SESSION['user'])){
+            echo 'loading : succed => Self Profile loaded';
+            require_once '../templates/user/UserProfile.php';
+        }
+        else{
+            header('Location: /login');
+        }
+
     }
 }
 ?>
