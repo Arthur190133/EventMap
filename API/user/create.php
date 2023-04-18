@@ -8,6 +8,11 @@
     // Fichers requis
     include_once '../../config/Database.php';
     include_once '../../models/User.php';
+    $payload = json_decode(require_once '../auth.php');
+    if(isset($payload)){
+        //die();
+    }
+    
 
     // Instantiation de la base de donnée
     $datebase = new Database();
@@ -15,24 +20,21 @@
 
     // Instantiation de la class user
     $user = new User($db);
-
-    // Recuperer les informations de l'utilisateur
-    $data = json_decode(file_get_contents("php://input"));
+    
 
     // Modifier les informations de l'uutilisateur par celles voulues
-    $user->UserFirstName = $data->UserFirstName;
-    $user->UserName = $data->UserName;
-    $user->UserEmail = $data->UserEmail;
-    $user->UserPassword = $data->UserPassword;
-    $user->UserDescription = $data->UserDescription;
-    $user->UserWallet = $data->UserWallet;
-    $user->UserAvatarId = $data->UserAvatarId;
-    $user->UserBackgroundId= $data->UserBackgroundId;
+    $user->UserFirstName = $payload->UserFirstName;
+    $user->UserName = $payload->UserName;
+    $user->UserEmail = $payload->UserEmail;
+    $user->UserPassword = $payload->UserPassword;
+    $user->UserDescription = $payload->UserDescription;
+    $user->UserAvatarId = 1;
+    $user->UserBackgroundId= 1;
 
     // Créer l'utilisateur
     if($user->create()){
         echo json_encode(
-            array('message' => 'User Created')
+            array('user' => $user)
         );
     }
     else{

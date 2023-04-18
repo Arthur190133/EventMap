@@ -19,6 +19,8 @@
     $_SESSION['user'] = SendRequestToAPI($token, ('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
     if($_SESSION['user']){
       $user = $_SESSION['user'];
+
+      var_dump($result);
     }else{
       echo 'Failed to load user session';
     }
