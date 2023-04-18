@@ -16,7 +16,7 @@ class Admin{
         $this->connection = $db;
     }
 
-    public function read(){
+    public function readAll(){
         $query = 'SELECT 
         admin.AdminId,
         admin.AdminStartDate,
@@ -48,8 +48,8 @@ class Admin{
         
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $this->AdminId = $row['Id'];
-        $this->AdminStartDate = $row['StartDate'];
+        $this->AdminId = $row['AdminId'];
+        $this->AdminStartDate = $row['AdminStartDate'];
         $this->AdminEndDate = $row['AdminEndDate'];
         $this->UserId = $row['UserId'];
 
@@ -59,22 +59,26 @@ class Admin{
     public function IsAdmin(){
         $query = 'SELECT 
         admin.AdminId,
+        admin.AdminStartDate,
+        admin.AdminEndDate,
+        admin.UserId
         FROM ' . $this->table .' admin
-        WHERE admin.UserId = ? 
+        WHERE admin.AdminId = ? 
         ';
 
         $stmt = $this->connection->prepare($query);
 
-        $stmt->BindParam(1, $this->UserId);
+        $stmt->BindParam(1, $this->AdminId);
 
         $stmt->execute();
-
+        
         if($stmt){
             return true;
         }
         else{
             return false;
         }
+
 
 
     }

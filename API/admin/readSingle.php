@@ -13,16 +13,23 @@
 
     // Instantiation Admin object
     $Admin = new Admin($db);
-
+    
     // Get Id
-    $Admin->UserId = $payload->UserId;
-
-    $isAdmin = $Admin->IsAdmin();
-    $Admin_arr = array(
-        'IsAdmin' => $isAdmin
-    );
+    $Admin->AdminId = isset($_GET['AdminId']) ? $_GET['AdminId']: die();
+    $Admin->readSingle();
+    
+    if($Admin->AdminId != ""){
+        $Admin_arr = array(
+            'AdminId' => $Admin->AdminId,
+            'AdminStartDate' =>$Admin->AdminStartDate,
+            'AdmEndDate' =>$Admin->AdminEndDate,
+            'UserId' => $Admin->UserId
+        );
+    }
 
     print_r(json_encode($Admin_arr));
+
+    
 
     
 

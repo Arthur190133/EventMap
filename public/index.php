@@ -19,8 +19,12 @@
     $_SESSION['user'] = SendRequestToAPI($token, ('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
     if($_SESSION['user']){
       $user = $_SESSION['user'];
-
+      $url = "http://localhost/EventMap/API/admin/IsAdmin.php";
+      $payload = ['UserId' => $user->UserId];
+      $token = GenerateToken($payload);
+      $result = SendRequestToAPI($token, $url);
       var_dump($result);
+      var_dump($token);
     }else{
       echo 'Failed to load user session';
     }
