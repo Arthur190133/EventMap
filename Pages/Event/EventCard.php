@@ -46,6 +46,10 @@
                 <p class="EventCardDescription"> <?= $Event->Description ?></p>
                 <div class="EventCardData">            
                     <span class="EventCardParticipants"> <?= $EventCardParticipants ?></span>
+                    <div class="event-card-tags">
+                        <?php require_once '../templates/event/EventCardTags.php'; ?>
+                    </div>  
+                    
                 </div>
             </div>
         </div>

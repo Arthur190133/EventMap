@@ -333,6 +333,13 @@ body{
     font-weight: 700;
     text-align: center;
 }
+
+.event-card-tags{
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 50px;
+    overflow-y: hidden;
+}
 .EventCardDay {
     font-size: 18px;
 }
@@ -724,7 +731,7 @@ body{
 .SelectedTag span{
     display: table-cell;
     vertical-align: middle;
-    padding-right: 2px;
+    padding-right: 3px;
     padding-left: 3px;
 }
  

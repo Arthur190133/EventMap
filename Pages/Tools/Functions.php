@@ -47,7 +47,6 @@ function SendRequestToAPI($token, $url){
 
     $data = curl_exec($ch);
     curl_close($ch);
-    //var_dump($data);
     $data =  json_decode($data);
     return $data;
 }
