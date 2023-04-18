@@ -5,6 +5,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Admin.php';
+
     $payload = json_decode(require_once '../auth.php');
 
     // Instantiation Database
@@ -18,6 +19,7 @@
     $Admin->UserId = $payload->UserId;
 
     $isAdmin = $Admin->IsAdmin();
+
     $Admin_arr = array(
         'IsAdmin' => $isAdmin
     );

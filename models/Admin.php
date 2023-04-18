@@ -21,8 +21,13 @@ class Admin{
         admin.AdminId,
         admin.AdminStartDate,
         admin.AdminEndDate,
-        admin.UserId
+        admin.UserId,
+        user.UserName,
+        User.LastName
         FROM ' . $this->table .' admin
+        
+        LEFT JOIN
+        user user ON admin.UserId = user.UserId 
         ';
 
         $stmt = $this->connection->prepare($query);
@@ -35,8 +40,13 @@ class Admin{
         admin.AdminId,
         admin.AdminStartDate,
         admin.AdminEndDate,
-        admin.UserId
+        admin.UserId,
+        user.UserName,
+        User.LastName
         FROM ' . $this->table .' admin
+        
+        LEFT JOIN
+            user user ON admin.UserId = user.UserId 
         WHERE admin.AdminId = ? 
         ';
 
