@@ -10,7 +10,7 @@ class EventRouter
         }
         else{
             $eventId = explode("/",$_SERVER['REQUEST_URI'])[2];
-            var_dump($eventId);
+            //var_dump($eventId);
             if(!is_numeric($eventId))
             {
                 call_user_func_array([new eventController(), "wrongEventPagePath"], []);

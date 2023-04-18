@@ -6,7 +6,7 @@
         $users = $users->data;
         foreach($users as $user)
         {
-            require "AfficheUser.php" ;
+            require "AfficheAdmin.php" ;
         }
     }  
 ?>  
