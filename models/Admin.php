@@ -10,6 +10,10 @@ class Admin{
     public $AdminEndDate;
     public $UserId;
 
+    //user
+    public $UserName;
+    public $UserFirstName;
+
     // constructeur
     public function __construct($db)
     {
@@ -23,11 +27,10 @@ class Admin{
         admin.AdminEndDate,
         admin.UserId,
         user.UserName,
-        User.LastName
-        FROM ' . $this->table .' admin
-        
+        user.UserFirstName
+        FROM ' . $this->table .' admin 
         LEFT JOIN
-        user user ON admin.UserId = user.UserId 
+            user user ON admin.UserId = user.UserId 
         ';
 
         $stmt = $this->connection->prepare($query);
@@ -42,7 +45,7 @@ class Admin{
         admin.AdminEndDate,
         admin.UserId,
         user.UserName,
-        User.LastName
+        user.UserLastName
         FROM ' . $this->table .' admin
         
         LEFT JOIN

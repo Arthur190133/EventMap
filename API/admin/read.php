@@ -29,7 +29,9 @@
                 'Id' => $AdminId,
                 'StartDate' => $AdminStartDate,
                 'EndDate' => $AdminEndDate,
-                'UserId' => $UserId
+                'UserId' => $UserId,
+                'UserName' => $UserName,
+                'UserFirstName' => $UserFirstName,
             );
             // push to 'data'
             array_push($Admins_arr['data'], $Admin_item);
