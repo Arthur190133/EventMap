@@ -8,6 +8,21 @@ class mainController
         return isset($_SESSION['user']);
     }
 
+    private function isAdmin():bool
+    {
+        if($this->isUserConnected()){
+        // get admin
+        $url = "http://localhost/EventMap/API/admin/IsAdmin.php";
+        $payload = ['UserId' => $user->UserId];
+        $token = GenerateToken($payload);
+        $admin = SendRequestToAPI($token, $url);
+
+        return isset($admin);
+        }
+        return false;
+
+    }
+
     public function index()
     {
         if($this->isUserConnected())
@@ -26,7 +41,13 @@ class mainController
         $UserProfileRouter->resolve();   
     }
     public function Admin(){
-        require_once '../Pages/Admin/AdminPage.php';
+        if($this->isAdmin()){
+            require_once '../Pages/Admin/AdminPage.php';
+        }
+        else{
+            header('Location: /');
+        }
+        
     }
 
     public function events(){
