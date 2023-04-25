@@ -13,7 +13,7 @@ class Event{
     public $EventThumbnailId;
     public $EventThumbnailName;
     public $EventThumbnailDir;
-    public $EventOwnerId;
+    public $OwnerId;
     public $OwnerName;
     public $OwnerEmail;
     public $OwnerDescription;
@@ -111,6 +111,7 @@ class Event{
                    EventBackground.ImageDir as EventBackgroundDir,
                    EventThumbnail.ImageName as EventThumbnailName,
                    EventThumbnail.ImageDir as EventThumbnailDir,
+                   user.UserId as OwnerId,
                    user.UserName as OwnerName,
                    user.UserEmail as OwnerEmail,
                    user.UserDescription as OwnerDescription,
@@ -159,6 +160,7 @@ class Event{
         $this->EventBackgroundDir = $row['EventBackgroundDir'];
         $this->EventThumbnailName = $row['EventThumbnailName'];
         $this->EventThumbnailDir = $row['EventThumbnailDir'];
+        $this->OwnerId = $row['OwnerId'];
         $this->OwnerName = $row['OwnerName'];
         $this->OwnerEmail = $row['OwnerEmail'];
         $this->OwnerDescription = $row['OwnerDescription'];

@@ -5,7 +5,6 @@ $JoinableEvent = "REJOINDRE";
 //var_dump($event);
 
 $UserId = isset($_SESSION['user']->UserId) ? $_SESSION['user']->UserId : null;
-
 $payload = ['EventId' => $event->Id, 'UserId' => $UserId];
 $token = GenerateToken($payload);
 $IsUserJoined = SendRequestToAPI($token, 'http://localhost/EventMap/API/userevent/readUserIsInEvent.php');
@@ -22,6 +21,11 @@ if($IsUserJoined === NULL){
 else{
     $JoinableEvent = "QUITTER";
 }
+
+
+$url = "http://localhost/EventMap/API/user/readSingle.php?UserId=" . $event->OwnerId;
+$token = GenerateToken([]);
+$user = SendRequestToAPI($token, $url);
 
 
 
