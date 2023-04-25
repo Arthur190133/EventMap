@@ -98,16 +98,18 @@ class Admin{
 
 
     public function delete(){
-        $query = 'DELETE 
-
-        FROM ' . $this->table .' admin 
-        WHERE `admin.AdminId` = :user
-        ';
+        $query = 'DELETE FROM ' . $this->table .' 
+        WHERE AdminId = ?';
 
         $stmt = $this->connection->prepare($query);
-        $stmt->BindParam(':user',$this->adminId);
+        $stmt->BindParam(1, $this->AdminId);
         $stmt->execute(); 
-        return $stmt;
+        if($stmt){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

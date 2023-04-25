@@ -22,6 +22,10 @@
 
     $result = $Admin->delete();
 
-    print_r(json_encode('ok'));
+    $Admin_arr = array(
+        'hasBeenDeleted?' => $result
+    );
+
+    print_r(json_encode($Admin_arr));
     
 ?>
