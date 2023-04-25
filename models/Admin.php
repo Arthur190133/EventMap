@@ -101,7 +101,7 @@ class Admin{
         $query = 'DELETE 
 
         FROM ' . $this->table .' admin 
-        WHERE `AdminId` = :user
+        WHERE `admin.AdminId` = :user
         ';
 
         $stmt = $this->connection->prepare($query);
