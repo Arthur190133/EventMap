@@ -105,7 +105,7 @@ class Admin{
         ';
 
         $stmt = $this->connection->prepare($query);
-        $stmt->BindParam(':user',$this->adminId)
+        $stmt->BindParam(':user',$this->adminId);
         $stmt->execute(); 
         return $stmt;
     }

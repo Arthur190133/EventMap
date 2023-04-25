@@ -4,10 +4,11 @@
     header('Content-Type: application/json');
 
     include_once '../../config/Database.php';
+
     include_once '../../models/Admin.php';
 
     $payload = json_decode(require_once '../auth.php');
-    die();
+
 
     // Instantiation Database
     $datebase = new Database();

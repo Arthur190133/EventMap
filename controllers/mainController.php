@@ -42,7 +42,7 @@ class mainController
     }
     public function Admin(){
         if($this->isAdmin()){
-            require_once '../Pages/Admin/AdminPage.php';
+            require_once '../templates/Admin/AdminPage.php';
         }
         else{
             header('Location: /');
