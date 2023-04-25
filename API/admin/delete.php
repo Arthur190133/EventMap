@@ -18,14 +18,10 @@
     $Admin = new Admin($db);
 
     // Get Id
-    $Admin->UserId = $payload->UserId;
+    $Admin->AdminId = $payload->AdminId;
 
-    $isAdmin = $Admin->delete();
+    $result = $Admin->delete();
 
-    $Admin_arr = array(
-        'IsAdmin' => $isAdmin
-    );
-
-    print_r(json_encode($Admin_arr));
+    print_r(json_encode('ok'));
     
 ?>
