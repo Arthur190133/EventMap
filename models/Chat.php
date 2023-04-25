@@ -60,6 +60,20 @@ class Chat{
         return $stmt;
     }
 
+    public function readByEvent(){
+        $query = "SELECT 
+        chat.ChatId,
+        chat.EventId as EventId,
+        (SELECT count(*) from ChatMessage where chat.ChatId = ChatId) as Messages
+        FROM ' . $this->table .' chat
+        WHERE chat.EventId = ? 
+        LEFT JOIN
+            event event ON REFERENCES chat.EventId = event.EventId
+        LEFT JOIN
+            user user ON REFERENCES event.EventOwnerId = user.UserId
+        ";
+    }
+
     // créer un chat 
     public function create(){
         $query = " INSERT INTO " . $this->table . " 
