@@ -95,6 +95,21 @@ class Admin{
 
 
     }
+
+
+    public function delete(){
+        $query = 'DELETE 
+
+        FROM ' . $this->table .' admin 
+        WHERE `AdminId` = :user
+        ';
+
+        $stmt = $this->connection->prepare($query);
+        $stmt->BindParam(':user',$this->adminId)
+        $stmt->execute(); 
+        return $stmt;
+    }
+
 }
 
 

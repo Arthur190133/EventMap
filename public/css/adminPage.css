@@ -23,22 +23,24 @@ h2{
 
 .Contenaire{
     display: flex;
+    background-color: dimgray;
+    padding-bottom: 250px;
 }
 
 .NameBox{
 width: 200px;
 }
 
-
 .card2 {
-    width: 400px;
+    width: 600px;
     height: 350px;
     margin: 25px auto;
     background-color: #011522;
     border-radius: 8px;
+    
     padding: 0px 50px;
     z-index: 1;
-    }
+}
     
 
 
