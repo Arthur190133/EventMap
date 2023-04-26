@@ -11,6 +11,7 @@ class Chat{
         public $Messages;
 
 
+
         // constructeur
     public function __construct($db)
     {
@@ -65,13 +66,23 @@ class Chat{
         chat.ChatId,
         chat.EventId as EventId,
         (SELECT count(*) from ChatMessage where chat.ChatId = ChatId) as Messages
-        FROM ' . $this->table .' chat
+        FROM " . $this->table ." chat
         WHERE chat.EventId = ? 
-        LEFT JOIN
-            event event ON REFERENCES chat.EventId = event.EventId
-        LEFT JOIN
-            user user ON REFERENCES event.EventOwnerId = user.UserId
         ";
+
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->BindParam(1, $this->EventId);
+
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->ChatId = $row['ChatId'];
+        $this->EventId = $row['EventId'];
+        $this->Messages = $row['Messages'];
+
+        return $stmt;
     }
 
     // créer un chat 

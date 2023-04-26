@@ -47,7 +47,18 @@ $router->register('/', ['mainController', 'index']);
 
 
 
+//////////TEST//////////////
+$url = "http://localhost/EventMap/API/chat/readByEvent.php";
+$payload = ['EventId' => 1];
+$token = GenerateToken($payload);
+$chat = SendRequestToAPI($token, $url);
 
+$url = "http://localhost/EventMap/API/chatmessage/readByChat.php";
+$payload = ['ChatId' => 1];
+$token = GenerateToken($payload);
+$chatmessages = SendRequestToAPI($token, $url);
+
+var_dump($chatmessages);
 
 
   //require_once '../route/mainRoute.php';
