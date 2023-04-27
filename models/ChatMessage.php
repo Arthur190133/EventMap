@@ -1,5 +1,5 @@
 <?php
-class Chat
+class ChatMessage
 {
     // Database
     private $connection;
@@ -19,23 +19,26 @@ class Chat
         public $UserAvatarDir;
         public $UserAvatarName;
 
+    // constructeur
+    public function __construct($db)
+    {
+        $this->connection = $db;
+    }
 
 
         public function readByChat(){
             $query = "SELECT 
             chatmessage.ChatId,
-            chatmessage.UserId ad UserId,
+            chatmessage.UserId as UserId,
             user.UserFirstName as UserFirstName,
             user.UserAvatarId as UserAvatarId,
             user.UserName as UserName,
             image.ImageDir as UserAvatarDir,
             image.ImageName as UserAvatarName
             FROM " . $this->table ." chatmessage 
+            LEFT JOIN user ON chatmessage.UserId = user.UserId
+            LEFT JOIN image ON user.UserAvatarId = image.ImageId
             WHERE chatmessage.ChatId = ? 
-            LEFT JOIN
-                user user ON REFERENCES chatmessage.UserId = user.UserId
-            LEFT JOIN
-                image image ON REFERENCES user.UserAvatarId = image.ImageId
             ";
 
             $stmt = $this->connection->prepare($query);
@@ -43,6 +46,8 @@ class Chat
             $stmt->bindParam(1, $this->ChatId);
 
             $stmt->execute();
+
+            
 
             return $stmt;
         }

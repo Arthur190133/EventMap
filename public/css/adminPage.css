@@ -1,7 +1,6 @@
-body{
-    background-image: url("https://as1.ftcdn.net/v2/jpg/01/57/34/62/1000_F_157346244_A6Oml9kXsQdK3WaVVg91UnzheU0YeFpe.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
+.admin-apidebug{
+    height: 300px;
+    overflow-y: scroll;
 }
 
 .liste{

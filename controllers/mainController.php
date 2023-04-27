@@ -50,6 +50,15 @@ class mainController
         
     }
 
+    public function apidebug(){
+        if($this->isAdmin()){
+            require_once '../templates/Admin/apidebug.php';
+        }
+        else{
+            header('Location: /');
+        }
+    }
+
     public function events(){
         require_once '../templates/event/Events.php';
     }
