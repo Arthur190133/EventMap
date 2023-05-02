@@ -17,7 +17,7 @@ class mainController
         $payload = ['UserId' => $_SESSION['user']->UserId];
         $token = GenerateToken($payload);
         $admin = SendRequestToAPI($token, $url);
-
+        var_dump($admin);
 
         // check if user has a row in superadmin table 
         return isset($admin);
