@@ -76,21 +76,23 @@ class Admin{
         admin.AdminEndDate,
         admin.UserId
         FROM ' . $this->table .' admin
-        WHERE admin.AdminId = ? 
+        WHERE admin.UserId = ? 
         ';
 
         $stmt = $this->connection->prepare($query);
 
-        $stmt->BindParam(1, $this->AdminId);
+        $stmt->BindParam(1, $this->UserId);
 
         $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->AdminId = $row['AdminId'];
+        $this->AdminStartDate = $row['AdminStartDate'];
+        $this->AdminEndDate = $row['AdminEndDate'];
+        $this->UserId = $row['UserId'];
         
-        if($stmt){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return $stmt;
 
 
 

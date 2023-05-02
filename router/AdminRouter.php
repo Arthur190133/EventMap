@@ -12,7 +12,7 @@ class AdminRouter
     public function resolve(string $uri)
     {
         $path = explode('?', "/" . $uri)[0];
-
+        var_dump($path);
         $action = $this->routes[$path] ?? null;
 
 
@@ -31,7 +31,8 @@ class AdminRouter
                 return call_user_func_array([$class, $method], []);
             }
         }
-                  
+        require_once '../Pages/Views/Error404.php';
+        throw new RouteNotFoundException();
     }
 }
 

@@ -22,8 +22,8 @@ private array $routes;
         if(is_array($action)){
             
             [$className, $method] = $action;
-            $reflectionMethod = new ReflectionMethod($className, $method);
-            if(class_exists($className) && method_exists($className, $method) && !$reflectionMethod->isPrivate()){
+            //$reflectionMethod = new ReflectionMethod($className, $method);
+            if(class_exists($className) && method_exists($className, $method)){
                 
                 $class = new $className();
                 return call_user_func_array([$class, $method], []);

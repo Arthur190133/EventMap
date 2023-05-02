@@ -18,7 +18,6 @@ class mainController
         $token = GenerateToken($payload);
         $admin = SendRequestToAPI($token, $url);
         var_dump($admin);
-
         // check if user has a row in superadmin table 
         return isset($admin);
         }
