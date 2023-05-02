@@ -10,13 +10,16 @@ class mainController
 
     private function isAdmin():bool
     {
-        if($this->isUserConnected()){
+        if($this->isUserConnected())
+        {
         // get admin
         $url = "http://localhost/EventMap/API/admin/IsAdmin.php";
-        $payload = ['UserId' => $user->UserId];
+        $payload = ['UserId' => $_SESSION['user']->UserId];
         $token = GenerateToken($payload);
         $admin = SendRequestToAPI($token, $url);
 
+
+        // check if user has a row in superadmin table 
         return isset($admin);
         }
         return false;
@@ -41,23 +44,31 @@ class mainController
         $UserProfileRouter->resolve();   
     }
     public function Admin(){
+
         if($this->isAdmin()){
-            require_once '../templates/Admin/AdminPage.php';
+            require_once '../router/AdminRouter.php';
+            require_once '../controllers/adminController.php';
+            $AdminRouter = new AdminRouter();
+            if(isset(explode("/",$_SERVER['REQUEST_URI'])[2])){
+                $uri = explode("/",$_SERVER['REQUEST_URI'])[2];
+            }
+            else{
+                $uri = "";
+            }
+           
+            $AdminRouter->register('/' . $uri, ['adminController', $uri]);
+            $AdminRouter->register('/', ['adminController', 'admin']);
+            $AdminRouter->resolve($uri);
         }
         else{
-            header('Location: /');
+            //header('Location: /');
         }
+
+
         
     }
 
-    public function apidebug(){
-        if($this->isAdmin()){
-            require_once '../templates/Admin/apidebug.php';
-        }
-        else{
-            header('Location: /');
-        }
-    }
+
 
     public function events(){
         require_once '../templates/event/Events.php';
@@ -107,6 +118,10 @@ class mainController
             header('Location: /login');
         }
         
+    }
+
+    private function __Unkown(){
+        require_once '..Pages/Views/Error404.php';
     }
 }
 

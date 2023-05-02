@@ -1,6 +1,13 @@
 .admin-apidebug{
-    height: 300px;
+    height: 80%;
+    width: 100%;
+    overflow-wrap: break-word;
     overflow-y: scroll;
+}
+
+.admin-apidebug p{
+    font-size: 12px;
+    text-align: left;
 }
 
 .liste{

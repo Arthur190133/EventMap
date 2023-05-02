@@ -5,7 +5,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/ChatMessage.php';
-   // $payload = json_decode(require_once '../auth.php');
+    $payload = json_decode(require_once '../auth.php');
 
     // Instantiation Database
     $datebase = new Database();
@@ -15,25 +15,41 @@
     $ChatMessage = new ChatMessage($db);
 
     // put payload info to ChatMessage
-    //$ChatMessage->ChatMessageId = $payload->ChatMessageId;
-    $ChatMessage->ChatId = 1;
+    $ChatMessage->ChatId = $payload->ChatId;
 
-    $ChatMessage->readByChat();
+    $ChatMessages = $ChatMessage->readByChat();
 
-    $ChatMessage_arr = array(
-        'Id' => $ChatMessage->ChatId,
-        'Messages' => $ChatMessage->Messages,
-        'UserId' => $ChatMessage->UserId,
-        'UserFirstName' => $ChatMessage->UserFirstName,
-        'UserName' => $ChatMessage->UserName,
-        'UserAvatarId' => $ChatMessage->UserAvatarId,
-        'UserAvatarDir' => $ChatMessage->UserAvatarDir,
-        'UserAvatarName' => $ChatMessage->UserAvatarName
-    );
-
-    print_r(json_encode($ChatMessage_arr));
+    $num = $ChatMessages->rowCount();
 
     
 
+    if($num > 0){
+        $chatMessages_arr = array();
+        $chatMessages_arr['data'] = array();
 
+        while($row = $ChatMessages->fetch(PDO::FETCH_ASSOC))
+        {
+            extract($row);
+            $chatMessages_item = array(
+                'ChatMessageId' => $ChatMessage->ChatMessageId,
+                'Message' => $ChatMessage->ChatMessageText,
+                'UserId' => $ChatMessage->UserId,
+                'UserFirstName' => $ChatMessage->UserFirstName,
+                'UserName' => $ChatMessage->UserName,
+                'UserAvatarId' => $ChatMessage->UserAvatarId,
+                'UserAvatarDir' => $ChatMessage->UserAvatarDir,
+                'UserAvatarName' => $ChatMessage->UserAvatarName,
+            );
+
+            array_push($chatMessages_arr['data'], $chatMessages_item);
+        }
+        echo json_encode($chatMessages_arr);
+    }
+    else{
+
+        echo json_encode(
+            array('message' => 'No chat message found ')
+        );
+    
+    }
 ?>

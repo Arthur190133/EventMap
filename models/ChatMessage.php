@@ -28,7 +28,8 @@ class ChatMessage
 
         public function readByChat(){
             $query = "SELECT 
-            chatmessage.ChatId,
+            chatmessage.ChatId as ChatMessageId,
+            chatmessage.ChatMessageText as Message,
             chatmessage.UserId as UserId,
             user.UserFirstName as UserFirstName,
             user.UserAvatarId as UserAvatarId,

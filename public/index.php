@@ -58,7 +58,6 @@ $payload = ['ChatId' => 1];
 $token = GenerateToken($payload);
 $chatmessages = SendRequestToAPI($token, $url);
 
-var_dump($chatmessages);
 
 
   //require_once '../route/mainRoute.php';

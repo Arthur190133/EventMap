@@ -46,7 +46,7 @@
 
 <li>
     <div class="NavBarListItem">
-        <a href="/apidebug" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank','height=600,width=800'); return false;">
+        <a href="/Admin/ApiDebugTool" target="_blank" rel="noopener noreferrer" onclick="window.open(this.href,'_blank','height=600,width=800'); return false;">
         <div class="NavBarListItemContent">           
         <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 474.565 474.565" xml:space="preserve">
             <g>
