@@ -27,6 +27,7 @@
             'BackgroundDir' => $event->EventBackgroundDir,
             'ThumbnailName' => $event->EventThumbnailName,
             'ThumbnailDir' => $event->EventThumbnailDir,
+            'OwnerId' => $event->OwnerId,
             'OwnerName' => $event->OwnerName,
             'OwnerEmail' => $event->OwnerEmail,
             'OwnerAvatarName' => $event->OwnerAvatarName,

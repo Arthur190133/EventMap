@@ -1,0 +1,13 @@
+*/function setAdminUser ()
+{
+    try {
+        global $dbh;
+        $query = $dbh->prepare("update utilisateurs set role='admin' where id = :user");
+        $query->execute([
+            'user' => $_GET['id']
+        ]);
+    } catch (PDOException $e) {
+        $error = $e->getMessage();
+        die($error);
+    }
+}/*

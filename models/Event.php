@@ -13,7 +13,7 @@ class Event{
     public $EventThumbnailId;
     public $EventThumbnailName;
     public $EventThumbnailDir;
-    public $EventOwnerId;
+    public $OwnerId;
     public $OwnerName;
     public $OwnerEmail;
     public $OwnerDescription;
@@ -41,6 +41,7 @@ class Event{
     public $PaidEvent;
     public $Private;
     public $Public;
+    public $tags;
 
     // constructeur
     public function __construct($db)
@@ -110,6 +111,7 @@ class Event{
                    EventBackground.ImageDir as EventBackgroundDir,
                    EventThumbnail.ImageName as EventThumbnailName,
                    EventThumbnail.ImageDir as EventThumbnailDir,
+                   user.UserId as OwnerId,
                    user.UserName as OwnerName,
                    user.UserEmail as OwnerEmail,
                    user.UserDescription as OwnerDescription,
@@ -158,6 +160,7 @@ class Event{
         $this->EventBackgroundDir = $row['EventBackgroundDir'];
         $this->EventThumbnailName = $row['EventThumbnailName'];
         $this->EventThumbnailDir = $row['EventThumbnailDir'];
+        $this->OwnerId = $row['OwnerId'];
         $this->OwnerName = $row['OwnerName'];
         $this->OwnerEmail = $row['OwnerEmail'];
         $this->OwnerDescription = $row['OwnerDescription'];
@@ -327,7 +330,7 @@ class Event{
     LEFT JOIN
         image UserBackground ON user.UserBackgroundId = UserBackground.ImageId
     LEFT JOIN
-         eventtag et ON event.EventId = et.EventTagId
+         eventtag et ON event.EventId = et.EventId
     WHERE 
             event.EventPrice >= :MinEventPrice
         AND
@@ -348,13 +351,12 @@ class Event{
                 OR
                 (:EventPublic = 1 AND :EventPrivate = 1)
             )' ;
-        if(count(implode(',', $this->tags) > 0)){
-            $this->tags = implode(',', $this->tags); // Convertir le tableau en une chaîne de caractères séparée par des virgules
-            $query .= ' AND et.EventTagName IN (:tags)';
-            $stmt->bindParam(':tags', $this->tags);
+        if($this->tags[0] != null){
+            $this->tags = implode(',', $this->tags);
+            $query .= ' AND FIND_IN_SET(et.EventTagName, :tags)';
         }
 
-        $query .= 'GROUP BY event.EventId';
+        $query .= ' GROUP BY event.EventId';
 
         $stmt = $this->connection->prepare($query);
 
@@ -364,6 +366,7 @@ class Event{
         $stmt->bindParam(':EventPublic', $this->Public);
         $stmt->bindParam(':FreeEvent', $this->FreeEvent);
         $stmt->bindParam(':PaidEvent', $this->PaidEvent);
+        $stmt->bindParam(':tags', $this->tags);
 
         $stmt->execute();
 

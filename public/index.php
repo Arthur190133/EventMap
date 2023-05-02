@@ -11,6 +11,7 @@
 
   // Update user session
   $user = null;
+  $admin = null;
 
 
   if(isset($_SESSION['user']))
@@ -19,13 +20,16 @@
     $_SESSION['user'] = SendRequestToAPI($token, ('http://localhost/EventMap/API/user/readSingle.php?UserId=' . $_SESSION['user']->UserId));
     if($_SESSION['user']){
       $user = $_SESSION['user'];
+      // get admin
+      $url = "http://localhost/EventMap/API/admin/IsAdmin.php";
+      $payload = ['UserId' => $user->UserId];
+      $token = GenerateToken($payload);
+      $admin = SendRequestToAPI($token, $url);
     }else{
       echo 'Failed to load user session';
     }
     
   }
-  
-  
 ////////////////////////////////
       /*CREATING ROUTER*/
 ////////////////////////////////
@@ -43,7 +47,18 @@ $router->register('/', ['mainController', 'index']);
 
 
 
+//////////TEST//////////////
+$url = "http://localhost/EventMap/API/chat/readByEvent.php";
+$payload = ['EventId' => 1];
+$token = GenerateToken($payload);
+$chat = SendRequestToAPI($token, $url);
 
+$url = "http://localhost/EventMap/API/chatmessage/readByChat.php";
+$payload = ['ChatId' => 1];
+$token = GenerateToken($payload);
+$chatmessages = SendRequestToAPI($token, $url);
+
+var_dump($chatmessages);
 
 
   //require_once '../route/mainRoute.php';

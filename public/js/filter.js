@@ -3,7 +3,7 @@ let searchInputFilterValue = '';
 const resultsListFilter = document.getElementById('filter-search-list');
 let selectedTagsArray = [];
 
-const searchDataFilter = ["locale", "festival", "concert", "conférence", "spectacle", "sport", "cinéma", "musique", "théatre", "danse", "recontre", "en pleine air", "intérieur", "éducatif", "culturel", "religieu", "technologique", "ecologique"];
+const searchDataFilter = ["locale", "festival", "concert", "conference", "spectacle", "sport", "cinema", "musique", "theatre", "danse", "recontre", "en pleine air", "interieur", "educatif", "culturel", "religieu", "technologique", "ecologique"];
 
 
 searchInputFilter.addEventListener('input', event => {
@@ -109,7 +109,20 @@ filterEventButton.addEventListener("click", function(){
 
 });
 
-// slider
+// Sélectionner tous les éléments div avec la classe "SelectedTag"
+const newSelectedTags = document.querySelectorAll('.SelectedTag');
+
+// Parcourir les éléments sélectionnés
+newSelectedTags.forEach(tag => {
+  // Récupérer la valeur de l'attribut data-tag
+  const tagValue = tag.dataset.tag;
+  selectedTagsArray.push(tagValue);
+  tag.querySelector('svg').addEventListener('click', event => {
+    removeSelectedTag(tag);
+  });
+  document.querySelector('.FiltersSelectedTags').appendChild(tag);
+});
+
 
 
 

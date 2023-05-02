@@ -19,7 +19,19 @@
 
 $Connected = $user;
 
+function GetNotificationLink($id, $NotificationSender){
+    $link = "/";
 
+    if(strpos($NotificationSender, "User") !== false){
+        $link = "/event-invitation";
+    }
+    elseif(strpos($NotificationSender, "Event") !== false){
+        $link = "/event/" . $id;
+    }
+
+    return $link;
+
+}
 
 function GetNotificationSender($NotificationSender){
     $Sender = "Unkown";
@@ -29,6 +41,7 @@ function GetNotificationSender($NotificationSender){
         $RequestSender = SendRequestToAPI($token, $url);
         //$RequestSender = json_decode(file_get_contents($url));
         $Sender = array(
+            'SenderId' => $RequestSender->UserId,
             'SenderName' => $RequestSender->UserName . " " . $RequestSender->UserFirstName,
             'SenderImage' => $RequestSender->UserAvatarDir
         );
@@ -40,6 +53,7 @@ function GetNotificationSender($NotificationSender){
         //$RequestSender = json_decode(file_get_contents($url));
         //print_r($RequestSender);
         $Sender = array(
+            'SenderId' => $RequestSender->Id,
             'SenderName' => $RequestSender->Name,
             'SenderImage' => $RequestSender->ThumbnailDir
         );

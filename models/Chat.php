@@ -11,6 +11,7 @@ class Chat{
         public $Messages;
 
 
+
         // constructeur
     public function __construct($db)
     {
@@ -51,6 +52,30 @@ class Chat{
 
         $stmt->execute();
         
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $this->ChatId = $row['ChatId'];
+        $this->EventId = $row['EventId'];
+        $this->Messages = $row['Messages'];
+
+        return $stmt;
+    }
+
+    public function readByEvent(){
+        $query = "SELECT 
+        chat.ChatId,
+        chat.EventId as EventId,
+        (SELECT count(*) from ChatMessage where chat.ChatId = ChatId) as Messages
+        FROM " . $this->table ." chat
+        WHERE chat.EventId = ? 
+        ";
+
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->BindParam(1, $this->EventId);
+
+        $stmt->execute();
+
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         $this->ChatId = $row['ChatId'];

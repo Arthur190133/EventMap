@@ -1,7 +1,7 @@
 {
     "Data":[
         {
-            "EventFilterTags":["locale", "festival", "concert", "conférence", "spectacle", "sport", "cinéma", "musique", "théatre", "danse", "recontre", "en pleine air", "intérieur", "éducatif", "culturel", "religieu", "technologique", "ecologique"]
+            "EventFilterTags":["locale", "festival", "concert", "conference", "spectacle", "sport", "cinema", "musique", "theatre", "danse", "recontre", "en pleine air", "interieur", "educatif", "culturel", "religieu", "technologique", "ecologique"]
         },
         {
             "EventFilterParameters":["private", "public", "free", "paid"]

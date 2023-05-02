@@ -17,11 +17,11 @@
         if(isset($_POST['event-filter-free']) ? $free = true : $free = false);
         if(isset($_POST['event-filter-paid']) ? $paid = true : $paid = false);
         $tags = explode(",", $_COOKIE['selectedTags']);
-        var_dump($tags);
 
-        if(!($public && $private && $free && $paid && empty($tags[0])))
+
+        $newHeader = "";
+        if(!($public && $private && $free && $paid))
         {
-            $newHeader = "";
             if($public){
                 $newHeader .=  "public-";
             }
@@ -37,21 +37,17 @@
             if($paid){
                 $newHeader .= "paid-";
             }
-
+        }
+        if(!empty($tags[0])){
             if($tags[0]){
                 $newHeader .= "tags=";
                 foreach($tags as $tag){
                     $newHeader .= $tag ."-";
                 }
             }
-
-            $newHeader = rtrim($newHeader, "-");
-
-            header("location: /events/" . $newHeader);
         }
-        else{
-            header("location: /events/");
-        }
+        $newHeader = rtrim($newHeader, "-");
+        header("location: /events/" . $newHeader);
 
     }
 
@@ -67,10 +63,12 @@
             $parameters = substr($parameters, 1);
         }
         $tags = str_replace("=", "", strrchr( $parameters, '='));
-        $parameters = strstr($parameters, 'tags=', true);
+        if(str_contains($parameters, "tags=")){
+            $parameters = strstr($parameters, 'tags=', true);
+        }
+        
         $parameters = explode("-",$parameters);
         
-        var_dump($tags);
 
         if(strlen($parameters[0]) === 0){
             foreach($DataFilter->EventFilterParameters as $Filter){
@@ -93,8 +91,10 @@
 
         //traité les tags
         $FilterParamters['tags'] = explode("-", $tags);
+        $currentTags = ($FilterParamters['tags'][0] === "") ? null : $FilterParamters['tags'];
 
-        var_dump($FilterParamters);
+
+
         
     }
     else{

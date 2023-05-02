@@ -40,8 +40,10 @@ create table Event(
 )
 
 create table EventTag(
-	EventTagId int AUTO_INCREMENT PRIMARY KEY,
-	EventTagName varchar(15)
+	TagId int AUTO_INCREMENT PRIMARY KEY,
+	EventId int,
+	EventTagName varchar(15),
+	FOREIGN KEY (EventId) REFERENCES Event (EventId)
 )
 
 

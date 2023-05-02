@@ -8,6 +8,21 @@ class mainController
         return isset($_SESSION['user']);
     }
 
+    private function isAdmin():bool
+    {
+        if($this->isUserConnected()){
+        // get admin
+        $url = "http://localhost/EventMap/API/admin/IsAdmin.php";
+        $payload = ['UserId' => $user->UserId];
+        $token = GenerateToken($payload);
+        $admin = SendRequestToAPI($token, $url);
+
+        return isset($admin);
+        }
+        return false;
+
+    }
+
     public function index()
     {
         if($this->isUserConnected())
@@ -20,20 +35,28 @@ class mainController
     }
     
     public function profile(){
-        if($this->isUserConnected()){
-
-            require_once '../router/UserProfileRouter.php';
-            require_once '../controllers/UserProfileController.php';
-            $UserProfileRouter = new UserProfileRouter();
-            $UserProfileRouter->resolve();
+        require_once '../router/UserProfileRouter.php';
+        require_once '../controllers/UserProfileController.php';
+        $UserProfileRouter = new UserProfileRouter();
+        $UserProfileRouter->resolve();   
+    }
+    public function Admin(){
+        if($this->isAdmin()){
+            require_once '../templates/Admin/AdminPage.php';
         }
         else{
-            header('Location: /login');
+            header('Location: /');
         }
         
     }
-    public function Admin(){
-        require_once '../Pages/Admin/AdminPage.php';
+
+    public function apidebug(){
+        if($this->isAdmin()){
+            require_once '../templates/Admin/apidebug.php';
+        }
+        else{
+            header('Location: /');
+        }
     }
 
     public function events(){

@@ -1,0 +1,40 @@
+.event-chat-content{
+    position: absolute;
+    bottom: 20px;
+    background-color: blue;
+    width: 25%;
+    height: 30%;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+}
+
+.event-chat-message-content{
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    margin: 10px 0 0 0;
+    
+}
+
+.event-chat-message-own{
+    max-width: 90%;
+    align-self: flex-end;
+}
+
+.event-chat-message-other{
+   max-width: 90%;
+   align-self: flex-start;
+}
+
+.event-chat-message{
+    margin : 10px;
+    background-color: green;
+    border-radius: 5px;
+}
+
+.event-chat-message-messagecontent{
+    overflow-wrap: break-word; /* Ajout de cette propriété CSS */
+    max-width: 100%;
+    word-wrap: break-word;
+    flex-grow: 1;
+}

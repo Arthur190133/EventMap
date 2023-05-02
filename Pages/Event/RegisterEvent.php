@@ -1,7 +1,7 @@
 <?php
 	if(isset($_POST['name'],$_POST['description'],$_POST['personNbr'],$_POST['price'],$_POST['startDate'],$_POST['endDate'],$_POST['endDate'],$_POST['endDate'],$_POST['endDate']))
 	{
-        var_dump($_POST);
+        //var_dump($_POST);
 		//$NewEvent=NewEvents();
 		//header("location: /my-app/EVENTMAP/index.php?/pages/MesEvent.php");
 	}
