@@ -1,8 +1,8 @@
 <?php
 
-class Router
+class AdminRouter
 {
-private array $routes;
+    private array $routes;
 
     public function register(string $path, callable|array $action)
     {
@@ -12,27 +12,26 @@ private array $routes;
     public function resolve(string $uri)
     {
         $path = explode('?', "/" . $uri)[0];
+
         $action = $this->routes[$path] ?? null;
 
 
-        if(is_callable($action)){
+        if(is_callable($action))
+        {
             return $action();
         }
 
-        if(is_array($action)){
+        if(is_array($action))
+        {
             
             [$className, $method] = $action;
-            $reflectionMethod = new ReflectionMethod($className, $method);
-            if(class_exists($className) && method_exists($className, $method) && !$reflectionMethod->isPrivate()){
+            if(class_exists($className) && method_exists($className, $method)){
                 
                 $class = new $className();
                 return call_user_func_array([$class, $method], []);
             }
         }
-        require_once '../Pages/Views/Error404.php';
-        throw new RouteNotFoundException();
-
-        
+                  
     }
 }
 
