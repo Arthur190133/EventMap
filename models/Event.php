@@ -210,7 +210,7 @@ class Event{
 
         $this->EventBackgroundId = htmlspecialchars(strip_tags($this->EventBackgroundId));
         $this->EventThumbnailId = htmlspecialchars(strip_tags($this->EventThumbnailId));
-        $this->EventOwnerId = htmlspecialchars(strip_tags($this->EventOwnerId));
+        $this->OwnerId = htmlspecialchars(strip_tags($this->OwnerId));
         $this->EventName = htmlspecialchars(strip_tags($this->EventName));
         $this->EventDescription = htmlspecialchars(strip_tags($this->EventDescription));
         $this->EventStartDate = htmlspecialchars(strip_tags($this->EventStartDate));
@@ -225,7 +225,7 @@ class Event{
 
         $stmt->bindParam(':BackgroundId', $this->EventBackgroundId);
         $stmt->bindParam(':ThumbnailId', $this->EventThumbnailId);
-        $stmt->bindParam(':OwnerId', $this->EventOwnerId);
+        $stmt->bindParam(':OwnerId', $this->OwnerId);
         $stmt->bindParam(':Name', $this->EventName);
         $stmt->bindParam(':Description', $this->EventDescription);
         $stmt->bindParam(':StartDate', $this->EventStartDate);
@@ -351,7 +351,7 @@ class Event{
                 OR
                 (:EventPublic = 1 AND :EventPrivate = 1)
             )' ;
-        if($this->tags[0] != null){
+        if(isset($this->tags[0])){
             $this->tags = implode(',', $this->tags);
             $query .= ' AND FIND_IN_SET(et.EventTagName, :tags)';
         }
@@ -412,6 +412,36 @@ class Event{
 
         $stmt->execute();
 
+        return $stmt;
+    }
+
+    public function readCreatedByUser(){
+        $query = '
+        SELECT 
+            event.EventId,
+            event.EventOwnerId,
+            event.EventName,
+            event.EventLocation,
+            event.EventStartDate,
+            event.EventEndDate,
+            event.EventPrice,
+            image.ImageDir as EventThumbnailDir,
+            image.ImageName as EventThumbnailName
+        FROM ' . $this->table . ' userevent
+        LEFT JOIN 
+            event event ON userevent.EventId = event.EventId
+        LEFT JOIN
+            image image ON event.EventThumbnailId = image.ImageId
+        WHERE
+            event.EventOwnerId = ?
+        ';
+
+        $stmt = $this->connection->prepare($query);
+
+        $stmt->bindParam(1, $this->OwnerId);
+
+        $stmt->execute();
+        
         return $stmt;
     }
 }

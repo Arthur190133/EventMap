@@ -1,9 +1,9 @@
-<article class="window">
-<div class="window_content">
-    <span class="window_title"><?= $Event->Name ?></span>
-        <span class="window_subtitle"><p>prix : <?= $Event->Price;  ?>$<p>
-        <p>EventStartDate : <?= $Event->StartDate ?><p>
-        <p>EventEndDate : <?= $Event->EndDate ?><p>
-    </span>
+<div class="event-card">
+
+    <?php require "../templates/user/UserProfileEventCardThumbnail.php"; ?>
+    <div class="overlay">
+        <h2><?= $Event->Name ?></h2>
+        <p class="price"><?= $Event->Price ?>€</p>
+        <p class="date"><?= $date ?></p>
+    </div>
 </div>
-</article>

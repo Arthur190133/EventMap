@@ -1,0 +1,1 @@
+<span style="width:100%"><?= $NoEventMessage ?></span>

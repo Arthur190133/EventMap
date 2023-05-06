@@ -1,9 +1,7 @@
+const UpdateButton = document.getElementById("button-modify-profile");
 
-document.addEventListener('click', function CloseNotification() {
-    const box = document.getElementById('editProfilBTN');
-  
-    if (box) {
-        console.log("test");
-      document.getElementById('profileEdit').style.display = 'block';
-    }
+
+UpdateButton.addEventListener('click', function OpenEditUser() {
+
+    document.getElementById('profileEdit').style.display = 'block';
   });

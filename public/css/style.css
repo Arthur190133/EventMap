@@ -96,28 +96,28 @@ body{
     padding: 0 40px 0 40px;
 }
 
-.EventButtons::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: 8px;
     height: 8px;
     left: -1000000px;
     
   }
-  .EventButtons::-webkit-scrollbar-track {
+    *::-webkit-scrollbar-track {
     border-radius: 10px;
     background: transparent;
     
   }
-  .EventButtons::-webkit-scrollbar-button{
+    *:-webkit-scrollbar-button{
     display: none;
   }
 
 
-  .EventButtons::-webkit-scrollbar-thumb {
+    *::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #aaaaaa;
     border: 1px solid #aaa;
   }
-  .EventButtons::-webkit-scrollbar-thumb:hover {
+    *::-webkit-scrollbar-thumb:hover {
     background: #fff;
   }
 

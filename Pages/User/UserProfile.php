@@ -1,63 +1,20 @@
-<link href= "\css\userProfile.css" rel="stylesheet">
-
-    <div class="box">
-        <h1 class="TitreProfile">Profile de <?= $user->UserFirstName ?></h1>
-        <div class="contenair">
-            <div class="x">
-                <div class="gauche">
-                    <div class="card">
-                        <div class="card__content">
-                            <img src="<?= "/" . $user->UserAvatarDir ?>" class="img"></img>
-                            
-                                <h2><?= $user->UserFirstName ?> <?= $user->UserName ?></h2>
-                                <p><?= $user->UserDescription ?></p>
-                                <button id="editProfilBTN">Cliquez ici</button>
-                            
-                        </div>
-                        
-                        <div class="blob"></div>
-                        <div class="blob"></div>
-                        <div class="blob"></div>
-                        <div class="blob"></div>
-                        <div class="blob"></div>
-                        <div class="blob"></div>
-                        
-                    </div>
-                </div>
-                <div class="center"></div>
-                <div class="droite">
-                    <div class="EventBox">
-                    <h1 class="h1Event">vos Evenements :</h1>
-                    <div class="rouleaux">
-                        <?php require '../templates/user/UserProfileEvent.php'; ?>
-                    </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="x">
-                <div class="gauche">
-                    <div class="EventBox">
-                        <h1 class="h1Event">Evenements rejoins :</h1>
-                        <div class="rouleaux">
-                            <?php require '../templates/user/UserProfileEvent.php'; ?>
-                        </div>
-                    </div>
-                </div>
-                <div class="center"></div>
-                <div class="droite">
-                    <div class="NewEventBackground">
-                        <div class="blob"></div>
-                        <p class="NewEvent">NOUVEL</p><p class="NewEvent">EVENT</p>
-                        <form action="post">
-                            <a class="button" href="/Event/RegisterEvent.php">
-                                <span>CREER</span>
-                            </a>   
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>   
-    </div> 
+<link href= "\css\UserProfile.css" rel="stylesheet">
+<div class="event-profil">
+  <div class="banner">
+    <img src="/Images/Events/Backgrounds/2/test.jpg" alt="Image de bannière">
+    <h1><?= $user->UserName ?></h1>
+    <button id="button-modify-profile" class="profile-edit-button">Modifier le profil</button>
+  </div>
+  <div class="description">
+    <p><?= $user->UserDescription ?></p>
+  </div>
+  <h2>Événements créés</h2>
+  <div class="event-list">
+        <?php require_once "../templates/user/UserProfileEventCreated.php"; ?>
+  </div>
+  <h2>Événements rejoins</h2>
+  <div class="event-list">
+    <?php require_once "../templates/user/UserProfileEventJoined.php"; ?>
+  </div>
+</div>
 <script src="/js/UserProfile.js"></script>
-    

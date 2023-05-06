@@ -41,6 +41,7 @@ class mainController
         require_once '../controllers/UserProfileController.php';
         $UserProfileRouter = new UserProfileRouter();
         $UserProfileRouter->resolve();   
+       // require_once '../pages/user/profileTest.php';
     }
     public function Admin(){
 

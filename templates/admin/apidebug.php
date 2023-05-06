@@ -1,6 +1,13 @@
 <?php
-$log_file = ini_get('error_log'); // Récupère le chemin vers le fichier d'erreur
-$log_lines = file($log_file); // Lit le contenu du fichier d'erreur dans un tableau
+if (DIRECTORY_SEPARATOR == '\\') {
+    // For Windows
+    $log_file = 'C:\\xampp\\apache\\logs\\error.log'; // Change the path to the location of your error log file
+} else {
+    // For macOS and Linux
+    $log_file = ini_get('error_log');
+}
+
+$log_lines = file($log_file);
 
 // Extrait les 100 dernières lignes du tableau
 $log_tail = array_reverse(array_slice($log_lines, -100, 100, true));

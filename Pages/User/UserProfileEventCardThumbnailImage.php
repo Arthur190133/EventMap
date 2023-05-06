@@ -1,0 +1,1 @@
+<img src=<?= "/" . $Event->ThumbnailDir  ?> alt="Image de l'événement" />
