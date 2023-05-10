@@ -5,7 +5,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/Event.php';
-    $payload = json_decode(require_once '../auth.php');
+    //$payload = json_decode(require_once '../auth.php');
 
     // Instantiation Database
     $datebase = new Database();

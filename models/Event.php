@@ -351,7 +351,7 @@ class Event{
                 OR
                 (:EventPublic = 1 AND :EventPrivate = 1)
             )' ;
-        if(isset($this->tags[0])){
+        if(isset($this->tags[0]) && $this->tags[0] !== ''){
             $this->tags = implode(',', $this->tags);
             $query .= ' AND FIND_IN_SET(et.EventTagName, :tags)';
         }
@@ -366,7 +366,10 @@ class Event{
         $stmt->bindParam(':EventPublic', $this->Public);
         $stmt->bindParam(':FreeEvent', $this->FreeEvent);
         $stmt->bindParam(':PaidEvent', $this->PaidEvent);
-        $stmt->bindParam(':tags', $this->tags);
+        if (isset($this->tags[0]) && $this->tags[0] !== '') {
+            $tagsString = implode(',', $this->tags);
+            $stmt->bindParam(':tags', $tagsString);
+        }
 
         $stmt->execute();
 

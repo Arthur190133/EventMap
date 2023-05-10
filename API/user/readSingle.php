@@ -5,7 +5,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/User.php';
-    //$payload = json_decode(require_once '../auth.php');
+    $payload = json_decode(require_once '../auth.php');
 
     // Instantiation Database
     $datebase = new Database();
@@ -27,6 +27,8 @@
             'UserPassword' => $user->UserPassword,
             'UserDescription' => $user->UserDescription,
             'UserWallet' => $user->UserWallet,
+            "UserAvatarId" => $user->UserAvatarId,
+            "UserBackgroundId" => $user->UserBackgroundId,
             'UserAvatarName' => $user->UserAvatarName,
             'UserAvatarDir' => $user->UserAvatarDir,
             'UserBackgroundName' => $user->UserBackgroundName,

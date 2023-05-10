@@ -68,6 +68,10 @@ class mainController
         
     }
 
+    public function registerConfig(){
+        require_once '../Pages/user/registerConfig.php';
+    }
+
 
 
     public function events(){

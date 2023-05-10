@@ -5,9 +5,9 @@
     $user = SendRequestToAPI($token, $url);
 
 
-    require_once '../Pages/User/UserProfile.php';
+    require_once '../Pages/User/profile/UserProfile.php';
     if($user->UserId === $_SESSION['user']->UserId){
-        require_once '../Pages/User/UserEdit.php';
+        require_once '../templates/User/profile/UserEdit.php';
     }
     
     function EventCardDate($date) {

@@ -82,15 +82,38 @@ class Image{
         $stmt->bindParam("dir", $this->ImageDir);
 
         // requete
-        if($stmt->execute())
-        {
+        $stmt->execute();
+
+        $this->ImageId = $this->connection->lastInsertId();
+        
+        return $stmt;
+     }
+
+     public function delete(){
+        // Create querry
+        $querry = 'DELETE FROM ' . $this->table . ' WHERE ImageId = :Id';
+
+        // Prepare query
+        $stmt = $this->connection->prepare($querry);
+
+        // Clean data
+        $this->ImageId = htmlspecialchars(strip_tags($this->ImageId));
+
+        // Bind Id
+        $stmt->bindParam(':Id', $this->ImageId);
+
+
+        // requete
+        if($stmt->execute()){
             return true;
         }
         else{
+            // Print Error if something goes wrong
             printf("Error: %s. \n", $stmt->error);
             return false;
         }
-     }
+    }
 }
+
 
 ?>

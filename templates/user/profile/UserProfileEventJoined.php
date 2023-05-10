@@ -9,11 +9,11 @@ if($Events)
     $Events = $Events->data;
     foreach($Events as $Event)
     {
-        require '../templates/User/UserProfileEventCard.php';
+        require '../templates/User/profile/UserProfileEventCard.php';
     }
 }else{
     $NoEventMessage = "Aucun évènement trouvé.";
-    require '../Pages/User/UserProfileNoEvent.php';
+    require '../Pages/User/profile/UserProfileNoEvent.php';
 }
     
 

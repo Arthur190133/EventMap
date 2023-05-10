@@ -1,4 +1,3 @@
-
 // Lire fichier importé 
 
 function setImageEventListener($input, $image){

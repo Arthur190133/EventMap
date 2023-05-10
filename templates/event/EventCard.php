@@ -7,7 +7,6 @@ $token = GenerateToken($FilterParamters);
 
 $Events = SendRequestToAPI($token, $url);
 
-var_dump($Events);
 
 if(property_exists($Events, 'data'))
 {

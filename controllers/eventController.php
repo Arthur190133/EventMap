@@ -15,6 +15,10 @@ class eventController
         echo 'loadiing failled : event doesnt exist';
     }
 
+    public function register(){
+        require_once '../Pages/event/registerEvent.php';
+    }
+
 
 }
 

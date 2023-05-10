@@ -8,6 +8,7 @@
     // Fichers requis
     include_once '../../config/Database.php';
     include_once '../../models/image.php';
+    $payload = json_decode(require_once '../auth.php');
 
     // Instantiation de la base de donnée
     $datebase = new Database();
@@ -16,17 +17,14 @@
     // Instantiation de la class image
     $image = new Image($db);
 
-    // Recuperer les informations de l'image
-    $data = json_decode(file_get_contents("php://input"));
-
     // Modifier les informations de l'image par celles voulues
-    $image->ImageDir = $data->ImageDir;
-    $image->ImageName = $data->ImageName;
+    $image->ImageDir = $payload->ImageDir;
+    $image->ImageName = $payload->ImageName;
 
     // Créer l'image
     if($image->create()){
         echo json_encode(
-            array('message' => 'image Created')
+            array("ImageId" => $image->ImageId)
         );
     }
     else{

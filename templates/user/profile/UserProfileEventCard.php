@@ -7,6 +7,6 @@ $date = "Du " . $StartDate . " au " . $EndDate . ".";
 
 $EventTextName = GenerateEventCardBackground($Event);
 
-require '../Pages/user/UserProfileEventCard.php';
+require '../Pages/user/profile/UserProfileEventCard.php';
 
 ?>

@@ -1,3 +1,14 @@
+.login{
+  min-width: 60%;
+  border-radius: 20px;
+  z-index: 0;  
+  background: linear-gradient(135deg, #ebadb6 0%, #aceae1 100%);
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+  align-items: center; /* centre verticalement */
+}
+
+
 .box-login .gauche {
     overflow: auto ;
     padding: 40px;
@@ -7,41 +18,60 @@
   }
   
   .box-login {
-    height: 80%;
-    width: 60%;
-    min-width: 400px;
+    width: 100%;
     display: flex;
     margin-right: 5px;
     align-items: stretch;
     justify-content: space-between;
+    
   }
 
   .box-login h1{
-    color: white;
+    color: black;
     font-family: 'Changa', sans-serif;
   }
 
-  .box-login .gauche .LoginButton {
-    background-color: #252525;
-    color: white;
-    font-size: 16px;
-    width: 25%;
-    min-width: 160px;
-    padding: 12px 35px;
-    border-radius: 40px;
-    margin-right: 25px;
-    display: inline-block;
-    border: 3px solid #be6600;
-    outline: 0;
-    transition-duration: 0.4s;
-    color : grey;
-    margin-bottom: 20px;
-    margin: 0;
-    bottom: 0;
-    left: 50%;
+  .LoginButton {
+    padding: 15px 180px;
+    border: unset;
+    border-radius: 15px;
+    color: #212121;
+    z-index: 1;
+    background: #05060f1d;
+    position: relative;
+    margin-top: 20px;
+    font-weight: 1000;
+    font-size: 17px;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms;
+    overflow: hidden;
     cursor: pointer;
-    transition: ease-out all 0.2s;
   }
+  
+  .LoginButton::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    border-radius: 15px;
+    background-color: #2e2e2e;
+    z-index: -1;
+    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    transition: all 250ms
+  }
+
+  .LoginButton:hover{
+    color: white;
+  }
+
+  .LoginButton:hover::before{
+    width: 100%;
+  }
+
 
   .gauche p{
     font-size: 18px;
@@ -57,10 +87,17 @@
   }
 
   .box-login .gauche .LoginButton:hover{
-    background-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%);
-    border-image: linear-gradient(135deg, #be6600 10%, #5e0000 100%) 1;
-    color: white;
-    width: 45%;
+    
+  }
+
+  .LoginContent input:hover, .LoginContent input:focus, .input-group:hover .LoginContent input {
+    outline: none;
+    border-color: #ffffff;
+    color:white;
+  }
+  
+  .input-group:hover .user-edit-input-label, .user-edit-input:focus {
+    color: #05060fc2;
   }
 
   .box-login .droite img {
@@ -79,49 +116,30 @@
   }
   
   .LoginContent input{
-    width: 45%;
-    min-width: 160px;
-    padding: 10px;
-    margin: 18px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: #252525;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-radius: 7px;
-    border-bottom-color: #be6600;
-    transition: all 0.5s;
+    width: 40%;
+    height: 44px;
+    background-color: #05060f1d;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    border: 2px solid transparent;
+    font-size: 1rem;
+    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
   }
-
-  textarea{
-    width: 45%;
-    padding: 10px;
-    margin: 18px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: white;
-    background-color: #252525;
-    border-bottom-style: solid;
-    border-bottom-width: 2px;
-    border-bottom-color: #d67200;
-    transition: all 0.5s;
-  }
-
   .LoginContent textarea{
     resize: none;
-    width: 80%;
-    height: 120px;
-    overflow-y: hidden;
-    padding: 10px;
-    margin-top: 25px;
-    margin-bottom: 25px;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid #d67200;
+    width: 100%;
+    height: 150px;
+    background-color: #05060f1d;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+    border: 2px solid transparent;
+    font-size: 1rem;
+    transition: border-color .3s cubic-bezier(.25,.01,.25,1) 0s, color .3s cubic-bezier(.25,.01,.25,1) 0s,background .2s cubic-bezier(.25,.01,.25,1) 0s;
   }
 
   .login-content-preview-image{
@@ -160,6 +178,11 @@
 
   .login-master{
     display: flex;
+    justify-content: center; /* centre horizontalement */
+    align-items: center; /* centre verticalement */
+    padding: 20px; /* ajouter un padding de 20px */
+    box-sizing: border-box; /* inclure le padding dans la taille du div */
+    height: 80vh;
   }
 
   .user-profile-background button{
@@ -232,4 +255,3 @@
     margin: 20px;
    }
 
-   

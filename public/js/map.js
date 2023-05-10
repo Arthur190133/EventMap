@@ -1,4 +1,5 @@
-var map;
+
+  var map;
 var mapDiv;
 var marker = [];
 // Create Cookies
@@ -29,7 +30,7 @@ function initMap()
 
   for(let i = 0; i<3; i++)
   {
-    AddMarker({lat: 50.002 + i, lng: 4.523629443397177}, "Marker API test : " + i);
+    AddMarker({lat: 51.4 + i* 2, lng: 4.523629443397177}, "Marker API test : " + i);
     SetClickableMarker("Bruxelles, E420", i);
   }
 
@@ -150,3 +151,35 @@ function GetDistance(){
     avoidTolls: false,
   }, callback);
 }
+
+
+
+function geocodeAddress(address) {
+  geocoder.geocode({ 'address': address }, function(results, status) {
+    if (status === google.maps.GeocoderStatus.OK) {
+      // Récupérer les coordonnées géographiques (latitude et longitude)
+      var latitude = results[0].geometry.location.lat();
+      var longitude = results[0].geometry.location.lng();
+      
+      // Créer la carte
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: latitude, lng: longitude },
+        zoom: 10
+      });
+      
+      // Créer un marqueur sur la carte
+      marker = new google.maps.Marker({
+        position: { lat: latitude, lng: longitude },
+        map: map,
+        title: address
+      });
+    } else {
+      console.log('La géocodage a échoué. Erreur:', status);
+    }
+  });
+}
+
+// Appeler la fonction geocodeAddress avec le nom de la ville ou du pays
+//geocodeAddress('Paris, France');
+
+

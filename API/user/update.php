@@ -8,7 +8,8 @@
     // Fichers requis
     include_once '../../config/Database.php';
     include_once '../../models/User.php';
-    include_once '../auth.php';
+    $payload = json_decode(require_once '../auth.php');
+
 
     // Instantiation de la base de donnée
     $datebase = new Database();
@@ -17,21 +18,15 @@
     // Instantiation de la class user
     $user = new User($db);
 
-    // Recuperer les informations de l'utilisateur
-    $data = json_decode(file_get_contents("php://input"));
-
     // Set Id to update
-    $user->UserId = $data->UserId;
+    $user->UserId = (isset($payload->UserId) ? $payload->UserId : die());
 
     // Modifier les informations de l'uutilisateur par celles voulues
-    $user->UserFirstName = $data->UserFirstName;
-    $user->UserName = $data->UserName;
-    $user->UserEmail = $data->UserEmail;
-    $user->UserPassword = $data->UserPassword;
-    $user->UserDescription = $data->UserDescription;
-    $user->UserWallet = $data->UserWallet;
-    $user->UserAvatarId = $data->UserAvatarId;
-    $user->UserBackgroundId= $data->UserBackgroundId;
+    $user->UserFirstName = (isset($payload->UserFirstName)) ? $payload->UserFirstName : null;
+    $user->UserName = (isset($payload->UserName)) ? $payload->UserName : null;
+    $user->UserDescription = (isset($payload->UserDescription)) ? $payload->UserDescription : null;
+    $user->UserAvatarId = (isset($payload->UserAvatarId)) ? $payload->UserAvatarId : null;
+    $user->UserBackgroundId = (isset($payload->UserBackgroundId)) ? $payload->UserBackgroundId : null;
 
     // mettre à jour l'utilisateur
     if($user->update()){

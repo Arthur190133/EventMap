@@ -51,11 +51,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
 
             $token = GenerateToken($payload);
             $result = SendRequestToAPI($token, $url);
-            var_dump($result);
-            var_dump($token);
             
             if ($result) 
             {
+              $url = "http://localhost/EventMap/API/user/login.php";
+              $payload = [
+                "UserEmail" => $email,
+                "UserPassword" => $password
+
+              ];
+              $token = GenerateToken($payload);
+              $user = SendRequestToAPI($token, $url);
+              $_SESSION['user'] = $user;
+              header("location: /");
             }
             else
             {

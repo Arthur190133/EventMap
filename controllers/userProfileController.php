@@ -3,7 +3,7 @@ class userProfileController{
 
     public function userProfilePage($userId){
         echo 'loading : succed => User profile loaded';
-        require_once '../templates/user/UserProfile.php';
+        require_once '../templates/user/profile/UserProfile.php';
     }
 
     public function userProfilePageNotFound(){
@@ -18,7 +18,7 @@ class userProfileController{
         if(isset($_SESSION['user'])){
             $userId = $_SESSION['user']->UserId;
             echo 'loading : succed => Self Profile loaded';
-            require_once '../templates/user/UserProfile.php';
+            require_once '../templates/user/profile/UserProfile.php';
         }
         else{
             header('Location: /login');

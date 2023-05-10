@@ -68,8 +68,10 @@ class User{
             u.UserPassword,
             u.UserDescription,
             u.UserWallet,
+            u.UserAvatarId,
             a.ImageName as UserAvatarName,
             a.ImageDir as UserAvatarDir,
+            u.UserBackgroundId,
             b.ImageName as UserBackgroundName,
             b.ImageDir as UserBackgroundDir
             FROM '. $this->table .' u
@@ -94,8 +96,10 @@ class User{
         $this->UserDescription = $row['UserDescription'];
         $this->UserWallet = $row['UserWallet'];
         $this->UserPassword= $row['UserPassword'];
+        $this->UserAvatarId = $row["UserAvatarId"];
         $this->UserAvatarName= $row['UserAvatarName'];
         $this->UserAvatarDir= $row['UserAvatarDir'];
+        $this->UserBackgroundId = $row["UserBackgroundId"];
         $this->UserBackgroundName= $row['UserBackgroundName'];
         $this->UserBackgroundDir= $row['UserBackgroundDir'];
         
@@ -113,7 +117,7 @@ class User{
                 UserEmail = :Email,
                 UserPassword = :Password,
                 UserDescription = :Description,
-                UserWallet = :Wallet
+                UserWallet = :Wallet,
                 UserAvatarId = :AvatarId,
                 UserBackgroundId = :BackgroundId
                 
@@ -133,12 +137,14 @@ class User{
         $this->UserBackgroundId = htmlspecialchars(strip_tags($this->UserBackgroundId));
 
         //bind data
+        $hashedPassword = password_hash($this->UserPassword, PASSWORD_DEFAULT);
+
         $stmt->bindParam(':FirstName', $this->UserFirstName);
         $stmt->bindParam(':Name', $this->UserName);
         $stmt->bindParam(':Email', $this->UserEmail);
-        $stmt->bindParam(':Password', password_hash($this->UserPassword, PASSWORD_DEFAULT));
+        $stmt->bindParam(':Password', $hashedPassword);
         $stmt->bindParam(':Description', $this->UserDescription);
-        $stmt->bindParam(':Description', $this->UserWallet);
+        $stmt->bindParam(':Wallet', $this->UserWallet);
         $stmt->bindParam(':AvatarId', $this->UserAvatarId);
         $stmt->bindParam(':BackgroundId', $this->UserBackgroundId);
 
@@ -200,10 +206,7 @@ class User{
             SET
                 UserFirstName = :FirstName,
                 UserName = :Name,
-                UserEmail = :Email,
-                UserPassword = :Password,
                 UserDescription = :Description,
-                UserWallet = :Wallet,
                 UserAvatarId = :AvatarId,
                 UserBackgroundId = :BackgroundId
             WHERE
@@ -211,26 +214,19 @@ class User{
         $stmt = $this->connection->prepare($querry);
 
         // Clean data
-        $this->UserId = htmlspecialchars(strip_tags($this->UserId));
         $this->UserFirstName = htmlspecialchars(strip_tags($this->UserFirstName));
         $this->UserName = htmlspecialchars(strip_tags($this->UserName));
-        $this->UserEmail = htmlspecialchars(strip_tags($this->UserEmail));
-        $this->UserPassword = htmlspecialchars(strip_tags($this->UserPassword));
         $this->UserDescription = htmlspecialchars(strip_tags($this->UserDescription));
-        $this->UserWallet = htmlspecialchars(strip_tags($this->UserWallet));
         $this->UserAvatarId = htmlspecialchars(strip_tags($this->UserAvatarId));
         $this->UserBackgroundId = htmlspecialchars(strip_tags($this->UserBackgroundId));
 
         //bind data
+        $stmt->bindParam(':Id', $this->UserId);
         $stmt->bindParam(':FirstName', $this->UserFirstName);
         $stmt->bindParam(':Name', $this->UserName);
-        $stmt->bindParam(':Email', $this->UserEmail);
-        $stmt->bindParam(':Password', $this->UserPassword);
         $stmt->bindParam(':Description', $this->UserDescription);
-        $stmt->bindParam(':Wallet', $this->UserWallet);
         $stmt->bindParam(':AvatarId', $this->UserAvatarId);
         $stmt->bindParam(':BackgroundId', $this->UserBackgroundId);
-        $stmt->bindParam('Id', $this->UserId);
 
         // requete
         if($stmt->execute()){

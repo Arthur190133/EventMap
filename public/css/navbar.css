@@ -123,6 +123,8 @@
 }
 
 .NavBarUserContent{
+    display: flex;
+    justify-content: flex-end;
     bottom: 10px;
     width: 100%;
     margin-left: auto; 
@@ -229,4 +231,20 @@
 .MiddleUserButton{
     position: relative;
     height: 250px;
+}
+
+
+.navbar-add-event{
+    float: right;
+    margin-top: 6.25px;
+    margin-right: 5px;
+    
+}
+
+
+.navbar-add-event svg{
+    height: 25px;
+    width: 35px;
+    border-right: 2px solid white;
+    padding-right: 5px;
 }
