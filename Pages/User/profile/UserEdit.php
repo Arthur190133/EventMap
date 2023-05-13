@@ -57,7 +57,7 @@
                 <div class="user-edit-input-group">
                     <div class= "user-edit-preview-description">
                     <label class="user-edit-input-label">Description</label>
-                        <textarea id="Register-description" name="userDescription"  placeholder="Description"></textarea>
+                        <textarea id="Register-description" name="userDescription"  placeholder="Description"><?=$_SESSION['user']->UserDescription?></textarea>
                      </div>
                     <div>
                         

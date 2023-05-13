@@ -22,7 +22,7 @@ private array $routes;
         if(is_array($action)){
             
             [$className, $method] = $action;
-            //$reflectionMethod = new ReflectionMethod($className, $method);
+
             if(class_exists($className) && method_exists($className, $method)){
                 
                 $class = new $className();

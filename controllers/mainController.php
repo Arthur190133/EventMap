@@ -80,7 +80,7 @@ class mainController
 
     public function login(){
         if(!$this->isUserConnected()){
-            require_once '../templates/login.php';
+            require_once '../templates/user/login.php';
         }
         else{
             header('Location: /');
@@ -90,7 +90,7 @@ class mainController
 
     public function register(){
         if(!$this->isUserConnected()){
-            require_once '../templates/register.php';
+            require_once '../templates/user/register.php';
         }
         else{
             header('Location: /');
