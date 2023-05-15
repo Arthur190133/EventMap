@@ -1,3 +1,6 @@
+<head>
+    <title>EventMap</title>
+</head>
 <link rel="stylesheet" href="css/main.css">
 <div class="main-user-not-connected">
     <div class="main-user-not-connected-container">

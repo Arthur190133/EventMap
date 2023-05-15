@@ -93,9 +93,6 @@ class Admin{
         $this->UserId = $row['UserId'];
         
         return $stmt;
-
-
-
     }
 
 

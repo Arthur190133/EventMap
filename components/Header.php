@@ -1,6 +1,5 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <title>EventMap</title>
     <link rel="icon" href="/Images/Logos/EventMap.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

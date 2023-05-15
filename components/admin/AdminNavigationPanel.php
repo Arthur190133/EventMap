@@ -6,6 +6,11 @@
             </a>           
         </li>
         <li>
+            <a href="/admin/adminPage" class="link">
+                <span>!!WARNED USER</span>
+            </a>           
+        </li>
+        <li>
             <span>!!BANNED USER</span>
         </li>
         <li>

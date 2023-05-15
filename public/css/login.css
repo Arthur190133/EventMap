@@ -86,10 +86,6 @@
     color: white;
   }
 
-  .box-login .gauche .LoginButton:hover{
-    
-  }
-
   .LoginContent input:hover, .LoginContent input:focus, .input-group:hover .LoginContent input {
     outline: none;
     border-color: #ffffff;

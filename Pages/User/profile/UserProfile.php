@@ -1,3 +1,6 @@
+<head>
+    <title>EventMap | <?= $user->UserName ?></title>
+</head>
 <link href= "\css\UserProfile.css" rel="stylesheet">
 <div class="event-profil">
   <div class="banner">

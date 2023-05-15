@@ -1,3 +1,6 @@
+<head>
+    <title>EventMap | Event</title>
+</head>
 <link href= "/css/eventUserJoined.css" rel="stylesheet">
 <div>
     <h1> <?= $event->Name ?> </h1>

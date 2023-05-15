@@ -367,8 +367,7 @@ class Event{
         $stmt->bindParam(':FreeEvent', $this->FreeEvent);
         $stmt->bindParam(':PaidEvent', $this->PaidEvent);
         if (isset($this->tags[0]) && $this->tags[0] !== '') {
-            $tagsString = implode(',', $this->tags);
-            $stmt->bindParam(':tags', $tagsString);
+            $stmt->bindParam(':tags', $this->tags);
         }
 
         $stmt->execute();

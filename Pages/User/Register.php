@@ -1,8 +1,7 @@
-<?php
 
-?>
 <head>
     <link rel="stylesheet" href="/css/login.css">
+    <title>EventMap | Register</title>
 </head>
 <div class="login-master">
 <div class="login">

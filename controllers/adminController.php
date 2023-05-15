@@ -9,6 +9,10 @@ class adminController
         require_once '../templates/Admin/apidebug.php';
     }
 
+    public function adminPage(){
+        require_once "../templates/Admin/AdminPage.php";
+    }
+
 
 }
 

@@ -1,3 +1,6 @@
+<head>
+    <title>EventMap | Events</title>
+</head>
 <div class="Content">
     <?php require_once '../templates/event/EventFilter.php'; ?>
     <div class="EventsContent">

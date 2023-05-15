@@ -83,13 +83,7 @@ $url = "http://localhost/EventMap/API/chatmessage/readByChat.php";
 $payload = ['ChatId' => 1];
 $token = GenerateToken($payload);
 $chatmessages = SendRequestToAPI($token, $url);
-
-
-
-  //require_once '../route/mainRoute.php';
-  
-  require_once '../Pages/Tools/Connection.php';
-
+//////////TEST////////////////
 ?>
 
 <!DOCTYPE html>

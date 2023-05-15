@@ -1,6 +1,6 @@
 <head>
 	<link rel="stylesheet" href="/css/login.css">
-	<title>LOGIN</title>
+	<title>EventMap | Login</title>
 </head>
 
 <div class="login-master">
