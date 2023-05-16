@@ -10,4 +10,4 @@
         c6.074-6.075,6.074-15.909,0-21.986L285.08,230.397z"/>
     </svg>
     <?php require '../templates/event/chat/EventChatMessage.php'; ?>
-</div>
+</div> 
