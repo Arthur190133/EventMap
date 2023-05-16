@@ -16,7 +16,7 @@ class eventController
     }
 
     public function register(){
-        require_once '../Pages/event/EventRegister.php';
+        require_once '../templates/event/EventRegister.php';
     }
 
 

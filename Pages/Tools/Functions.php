@@ -6,9 +6,22 @@ function GenerateEventBackground($Event){
     for($j = 0; $j < $RandomSpace; $j++){
         $EventName = $EventName . "&nbsp;";
     }  
+
+    $number = strlen($Event->Name);
+    $name = $Event->Name . " ";
+    if($number < 4)
+    {
+        
+        for($i = 0 ; $i < 6 ; $i++)
+        {
+            $name .= $Event->Name . "&nbsp;";
+        }
+    }
+
+
     for($i = 1; $i < 50 ; $i++)
     {
-        $EventName = $EventName . $Event->Name . " ";
+        $EventName = $EventName . $name . " ";
         if($i % 6 == 0){
             $EventName = $EventName . "<br>";
             $RandomSpace = random_int(0,10);

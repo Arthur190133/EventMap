@@ -4,24 +4,27 @@
 </head>
 <div class="event-register-box">
     <div class="event-register">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div>
                 <form action="" method="post">
                     <div class="event-register-content">
                         <div class="input-box">
-                            <input class="custom-input" placeholder="Nom de l'évènement" name="EventName" required/>
+                            <input class="custom-input" placeholder="Nom de l'évènement" name="EventName" value="<?= $SavedEventName ?>" required/>
                         </div>
                         <div class="input-box">
-                            <input class="custom-input" placeholder="Emplacement" name="EventLocation" required>
-                            <input class="custom-input" placeholder="Catégorie" name="EventCategory" required />
+                            <input class="custom-input" placeholder="Emplacement" name="EventLocation" value="<?= $SavedEventLocation ?>" required>
+                            <input class="custom-input" placeholder="Catégorie" name="EventCategory" value="<?= $SavedEventCategory ?>" required />
                         </div>
                         <div class="long-input-box">
                             <div class="input-box">
                                 <p>du</p>
-                                <input class="custom-input long-custom-input" placeholder="Date de début" name="EventName" type="date" required/>
+                                <input class="custom-input long-custom-input" placeholder="Date de début" name="EventStartDate" type="date" value="<?= $SavedEventStartDate ?>" required/>
                                 <p>au</p>
-                                <input class="custom-input long-custom-input" placeholder="Date de fin" name="EventName" type="date"required/>
+                                <input class="custom-input long-custom-input" placeholder="Date de fin" name="EventEndDate" type="date" value="<?= $SavedEventEndDate ?>"required/>
                             </div> 
+                        </div>
+                        <div class="long-input-box">
+                            <textarea placeholder="Description de l'évènement" name="EventDescription"  required></textarea>
                         </div>
   
                         <div class="long-input-box">
@@ -29,7 +32,7 @@
                                 <p>évènement privée</p>
                                 <input class="input-checkbox"type="checkbox" name="EventPrivate">
                                 <p>Nombre de personnes</p>
-                                <input disabled class="custom-input" type="number" min="2" value="2" max="999"/>
+                                <input disabled name="EventNumber" class="custom-input" type="number" min="2" value="2" max="999"/>
                             </div>  
                         </div>
 
@@ -46,7 +49,7 @@
                             <div class="input-upload">
                                 <h1>!!Thumbnail</h1>
                                 <button id='button-import-thumbnail' type="button" class="upload-thumbnail">
-                                    <input name="ThumbnailImage" id="GetFileThumbnail"  type="file" placeholder="Votre Thumbnail" style="display:none">
+                                    <input name="EventThumbnail" id="GetFileThumbnail"  type="file" placeholder="Votre Thumbnail" style="display:none">
                                     <span class="svg-overlay">
                                         <img src="/Images/Logos/Camera.png" height="80px" width="80px" alt="Votre SVG" />
                                     </span>
@@ -55,7 +58,7 @@
                             <div class="input-upload">
                                 <h1>!!Background</h1>
                                 <button id='button-import-background' type="button" class="upload-background">
-                                    <input name="BackgroundImage" id="GetFileBackground"  type="file" placeholder="Votre Background" style="display:none">
+                                    <input name="EventBackground" id="GetFileBackground"  type="file" placeholder="Votre Background" style="display:none">
                                     <span class="svg-overlay">
                                         <img src="/Images/Logos/Camera.png" height="80px" width="80px" alt="Votre SVG" />
                                     </span>

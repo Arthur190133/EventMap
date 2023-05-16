@@ -186,30 +186,27 @@ class Event{
 
     // Créer un évenement
 
-    public function create()
-    {
-        $querry = "INSERT INTO " . $this->table . '
-            SET
-                EventBackgroundId = :BackgroundId,
-                EventThumbnailId = :ThumbnailId,
-                EventOwnerId = :OwnerId,
-                EventName = :Name,
-                EventDescription = :Description,
-                EventStartDate = :StartDate,
-                EventEndDate = :EndDate,
-                EventLocation = :Location,
-                EventTagId = :Category,
-                EventPrivate = :Private,
-                EventSize = :Size,
-                EventPrice = :Price,
-                EventCardColor = :CardColor,
-                EventPageColor = :PageColor
-        ';
+    public function create(){
+    $querry = "INSERT INTO " . $this->table . '
+    SET
+        EventThumbnailId = ' . ($this->EventThumbnailId !== null ? ':ThumbnailId' : 'NULL') . ',
+        EventBackgroundId = ' . ($this->EventBackgroundId !== null ? ':BackgroundId' : 'NULL') . ',
+        EventOwnerId = :OwnerId,
+        EventName = :Name,
+        EventDescription = :Description,
+        EventStartDate = :StartDate,
+        EventEndDate = :EndDate,
+        EventLocation = :Location,
+        EventCategory= :Category,
+        EventPrivate = :Private,
+        EventSize = :Size,
+        EventPrice = :Price,
+        EventCardColor = :CardColor,
+        EventPageColor = :PageColor
+';
 
         $stmt = $this->connection->prepare($querry);
 
-        $this->EventBackgroundId = htmlspecialchars(strip_tags($this->EventBackgroundId));
-        $this->EventThumbnailId = htmlspecialchars(strip_tags($this->EventThumbnailId));
         $this->OwnerId = htmlspecialchars(strip_tags($this->OwnerId));
         $this->EventName = htmlspecialchars(strip_tags($this->EventName));
         $this->EventDescription = htmlspecialchars(strip_tags($this->EventDescription));
@@ -223,8 +220,15 @@ class Event{
         $this->EventCardColor = htmlspecialchars(strip_tags($this->EventCardColor));
         $this->EventPageColor = htmlspecialchars(strip_tags($this->EventPageColor));
 
-        $stmt->bindParam(':BackgroundId', $this->EventBackgroundId);
-        $stmt->bindParam(':ThumbnailId', $this->EventThumbnailId);
+        if($this->EventThumbnailId !== null){
+            $stmt->bindParam(':ThumbnailId', $this->EventThumbnailId);
+        }
+
+
+        if($this->EventBackgroundId !== null){
+            $stmt->bindParam(':BackgroundId', $this->EventBackgroundId);
+        }
+
         $stmt->bindParam(':OwnerId', $this->OwnerId);
         $stmt->bindParam(':Name', $this->EventName);
         $stmt->bindParam(':Description', $this->EventDescription);

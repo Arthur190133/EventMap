@@ -17,32 +17,29 @@
     // Instantiation de la class event
     $event = new Event($db);
 
-    // Recuperer les informations de l'event
-    $data = json_decode(file_get_contents("php://input"));
-
     // Modifier les informations de l'event par celles voulues
-    $event->EventName = $data->EventName;
-    $event->EventBackgroundId = $data->EventBackgroundId;
-    $event->EventThumbnailId = $data->EventThumbnailId;
-    $event->EventOwnerId = $data->EventOwnerId;
-    $event->EventName = $data->EventName;
-    $event->EventDescription = $data->EventDescription;
-    $event->EventStartDate = $data->EventStartDate;
-    $event->EventEndDate = $data->EventEndDate;
-    $event->EventLocation = $data->EventLocation;
-    $event->EventCategory = $data->EventCategory;
-    $event->EventPrivate = $data->EventPrivate;
-    $event->EventSize = $data->EventSize;
-    $event->EventPrice = $data->EventPrice;
-    $event->EventCardColor = $data->EventCardColor;
-    $event->EventPageColor = $data->EventPageColor;
+    $event->EventName = $payload->EventName;
+    $event->EventBackgroundId = $payload->EventBackgroundId;
+    $event->EventThumbnailId = $payload->EventThumbnailId;
+    $event->OwnerId = $payload->EventOwnerId;
+    $event->EventName = $payload->EventName;
+    $event->EventDescription = $payload->EventDescription;
+    $event->EventStartDate = $payload->EventStartDate;
+    $event->EventEndDate = $payload->EventEndDate;
+    $event->EventLocation = $payload->EventLocation;
+    $event->EventCategory = $payload->EventCategory;
+    $event->EventPrivate = $payload->EventPrivate;
+    $event->EventSize = $payload->EventNumber;
+    $event->EventPrice = $payload->EventPrice;
+    $event->EventCardColor = $payload->EventCardColor;
+    $event->EventPageColor = $payload->EventPageColor;
 
 
 
     // Créer l'event
     if($event->create()){
         echo json_encode(
-            array('message' => 'event Created')
+            array("Id" => $event->EventId)
         );
     }
     else{
