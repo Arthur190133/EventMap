@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div></div>
-            </div>
+            </div> 
             <button class="card-button"><?= $JoinableEvent ?></button>
         </div>
 
