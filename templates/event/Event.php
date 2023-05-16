@@ -1,6 +1,7 @@
 <?php
 
 $JoinableEvent = "REJOINDRE";
+$privacy = "None";
 
 //var_dump($event);
 
@@ -22,6 +23,11 @@ else{
     $JoinableEvent = "QUITTER";
 }
 
+if($event->Private)
+{
+    $privacy = "Privé";
+}
+else{$privacy="Publique";}
 
 $url = "http://localhost/EventMap/API/user/readSingle.php?UserId=" . $event->OwnerId;
 $token = GenerateToken([]);
