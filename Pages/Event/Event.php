@@ -20,7 +20,7 @@
                         <h3><?=$event->Price ?> €</h3>
                     </div>
                 </div>
-
+                <div></div>
             </div>
             <button class="card-button"><?= $JoinableEvent ?></button>
         </div>
