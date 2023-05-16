@@ -16,7 +16,7 @@
                         <h3><?= $privacy ?></h3>
                     </div>
                     <div class = "Policy">
-                        <h3>Prix : </h3>
+                        <h3>Prix : </h3> 
                         <h3><?=$event->Price ?> €</h3>
                     </div>
                 </div>
