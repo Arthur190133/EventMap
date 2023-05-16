@@ -26,7 +26,7 @@
         </div>
 
        <div class="card">     
-            <h1><?= $event->Name ?></h1>
+            <h1><?= $event->Name ?></h1> 
             <div class="divisibleBlock">
                 <div>
                     <div class="eventOwnerBlock">
