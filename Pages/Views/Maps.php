@@ -1,22 +1,7 @@
-<?php
-       $url = "http://localhost/EventMap/API/Event/readMarker.php";
-       $token = GenerateToken([]);
-       $result = SendRequestToAPI($token, $url);
-       
-       if(isset($result)){
-        $markerMapsDataJSON = json_encode($result, JSON_HEX_TAG);
-       }
-       
-
-?>
 <head>
-<link href= "css/map.css" rel="stylesheet">
-<link rel="stylesheet" href="/css/eventPreview.css">
+    <link href= "css/map.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/eventPreview.css">
 </head>
-<script>
-// Assignez les données JSON à une variable JavaScript
-markerMapsData = <?= $markerMapsDataJSON; ?>;
-</script>
 
 <div id="Preview">
 </div>

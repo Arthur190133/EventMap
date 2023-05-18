@@ -30,32 +30,42 @@ function initMap()
     fullscreenControl: false,
   })
 
-  console.log(markerMapsData.data);
 
   let i =0;
-  markerMapsData.data.forEach(function(item) {
-      geocodeAddress(item, function(position) {
-      AddMarker(position, item.Name, item.Id);
-      SetClickableMarker(item.Name + item.Id, i , item.Id);
-      i++;
-      // Faites quelque chose avec la position géographique ici
+  getMarkersData(function(markerMapsData) {
+    // Traiter la réponse ici et mettre à jour la partie de la page souhaitée
+        var data = JSON.parse(markerMapsData).data;
+        data.forEach(function(item) {
+        geocodeAddress(item, function(position) {
+        AddMarker(position, item.Name, item.Id);
+        SetClickableMarker(item.Name + item.Id, i , item.Id);
+        i++;
+      });
     });
-    
-
   });
 
 
-  //for(let i = 0; i<3; i++)
-  //{
-    //AddMarker({lat: 51.4 + i* 2, lng: 4.523629443397177}, "Marker API test : " + i);
-    //SetClickableMarker("Bruxelles, E420", i);
-  //}
 
   
   window.initMap = initMap;
 
 
 }
+
+function getMarkersData(callback){
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/Js_Request/MakersMaps.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      // Traiter la réponse ici et mettre à jour la partie de la page souhaitée
+      callback(this.responseText);
+    
+    }
+  };
+  xhr.send();
+}
+
 function initPreviewMap()
 {
   map = new google.maps.Map(document.getElementById("EventMapPreview"),
@@ -110,11 +120,12 @@ function SetClickableMarker(MarkerContent, MarkerId, EventId){
       document.getElementById("Preview").innerHTML ="";
     }
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/templates/event/EventPreview.php", true);
+    xhr.open("POST", "/Js_Request/EventPreview.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
         // Traiter la réponse ici et mettre à jour la partie de la page souhaitée
+        console.log(this.responseText);
         document.getElementById("Preview").innerHTML = this.responseText;
       }
     };
