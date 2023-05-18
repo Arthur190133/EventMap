@@ -39,7 +39,7 @@
     // Créer l'event
     if($event->create()){
         echo json_encode(
-            array("Id" => $event->EventId)
+            array("Id" => $db->lastInsertId())
         );
     }
     else{

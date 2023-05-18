@@ -18,32 +18,51 @@
                         <div class="long-input-box">
                             <div class="input-box">
                                 <p>du</p>
-                                <input class="custom-input long-custom-input" placeholder="Date de début" name="EventStartDate" type="date" value="<?= $SavedEventStartDate ?>" required/>
+                                <input class="custom-input long-custom-input" placeholder="Date de début" name="EventStartDate" type="datetime-local" value="<?= $SavedEventStartDate ?>" required/>
                                 <p>au</p>
-                                <input class="custom-input long-custom-input" placeholder="Date de fin" name="EventEndDate" type="date" value="<?= $SavedEventEndDate ?>"required/>
+                                <input class="custom-input long-custom-input" placeholder="Date de fin" name="EventEndDate" type="datetime-local" value="<?= $SavedEventEndDate ?>"required/>
                             </div> 
                         </div>
                         <div class="long-input-box">
                             <textarea placeholder="Description de l'évènement" name="EventDescription"  required></textarea>
+                        </div>
+
+                        <div class="long-input-box">
+                            <div class="input-box">
+                                <p>limite de places</p>
+                                <input class="input-checkbox"type="checkbox" name="EventLimitedPlaces">
+                                <p>Nombre de personnes</p>
+                                <input name="EventNumber" class="custom-input" type="number" min="2" value="2" max="999"/>
+                            </div>
                         </div>
   
                         <div class="long-input-box">
                             <div class="input-box">
                                 <p>évènement privée</p>
                                 <input class="input-checkbox"type="checkbox" name="EventPrivate">
-                                <p>Nombre de personnes</p>
-                                <input disabled name="EventNumber" class="custom-input" type="number" min="2" value="2" max="999"/>
                             </div>  
                         </div>
 
                         <div class="long-input-box">
                             <div class="input-box">
                                 <p>évènement payant</p>
-                                <input class="input-checkbox"type="checkbox" name="EventPaid"/>
-                                <input disabled class="custom-input" type="number" value="0.01" step="0.01" min="0.01" max="100.0" />
+                                <input class="input-checkbox" type="checkbox" name="EventPaid"/>
+                                <input  class="custom-input" type="number" name="EventPrice" value="0.01" step="0.01" min="0.01" max="100.0" />
                             </div>
                         </div>
 
+                        <div class="long-input-box">
+                            <div class="filter-search-box">
+                                <div class="filter-search-content">
+                                    <input id="filter-search" placeholder="Effectuez une recherche par tag" type="text" class="NavBarSearchBar">
+                                    <ul id="filter-search-list"></ul>
+                                </div>
+                            </div>
+
+                            <div class="FiltersSelectedTags">
+                               
+                            </div>
+                        </div>
                         
                         <div class="long-input-box">
                             <div class="input-upload">
@@ -70,7 +89,7 @@
 
 
                     </div>	
-                    <button class="EventRegisterButton">Créer l'évènement</button>
+                    <button id="CreateEvent" class="EventRegisterButton">Créer l'évènement</button>
             </div>	
         </form>
     </div>

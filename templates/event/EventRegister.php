@@ -90,88 +90,105 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $EventPrice = 0;
     $EventNumber = 0;
     $EventPrivate = false;
+    $EventLimited = false;
     $EventPaid = false;
     
 
-    if(((empty($_POST['EventName']) && empty($_POST['EventLocation']) && empty($_POST['EventCategory']) && empty($_POST['EventStartDate']) && empty($_POST['EventEndDate']) && empty($_POST('EventDescription')))))
+    if(!(empty($_POST['EventName']) && empty($_POST['EventLocation']) && empty($_POST['EventCategory']) && empty($_POST['EventStartDate']) && empty($_POST['EventEndDate']) && empty($_POST['EventDescription'])))
     {
         
-        if(isset($_POST['EventPrivate'])){
-            $EventPrivate = true;
-        }
+        if($_POST['EventEndDate'] > $_POST['EventStartDate'])
+        {
+            
+            $EventLimited = isset($_POST['EventLimitedPlaces']) ? true : false;
+            if($EventLimited){
+                $EventNumber = isset($_POST['EventNumber']) ? $_POST['EventNumber'] : 0;
+            }
 
-        if(isset($_POST['EventPaid'])){
-            $EventPaid = true;
-        }
-        
-        
-        if($_POST['EventPaid'] == true){
-            $EventPrice = isset($_POST['EventPrice']) ? $_POST['EventPrice'] : 0;
-        }
 
-        
-        if($_POST['EventPrivate'] == true){
-            $EventPrivate = isset($_POST['EventPrivate']) ? $_POST['EventPrivate'] : 0;
-        }
-        
-    }
+            $EventPrivate = isset($_POST['EventPrivate']) ? true : false;
 
-    //upload images
-    echo 't';
 
-    $ThumbnailId = null;
 
-    if(isset($_FILES['EventThumbnail'])){
-        $result = uploadImage("EventThumbnail", "Images/events/thumbnails/");
-        if(isset($result)? $ThumbnailId = $result->ImageId : null);
-    }
+            $EventPaid = isset($_POST['EventPaid']) ? true : false;
+            if($EventPaid){
+                $EventPrice = isset($_POST['EventPrice']) ? $_POST['EventPrice'] : 0;
+            }
+            //upload images
+            $ThumbnailId = null;
 
-    $BackgroundId = null;
+            if(isset($_FILES['EventThumbnail']))
+            {
+                $result = uploadImage("EventThumbnail", "Images/events/thumbnails/");
+                if(isset($result)? $ThumbnailId = $result->ImageId : null);
+            }
 
-    if(isset($_FILES['EventBackground'])){
-        $result = uploadImage("EventBackground", "Images/events/backgrounds/");
-        if(isset($result) ? $BackgroundId = $result->ImageId : null);
-    }
+            $BackgroundId = null;
 
+            if(isset($_FILES['EventBackground'])){
+                $result = uploadImage("EventBackground", "Images/events/backgrounds/");
+                if(isset($result)? $BackgroundId = $result->ImageId : null);
+            }
+              
+            //Send request to API
+            $url = "http://localhost/EventMap/API/event/create.php";
+            $payload=[
+                "EventName" => $_POST['EventName'],
+                "EventLocation" => $_POST['EventLocation'],
+                'EventCategory' => $_POST['EventCategory'],
+                "EventStartDate" => $_POST['EventStartDate'],
+                "EventEndDate" => $_POST['EventEndDate'],
+                "EventPrivate" => intval($EventPrivate),
+                "EventPrice" => $EventPrice,
+                "EventNumber" => $EventNumber,
+                "EventThumbnailId" => $ThumbnailId,
+                "EventBackgroundId" => $BackgroundId,
+                "EventOwnerId" => intval($_SESSION["user"]->UserId),
+                "EventDescription" => $_POST['EventDescription'],
+                "EventPageColor" => "",
+                "EventCardColor" => ""
+            ];
+
+
+
+            $token = GenerateToken($payload);
+            $result = SendRequestToAPI($token, $url);
+
+            if($result)
+            {
+                $tags = explode(",", $_COOKIE['selectedTags']);
+                $EventId = $result->Id;
+            
+                $url = "http://localhost/EventMap/API/eventtag/create.php";
+                foreach($tags as $tag){
+                    $payload = [
+                        "EventId" => $EventId,
+                        "EventTagName" => $tag
+                    ];
+                    $token = GenerateToken($payload);
+                    $result = SendRequestToAPI($token, $url);
     
+                }
+                //header('Location: /event/' . $EventId);
+            }
 
 
-    //Send request to API
-    $url = "http://localhost/EventMap/API/event/create.php";
-    var_dump($BackgroundId);
-    var_dump($ThumbnailId);
-    $payload=[
-        "EventName" => $_POST['EventName'],
-        "EventLocation" => $_POST['EventLocation'],
-        'EventCategory' => $_POST['EventCategory'],
-        "EventStartDate" => $_POST['EventStartDate'],
-        "EventEndDate" => $_POST['EventEndDate'],
-        "EventPrivate" => intval($EventPrivate),
-        "EventPrice" => $EventPrice,
-        "EventNumber" => $EventNumber,
-        "EventThumbnailId" => $ThumbnailId,
-        "EventBackgroundId" => $BackgroundId,
-        "EventOwnerId" => intval($_SESSION["user"]->UserId),
-        "EventDescription" => $_POST['EventDescription'],
-        "EventPageColor" => "",
-        "EventCardColor" => ""
-    ];
+        }
+        else
+        {
+            $message="La date de fin de l'évènement doit être après celle de début.";
+            require_once '../components/user/UserInputError.php';
+        }
 
-
-
-    $token = GenerateToken($payload);
-
-    $result = SendRequestToAPI($token, $url);
-
-   // $_SERVER['REQUEST_METHOD'] = null;
-
-    if($result){
-       //header("location :/event/" . $result->Id);
-       header('Location: /event/' . $result->Id);
+            
     }
-
-   
+    else{
+        $message="Veuillez remplir tous les champs";
+        require_once '../components/user/UserInputError.php';
+    }
 }
+
+
 
 //load saved inputs
 
