@@ -124,6 +124,10 @@ class mainController
         
     }
 
+    public function search(){
+        require_once '../templates/navbar/Navbarsearch.php';
+    }
+
     private function __Unkown(){
         require_once '..Pages/Views/Error404.php';
     }

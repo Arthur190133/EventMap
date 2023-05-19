@@ -1,7 +1,8 @@
 
-  var map;
+var map;
 var mapDiv;
 var marker = [];
+var geocoder;
 // Create Cookies
 function createCookie(name, value, days) {
   var expires;
@@ -18,6 +19,7 @@ function createCookie(name, value, days) {
 
 function initMap()
 {
+  geocoder = new google.maps.Geocoder();
   map = new google.maps.Map(document.getElementById("map"),
   {
     center: {lat: 50.002, lng: 4.523629443397177},
@@ -28,17 +30,41 @@ function initMap()
     fullscreenControl: false,
   })
 
-  for(let i = 0; i<3; i++)
-  {
-    AddMarker({lat: 51.4 + i* 2, lng: 4.523629443397177}, "Marker API test : " + i);
-    SetClickableMarker("Bruxelles, E420", i);
-  }
+
+  let i =0;
+  getMarkersData(function(markerMapsData) {
+    // Traiter la réponse ici et mettre à jour la partie de la page souhaitée
+        var data = JSON.parse(markerMapsData).data;
+        data.forEach(function(item) {
+        geocodeAddress(item, function(position) {
+        AddMarker(position, item.Name, item.Id);
+        SetClickableMarker(item.Name + item.Id, i , item.Id);
+        i++;
+      });
+    });
+  });
+
+
 
   
   window.initMap = initMap;
 
 
 }
+
+function getMarkersData(callback){
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "/Js_Request/MakersMaps.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function() {
+    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+      callback(this.responseText);
+    
+    }
+  };
+  xhr.send();
+}
+
 function initPreviewMap()
 {
   map = new google.maps.Map(document.getElementById("EventMapPreview"),
@@ -53,11 +79,13 @@ function initPreviewMap()
     keyboardShortcuts: false,
   })
 
-  for(let i = 0; i<3; i++)
-  {
-    AddMarker({lat: 50.002 + i, lng: 4.523629443397177}, "Marker API test : " + i);
-    SetClickableMarker("Bruxelles, E420", i);
-  }
+  //for(let i = 0; i<3; i++)
+  //{
+    //AddMarker({lat: 50.002 + i, lng: 4.523629443397177}, "Marker API test : " + i);
+    //SetClickableMarker("Bruxelles, E420", i);
+  //}
+
+
 
   
   window.initMap = initMap;
@@ -65,34 +93,36 @@ function initPreviewMap()
 
 }
 
-function AddMarker(MarkerPositions, MarkerTitle){
+function AddMarker(MarkerPositions, MarkerTitle, EventId){
     marker.push( new google.maps.Marker({
     position: MarkerPositions,
     map,
-    title: MarkerTitle,
-  }))
+    title: MarkerTitle
+    }));
+    marker['EventId'] = EventId;
 }
 
-function SetClickableMarker(MarkerContent, MarkerId){
+function SetClickableMarker(MarkerContent, MarkerId, EventId){
+
   const infowindow = new google.maps.InfoWindow({
     content: MarkerContent,
   })
+  console.log(EventId);
   marker[MarkerId].addListener("click", () => 
   {
     //infowindow.open(map, marker[MarkerId]);
     console.log("User Clicked on the marker : " + marker[MarkerId].title);
-    createCookie("currentEventId", MarkerId, "1");
+    createCookie("currentEventId", EventId, "1");
 
     // Update event preview
     if(document.getElementById("Preview").childElementCount != 0){  
       document.getElementById("Preview").innerHTML ="";
     }
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "/templates/event/EventPreview.php", true);
+    xhr.open("POST", "/Js_Request/EventPreview.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function() {
       if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-        // Traiter la réponse ici et mettre à jour la partie de la page souhaitée
         document.getElementById("Preview").innerHTML = this.responseText;
       }
     };
@@ -154,32 +184,19 @@ function GetDistance(){
 
 
 
-function geocodeAddress(address) {
-  geocoder.geocode({ 'address': address }, function(results, status) {
+function geocodeAddress(event, callback) {
+  geocoder.geocode({ 'address': event.Location }, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       // Récupérer les coordonnées géographiques (latitude et longitude)
       var latitude = results[0].geometry.location.lat();
       var longitude = results[0].geometry.location.lng();
       
-      // Créer la carte
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: latitude, lng: longitude },
-        zoom: 10
-      });
-      
       // Créer un marqueur sur la carte
-      marker = new google.maps.Marker({
-        position: { lat: latitude, lng: longitude },
-        map: map,
-        title: address
-      });
-    } else {
-      console.log('La géocodage a échoué. Erreur:', status);
+      position = {lat: latitude, lng: longitude};
+      callback(position);
     }
   });
 }
 
-// Appeler la fonction geocodeAddress avec le nom de la ville ou du pays
-//geocodeAddress('Paris, France');
 
 

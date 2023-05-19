@@ -32,7 +32,6 @@ if(property_exists($Events, 'data'))
       $payload = ['EventId' => $Event->Id];
       $token = GenerateToken($payload);
       $cardTags = SendRequestToAPI($token, $url);
-
       require '../Pages/Event/EventCard.php';
   }
 

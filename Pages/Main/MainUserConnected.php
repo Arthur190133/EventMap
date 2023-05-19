@@ -1,5 +1,5 @@
 <head>
-<title>EventMap</title>
+    <title>EventMap</title>
 </head>
 <link rel="stylesheet" href="/css/main.css">
 <div class="recommendated-cards">

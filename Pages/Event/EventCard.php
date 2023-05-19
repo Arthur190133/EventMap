@@ -9,25 +9,7 @@
                     <div class="EventCardYear" year=<?= "20" . date("y", strtotime($Event->StartDate)) ?>></div>
                 </div>
                 <div class="EventCardBackground"> 
-                <?php 
-                    if($Event->ThumbnailDir)
-                    {
-                ?>  
-                <img class="EventCardImage" src=<?= "/" . $Event->ThumbnailDir ?>>
-                <?php 
-                    }
-                    else
-                    {
-                        $EventName = GenerateEventBackground($Event);
-                ?>
-                <p>
-                <span class="EventCardBackgroundText"> 
-                    <?=$EventName ?> 
-                </span> 
-                </p>
-                <?php 
-                    } 
-                ?>   
+                    <?php require '../templates/Event/EventCardType.php'; ?> 
                 </div>   
             </div>
             <div onclick="FocusOnMarker()" id="EventCardMarker" class="EventCardMarker" value="1"> 
@@ -47,7 +29,7 @@
                 <div class="EventCardData">            
                     <span class="EventCardParticipants"> <?= $EventCardParticipants ?></span>
                     <div class="event-card-tags">
-                        <?php require_once '../templates/event/EventCardTags.php'; ?>
+                        <?php require '../templates/event/EventCardTags.php'; ?>
                     </div>  
                     
                 </div>

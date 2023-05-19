@@ -1,24 +1,7 @@
-<?php
-       //$Events = GetEvents();
-
-?>
 <head>
-<link href= "css/map.css" rel="stylesheet">
+    <link href= "css/map.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/eventPreview.css">
 </head>
-<script>
-   /* $(document).ready(function(){
-        $("#search").keyup(function(){
-            $.ajax({
-                url: "Pages/Event/EventPreview.php",
-                type: "post",
-                data: {search: $(this).val()},
-                success:function(result){
-                    $("#result").html(result);
-                }
-            });
-        });
-    }); */
-</script>
 
 <div id="Preview">
 </div>
@@ -30,5 +13,5 @@
 </div>
 
 <script>  mapDiv = "map"; </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfBI13bMmYnsfUqPOZR4gR2eYzH5ZK8rI&map_ids=61d9f0e6c1783a33&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfBI13bMmYnsfUqPOZR4gR2eYzH5ZK8rI&map_ids=61d9f0e6c1783a33&callback=initMap&libraries=places"></script>
 

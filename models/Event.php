@@ -15,6 +15,7 @@ class Event{
     public $EventThumbnailDir;
     public $OwnerId;
     public $OwnerName;
+    public $OwnerFirstName;
     public $OwnerEmail;
     public $OwnerDescription;
     public $OwnerAvatarName;
@@ -448,6 +449,73 @@ class Event{
 
         $stmt->execute();
         
+        return $stmt;
+    }
+
+    public function Navbar(){
+        $eventQuery = '
+        SELECT 
+            EventId,
+            EventName,
+            NULL AS UserFirstName,
+            NULL AS UserName
+        FROM event
+        WHERE EventName LIKE :SearchKeyword';
+    
+        $userQuery = '
+        SELECT 
+            NULL AS EventId,
+            NULL AS EventName,
+            UserId,
+            UserFirstName,
+            UserName
+        FROM user
+        WHERE UserName LIKE :SearchKeyword
+        OR UserFirstName LIKE :SearchKeyword';
+    
+        $stmt = $this->connection->prepare($eventQuery);
+        $searchKeyword = $this->EventName . '%';
+        $stmt->bindParam(":SearchKeyword", $searchKeyword);
+        $stmt->execute();
+        $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        $stmt = $this->connection->prepare($userQuery);
+        $stmt->bindParam(":SearchKeyword", $searchKeyword);
+        $stmt->execute();
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+        $results = array_merge($events, $users);
+
+        if (!empty($results)) {
+            $mergedData = [];
+            foreach ($results as $row) {
+                $mergedData[] = array_filter($row);
+            }
+            return $mergedData;
+        }
+    }
+
+    public function readMarker(){
+        $querry = '
+        SELECT
+            event.EventName,
+            event.EventId,
+            event.EventLocation,
+            event.EventEndDate
+        FROM '
+            . $this->table . ' event
+            
+            WHERE
+            event.EventEndDate > CURDATE()
+
+            LIMIT
+            0,25
+            ';
+
+        $stmt = $this->connection->prepare($querry);
+
+        $stmt->execute();
+
         return $stmt;
     }
 }
