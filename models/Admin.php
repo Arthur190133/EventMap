@@ -98,15 +98,45 @@ class Admin{
 
     public function delete(){
         $query = 'DELETE FROM ' . $this->table .' 
-        WHERE AdminId = ?';
+        WHERE AdminId = :Id';
 
         $stmt = $this->connection->prepare($query);
-        $stmt->BindParam(1, $this->AdminId);
-        $stmt->execute(); 
-        if($stmt){
+
+        $this->AdminId = htmlspecialchars(strip_tags($this->AdminId));
+
+        $stmt->bindParam(':Id', $this->UserId);
+
+        if($stmt->execute()){
             return true;
         }
         else{
+            printf("Error: %s. \n", $stmt->error);
+            return false;
+        }
+    }
+
+    public function create(){
+        $query = 'INSERT INTO ' . $this->table . '
+        AdminStartDate = :StartDate,
+        AdminEndDate = :EndDate,
+        UserId = :Id';
+        
+        $stmt = $this->connection->prepare($query);
+
+        $this->AdminStartDate = htmlspecialchars(strip_tags($this->AdminStartDate));
+        $this->AdminEndDate = htmlspecialchars(strip_tags($this->AdminEndDate));
+        $this->UserId = htmlspecialchars(strip_tags($this->UserId));
+
+        $stmt->bindParam(':Id', $this->UserId);
+        $stmt->bindParam(':StartDate', $this->AdminStartDate);
+        $stmt->bindParam(':EndDate', $this->AdminEndDate);
+        
+        
+        if($stmt->execute()){
+            return true;
+        }
+        else{
+            printf("Error: %s. \n", $stmt->error);
             return false;
         }
     }
