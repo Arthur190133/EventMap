@@ -113,6 +113,56 @@ class UserEvent{
 
     }
 
+    public function create(){
+        $querry = 'INSERT INTO ' . $this->table . '
+        SET
+            UserId = :UserId,
+            EventId = :EventId
+        ';
+
+        $stmt = $this->connection->prepare($querry);
+
+        // Clean data
+        $this->UserId = htmlspecialchars(strip_tags($this->UserId));
+        $this->EventID = htmlspecialchars(strip_tags($this->EventId));
+
+        // bind data
+        $stmt->bindParam("UserId", $this->UserId);
+        $stmt->bindParam("EventId", $this->EventId);
+
+        // requete
+        $stmt->execute();
+        
+        return $stmt;
+    }
+
+    public function delete(){
+        // Create querry
+        $querry = 'DELETE FROM ' . $this->table . ' WHERE UserId = :UserId AND EventId = :EventId';
+
+        // Prepare query
+        $stmt = $this->connection->prepare($querry);
+
+        // Clean data
+        $this->UserId = htmlspecialchars(strip_tags($this->UserId));
+        $this->EventId = htmlspecialchars(strip_tags($this->EventId));
+
+        // Bind Id
+        $stmt->bindParam(':UserId', $this->UserId);
+        $stmt->bindParam(':EventId', $this->EventId);
+
+
+        // requete
+        if($stmt->execute()){
+            return true;
+        }
+        else{
+            // Print Error if something goes wrong
+            printf("Error: %s. \n", $stmt->error);
+            return false;
+        }
+    }
+
     public function readEventJoined()
     {
         $query = '

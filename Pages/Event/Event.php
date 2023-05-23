@@ -22,7 +22,10 @@
                 </div>
                 <div></div>
             </div>
-            <button class="card-button"><?= $JoinableEvent ?></button>
+            <form method="POST">
+                <button class="card-button"><?= $JoinableEvent ?></button>
+            </form>
+            
         </div>
 
        <div class="card">     

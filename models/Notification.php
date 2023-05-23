@@ -49,7 +49,7 @@ class Notification{
         return $stmt;
     }
 
-    // récuperer une seule notificatiop
+    // récuperer une seule notification
     public function readSingle()
     {
         $query = 'SELECT
@@ -125,6 +125,40 @@ class Notification{
         $stmt->execute();
 
         return $stmt;
+    }
+
+    public function create(){
+        $querry = 'INSERT INTO ' . $this->table . '
+        SET
+            NotificationSender = :NotificationSender,
+            NotificationContext = :NotificationContext,
+            NotificationStatus = :Notificationstatus,
+            NotificationDate = :NotificationDate,
+            UserId = :UserId
+    ';
+
+    $stmt = $this->connection->prepare($querry);
+
+    // Clean data
+    $this->NotificationSender = htmlspecialchars(strip_tags($this->NotificationSender));
+    $this->NotificationContext = htmlspecialchars(strip_tags($this->NotificationContext));
+    $this->NotificationStatus = htmlspecialchars(strip_tags($this->NotificationStatus));
+    $this->NotificationDate = htmlspecialchars(strip_tags($this->NotificationDate));
+    $this->UserId = htmlspecialchars(strip_tags($this->UserId));
+
+
+    // bind data
+    $stmt->bindParam("NotificationSender", $this->NotificationSender);
+    $stmt->bindParam("NotificationContext", $this->NotificationContext);
+    $stmt->bindParam("NotificationStatus", $this->NotificationStatus);
+    $stmt->bindParam("NotificationDate", $this->NotificationDate);
+    $stmt->bindParam("UserId", $this->UserId);
+
+
+    // requete
+    $stmt->execute();
+    
+    return $stmt;
     }
 }
 

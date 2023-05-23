@@ -64,5 +64,32 @@ function SendRequestToAPI($token, $url){
     return $data;
 }
 
+function SendNotification($type, $sender, $to, $context){
+    //Generete Sender
+    $GeneratedSender = "";
+    if($type === "User"){
+        $GeneratedSender = "UserId=" . $sender;
+    }
+    elseif($type === "Event"){
+        $GeneratedSender = "EventId" . $sender;
+    }
+    else{
+        return 0;
+    }
+
+    $CurrentDate = date('d-m-Y');
+
+    $url = "http://localhost/EventMap/API/notification/create.php";
+    $payload = [
+        'NotificationSender' => $GeneratedSender,
+        'NotificationContext' => $context,
+        'NotificationStatus' => 0,
+        'NotificationDate' => $CurrentDate,
+        'UserId' => $to
+    ];
+    $token = GenerateToken($payload);
+    $result = SendRequestToAPI($token, $url);
+}
+
 
 ?>
