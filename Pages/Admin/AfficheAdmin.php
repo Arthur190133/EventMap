@@ -4,7 +4,9 @@
             <div class = "NameBox">
                 <h3><?= $admins->UserName?></h3>
             </div>
-            <button  class = "button2">Rétrograder</button>
+            <form method="post">
+                <button name="Delete" class = "button2">Rétrograder</button>
+            </form>
         </div>
     </div>
 </a>
