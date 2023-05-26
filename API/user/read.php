@@ -31,7 +31,7 @@
         {
             extract($row);
             $user_item = array(
-                'Userid' => $UserId,
+                'UserId' => $UserId,
                 'UserFirstName' => $UserFirstName,
                 'UserName' => $UserName,
                 'UserEmail' => $UserEmail,

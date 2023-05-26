@@ -17,18 +17,18 @@
     // Get Id
     $Notification->NotificationId = $payload->NotificationId;
 
-    $Notification->readSingle();
+    if($Notification->updateStatus()){
+        echo json_encode(
+            array('message' => 'Notification Updated')
+        );
+    }
+    else{
+        echo json_encode(
+            array('message' => 'Error => Notification not Updated')
+        );
+    }
 
-    $Notification_arr = array(
-        'Id' => $Notification->NotificationId,
-        'Sender' => $Notification->NotificationSender,
-        'Context' => $Notification->NotificationContext,
-        'Status' => ($Notification->NotificationStatus) ? 'already read' : 'not read yet',
-        'Date' => $Notification->NotificationDate,
-        'UserId' => $Notification->UserId,
-    );
 
-    print_r(json_encode($Notification_arr));
 
     
 

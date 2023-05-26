@@ -124,6 +124,17 @@ class mainController
         
     }
 
+    public function notification(){
+        require_once '../templates/notification/NotificationUpdater.php';
+    }
+
+    public function invitation(){
+        require_once '../router/InvitationRouter.php';
+        require_once '../controllers/InvitationController.php';
+        $InvitationRouter = new InvitationRouter();
+        $InvitationRouter->resolve();
+    }
+
     public function search(){
         require_once '../templates/navbar/Navbarsearch.php';
     }

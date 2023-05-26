@@ -115,6 +115,8 @@ class Notification{
 
         WHERE
         notification.UserId = ?
+        AND
+        notification.NotificationStatus = 0
         ORDER BY 
         notification.NotificationDate DESC
         ';
@@ -127,18 +129,41 @@ class Notification{
         return $stmt;
     }
 
+    public function updateStatus(){
+        $querry = 'UPDATE ' . $this->table . '
+        SET
+            NotificationStatus = 1
+        WHERE
+            NotificationId = :Id';
+    $stmt = $this->connection->prepare($querry);
+
+
+    //bind data
+    $stmt->bindParam(':Id', $this->NotificationId);
+
+    // requete
+    if($stmt->execute()){
+        return true;
+    }
+    else{
+        // Print Error if something goes wrong
+        printf("Error: %s. \n", $stmt->error);
+        return false;
+    }
+    }
+
     public function create(){
         $querry = 'INSERT INTO ' . $this->table . '
         SET
             NotificationSender = :NotificationSender,
             NotificationContext = :NotificationContext,
-            NotificationStatus = :Notificationstatus,
+            NotificationStatus = :NotificationStatus,
             NotificationDate = :NotificationDate,
             UserId = :UserId
     ';
-
+    
     $stmt = $this->connection->prepare($querry);
-
+    
     // Clean data
     $this->NotificationSender = htmlspecialchars(strip_tags($this->NotificationSender));
     $this->NotificationContext = htmlspecialchars(strip_tags($this->NotificationContext));
@@ -147,18 +172,21 @@ class Notification{
     $this->UserId = htmlspecialchars(strip_tags($this->UserId));
 
 
+// Convertir la date au format MySQL (YYYY-MM-DD)
+$this->NotificationDate = date('Y-m-d', strtotime($this->NotificationDate));
+    
     // bind data
-    $stmt->bindParam("NotificationSender", $this->NotificationSender);
-    $stmt->bindParam("NotificationContext", $this->NotificationContext);
-    $stmt->bindParam("NotificationStatus", $this->NotificationStatus);
-    $stmt->bindParam("NotificationDate", $this->NotificationDate);
-    $stmt->bindParam("UserId", $this->UserId);
-
-
+    $stmt->bindParam(":NotificationSender", $this->NotificationSender);
+    $stmt->bindParam(":NotificationContext", $this->NotificationContext);
+    $stmt->bindParam(":NotificationStatus", $this->NotificationStatus);
+    $stmt->bindParam(":NotificationDate", $this->NotificationDate);
+    $stmt->bindParam(":UserId", $this->UserId);
+    
     // requete
     $stmt->execute();
     
     return $stmt;
+    
     }
 }
 

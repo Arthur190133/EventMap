@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if($event->Private)
         {
-            $context = "Vous avez reçus une demande d'invitation à votre évènement";
+            $context = "Vous avez reçus une demande d'invitation à votre évènement {EventId=" . $event->Id ."}";
             SendNotification("User", $_SESSION['user']->UserId, $event->OwnerId, $context);
         }
         else{
