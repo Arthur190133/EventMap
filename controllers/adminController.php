@@ -12,7 +12,10 @@ class adminController
     public function adminPage(){
         require_once "../templates/Admin/AdminPage.php";
     }
-
+    
+    public function WarnedUser(){
+        require_once "../templates/Admin/WarnedUser.php";
+    }
 
 }
 

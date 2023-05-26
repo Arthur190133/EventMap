@@ -1,13 +1,13 @@
 <div class="admin-navigation-panel">
     <ul>
         <li>
-            <a href="/admin/!!Warned_USER">
+            <a href="/admin/WarnedUser" class="link">
                 <span>!!WARNED USER</span>
             </a>           
         </li>
         <li>
-            <a href="/admin/adminPage" class="link">
-                <span>!!WARNED USER</span>
+            <a href="/admin/AdminPage" class="link">
+                <span>!!ADMIN TOOLS</span>
             </a>           
         </li>
         <li>

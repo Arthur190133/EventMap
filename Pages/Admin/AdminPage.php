@@ -18,7 +18,7 @@
             <h2>Liste des Utilisateurs</h2>
             <div class="liste">
                 <ul>
-                    <?php require '../Pages/Admin/listeUser.php'; ?>
+                    <?php require '../templates/admin/AfficheUser.php'; ?>
                 </ul>
             </div>
         </div>
@@ -39,7 +39,7 @@
             <h2>Liste des Admin</h2>
             <div class="liste">
                 <ul>
-                    <?php require '../Pages/Admin/listeAdmin.php'; ?>
+                    <?php require '../templates/admin/AfficheAdmin.php'; ?>
                 </ul>
             </div>
         </div>
