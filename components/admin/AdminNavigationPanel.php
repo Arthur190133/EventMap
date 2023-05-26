@@ -1,7 +1,7 @@
 <div class="admin-navigation-panel">
     <ul>
         <li>
-            <a href="/admin/WarnedUser" class="link">
+            <a href="/admin/UserWarned" class="link">
                 <span>!!WARNED USER</span>
             </a>           
         </li>

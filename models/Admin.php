@@ -142,31 +142,6 @@ class Admin{
             return false;
         }
     }
-
-    public function readWarn(){
-        $query = 'SELECT 
-        userwarned.UserWarnedContext,
-        userwarned.UserWarnedStartDate,
-        userwarned.UserWarnedEndDate
-        userwarned.UserId,
-        userwarned.SuperAdminId,
-        FROM ' . $this->table .' userwarned';
-
-        $stmt = $this->connection->prepare($query);
-
-        $stmt->execute();
-
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->UserWarnedContext = $row['UserWarnedContext'];
-        $this->UserWarnedStartDate = $row['UserWarnedStartDate'];
-        $this->UserWarnedEndDate = $row['UserWarnedEndDate'];
-        $this->UserId = $row['UserId'];
-        $this->SuperAdminId = $row['SuperAdminId'];
-        
-        return $stmt;
-    }
-    
 }
 
 
