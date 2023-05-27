@@ -26,8 +26,10 @@ function initMap()
     zoom:7,
     mapId: "61d9f0e6c1783a33",
     streetViewControl: false,
+    mapTypeControl: false,
     zoomControl: true,
     fullscreenControl: false,
+    satelite: false,
   })
 
 

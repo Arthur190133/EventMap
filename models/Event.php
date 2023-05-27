@@ -404,13 +404,10 @@ class Event{
             LEFT JOIN 
                 image EventThumbnail ON event.EventThumbnailId = EventThumbnail.ImageId
             LEFT JOIN
-                userevent NumberOfUsers ON event.EventId = NumberOfUsers.EventId     
-                
+                userevent NumberOfUsers ON event.EventId = NumberOfUsers.EventId                 
+            WHERE event.EventEndDate > CURDATE()
             GROUP BY event.EventId
-
-            ORDER BY COUNT(DISTINCT NumberOfUsers.EventId) < 0
-            AND event.EventStartDate < 1
-
+            ORDER BY COUNT(DISTINCT NumberOfUsers.EventId) DESC
 
             LIMIT 0,3
             ';
