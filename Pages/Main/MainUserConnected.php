@@ -7,6 +7,7 @@
     <div class="recommentation-card">
         <div class="recommentation-card-second">
             <div class="recommendation-card-background">
+                <img src="<?= $events->data[1]->ThumbnailDir ?>" />
             </div>
             <div class="recommendation-card-location"><?= $events->data[1]->Location ?></div>
             <div class="recommendation-card-name"><?= $events->data[1]->Name ?></div>
@@ -33,14 +34,13 @@
     <div class="recommentation-card">
         <div class="recommentation-card-first">
             <div class="recommendation-card-background">
+            <img src="<?= $events->data[0]->ThumbnailDir ?>" />
             </div>
-            <div class="recommendation-card-content">
                 <div class="recommendation-card-location"><?= $events->data[0]->Location ?></div>
                 <div class="recommendation-card-name"><?= $events->data[0]->Name ?></div>
                 <div class="recommendation-card-descrition">
                 <?= $events->data[0]->Description ?>
                 </div>
-            </div>
 
             <div class="recommendation-card-info first clearfix">
             <div class="one-third">
@@ -61,6 +61,7 @@
     <div class="recommentation-card">
         <div class="recommentation-card-third">
             <div class="recommendation-card-background">
+            <img src="<?= $events->data[2]->ThumbnailDir ?>" />
             </div>
             <div class="recommendation-card-location"><?= $events->data[2]->Location ?></div>
             <div class="recommendation-card-name"><?= $events->data[2]->Name ?></div>

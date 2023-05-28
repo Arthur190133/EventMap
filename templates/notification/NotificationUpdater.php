@@ -23,7 +23,26 @@ else{
 
 
 if(stripos($redirect, "/invitation/") !== false){
-    header("Location: " . $redirect);
+    
+
+    $url= "http://localhost/EventMap/API/notification/readSingle.php";
+    $payload = [
+        'NotificationId' => $id
+    ];
+    $token = GenerateToken($payload);
+
+    $notification = SendRequestToAPI($token, $url);
+
+    var_dump($notification);
+
+    if($notification->Status === "not read yet"){
+        header("Location: " . $redirect);
+    }
+    else{
+        header("Location: /");
+    }
+
+    
 }
 else{
     //update notifiation has "was read"
