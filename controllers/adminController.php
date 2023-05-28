@@ -13,8 +13,8 @@ class adminController
         require_once "../templates/Admin/AdminPage.php";
     }
     
-    public function WarnedUser(){
-        require_once "../templates/Admin/WarnedUser.php";
+    public function UserWarned(){
+        require_once "../templates/Admin/Warn/UserWarned.php";
     }
 
 }
