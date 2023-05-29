@@ -7,34 +7,6 @@
   require_once '../Pages/Tools/Functions.php';
   session_start();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   // Update user session
   $user = null;
   $admin = null;
@@ -57,7 +29,7 @@
     
   }
 ////////////////////////////////
-      /*CREATING ROUTER*/
+      /*CREATE ROUTER*/
 ////////////////////////////////
 
 require_once '../router/Router.php';
@@ -70,65 +42,29 @@ $uri = explode("/",$_SERVER['REQUEST_URI'])[1];
 $router->register('/' . $uri, ['mainController', $uri]);
 $router->register('/', ['mainController', 'index']);
 
-
-
-
-//////////TEST//////////////
-$url = "http://localhost/EventMap/API/chat/readByEvent.php";
-$payload = ['EventId' => 1];
-$token = GenerateToken($payload);
-$chat = SendRequestToAPI($token, $url);
-
-$url = "http://localhost/EventMap/API/chatmessage/readByChat.php";
-$payload = ['ChatId' => 1];
-$token = GenerateToken($payload);
-$chatmessages = SendRequestToAPI($token, $url);
-//////////TEST////////////////
 ?>
 
 <!DOCTYPE html>
 <html>
 <?php 
-        require_once '../components/Header.php';
-          require_once '../templates/NavBar.php'; 
-          
-        ?>
-  <?php 
-
-  ?>
+    require_once '../components/Header.php';
+    require_once '../templates/NavBar.php'; 
+ ?>
   <body class="fade-in">
-    <?php
-      //require_once '../templates/PopUpLogin.php';
-    ?>
-
     <div id="MasterContent" >
-
-        <?php
-       // $rees =  file_get_contents('http://localhost/EventMap/API/event/readCards.php');
-       // echo $rees;
-
-      echo 'Current PHP version: ' . phpversion();
-      // LOAD CURRENT PAGE
+      <?php
       try{
-        $test = $user;
         $router->resolve($uri);
 
       }catch (RouteNotFoundException $e){
         $e->getMessage();
       }
-
-        //require_once "Pages/Utils/newfooter.php";
-        //require_once 'Pages/User/UserProfile.php';
         ?>
     </div>
-
   </body>
-
-   <script src="/js/script.js"></script>
-  
+    <script src="/js/script.js"></script>
   </html>
-
   <?php
     // Vide le tampon de sortie et arrête la mise en tampon
-  ob_end_flush();
+    ob_end_flush();
   ?>

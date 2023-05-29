@@ -467,8 +467,7 @@ class Event{
             UserFirstName,
             UserName
         FROM user
-        WHERE UserName LIKE :SearchKeyword
-        OR UserFirstName LIKE :SearchKeyword';
+        WHERE CONCAT_WS(" ", UserFirstName, UserName) like :SearchKeyword';
     
         $stmt = $this->connection->prepare($eventQuery);
         $searchKeyword = $this->EventName . '%';

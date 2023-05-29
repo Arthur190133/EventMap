@@ -24,22 +24,22 @@
                 <div class="inline">
                     <div class="inline">
                         <p>UserId</p>
-                        <input type="text" name="UserId" placeholder="UserId" required>            
+                        <input class="postInput" type="text" name="UserId" placeholder="UserId" required>            
                     </div> 
                     <div class="separator">
                         <div class="inline">
                             <p>StartDate</p>
-                            <input type="text" name="StartDate" placeholder="StartDate" required>        
+                            <input class="postInput" type="text" name="StartDate" placeholder="StartDate" required>        
                         </div>
                         <div class="inline">
                             <p>EndDate</p>
-                            <input type="text" name="EndDate" placeholder="EndDate" required>
+                            <input class="postInput" type="text" name="EndDate" placeholder="EndDate" required>
                         </div>
                     </div>
                     <div class="separator">
                         <div class="inline">
                             <p>EndDate</p>
-                            <input type="text" name="Comment" placeholder="comment" required>
+                            <input class="postInput" type="text" name="Comment" placeholder="comment" required>
                         </div>
                     </div>
                     <form method="post">

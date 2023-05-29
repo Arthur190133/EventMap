@@ -12,7 +12,6 @@ class AdminRouter
     public function resolve(string $uri)
     {
         $path = explode('?', "/" . $uri)[0];
-        var_dump($path);
         $action = $this->routes[$path] ?? null;
 
 

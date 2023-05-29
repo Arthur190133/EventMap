@@ -6,11 +6,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
         
         $url = 'http://localhost/EventMap/API/admin/delete.php';
         $payload = array(
-            'AdminId' => $AdminId
+            'UserId' => $_POST['delete']
         );
         $token = GenerateToken($payload);
         $result = SendRequestToAPI($token, $url);
-
+        
         if (!$result) 
         {
             $message="Impossible de supprimer un Admin'";

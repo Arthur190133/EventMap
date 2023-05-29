@@ -8,6 +8,7 @@
     // Fichers requis
     include_once '../../config/Database.php';
     include_once '../../models/User.php';
+    $payload = json_decode(require_once '../auth.php');
 
     // Instantiation de la base de donnée
     $datebase = new Database();
@@ -20,7 +21,7 @@
     $data = json_decode(file_get_contents("php://input"));
 
     // Set Id to update
-    $user->UserId = $data->UserId;
+    $user->UserId = $payload->UserId;
 
     if($user->UserId)
     {

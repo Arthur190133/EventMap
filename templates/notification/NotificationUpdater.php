@@ -33,8 +33,6 @@ if(stripos($redirect, "/invitation/") !== false){
 
     $notification = SendRequestToAPI($token, $url);
 
-    var_dump($notification);
-
     if($notification->Status === "not read yet"){
         header("Location: " . $redirect);
     }
@@ -53,7 +51,7 @@ else{
     $token = GenerateToken($payload);
 
     $result = SendRequestToAPI($token, $url);
-    var_dump($result);
+
 
     header("Location: " . $redirect);
 }

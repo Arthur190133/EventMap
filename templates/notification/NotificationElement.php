@@ -2,7 +2,7 @@
     if(!$Connected){
         require_once '../components/notification/notConnectedNotification.php';
     }
-    elseif(property_exists($Notifications, "message")) 
+    elseif(!$Notifications) 
     {
         require_once '../components/notification/NoNotificationFound.php';
     }

@@ -1,3 +1,6 @@
+<head>
+    <title>EventMap | API Debug</title>
+</head>
 <?php
 if (DIRECTORY_SEPARATOR == '\\') {
     // For Windows

@@ -6,7 +6,7 @@
             </div>
             <form method="post">
                 <button name="create" value="<?= $user->UserId ?>"class = "button1">Nouvel Admin</button>
-                <button  name="delete" class = "button2">Supprimer</button>
+                <!-- <button  name="delete" value="<?= $user->UserId ?>" class = "button2">Supprimer</button> -->
             </form>
         </div>
     </div>

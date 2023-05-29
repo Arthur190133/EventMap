@@ -133,7 +133,10 @@ if($Connected)
     $token = GenerateToken($payload);
     $Notifications = SendRequestToAPI($token, $url);
 
-    $NotificationsNumber = count($Notifications->data);
+    if($Notifications){
+        $NotificationsNumber = count($Notifications->data);
+    }
+    
     
 
 }

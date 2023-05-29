@@ -24,8 +24,8 @@
                 <div class="stat-value">Publique</div>
             </div>
             <div class="one-third no-border">
-                <div class="stat">150</div>
-                <div class="stat-value">Cost</div>
+            <div class="stat"><?= $events->data[1]->Category ?></div>
+                <div class="stat-value">catégorie</div>
             </div>
             </div>
         </div>
@@ -52,8 +52,8 @@
                 <div class="stat-value">Publique</div>
             </div>
             <div class="one-third no-border">
-                <div class="stat">150</div>
-                <div class="stat-value">Cost</div>
+            <div class="stat"><?= $events->data[0]->Category ?></div>
+                <div class="stat-value">catégorie</div>
             </div>
             </div>
         </div>
@@ -78,8 +78,8 @@
                 <div class="stat-value">Publique</div>
             </div>
             <div class="one-third no-border">
-                <div class="stat">150</div>
-                <div class="stat-value">Cost</div>
+                <div class="stat"><?= $events->data[2]->Category ?></div>
+                <div class="stat-value">catégorie</div>
             </div>
             </div>
         </div>

@@ -20,11 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             require_once '../components/user/UserInputError.php';
         }
     }
-    else if(isset($_POST['delete'])) 
+    /*if(isset($_POST['delete'])) 
     {
+        var_dump($_POST['delete']);
         $url = 'http://localhost/EventMap/API/user/delete.php';
         $payload = array(
-            'AdminId' => $AdminId
+            'UserId' => $_POST['delete']
         );
         $token = GenerateToken($payload);
         $result = SendRequestToAPI($token, $url);
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST')
             $message="Impossible de supprimer un utilisateur'";
             require_once '../components/user/UserInputError.php';
         }
-    }
+    }*/
 }
 require '../Pages/admin/listeUser.php';
 ?>

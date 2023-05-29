@@ -47,11 +47,6 @@
     
                 // To json
                 echo json_encode($Notifications_arr);
-            } else {
-                // pas d'utilisateur
-                echo json_encode(
-                    array('message' => 'No Notification found')
-                );
             }
 
     

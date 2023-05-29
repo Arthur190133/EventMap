@@ -17,39 +17,6 @@ function uploadImage($file, $path)
         if (!is_dir($upload_path)) 
         {
         mkdir($upload_path, 0777, true);
-        }else
-        {
-            // Supprimer tout ce qu'il y a dans le dossier
-            if ($handle = opendir($upload_path)) 
-            {
-
-                // Parcourir tous les fichiers et dossiers dans le dossier
-                while (false !== ($entry = readdir($handle))) 
-                {
-                    
-                    // Ignorer les fichiers "." et ".."
-                    if ($entry != "." && $entry != "..") 
-                    {
-                        
-                        // Vérifier si l'entrée est un dossier
-                        if (is_dir($upload_path.'/'.$entry)) 
-                        {
-                            
-                            // Supprimer le dossier et son contenu
-                            rmdir($upload_path.'/'.$entry);
-                            
-                        } else 
-                        {
-                            
-                            // Supprimer le fichier
-                            unlink($upload_path.'/'.$entry);
-                        }
-                    }
-                }
-            
-                // Fermer le dossier
-                closedir($handle);
-            }
         }
 
 
@@ -169,7 +136,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     $result = SendRequestToAPI($token, $url);
     
                 }
-                //header('Location: /event/' . $EventId);
+                header('Location: /event/' . $EventId);
             }
 
 

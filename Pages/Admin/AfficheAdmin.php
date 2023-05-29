@@ -5,7 +5,7 @@
                 <h3><?= $admins->UserName?></h3>
             </div>
             <form method="post">
-                <button name="Delete" class = "button2">Rétrograder</button>
+                <button value="<?= $admins->UserId ?>" name="delete" class = "button2">Rétrograder</button>
             </form>
         </div>
     </div>

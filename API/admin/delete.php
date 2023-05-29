@@ -18,7 +18,7 @@
     $Admin = new Admin($db);
 
     // Get Id
-    $Admin->AdminId = $payload->AdminId;
+    $Admin->UserId = $payload->UserId;
 
     $result = $Admin->delete();
 

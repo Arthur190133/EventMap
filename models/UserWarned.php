@@ -28,14 +28,6 @@ class UserWarned{
         $stmt = $this->connection->prepare($query);
  
         $stmt->execute();
-
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $this->UserWarnedContext = $row['UserWarnedContext'];
-        $this->UserWarnedStartDate = $row['UserWarnedStartDate'];
-        $this->UserWarnedEndDate = $row['UserWarnedEndDate'];
-        $this->UserId = $row['UserId'];
-        $this->SuperAdminId = $row['SuperAdminId'];
         
         return $stmt;
     }
@@ -45,7 +37,7 @@ class UserWarned{
         VALUES
         (:StartDate, :EndDate, :Id)';
 
-        $stmt = $this->connection->prepare($query);
+        $stmt = $this->connection->prepare($querry);
 
         $this->UserWarnedContext = htmlspecialchars(strip_tags($this->UserWarnedContext));
         $this->UserWarnedStartDate = htmlspecialchars(strip_tags($this->UserWarnedStartDate));

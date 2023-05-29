@@ -5,7 +5,7 @@
 
     include_once '../../config/Database.php';
     include_once '../../models/UserWarned.php';
-
+    $payload = json_decode(require_once '../auth.php');
     // Instantiation Database
     $datebase = new Database();
     $db = $datebase->connect();
@@ -27,8 +27,8 @@
             extract($row);
             $UserWarned_item = array(
                 'UserWarnedContext' => $UserWarnedContext,
-                'UserWarnedStartDate' => $UserWarnedEndDate,
-                'WarnEndDate' => $WarnEndDate,
+                'UserWarnedStartDate' => $UserWarnedStartDate,
+                'UserWarnedEndDate' => $UserWarnedEndDate,
                 'UserId' => $UserId,
                 'SuperAdminId' => $SuperAdminId,
             );

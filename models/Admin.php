@@ -98,11 +98,11 @@ class Admin{
 
     public function delete(){
         $query = 'DELETE FROM ' . $this->table .' 
-        WHERE AdminId = :Id';
+        WHERE UserId = :Id';
 
         $stmt = $this->connection->prepare($query);
 
-        $this->AdminId = htmlspecialchars(strip_tags($this->AdminId));
+        $this->UserId = htmlspecialchars(strip_tags($this->UserId));
 
         $stmt->bindParam(':Id', $this->UserId);
 
@@ -110,7 +110,6 @@ class Admin{
             return true;
         }
         else{
-            printf("Error: %s. \n", $stmt->error);
             return false;
         }
     }

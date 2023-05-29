@@ -8,10 +8,6 @@
                 -15px -15px 30px rgb(60, 60, 60);
 }
 
-h1{
-    margin-top: 40px;
-
-}
 
 .list{
     overflow: scroll;
@@ -29,7 +25,8 @@ h1{
     border-radius: 20px;
     width: 400px;
     padding: 10px;
-    height: 100px;
+    height: 150px;
+    overflow-x: hidden;
 }
    
 .pClassic{
@@ -70,7 +67,7 @@ h1{
     width: 100%;
 }
 
-input{
+.postInput{
     width: 89%;
     height: 44px;
     margin: 20px;

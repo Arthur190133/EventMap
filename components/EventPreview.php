@@ -16,7 +16,6 @@
             <img class="BackgroundImage" src=<?= $Event->BackgroundDir?>  alt="Image de font de l'évènement">
         </div>
         <p class="EventPreviewDescription"><?= $Event->Description ?></p>
-        <a href=<?= "/event/" . $Event->Id ?> >Voir la fiche de l'évènement</a>
-        <a href="/event/join/1"><?= $EventJoin ?></a>
+        <a class="link" href=<?= "/event/" . $Event->Id ?> >Voir la fiche de l'évènement</a>
     </div>
 </div>
