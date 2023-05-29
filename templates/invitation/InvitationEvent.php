@@ -1,14 +1,14 @@
 <?php
 
 
-function UpdateNotificationStatus(){
+function UpdateNotificationStatus($notif){
 
     $url = "http://localhost/EventMap/API/notification/updateStatus.php";
     $payload = [
-        'NotificationId' => $NotificationId
+        'NotificationId' => $notif
     ];
     $token = GenerateToken($payload);
-    $result = SendRequesToAPI($token, $url);
+    $result = SendRequestToAPI($token, $url);
 }
 
 function GetEventId($chaine){
@@ -51,7 +51,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             if($notification){
                 $EventId = GetEventId($notification->Context);
                 $UserId = $notification->UserId;
-                var_dump($EventId);
     
                 $url = "http://localhost/EventMap/API/userevent/create.php";
                 $payload = [
@@ -60,11 +59,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 ];
                 $token = Generatetoken($payload);
                 $result = SendRequestToAPI($token, $url);
-    
-                if($result){
-                    UpdateNotificationStatus();
-                    header("Location: /");
-                }
+                UpdateNotificationStatus($NotificationId);
+                header("Location: /");
             }
 
 
@@ -72,7 +68,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 
     if(isset($_POST['refused'])){
-        UpdateNotificationStatus();
+        UpdateNotificationStatus($NotificationId);
         header("Location: /");
     }
 }
